@@ -45,5 +45,4 @@ TODO...
    <br/>
    <br/>
 </dl>
-___
-![mao](http://www.visitormap.org/map/m:ivclactzyytdfwhr/s:1/c:ff0000/p:cross/y:5.png)
+
