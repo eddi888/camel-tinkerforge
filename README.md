@@ -1,4 +1,6 @@
-# Tinkerforge Component
+Tinkerforge Component
+=====================
+
 The **tinkerforge** component for a simple access to the Tinkerforge Daemon.
 ```xml
 <dependency>
@@ -7,17 +9,22 @@ The **tinkerforge** component for a simple access to the Tinkerforge Daemon.
     <version>x.x.x</version>
 </dependency>
 ```
-## URI format
+URI format
+----------------------------------------------
+
 ```
 tinkerforge:masterbrickid[?options]
 ```
-## Options
+Options
+------------------------------------------------
+
 Name          | Default Value | Description
 ------------- | ------------- | -------------
 brickletid    | null          | todo
 bricklettype  | null          | ...
 autoReconnect | true          | ...
-## Result
+Result
+----------------------------------------------------
 Todo...
 ### Message Headers
 Header             | Description
@@ -25,6 +32,17 @@ Header             | Description
 CamelBrickId       | null         
 CamelBrickletId    | null         
 CamelBrickletValue | true         
-## Samples
+Samples
+---------------------------------------------------
 TODO...
+
+<dl>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+</dl>
 
