@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/eddi888/camel-tinkerforge.svg?branch=master)](https://travis-ci.org/eddi888/camel-tinkerforge)
 # Tinkerforge Component
 ------------------------------------------
 
