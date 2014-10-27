@@ -20,21 +20,26 @@ import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.spi.UriParam;
 
 /**
  * Represents a Tinkerforge endpoint.
  */
 public class TinkerforgeEndpoint extends DefaultEndpoint {
 
+    @UriParam private String host;
+    @UriParam private Integer port;
+    @UriParam private String authenticate;
+    @UriParam private String uid;
+    @UriParam private boolean autoReconnect;
+    @UriParam private Integer timeout;
+    
+    
     public TinkerforgeEndpoint() {
     }
 
     public TinkerforgeEndpoint(String uri, TinkerforgeComponent component) {
         super(uri, component);
-    }
-
-    public TinkerforgeEndpoint(String endpointUri) {
-        super(endpointUri);
     }
 
     public Producer createProducer() throws Exception {
@@ -47,5 +52,53 @@ public class TinkerforgeEndpoint extends DefaultEndpoint {
 
     public boolean isSingleton() {
         return true;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
+
+    public String getAuthenticate() {
+        return authenticate;
+    }
+
+    public void setAuthenticate(String authenticate) {
+        this.authenticate = authenticate;
+    }
+
+    public boolean isAutoReconnect() {
+        return autoReconnect;
+    }
+
+    public void setAutoReconnect(boolean autoReconnect) {
+        this.autoReconnect = autoReconnect;
+    }
+
+    public Integer getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(Integer timeout) {
+        this.timeout = timeout;
     }
 }

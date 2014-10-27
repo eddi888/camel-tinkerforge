@@ -16,6 +16,7 @@
 */
 package org.apache.camel.component.tinkerforge;
 
+import java.net.URI;
 import java.util.Map;
 
 import org.apache.camel.Endpoint;
@@ -25,9 +26,52 @@ import org.apache.camel.impl.DefaultComponent;
  * Represents the component that manages {@link TinkerforgeEndpoint}.
  */
 public class TinkerforgeComponent extends DefaultComponent {
+    
+    public static final String DEFAULT_PROTOCOL = "tcp";
+    public static final String DEFAULT_HOST = "localhost";
+    public static final int DEFAULT_PORT = 4223;
+    
+    private static final String URI_ERROR = "Invalid URI. Format must be of the form tinkerforge:[host[:port]/]brickletType?[options...]";
+    
+    protected Endpoint createEndpoint(String endpointUri, String remaining, Map<String, Object> parameters) throws Exception {
+        System.out.println(" "+remaining+" ");
+        
+        String protocol = DEFAULT_PROTOCOL;
+        String host = DEFAULT_HOST;
+        int port = DEFAULT_PORT;
+        String brickletType;
+        
+        if(remaining.contains("/")){
+            
+            URI uri = new URI("tcp://"+remaining);
+            
+            protocol = uri.getScheme();
+            if (protocol == null) {
+                throw new IllegalArgumentException(URI_ERROR);
+            }
+            
+            host = uri.getHost();
+            if (host == null) {
+                host = DEFAULT_HOST;
+            }
+            
+            port = uri.getPort() == -1 ? DEFAULT_PORT : uri.getPort();
+            
+            if (uri.getPath() == null || uri.getPath().trim().length() == 0) {
+                throw new IllegalArgumentException(URI_ERROR);
+            }
+            brickletType = uri.getPath().substring(1);
+            
+        }else{
+            
+            protocol = "tcp";
+            host = DEFAULT_HOST;
+            port = DEFAULT_PORT;
+            brickletType = remaining;
+           
+        }
 
-    protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-        Endpoint endpoint = new TinkerforgeEndpoint(uri, this);
+        Endpoint endpoint = new TinkerforgeEndpoint(endpointUri, this);
         setProperties(endpoint, parameters);
         return endpoint;
     }

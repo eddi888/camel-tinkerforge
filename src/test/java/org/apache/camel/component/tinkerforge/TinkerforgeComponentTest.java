@@ -35,8 +35,10 @@ public class TinkerforgeComponentTest extends CamelTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("tinkerforge://foo")
-                  .to("tinkerforge://bar")
+                from("tinkerforge://Temperature?uid=ABC&autoReconnect&authenticate=secret&timeout=5000")
+                  .to("tinkerforge://192.168.99.5:4567/IO4?uid=XYZ&autoReconnect&authenticate=secret&timeout=5000")
+                  .to("tinkerforge:LCD20x4?uid=ABC")
+                  .to("tinkerforge:192.168.99.5:4567/DualRelay?uid=ABC&autoReconnect=true&autoReconnect&authenticate=secret&timeout=5000")
                   .to("mock:result");
             }
         };

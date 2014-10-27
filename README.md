@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/eddi888/camel-tinkerforge.svg?branch=master)](https://travis-ci.org/eddi888/camel-tinkerforge)
 # Tinkerforge Component
 ------------------------------------------
 
@@ -15,7 +15,7 @@ The **tinkerforge** component for a simple access to the Tinkerforge Daemon and 
 ----------------------------------------------
 
 ```
-tinkerforge:[[host][:port]/]brickletType?[options]
+tinkerforge:[host[:port]/]brickletType?[options]
 ```
 
 ## Options
