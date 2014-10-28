@@ -14,35 +14,37 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.apache.camel.component.tinkerforge;
+package org.apache.camel.component.tinkerforge.bricklet;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-public class TinkerforgeComponentTest extends CamelTestSupport {
+import com.sun.corba.se.impl.orbutil.threadpool.TimeoutException;
+import com.tinkerforge.BrickletMotionDetector;
+import com.tinkerforge.IPConnection;
+import com.tinkerforge.NotConnectedException;
 
-    @Test
-    public void testTinkerforge() throws Exception {
-        MockEndpoint mock = getMockEndpoint("mock:result");
-        mock.expectedMinimumMessageCount(1);       
-        
-        assertMockEndpointsSatisfied();
-    }
+public class DualReleayTest extends CamelTestSupport {
 
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("tinkerforge://Temperature?uid=ABC&autoReconnect&authenticate=secret&timeout=5000")
-                  .to("tinkerforge://192.168.99.5:4567/IO4?uid=XYZ&autoReconnect&authenticate=secret&timeout=5000")
-                  .to("tinkerforge:LCD20x4?uid=ABC")
-                  .to("tinkerforge:192.168.99.5:4567/DualRelay?uid=ABC&autoReconnect=true&autoReconnect&authenticate=secret&timeout=5000")
-                  .to("mock:result");
+                from("tinkerforge://DualRelay?uid=kPu")
+                    .to("log:md")
+                    .to("mock:result");
             }
         };
     }
-    
-    
+
+    @Test
+    public void testTinkerforge() throws Exception {
+        MockEndpoint mock = getMockEndpoint("mock:result");
+        mock.expectedMinimumMessageCount(0);
+        Thread.sleep(500);
+        assertMockEndpointsSatisfied();
+    }
+
 }

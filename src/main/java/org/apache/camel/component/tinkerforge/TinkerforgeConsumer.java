@@ -16,40 +16,52 @@
 */
 package org.apache.camel.component.tinkerforge;
 
-import java.util.Date;
-
 import org.apache.camel.Exchange;
+import org.apache.camel.ExchangePattern;
+import org.apache.camel.Message;
 import org.apache.camel.Processor;
-import org.apache.camel.impl.ScheduledPollConsumer;
+import org.apache.camel.impl.DefaultConsumer;
+
+import com.tinkerforge.Device;
+import com.tinkerforge.Device.Identity;
+import com.tinkerforge.NotConnectedException;
+import com.tinkerforge.TimeoutException;
 
 /**
  * The Tinkerforge consumer.
  */
-public class TinkerforgeConsumer extends ScheduledPollConsumer {
-    private final TinkerforgeEndpoint endpoint;
-
+public class TinkerforgeConsumer<EndpointType extends TinkerforgeEndpoint, BrickletType extends Device> extends DefaultConsumer {
+    
+    protected final TinkerforgeEndpoint endpoint;
+    
+    protected BrickletType bricklet;
+    
+    protected Identity identity = null;
+    
     public TinkerforgeConsumer(TinkerforgeEndpoint endpoint, Processor processor) {
         super(endpoint, processor);
         this.endpoint = endpoint;
     }
-
-    @Override
-    protected int poll() throws Exception {
-        Exchange exchange = endpoint.createExchange();
-
-        // create a message body
-        Date now = new Date();
-        exchange.getIn().setBody("Hello World! The time is " + now);
-
-        try {
-            // send message to next processor in the route
-            getProcessor().process(exchange);
-            return 1; // number of messages polled
-        } finally {
-            // log exception if an exception occurred and was not handled
-            if (exchange.getException() != null) {
-                getExceptionHandler().handleException("Error processing exchange", exchange, exchange.getException());
-            }
-        }
+    
+    protected Exchange createExchange(org.apache.camel.Endpoint endpoint, Object messageBody) throws TimeoutException, NotConnectedException {
+        Identity info = getIdentity();
+        Exchange exchange = endpoint.createExchange(ExchangePattern.InOut);
+        Message message = exchange.getIn();
+        message.setHeader("com.tinkerforge.bricklet.uid", info.uid);
+        message.setHeader("com.tinkerforge.bricklet.connectedUid", info.connectedUid);
+        message.setHeader("com.tinkerforge.bricklet.deviceIdentifier", info.deviceIdentifier);
+        message.setHeader("com.tinkerforge.bricklet.position", info.position);
+        
+        message.setBody(messageBody);
+        return exchange;
     }
+    
+    
+    protected Identity getIdentity() throws TimeoutException, NotConnectedException {
+        if(identity==null){
+            identity = bricklet.getIdentity();
+        }
+        return identity;
+    }
+    
 }

@@ -16,44 +16,28 @@
 */
 package org.apache.camel.component.tinkerforge;
 
-import org.apache.camel.Consumer;
-import org.apache.camel.Processor;
-import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.spi.UriParam;
+
+import com.tinkerforge.IPConnection;
 
 /**
  * Represents a Tinkerforge endpoint.
  */
-public class TinkerforgeEndpoint extends DefaultEndpoint {
+public abstract class TinkerforgeEndpoint extends DefaultEndpoint {
 
-    @UriParam private String host;
-    @UriParam private Integer port;
-    @UriParam private String authenticate;
-    @UriParam private String uid;
-    @UriParam private boolean autoReconnect;
-    @UriParam private Integer timeout;
+    private final IPConnection connection;
     
+    @UriParam 
+    protected String uid;
+
     
-    public TinkerforgeEndpoint() {
+    public TinkerforgeEndpoint(String uri, IPConnection connection, TinkerforgeComponent tinkerforgeComponent) {
+        super(uri, tinkerforgeComponent);
+        this.connection = connection;
+        
     }
-
-    public TinkerforgeEndpoint(String uri, TinkerforgeComponent component) {
-        super(uri, component);
-    }
-
-    public Producer createProducer() throws Exception {
-        return new TinkerforgeProducer(this);
-    }
-
-    public Consumer createConsumer(Processor processor) throws Exception {
-        return new TinkerforgeConsumer(this, processor);
-    }
-
-    public boolean isSingleton() {
-        return true;
-    }
-
+    
     public String getUid() {
         return uid;
     }
@@ -62,43 +46,8 @@ public class TinkerforgeEndpoint extends DefaultEndpoint {
         this.uid = uid;
     }
 
-    public String getHost() {
-        return host;
+    public IPConnection getConnection() {
+        return connection;
     }
 
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public Integer getPort() {
-        return port;
-    }
-
-    public void setPort(Integer port) {
-        this.port = port;
-    }
-
-    public String getAuthenticate() {
-        return authenticate;
-    }
-
-    public void setAuthenticate(String authenticate) {
-        this.authenticate = authenticate;
-    }
-
-    public boolean isAutoReconnect() {
-        return autoReconnect;
-    }
-
-    public void setAutoReconnect(boolean autoReconnect) {
-        this.autoReconnect = autoReconnect;
-    }
-
-    public Integer getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(Integer timeout) {
-        this.timeout = timeout;
-    }
 }

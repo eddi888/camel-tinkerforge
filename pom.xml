@@ -29,6 +29,12 @@ limitations under the License.
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+    
+    <scm>
+        <url>http://github.com/eddi888/camel-tinkerforge</url>
+        <connection>scm:git:http://github.com/eddi888/camel-tinkerforge.git</connection>
+        <developerConnection>scm:git:git@github.com:eddi888/camel-tinkerforge.git</developerConnection>
+    </scm>
 
     <dependencies>
         <dependency>
