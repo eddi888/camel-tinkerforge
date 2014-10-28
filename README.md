@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/eddi888/camel-tinkerforge.svg?branch=master)](https://travis-ci.org/eddi888/camel-tinkerforge)
-# Tinkerforge Component
+# Tinkerforge Component (proof of concept)
 ------------------------------------------
 
-The **tinkerforge** component for a simple access to the Tinkerforge Daemon and all Bricklets.
+The **Tinkerforge** Apache Camel Component for a simple access for use the Tinkerforge Daemon, Bricks and Bricklets.
 ```xml
 <dependency>
     <groupId>org.apache.camel</groupId>
