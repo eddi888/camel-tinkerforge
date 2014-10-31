@@ -16,26 +16,32 @@
 */
 package org.apache.camel.component.tinkerforge;
 
+import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
-import org.apache.camel.spi.UriParam;
-
-import com.tinkerforge.IPConnection;
+import org.apache.camel.impl.DefaultProducer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Represents a Tinkerforge endpoint.
  */
-public abstract class TinkerforgeEndpoint extends DefaultEndpoint {
+public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, ProducerType extends DefaultProducer> extends DefaultEndpoint {
 
-    private final IPConnection connection;
+    private static final Logger LOG = LoggerFactory.getLogger(TinkerforgeEndpoint.class);
     
-    @UriParam 
+    private String secret;
+    private boolean autoReconnect = true;
+    private int timeout = 2500;
+    protected SharedConnection sharedConnection;
     protected String uid;
-
     
-    public TinkerforgeEndpoint(String uri, IPConnection connection, TinkerforgeComponent tinkerforgeComponent) {
+    protected ConsumerType consumer;
+    protected ProducerType producer;
+    
+    public TinkerforgeEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
-        this.connection = connection;
-        
+        LOG.trace("TinkerforgeEndpoint(String uri='"+uri+"', TinkerforgeComponent tinkerforgeComponent='"+tinkerforgeComponent+"')");
+        this.createExchange();
     }
     
     public String getUid() {
@@ -46,8 +52,43 @@ public abstract class TinkerforgeEndpoint extends DefaultEndpoint {
         this.uid = uid;
     }
 
-    public IPConnection getConnection() {
-        return connection;
+    public SharedConnection getSharedConnection() {
+        LOG.trace("getSharedConnection()");
+        return sharedConnection;
     }
 
+    public void setSharedConnection(SharedConnection sharedConnection) {
+        LOG.trace("setSharedConnection(SharedConnection sharedConnection='"+sharedConnection+"')");
+        this.sharedConnection = sharedConnection;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        LOG.trace("setSecret(String secret='"+secret+"')");
+        this.secret = secret;
+    }
+
+    public boolean isAutoReconnect() {
+        return autoReconnect;
+    }
+
+    public void setAutoReconnect(boolean autoReconnect) {
+        LOG.trace("setAutoReconnect(boolean autoReconnect='"+autoReconnect+"')");
+        this.autoReconnect = autoReconnect;
+    }
+
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        LOG.trace("setTimeout(int timeout='"+timeout+"')");
+        this.timeout = timeout;
+    }
+
+    
+    
 }

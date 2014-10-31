@@ -16,42 +16,45 @@
 */
 package org.apache.camel.component.tinkerforge.bricklet;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.component.tinkerforge.TinkerforgeConsumer;
-import org.apache.camel.component.tinkerforge.TinkerforgeEndpoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.BrickletMotionDetector;
-import com.tinkerforge.IPConnection;
 import com.tinkerforge.BrickletMotionDetector.DetectionCycleEndedListener;
 import com.tinkerforge.BrickletMotionDetector.MotionDetectedListener;
 
-public class MotionDetectorConsumer extends TinkerforgeConsumer<TinkerforgeEndpoint, BrickletMotionDetector> implements MotionDetectedListener, DetectionCycleEndedListener {
-
-    private final MotionDetectorEndpoint endpoint;
+public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEndpoint, BrickletMotionDetector> implements MotionDetectedListener, DetectionCycleEndedListener {
     
-    public MotionDetectorConsumer(MotionDetectorEndpoint endpoint, Processor processor, IPConnection connection,String uid) {
+    private static final Logger LOG = LoggerFactory.getLogger(MotionDetectorConsumer.class);
+    
+    public MotionDetectorConsumer(MotionDetectorEndpoint endpoint, Processor processor) throws UnknownHostException, AlreadyConnectedException, IOException {
         super(endpoint, processor);
-        this.endpoint = endpoint;
-        
-        bricklet = new BrickletMotionDetector(uid, connection);
-        bricklet.addMotionDetectedListener(this);
-        bricklet.addDetectionCycleEndedListener(this);
+        device = new BrickletMotionDetector(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
+        device.addMotionDetectedListener(this);
+        device.addDetectionCycleEndedListener(this);
     }
     
     
     @Override
     public void motionDetected() {
-        System.out.println("motionDetected");
+        LOG.trace("motionDetected()");
+        
         Exchange exchange = null;
         try {
-            exchange = createExchange(endpoint, bricklet.getIdentity());
+            exchange = createExchange();
             
             // ADD HEADER
-            exchange.getOut().setHeader("CALLBACK", BrickletMotionDetector.CALLBACK_MOTION_DETECTED);
+            exchange.getIn().setHeader("CALLBACK", BrickletMotionDetector.CALLBACK_MOTION_DETECTED);
             
             // ADD BODY
-            exchange.getOut().setBody("motionDetected");;
+            exchange.getIn().setBody("CALLBACK_MOTION_DETECTED");;
             
             getProcessor().process(exchange);
         } catch (Exception e) {
@@ -61,22 +64,20 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<TinkerforgeEndpo
                 getExceptionHandler().handleException("Error processing exchange", exchange, exchange.getException());
             }
         }
-        System.out.println("motionDetected");
-        
     }
 
     @Override
     public void detectionCycleEnded() {
-        System.out.println("detectionCycleEnded");
+        LOG.trace("detectionCycleEnded()");
         Exchange exchange = null;
         try {
-            exchange = createExchange(endpoint, bricklet.getIdentity());
+            exchange = createExchange();
             
             // ADD HEADER
-            exchange.getOut().setHeader("CALLBACK", BrickletMotionDetector.CALLBACK_MOTION_DETECTED);
+            exchange.getIn().setHeader("CALLBACK", BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED);
             
             // ADD BODY
-            exchange.getOut().setBody("CALLBACK_MOTION_DETECTED");
+            exchange.getIn().setBody("CALLBACK_DETECTION_CYCLE_ENDED");
             
             getProcessor().process(exchange);
         } catch (Exception e) {
@@ -86,8 +87,6 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<TinkerforgeEndpo
                 getExceptionHandler().handleException("Error processing exchange", exchange, exchange.getException());
             }
         }
-        System.out.println("detectionCycleEnded");
-        
     }
 
 }

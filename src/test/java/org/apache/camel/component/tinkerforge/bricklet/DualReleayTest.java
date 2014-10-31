@@ -21,11 +21,6 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-import com.sun.corba.se.impl.orbutil.threadpool.TimeoutException;
-import com.tinkerforge.BrickletMotionDetector;
-import com.tinkerforge.IPConnection;
-import com.tinkerforge.NotConnectedException;
-
 public class DualReleayTest extends CamelTestSupport {
 
     @Override

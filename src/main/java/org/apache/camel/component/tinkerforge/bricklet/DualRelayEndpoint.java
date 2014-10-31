@@ -21,32 +21,71 @@ import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.component.tinkerforge.TinkerforgeComponent;
 import org.apache.camel.component.tinkerforge.TinkerforgeEndpoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.tinkerforge.IPConnection;
-
-public class DualRelayEndpoint extends TinkerforgeEndpoint {
+public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, DualRelayProducer> {
     
-    private DualRelayConsumer consumer;
+    private static final Logger LOG = LoggerFactory.getLogger(DualRelayProducer.class);
     
-    public DualRelayEndpoint(String uri, IPConnection connection, TinkerforgeComponent tinkerforgeComponent) {
-        super(uri, connection, tinkerforgeComponent);
+    private String state;
+    private String selectedState;
+    private String monoflop;
         
+    public DualRelayEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
+        super(uri, tinkerforgeComponent);
     }
 
     @Override
     public Producer createProducer() throws Exception {
-        // TODO Auto-generated method stub
-        return null;
+        if(producer==null){
+            producer = new DualRelayProducer(this);
+        }
+        return producer;
     }
 
     @Override
     public Consumer createConsumer(Processor processor) throws Exception {
-        return consumer != null ? consumer : (consumer = new DualRelayConsumer(this, processor,getConnection() ,uid));
+        if(consumer==null){
+            consumer = new DualRelayConsumer(this, processor);
+        }
+        return consumer;
     }
 
     @Override
     public boolean isSingleton() {
         return false;
     }
-    
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        LOG.trace("setState(String state='"+state+"')");
+        this.state = state;
+    }
+
+    public String getSelectedState() {
+        return selectedState;
+    }
+
+    public void setSelectedState(String selectedState) {
+        LOG.trace("setSelectedState(String selectedState='"+selectedState+"')");
+        this.selectedState = selectedState;
+    }
+
+    public String getMonoflop() {
+        return monoflop;
+    }
+
+    public void setMonoflop(String monoflop) {
+        this.monoflop = monoflop;
+    }
+
+   
+
+
+
+        
 }

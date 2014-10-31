@@ -14,39 +14,51 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.apache.camel.component.tinkerforge.bricklet;
+package org.apache.camel.component.tinkerforge;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
+import com.tinkerforge.BrickletMotionDetector;
 
-public class MotionDetectorTest extends CamelTestSupport {
+/**
+ * Integration Test for the Hardware on my Table. 
+ * For manual interacting with the sensors and see its working really.
+ *
+ */
+public class TinkerforgeIntegrationTest extends CamelTestSupport {
 
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
+                
+                // pair MotionDetection and DualRelay
                 from("tinkerforge://MotionDetector?uid=oTu")
-                    .to("log:md")
+                    .choice()
+                        .when(header("CALLBACK").isEqualTo(BrickletMotionDetector.CALLBACK_MOTION_DETECTED))
+                            .to("tinkerforge://DualRelay?uid=kPu&monoflop={relay:2,state:true,time:500}")
+                            
+                        .when(header("CALLBACK").isEqualTo(BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED))
+                            .to("tinkerforge://DualRelay?uid=kPu&selectedState={relay:2,state:false}")
+                            
+                        .endChoice()
                     .to("mock:result");
                 
-                from("tinkerforge://DualRelay?uid=kPu")
-                .to("log:md?showHeaders=true")
-                .to("mock:result");
             }
         };
     }
     
     
-
+    
     @Test
     public void testTinkerforge() throws Exception {
         MockEndpoint mock = getMockEndpoint("mock:result");
-        mock.expectedMinimumMessageCount(0);
-        Thread.sleep(500);
+        mock.expectedMinimumMessageCount(2);       
+        Thread.sleep(60000);
         assertMockEndpointsSatisfied();
     }
-
+    
 }

@@ -21,6 +21,8 @@ import org.apache.camel.ExchangePattern;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.impl.DefaultConsumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.Device;
 import com.tinkerforge.Device.Identity;
@@ -30,36 +32,45 @@ import com.tinkerforge.TimeoutException;
 /**
  * The Tinkerforge consumer.
  */
-public class TinkerforgeConsumer<EndpointType extends TinkerforgeEndpoint, BrickletType extends Device> extends DefaultConsumer {
+public abstract class TinkerforgeConsumer<EndpointType extends TinkerforgeEndpoint<?,?>, DeviceType extends Device> extends DefaultConsumer {
     
-    protected final TinkerforgeEndpoint endpoint;
+    private static final Logger LOG = LoggerFactory.getLogger(TinkerforgeConsumer.class);
     
-    protected BrickletType bricklet;
+    protected EndpointType endpoint;
+    
+    protected DeviceType device;
     
     protected Identity identity = null;
     
-    public TinkerforgeConsumer(TinkerforgeEndpoint endpoint, Processor processor) {
+    public TinkerforgeConsumer(EndpointType endpoint, Processor processor) {
         super(endpoint, processor);
         this.endpoint = endpoint;
     }
     
-    protected Exchange createExchange(org.apache.camel.Endpoint endpoint, Object messageBody) throws TimeoutException, NotConnectedException {
+    protected Exchange createExchange() throws TimeoutException, NotConnectedException {
+        LOG.trace("createExchange()");
         Identity info = getIdentity();
-        Exchange exchange = endpoint.createExchange(ExchangePattern.InOut);
+        Exchange exchange = endpoint.createExchange();
+        
+        ExchangePattern exchangePattern = exchange.getPattern();
+        LOG.trace("exchangePattern="+ exchangePattern);
+        
+        //TODO CHECK InOnly. InOut, OutOnly
+        
+        // SET DEFAULT HEADER
         Message message = exchange.getIn();
         message.setHeader("com.tinkerforge.bricklet.uid", info.uid);
         message.setHeader("com.tinkerforge.bricklet.connectedUid", info.connectedUid);
         message.setHeader("com.tinkerforge.bricklet.deviceIdentifier", info.deviceIdentifier);
         message.setHeader("com.tinkerforge.bricklet.position", info.position);
         
-        message.setBody(messageBody);
         return exchange;
     }
     
     
     protected Identity getIdentity() throws TimeoutException, NotConnectedException {
         if(identity==null){
-            identity = bricklet.getIdentity();
+            identity = device.getIdentity();
         }
         return identity;
     }

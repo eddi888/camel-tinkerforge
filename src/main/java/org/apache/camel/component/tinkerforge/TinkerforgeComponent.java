@@ -17,37 +17,54 @@
 package org.apache.camel.component.tinkerforge;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.component.tinkerforge.bricklet.DualRelayEndpoint;
+import org.apache.camel.component.tinkerforge.bricklet.MockEndpoint;
 import org.apache.camel.component.tinkerforge.bricklet.MotionDetectorEndpoint;
 import org.apache.camel.impl.DefaultComponent;
-
-import com.tinkerforge.IPConnection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Represents the component that manages {@link TinkerforgeEndpoint}.
  */
 public class TinkerforgeComponent extends DefaultComponent {
     
+    private static final Logger LOG = LoggerFactory.getLogger(TinkerforgeComponent.class);
+    
+    private Map<String, SharedConnection> connectionTable = new Hashtable<String, SharedConnection>();
+    
+    public TinkerforgeComponent(CamelContext context) {
+        super(context);
+    }
+    
+    public TinkerforgeComponent() {
+        super();
+        LOG.trace("TinkerforgeComponent()");
+    }
+
     public static final String DEFAULT_PROTOCOL = "tcp";
     public static final String DEFAULT_HOST = "localhost";
     public static final int DEFAULT_PORT = 4223;
     
     private static final String URI_ERROR = "Invalid URI. Format must be of the form tinkerforge:[host[:port]/]brickletType?[options...]";
     
-    private Map<String, IPConnection> ipConnectionPool = new Hashtable<String, IPConnection>();
     
     protected Endpoint createEndpoint(String endpointUri, String remaining, Map<String, Object> parameters) throws Exception {
+        LOG.trace("BEGIN createEndpoint(String endpointUri='"+endpointUri+"', String remaining='"+remaining+"', Map<String, Object> parameters='"+parameters+"' )");
+        
         String protocol = DEFAULT_PROTOCOL;
         String host = DEFAULT_HOST;
         int port = DEFAULT_PORT;
         String brickletType;
         
+        // DYNAMIC ENDPOINT WITHOUT CONNECTION HOST AND PORT USE DEFAULT localhost:
         if(remaining.contains("/")){
-            
             URI uri = new URI("tcp://"+remaining);
             
             protocol = uri.getScheme();
@@ -66,24 +83,14 @@ public class TinkerforgeComponent extends DefaultComponent {
                 throw new IllegalArgumentException(URI_ERROR);
             }
             brickletType = uri.getPath().substring(1).toLowerCase();
-            
         }else{
-            
             protocol = "tcp";
             host = DEFAULT_HOST;
             port = DEFAULT_PORT;
             brickletType = remaining.toLowerCase();
-           
         }
         
-        IPConnection connection = ipConnectionPool.get(host+":"+port);
-        if(connection==null){
-            connection = new IPConnection();
-            ipConnectionPool.put(host+":"+port, connection);
-            connection.connect(host, port); //TODO BETTER WAY
-        }
-        
-        Endpoint endpoint; 
+        TinkerforgeEndpoint endpoint; 
         
         switch (brickletType) {
         
@@ -98,7 +105,7 @@ public class TinkerforgeComponent extends DefaultComponent {
             case "distanceir"               :       throw new Exception("Bricklet-Type DistanceIR not supported yet.");
             case "distanceus"               :       throw new Exception("Bricklet-Type DistanceUS not supported yet.");
             case "dualbutton"               :       throw new Exception("Bricklet-Type DualButton not supported yet.");
-            case "dualrelay"                :       endpoint = new DualRelayEndpoint(endpointUri, connection, this); break;
+            case "dualrelay"                :       endpoint = new DualRelayEndpoint(endpointUri, this); break;
             case "gps"                      :       throw new Exception("Bricklet-Type GPS not supported yet.");
             case "halleffect"               :       throw new Exception("Bricklet-Type HallEffect not supported yet.");
             case "humidity"                 :       throw new Exception("Bricklet-Type Humidity not supported yet.");
@@ -115,8 +122,9 @@ public class TinkerforgeComponent extends DefaultComponent {
             case "ledstrip"                 :       throw new Exception("Bricklet-Type LEDStrip not supported yet.");
             case "line"                     :       throw new Exception("Bricklet-Type Line not supported yet.");
             case "linearpoti"               :       throw new Exception("Bricklet-Type LinearPoti not supported yet.");
+            case "mock"                     :       endpoint = new MockEndpoint(endpointUri, this); break;
             case "moisture"                 :       throw new Exception("Bricklet-Type Moisture not supported yet.");
-            case "motiondetector"           :       endpoint = new MotionDetectorEndpoint(endpointUri, connection, this); break;
+            case "motiondetector"           :       endpoint = new MotionDetectorEndpoint(endpointUri, this); break;
             case "multitouch"               :       throw new Exception("Bricklet-Type MultiTouch not supported yet.");
             
             case "nfcrfid"                  :       throw new Exception("Bricklet-Type NFCRFID not supported yet.");
@@ -135,9 +143,39 @@ public class TinkerforgeComponent extends DefaultComponent {
             case "voltage"                  :       throw new Exception("Bricklet-Type Voltage not supported yet.");
             case "voltagecurrent"           :       throw new Exception("Bricklet-Type VoltageCurrent not supported yet.");
             default                         :       throw new Exception("Unknown Bricklet-Type.");
+            
         }
         
-        setProperties(endpoint, parameters);
+        
+        
+        // Parameter for shared TinkerforgeConnection
+        String connectionTableKey = host+":"+port;
+        SharedConnection sharedConnection = connectionTable.get(connectionTableKey);
+        if(sharedConnection==null){
+            setProperties(endpoint, parameters);
+            sharedConnection = new SharedConnection(host,port,endpoint.getSecret(),endpoint.isAutoReconnect(),endpoint.getTimeout());
+            connectionTable.put(connectionTableKey, sharedConnection);
+            endpoint.setSharedConnection(sharedConnection);
+        }else{
+            parameters.put("sharedConnection", sharedConnection);
+            parameters.put("timeout", sharedConnection.getTimeout());
+            parameters.put("autoReconnect", sharedConnection.isAutoReconnect());
+            parameters.put("secret", sharedConnection.getSecret());
+            setProperties(endpoint, parameters);
+        }
+        
+        
+        
+        LOG.trace("END return endpoint='"+endpoint+"'");
         return endpoint;
+    }
+    
+    @Override
+    protected void doShutdown() throws Exception {
+        Collection<SharedConnection> connections = connectionTable.values();
+        for (SharedConnection connection : connections) {
+            connection.disconnect();
+        }
+        super.doShutdown();
     }
 }

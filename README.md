@@ -15,7 +15,7 @@ The **Tinkerforge** Apache Camel Component for a simple access for use the Tinke
 ----------------------------------------------
 
 ```
-tinkerforge:[host[:port]/]brickletType?[options]
+tinkerforge:[host[:port]/]deviceType?[uid=uid&options...]
 ```
 
 ## Options
@@ -26,16 +26,33 @@ Name           | Default Value | Description
 -------------- | ------------- | -------------
 host           | localhost     | Hostname / IP-Address
 port           | 4223          | Port
-authenticate   | null          | Secret String
+secret         |               | Secret String for authenticate
 autoReconnect  | true          | reconnection on broken connection
-timeout        | null          | Timeout
+timeout        | 2500          | Timeout
 enumerate      | false         | Enumerate list over all devices
-brickletType   | null          | Temperatur, Line, IO-4, Color, MotionDetector, ...
-uid            | null          | UID of the Bricklet
-callbackPeriod | 1000          | ...
+deviceType     |               | Temperatur, Line, IO-4, Color, MotionDetector, ...
+uid            |               | UID of the Bricklet
+
+
+## Producer Endpoints
+------------------------------------------------
+Function            | Options         | Body Type
+------------------- | --------------- | -------------
+**DualRelay**       |                 | 
+state               | {relay1,relay2} | ?
+state               |                 | ?
+monoflop            | ???             | ?
+get_monoflop        |                 | ?
+set_selected_state  |                 | ?
+get_identity        |                 | ?
+
+
+
+
 Result
 ----------------------------------------------------
 Todo...
+
 
 
 ## Message Headers

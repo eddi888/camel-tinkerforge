@@ -16,42 +16,41 @@
 */
 package org.apache.camel.component.tinkerforge.bricklet;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.component.tinkerforge.TinkerforgeConsumer;
-import org.apache.camel.component.tinkerforge.TinkerforgeEndpoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.BrickletDualRelay;
 import com.tinkerforge.BrickletDualRelay.MonoflopDoneListener;
-import com.tinkerforge.BrickletMotionDetector;
-import com.tinkerforge.IPConnection;
-import com.tinkerforge.BrickletMotionDetector.DetectionCycleEndedListener;
-import com.tinkerforge.BrickletMotionDetector.MotionDetectedListener;
 
-public class DualRelayConsumer extends TinkerforgeConsumer<TinkerforgeEndpoint, BrickletDualRelay> implements MonoflopDoneListener {
+public class DualRelayConsumer extends TinkerforgeConsumer<DualRelayEndpoint, BrickletDualRelay> implements MonoflopDoneListener {
 
-    private final DualRelayEndpoint endpoint;
+    private static final Logger LOG = LoggerFactory.getLogger(DualRelayConsumer.class);
     
-    public DualRelayConsumer(DualRelayEndpoint endpoint, Processor processor, IPConnection connection,String uid) {
+    public DualRelayConsumer(DualRelayEndpoint endpoint, Processor processor) throws UnknownHostException, AlreadyConnectedException, IOException {
         super(endpoint, processor);
-        this.endpoint = endpoint;
-        
-        bricklet = new BrickletDualRelay(uid, connection);
-
+        device = new BrickletDualRelay(this.endpoint.getUid(), this.endpoint.getSharedConnection().getConnection());
+        device.addMonoflopDoneListener(this);
     }
 
     @Override
     public void monoflopDone(short relay, boolean state) {
-        System.out.println("monoflopDone");
+        LOG.trace("monoflopDone(short relay='"+relay+"', boolean state='"+state+"')");
         Exchange exchange = null;
         try {
-            exchange = createExchange(endpoint, bricklet.getIdentity());
+            exchange = createExchange();
             
             // ADD HEADER
-            exchange.getOut().setHeader("CALLBACK", BrickletDualRelay.CALLBACK_MONOFLOP_DONE);
+            exchange.getIn().setHeader("CALLBACK", BrickletDualRelay.CALLBACK_MONOFLOP_DONE);
             
             // ADD BODY
-            exchange.getOut().setBody("monoflopDone");;
+            exchange.getIn().setBody("CALLBACK_MONOFLOP_DONE");;
             
             getProcessor().process(exchange);
         } catch (Exception e) {
@@ -61,7 +60,6 @@ public class DualRelayConsumer extends TinkerforgeConsumer<TinkerforgeEndpoint, 
                 getExceptionHandler().handleException("Error processing exchange", exchange, exchange.getException());
             }
         }
-        System.out.println("monoflopDone");
     }
        
 

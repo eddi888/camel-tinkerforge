@@ -16,25 +16,30 @@
 */
 package org.apache.camel.component.tinkerforge;
 
-import org.apache.camel.Exchange;
 import org.apache.camel.impl.DefaultProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.tinkerforge.Device;
+import com.tinkerforge.Device.Identity;
+
 /**
  * The Tinkerforge producer.
  */
-public class TinkerforgeProducer extends DefaultProducer {
+public abstract class TinkerforgeProducer <EndpointType extends TinkerforgeEndpoint<?,?>, DeviceType extends Device> extends DefaultProducer {
+    
     private static final Logger LOG = LoggerFactory.getLogger(TinkerforgeProducer.class);
-    private TinkerforgeEndpoint endpoint;
+    
+    protected EndpointType endpoint;
 
-    public TinkerforgeProducer(TinkerforgeEndpoint endpoint) {
+    protected DeviceType device;
+    
+    protected Identity identity = null;
+
+    public TinkerforgeProducer(EndpointType endpoint) {
         super(endpoint);
+        LOG.trace("TinkerforgeProducer(TinkerforgeEndpoint endpoint='"+endpoint+"')");
         this.endpoint = endpoint;
-    }
-
-    public void process(Exchange exchange) throws Exception {
-        System.out.println(exchange.getIn().getBody());    
     }
 
 }
