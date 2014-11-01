@@ -1,1 +1,1 @@
-class=org.apache.camel.component.tinkerforge.TinkerforgeComponent
+class=org.atomspace.camel.component.tinkerforge.TinkerforgeComponent

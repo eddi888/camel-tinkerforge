@@ -17,7 +17,7 @@ limitations under the License.
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.apache.camel</groupId>
+    <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
     <packaging>bundle</packaging>
     <version>2.14.0-SNAPSHOT</version>

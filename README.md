@@ -5,7 +5,7 @@
 The **Tinkerforge** Apache Camel Component for a simple access for use the Tinkerforge Daemon, Bricks and Bricklets.
 ```xml
 <dependency>
-    <groupId>org.apache.camel</groupId>
+    <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
     <version>x.x.x</version>
 </dependency>

@@ -14,10 +14,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.apache.camel.component.tinkerforge.device;
+package org.atomspace.camel.component.tinkerforge.device;
 
 import org.apache.camel.Processor;
-import org.apache.camel.component.tinkerforge.TinkerforgeConsumer;
+import org.atomspace.camel.component.tinkerforge.TinkerforgeConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

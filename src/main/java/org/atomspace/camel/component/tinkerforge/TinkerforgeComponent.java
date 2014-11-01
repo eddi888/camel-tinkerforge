@@ -14,7 +14,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.apache.camel.component.tinkerforge;
+package org.atomspace.camel.component.tinkerforge;
 
 import java.net.URI;
 import java.util.Collection;
@@ -23,10 +23,10 @@ import java.util.Map;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
-import org.apache.camel.component.tinkerforge.device.DualRelayEndpoint;
-import org.apache.camel.component.tinkerforge.device.MockEndpoint;
-import org.apache.camel.component.tinkerforge.device.MotionDetectorEndpoint;
 import org.apache.camel.impl.DefaultComponent;
+import org.atomspace.camel.component.tinkerforge.device.DualRelayEndpoint;
+import org.atomspace.camel.component.tinkerforge.device.MockEndpoint;
+import org.atomspace.camel.component.tinkerforge.device.MotionDetectorEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

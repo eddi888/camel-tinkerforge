@@ -14,7 +14,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.apache.camel.component.tinkerforge;
+package org.atomspace.camel.component.tinkerforge;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
@@ -39,10 +39,10 @@ public class TinkerforgeIntegrationTest extends CamelTestSupport {
                 from("tinkerforge://MotionDetector?uid=oTu")
                     .choice()
                         .when(header("CALLBACK").isEqualTo(BrickletMotionDetector.CALLBACK_MOTION_DETECTED))
-                            .to("tinkerforge://DualRelay?uid=kPu&monoflop={relay:2,state:true,time:500}")
+                            .to("tinkerforge://DualRelay?uid=kPu&method=setMonoflop(2, true, 500)")
                             
                         .when(header("CALLBACK").isEqualTo(BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED))
-                            .to("tinkerforge://DualRelay?uid=kPu&selectedState={relay:2,state:false}")
+                            .to("tinkerforge://DualRelay?uid=kPu&method=setSelectedState(2, false)")
                             
                         .endChoice()
                     .to("mock:result");
