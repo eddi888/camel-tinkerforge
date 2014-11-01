@@ -14,10 +14,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.apache.camel.component.tinkerforge.bricklet;
+package org.apache.camel.component.tinkerforge.device;
 
-import org.apache.camel.Processor;
-import org.apache.camel.component.tinkerforge.TinkerforgeConsumer;
+import org.apache.camel.Exchange;
+import org.apache.camel.component.tinkerforge.TinkerforgeProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,14 +26,12 @@ import com.tinkerforge.IPConnection;
 import com.tinkerforge.NotConnectedException;
 import com.tinkerforge.TimeoutException;
 
-public class MockConsumer extends TinkerforgeConsumer<MockEndpoint, Device> {
+public class MockProducer extends TinkerforgeProducer<MockEndpoint, Device> {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MockConsumer.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MockProducer.class);
     
-    public MockConsumer(MockEndpoint endpoint, Processor processor) {
-        super(endpoint, processor);
-
-        // init Bricklet
+    public MockProducer(MockEndpoint endpoint) {
+        super(endpoint);
         device = new Device(endpoint.getUid(), new IPConnection()) {
             
             @Override
@@ -55,6 +53,12 @@ public class MockConsumer extends TinkerforgeConsumer<MockEndpoint, Device> {
             }
             
         };
+    }
+
+    @Override
+    public void process(Exchange exchange) throws Exception {
+        LOG.trace("process(Exchange exchange='"+exchange+"')");
+        
     }
     
     

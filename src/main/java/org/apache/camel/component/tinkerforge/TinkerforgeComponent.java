@@ -23,9 +23,9 @@ import java.util.Map;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
-import org.apache.camel.component.tinkerforge.bricklet.DualRelayEndpoint;
-import org.apache.camel.component.tinkerforge.bricklet.MockEndpoint;
-import org.apache.camel.component.tinkerforge.bricklet.MotionDetectorEndpoint;
+import org.apache.camel.component.tinkerforge.device.DualRelayEndpoint;
+import org.apache.camel.component.tinkerforge.device.MockEndpoint;
+import org.apache.camel.component.tinkerforge.device.MotionDetectorEndpoint;
 import org.apache.camel.impl.DefaultComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
