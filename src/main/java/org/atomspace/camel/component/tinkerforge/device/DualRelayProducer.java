@@ -19,7 +19,9 @@ package org.atomspace.camel.component.tinkerforge.device;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
+import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
+import org.apache.camel.Message;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,75 +41,51 @@ public class DualRelayProducer extends TinkerforgeProducer<DualRelayEndpoint, Br
     @Override
     public void process(Exchange exchange) throws Exception {
         LOG.trace("process(Exchange exchange='"+exchange+"')");
+        Message m = exchange.getIn();
+        Endpoint e = endpoint;
+        Object body = null;
         
+        String function = getValue("function", m, e).toString();
 
-        // TODO IMPL BETTER!!!
-        if(endpoint.getMonoflop()!=null){
-            
-            //DEFAULT
-            short relay=1;
-            boolean state=true;
-            long time=10000;
-            
-            String[] keyValues = endpoint.getMonoflop().split(",");
-            for (String keyValue : keyValues) {
-                keyValue = keyValue.replaceAll("\\{", "");
-                keyValue = keyValue.replaceAll("\\}", "");
-                String key = keyValue.split(":")[0];
-                String value = keyValue.split(":")[1];
-                if(key.equals("relay")){
-                    relay=Short.valueOf(value);
-                }else if(key.equals("state")){
-                    state=Boolean.valueOf(value);
-                }else if(key.equals("time")){
-                    time=Long.valueOf(value);
-                }else {
-                    LOG.error("ERROR PARSING key:"+key);
-                }
-            }
-            LOG.trace("device.setMonoflop(relay='"+relay+"', state='"+state+"', time='"+time+"')");
-            device.setMonoflop(relay, state, time);
-            
-            
-        }
-        
-        // TODO IMPL BETTER!!!
-        if(endpoint.getSelectedState()!=null){
-            //DEFAULT
-            short relay=1;
-            boolean state=true;
-            
-            String[] keyValues = endpoint.getSelectedState().split(",");
-            for (String keyValue : keyValues) {
-                keyValue = keyValue.replaceAll("\\{", "");
-                keyValue = keyValue.replaceAll("\\}", "");
-                String key = keyValue.split(":")[0];
-                String value = keyValue.split(":")[1];
-                if(key.equals("relay")){
-                    relay=Short.valueOf(value);
-                }else if(key.equals("state")){
-                    state=Boolean.valueOf(value);
-                }else {
-                    LOG.error("ERROR PARSING key:"+key);
-                }
-            }
-            LOG.trace("device.setSelectedState(relay='"+relay+"', state='"+state+"')");
-            device.setSelectedState(relay, state);
-        }
-        
-        
-
-        
-        // TODO IMPL
-        //device.setState(true, true);
-
+        switch (function) {
+            case "getMonoflop":
+                body = device.getMonoflop(
+                        (short) getValue("houseCode", m, e)
+                    );
+                break;
                 
-        // TODO IMPL
-        //device.getState();
-        
-        // TODO IMPL
-        //device.getMonoflop(relay);
-        
+            case "getState":
+                body = device.getState();    
+                break;
+                
+            case "setMonoflop":
+                device.setMonoflop(
+                        (short) getValue("relay", m, e), 
+                        (boolean) getValue("state", m, e), 
+                        (long) getValue("time", m, e)
+                    );    
+                break;
+                
+            case "setSelectedState":
+                device.setSelectedState(
+                        (short) getValue("relay", m, e), 
+                        (boolean) getValue("state", m, e)
+                    );
+                break;
+                
+            case "setState":
+                device.setState(
+                        (boolean) getValue("relay1", m, e), 
+                        (boolean) getValue("relay2", m, e)
+                    );
+                break;
+                
+            default: throw new Exception("unknown Function '"+function+"'");
+                
+        }
+    
+        exchange.getOut().setBody(body);
+    
     }
 
 }

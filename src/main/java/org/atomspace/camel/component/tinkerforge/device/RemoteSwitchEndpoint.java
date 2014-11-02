@@ -27,7 +27,17 @@ import org.slf4j.LoggerFactory;
 public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsumer, RemoteSwitchProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RemoteSwitchEndpoint.class);
-        
+    
+    private Short houseCode;
+    private Short receiverCode;
+    private Short switchTo;
+    private Short address;
+    private Short unit;
+    private Short deviceCode;
+    private Character systemCode;
+    private Short repeats;
+    private Short dimValue;
+    
     public RemoteSwitchEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
     }
@@ -52,7 +62,82 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
 
     @Override
     public boolean isSingleton() {
+        
         return false;
     }
+
+    public Short getHouseCode() {
+        return houseCode;
+    }
+
+    public void setHouseCode(Short houseCode) {
+        this.houseCode = houseCode;
+    }
+
+    public Short getReceiverCode() {
+        return receiverCode;
+    }
+
+    public void setReceiverCode(Short receiverCode) {
+        this.receiverCode = receiverCode;
+    }
+
+    public Short getSwitchTo() {
+        return switchTo;
+    }
+
+    public void setSwitchTo(Short switchTo) {
+        this.switchTo = switchTo;
+    }
+
+    public Short getAddress() {
+        return address;
+    }
+
+    public void setAddress(Short address) {
+        this.address = address;
+    }
+
+    public Short getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Short unit) {
+        this.unit = unit;
+    }
+
+    public Short getDeviceCode() {
+        return deviceCode;
+    }
+
+    public void setDeviceCode(Short deviceCode) {
+        this.deviceCode = deviceCode;
+    }
+
+    public Character getSystemCode() {
+        return systemCode;
+    }
+
+    public void setSystemCode(Character systemCode) {
+        this.systemCode = systemCode;
+    }
+
+    public Short getRepeats() {
+        return repeats;
+    }
+
+    public void setRepeats(Short repeats) {
+        this.repeats = repeats;
+    }
+
+    public Short getDimValue() {
+        return dimValue;
+    }
+
+    public void setDimValue(Short dimValue) {
+        this.dimValue = dimValue;
+    }
+    
+    
 
 }

@@ -31,20 +31,47 @@ autoReconnect  | true          | reconnection on broken connection
 timeout        | 2500          | Timeout
 deviceType     |               | Temperatur, Line, IO-4, Color, MotionDetector, ...
 uid            |               | UID of the Bricklet
-callback       |               | add Listener to ConsumerEndpoint for receive values, if callback is null all Listeners will be registrate
+callback       |               | add Device Listener to ConsumerEndpoint for receive values, if callback is null all Listeners will be registrate
+function       |               | execute Device Function, can use for configure a ConsumerEndpoint and ProducerEndpoint or use dynamic in header for producerEndpoints
 
+## Consumer Endpoints
+------------------------------------------------
+
+Callback                       | Response-Header     | Header-Type
+------------------------------ | ------------------- |-------- -------------
+**MotionDetector**             |                     | 
+MotionDetectedListener         | CALLBACK            | BrickletMotionDetector.CALLBACK_MOTION_DETECTED
+DetectionCycleEndedListener    | CALLBACK            | BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED
+**Temperature**                |                     | 
+TemperatureListener            | CALLBACK            | BrickletTemperature.CALLBACK_TEMPERATURE
+                               | temperature         | short
+TemperatureReachedListener     | CALLBACK            | BrickletTemperature.CALLBACK_TEMPERATURE_REACHED
+                               | temperature         | short
 
 ## Producer Endpoints
 ------------------------------------------------
-Function            | Options         | Body Type
-------------------- | --------------- | -------------
-**DualRelay**       |                 | 
-state               | {relay1,relay2} | ?
-state               |                 | ?
-monoflop            | ???             | ?
-get_monoflop        |                 | ?
-set_selected_state  |                 | ?
-get_identity        |                 | ?
+
+Function            | Required-Parameter                                | Body Type
+------------------- | ------------------------------------------------- | -------------
+**DualRelay**       |                                                   | 
+getMonoflop         | houseCode                                         | Monoflop
+getState            |                                                   | State
+setMonoflop         | relay, state, time                                | 
+setSelectedState    | relay, state                                      | 
+getIdentity         |                                                   | Identity
+getAPIVersion       |                                                   | short[]
+setState            | relay1, relay2                                    | short[]
+**RemoteSwitch**    |                                                   | 
+switchSocket        | houseCode, receiverCode, switchTo                 | 
+switchSocketA       | houseCode, receiverCode, switchTo                 | 
+switchSocketB       | address, unit, switchTo                           | 
+switchSocketC       | systemCode, deviceCode, switchTo                  | 
+getRepeats          |                                                   | short
+setRepeats          | repeats                                           | 
+getIdentity         |                                                   | Identity
+getAPIVersion       |                                                   | short[]
+dimSocketB          | address, unit, dimValue                           | 
+
 
 
 

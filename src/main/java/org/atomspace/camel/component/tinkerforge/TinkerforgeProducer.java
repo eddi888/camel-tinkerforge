@@ -16,6 +16,8 @@
 */
 package org.atomspace.camel.component.tinkerforge;
 
+import org.apache.camel.Endpoint;
+import org.apache.camel.Message;
 import org.apache.camel.impl.DefaultProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,4 +44,15 @@ public abstract class TinkerforgeProducer <EndpointType extends TinkerforgeEndpo
         this.endpoint = endpoint;
     }
 
+    /**
+     * Get Header-Parameter or alternative Configured Endpoint Parameter
+     */
+    public Object getValue(String parameter, Message message, Endpoint endpoint){
+        Object value = message.getHeader(parameter);
+        if(value==null){
+            value = endpoint.getEndpointConfiguration().getParameter("parameter");
+        }
+        return value;
+    }
+    
 }

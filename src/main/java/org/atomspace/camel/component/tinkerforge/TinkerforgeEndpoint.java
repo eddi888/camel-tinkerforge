@@ -39,6 +39,7 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
     protected ProducerType producer;
     
     private String callback;
+    private String function;
     
     public TinkerforgeEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
@@ -97,6 +98,14 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
 
     public void setCallback(String callback) {
         this.callback = callback;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
     }
 
     

@@ -28,10 +28,12 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
     
     private static final Logger LOG = LoggerFactory.getLogger(DualRelayProducer.class);
     
-    private String method;
-    private String state;
-    private String selectedState;
-    private String monoflop;
+    private Short houseCode;
+    private Short relay;
+    private Boolean state;
+    private Long time;
+    private Boolean relay1;
+    private Boolean relay2;
         
     public DualRelayEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
@@ -60,43 +62,55 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         return false;
     }
 
-    public String getState() {
+    public Short getHouseCode() {
+        return houseCode;
+    }
+
+    public void setHouseCode(Short houseCode) {
+        this.houseCode = houseCode;
+    }
+
+    public Short getRelay() {
+        return relay;
+    }
+
+    public void setRelay(Short relay) {
+        this.relay = relay;
+    }
+
+    public Boolean getState() {
         return state;
     }
 
-    public void setState(String state) {
-        LOG.trace("setState(String state='"+state+"')");
+    public void setState(Boolean state) {
         this.state = state;
     }
 
-    public String getSelectedState() {
-        return selectedState;
+    public Long getTime() {
+        return time;
     }
 
-    public void setSelectedState(String selectedState) {
-        LOG.trace("setSelectedState(String selectedState='"+selectedState+"')");
-        this.selectedState = selectedState;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
-    public String getMonoflop() {
-        return monoflop;
+    public Boolean getRelay1() {
+        return relay1;
     }
 
-    public void setMonoflop(String monoflop) {
-        this.monoflop = monoflop;
+    public void setRelay1(Boolean relay1) {
+        this.relay1 = relay1;
     }
 
-    public String getMethod() {
-        return method;
+    public Boolean getRelay2() {
+        return relay2;
     }
 
-    public void setMethod(String method) {
-        this.method = method;
+    public void setRelay2(Boolean relay2) {
+        this.relay2 = relay2;
     }
+    
+    
 
-   
-
-
-
-        
+    
 }

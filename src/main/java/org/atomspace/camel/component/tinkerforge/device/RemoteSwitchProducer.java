@@ -19,7 +19,9 @@ package org.atomspace.camel.component.tinkerforge.device;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
+import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
+import org.apache.camel.Message;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,13 +37,72 @@ public class RemoteSwitchProducer extends TinkerforgeProducer<RemoteSwitchEndpoi
         super(endpoint);
         device = new BrickletRemoteSwitch(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
     }
-
+    
     @Override
     public void process(Exchange exchange) throws Exception {
         LOG.trace("process(Exchange exchange='"+exchange+"')");
-
-        // TODO IMPL
+        Message m = exchange.getIn();
+        Endpoint e = endpoint;
+        Object body = null;
         
+        String function = getValue("function", m, e).toString();
+        
+        switch (function) {
+            case "switchSocket":
+                device.switchSocket(
+                        (short) getValue("houseCode", m, e), 
+                        (short) getValue("receiverCode", m, e), 
+                        (short) getValue("switchTo", m, e)
+                    );
+                break;
+                
+            case "switchSocketA":
+                device.switchSocketA(
+                        (short) getValue("houseCode", m, e), 
+                        (short) getValue("receiverCode", m, e), 
+                        (short) getValue("switchTo", m, e)
+                    );    
+                break;
+                
+            case "switchSocketB":
+                device.switchSocketB(
+                        (short) getValue("address", m, e), 
+                        (short) getValue("unit", m, e), 
+                        (short) getValue("switchTo", m, e)
+                    );    
+                break;
+                
+            case "switchSocketC":
+                device.switchSocketC(
+                        (char) getValue("systemCode", m, e), 
+                        (short) getValue("deviceCode", m, e), 
+                        (short) getValue("switchTo", m, e)
+                    );
+                break;
+                
+            case "getRepeats":
+                body = device.getRepeats();    
+                break;
+                
+            case "setRepeats":
+                device.setRepeats((short) getValue("repeats", m, e));    
+                break;
+                
+            case "dimSocketB":
+                device.setRepeats((short) getValue("repeats", m, e));
+                device.switchSocketC(
+                        (char) getValue("address", m, e), 
+                        (short) getValue("unit", m, e), 
+                        (short) getValue("dimValue", m, e)
+                    );    
+                break;
+                
+            default: throw new Exception("unknown Function '"+function+"'");
+                
+        }
+
+        exchange.getOut().setBody(body);
+
     }
 
 }
