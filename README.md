@@ -37,16 +37,17 @@ function       |               | execute Device Function, can use for configure 
 ## Consumer Endpoints
 ------------------------------------------------
 
-Callback                       | Response-Header     | Header-Type
------------------------------- | ------------------- |-------- -------------
-**MotionDetector**             |                     | 
-MotionDetectedListener         | CALLBACK            | BrickletMotionDetector.CALLBACK_MOTION_DETECTED
-DetectionCycleEndedListener    | CALLBACK            | BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED
-**Temperature**                |                     | 
+
+Callback                       | Response Header     | Header Type
+------------------------------ | ------------------- | --
+**MotionDetector**             | x                   | x
+MotionDetectedListener         | CALLBACK            | BrickletMotionDetector.CALLBACK_ MOTIONDETECTED
+DetectionCycleEndedListener    | CALLBACK            | BrickletMotionDetector.CALLBACK_ DETECTION_ CYCLEENDED
+**Temperature**                | x                   | x
 TemperatureListener            | CALLBACK            | BrickletTemperature.CALLBACK_TEMPERATURE
-                               | temperature         | short
-TemperatureReachedListener     | CALLBACK            | BrickletTemperature.CALLBACK_TEMPERATURE_REACHED
-                               | temperature         | short
+TemperatureListener            | temperature         | short
+TemperatureReachedListener     | CALLBACK            | BrickletTemperature.CALLBACK_ TEMPERATURE_ REACHED
+TemperatureReachedListener     | temperature         | short
 
 ## Producer Endpoints
 ------------------------------------------------
