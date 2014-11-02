@@ -27,30 +27,46 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.BrickletDualRelay;
-import com.tinkerforge.BrickletDualRelay.MonoflopDoneListener;
+
+import com.tinkerforge.BrickletDualRelay.MonoflopDoneListener;;
 
 public class DualRelayConsumer extends TinkerforgeConsumer<DualRelayEndpoint, BrickletDualRelay> implements MonoflopDoneListener {
-
+    
     private static final Logger LOG = LoggerFactory.getLogger(DualRelayConsumer.class);
     
     public DualRelayConsumer(DualRelayEndpoint endpoint, Processor processor) throws UnknownHostException, AlreadyConnectedException, IOException {
         super(endpoint, processor);
-        device = new BrickletDualRelay(this.endpoint.getUid(), this.endpoint.getSharedConnection().getConnection());
-        device.addMonoflopDoneListener(this);
-    }
+        device = new BrickletDualRelay(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
 
-    @Override
+        if(endpoint.getCallback()==null || endpoint.getCallback().equals("")){
+            device.addMonoflopDoneListener(this);
+            
+        }else{
+            String[] callbacks = endpoint.getCallback().split(",");
+            for (String callback : callbacks) {
+                if(callback.equals("MonoflopDoneListener")) device.addMonoflopDoneListener(this);
+                
+            }
+        }
+    }
+    
+    
+	@Override
     public void monoflopDone(short relay, boolean state) {
-        LOG.trace("monoflopDone(short relay='"+relay+"', boolean state='"+state+"')");
+        LOG.trace("monoflopDone()");
+        
         Exchange exchange = null;
         try {
             exchange = createExchange();
             
             // ADD HEADER
             exchange.getIn().setHeader("CALLBACK", BrickletDualRelay.CALLBACK_MONOFLOP_DONE);
+            exchange.getIn().setHeader("relay", relay);
+            exchange.getIn().setHeader("state", state);
+            
             
             // ADD BODY
-            exchange.getIn().setBody("CALLBACK_MONOFLOP_DONE");;
+            exchange.getIn().setBody("monoflop_done");;
             
             getProcessor().process(exchange);
         } catch (Exception e) {
@@ -61,6 +77,7 @@ public class DualRelayConsumer extends TinkerforgeConsumer<DualRelayEndpoint, Br
             }
         }
     }
-       
+    
+    
 
 }

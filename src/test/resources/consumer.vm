@@ -1,0 +1,70 @@
+## ------------------------------------------------------------------------
+## Licensed to the Apache Software Foundation (ASF) under one or more
+## contributor license agreements.  See the NOTICE file distributed with
+## this work for additional information regarding copyright ownership.
+## The ASF licenses this file to You under the Apache License, Version 2.0
+## (the "License"); you may not use this file except in compliance with
+## the License.  You may obtain a copy of the License at
+##
+## http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+## ------------------------------------------------------------------------
+## consumer.vm
+/**
+* Licensed to the Apache Software Foundation (ASF) under one or more
+* contributor license agreements. See the NOTICE file distributed with
+* this work for additional information regarding copyright ownership.
+* The ASF licenses this file to You under the Apache License, Version 2.0
+* (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+package org.atomspace.camel.component.tinkerforge.device2;
+
+import java.io.IOException;
+import java.net.UnknownHostException;
+
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+import org.atomspace.camel.component.tinkerforge.TinkerforgeConsumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.tinkerforge.AlreadyConnectedException;
+import com.tinkerforge.$!{config_category}$!{config_name_0};
+$!{config_packet_import_listener};
+
+public class $!{config_name_0}Consumer extends TinkerforgeConsumer<$!{config_name_0}Endpoint, $!{config_category}$!{config_name_0}> $!{config_packet_implements_listener} {
+    
+    private static final Logger LOG = LoggerFactory.getLogger($!{config_name_0}Consumer.class);
+    
+    public $!{config_name_0}Consumer($!{config_name_0}Endpoint endpoint, Processor processor) throws UnknownHostException, AlreadyConnectedException, IOException {
+        super(endpoint, processor);
+        device = new $!{config_category}$!{config_name_0}(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
+
+        if(endpoint.getCallback()==null || endpoint.getCallback().equals("")){
+            $!{config_packet_callback_all}
+        }else{
+            String[] callbacks = endpoint.getCallback().split(",");
+            for (String callback : callbacks) {
+                $!{config_packet_callback_ifs}
+            }
+        }
+    }
+    
+    $!{config_packet_callback_impls}
+    
+
+}

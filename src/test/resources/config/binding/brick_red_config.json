@@ -1,0 +1,4336 @@
+{
+    "category": "Brick",
+    "description": "Device for running user programs standalone on the stack",
+    "author": "Matthias Bolte <matthias@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "lifetime",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "CreateSession",
+                "create_session"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ExpireSession",
+                "expire_session"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "ExpireSessionUnchecked",
+                "expire_session_unchecked"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "lifetime",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "KeepSessionAlive",
+                "keep_session_alive"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "object_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ReleaseObject",
+                "release_object"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nDecreases the reference count of an object by one and returns the resulting\nerror code. If the reference count reaches zero the object gets destroyed.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "object_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "ReleaseObjectUnchecked",
+                "release_object_unchecked"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "length_to_reserve",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "buffer",
+                    "string",
+                    58,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AllocateString",
+                "allocate_string"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nAllocates a new string object, reserves ``length_to_reserve`` bytes memory\nfor it and sets up to the first 60 bytes. Set ``length_to_reserve`` to the\nlength of the string that should be stored in the string object.\n\nReturns the object ID of the new string object and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "length",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "TruncateString",
+                "truncate_string"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nTruncates a string object to ``length`` bytes and returns the resulting\nerror code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "length",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStringLength",
+                "get_string_length"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the length of a string object in bytes and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "offset",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "buffer",
+                    "string",
+                    58,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SetStringChunk",
+                "set_string_chunk"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nSets a chunk of up to 58 bytes in a string object beginning at ``offset``.\n\nReturns the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "offset",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "buffer",
+                    "string",
+                    63,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStringChunk",
+                "get_string_chunk"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns a chunk up to 63 bytes from a string object beginning at ``offset`` and\nreturns the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "length_to_reserve",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AllocateList",
+                "allocate_list"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nAllocates a new list object and reserves memory for ``length_to_reserve``\nitems. Set ``length_to_reserve`` to the number of items that should be stored\nin the list object.\n\nReturns the object ID of the new list object and the resulting error code.\n\nWhen a list object gets destroyed then the reference count of each object in\nthe list object is decreased by one.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "length",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetListLength",
+                "get_list_length"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the length of a list object in items and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "index",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "item_object_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ObjectType",
+                        "object_type",
+                        [
+                            [
+                                "String",
+                                "string",
+                                0
+                            ],
+                            [
+                                "List",
+                                "list",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Directory",
+                                "directory",
+                                3
+                            ],
+                            [
+                                "Process",
+                                "process",
+                                4
+                            ],
+                            [
+                                "Program",
+                                "program",
+                                5
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetListItem",
+                "get_list_item"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the object ID and type of the object stored at ``index`` in a list\nobject and returns the resulting error code.\n\nPossible object types are:\n\n* String = 0\n* List = 1\n* File = 2\n* Directory = 3\n* Process = 4\n* Program = 5\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "item_object_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AppendToList",
+                "append_to_list"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nAppends an object to a list object and increases the reference count of the\nappended object by one.\n\nReturns the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "index",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "RemoveFromList",
+                "remove_from_list"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nRemoves the object stored at ``index`` from a list object and decreases the\nreference count of the removed object by one.\n\nReturns the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "flags",
+                    "uint16",
+                    1,
+                    "in",
+                    [
+                        "FileFlag",
+                        "file_flag",
+                        [
+                            [
+                                "ReadOnly",
+                                "read_only",
+                                1
+                            ],
+                            [
+                                "WriteOnly",
+                                "write_only",
+                                2
+                            ],
+                            [
+                                "ReadWrite",
+                                "read_write",
+                                4
+                            ],
+                            [
+                                "Append",
+                                "append",
+                                8
+                            ],
+                            [
+                                "Create",
+                                "create",
+                                16
+                            ],
+                            [
+                                "Exclusive",
+                                "exclusive",
+                                32
+                            ],
+                            [
+                                "NonBlocking",
+                                "non_blocking",
+                                64
+                            ],
+                            [
+                                "Truncate",
+                                "truncate",
+                                128
+                            ],
+                            [
+                                "Temporary",
+                                "temporary",
+                                256
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "permissions",
+                    "uint16",
+                    1,
+                    "in",
+                    [
+                        "FilePermission",
+                        "file_permission",
+                        [
+                            [
+                                "UserAll",
+                                "user_all",
+                                448
+                            ],
+                            [
+                                "UserRead",
+                                "user_read",
+                                256
+                            ],
+                            [
+                                "UserWrite",
+                                "user_write",
+                                128
+                            ],
+                            [
+                                "UserExecute",
+                                "user_execute",
+                                64
+                            ],
+                            [
+                                "GroupAll",
+                                "group_all",
+                                56
+                            ],
+                            [
+                                "GroupRead",
+                                "group_read",
+                                32
+                            ],
+                            [
+                                "GroupWrite",
+                                "group_write",
+                                16
+                            ],
+                            [
+                                "GroupExecute",
+                                "group_execute",
+                                8
+                            ],
+                            [
+                                "OthersAll",
+                                "others_all",
+                                7
+                            ],
+                            [
+                                "OthersRead",
+                                "others_read",
+                                4
+                            ],
+                            [
+                                "OthersWrite",
+                                "others_write",
+                                2
+                            ],
+                            [
+                                "OthersExecute",
+                                "others_execute",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "uid",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "gid",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "OpenFile",
+                "open_file"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nOpens an existing file or creates a new file and allocates a new file object\nfor it.\n\nFIXME: name has to be absolute\n\nThe reference count of the name string object is increased by one. When the\nfile object gets destroyed then the reference count of the name string object is\ndecreased by one. Also the name string object is locked and cannot be modified\nwhile the file object holds a reference to it.\n\nThe ``flags`` parameter takes a ORed combination of the following possible file\nflags (in hexadecimal notation):\n\n* ReadOnly = 0x0001 (O_RDONLY)\n* WriteOnly = 0x0002 (O_WRONLY)\n* ReadWrite = 0x0004 (O_RDWR)\n* Append = 0x0008 (O_APPEND)\n* Create = 0x0010 (O_CREAT)\n* Exclusive = 0x0020 (O_EXCL)\n* NonBlocking = 0x0040 (O_NONBLOCK)\n* Truncate = 0x0080 (O_TRUNC)\n* Temporary = 0x0100\n\nFIXME: explain *Temporary* flag\n\nThe ``permissions`` parameter takes a ORed combination of the following\npossible file permissions (in octal notation) that match the common UNIX\npermission bits:\n\n* UserRead = 00400\n* UserWrite = 00200\n* UserExecute = 00100\n* GroupRead = 00040\n* GroupWrite = 00020\n* GroupExecute = 00010\n* OthersRead = 00004\n* OthersWrite = 00002\n* OthersExecute = 00001\n\nReturns the object ID of the new file object and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "flags",
+                    "uint16",
+                    1,
+                    "in",
+                    [
+                        "PipeFlag",
+                        "pipe_flag",
+                        [
+                            [
+                                "NonBlockingRead",
+                                "non_blocking_read",
+                                1
+                            ],
+                            [
+                                "NonBlockingWrite",
+                                "non_blocking_write",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "length",
+                    "uint64",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "CreatePipe",
+                "create_pipe"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nCreates a new pipe and allocates a new file object for it.\n\nThe ``flags`` parameter takes a ORed combination of the following possible\npipe flags (in hexadecimal notation):\n\n* NonBlockingRead = 0x0001\n* NonBlockingWrite = 0x0002\n\nThe length of the pipe buffer can be specified with the ``length`` parameter\nin bytes. If length is set to zero, then the default pipe buffer length is used.\n\nReturns the object ID of the new file object and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "FileType",
+                        "file_type",
+                        [
+                            [
+                                "Unknown",
+                                "unknown",
+                                0
+                            ],
+                            [
+                                "Regular",
+                                "regular",
+                                1
+                            ],
+                            [
+                                "Directory",
+                                "directory",
+                                2
+                            ],
+                            [
+                                "Character",
+                                "character",
+                                3
+                            ],
+                            [
+                                "Block",
+                                "block",
+                                4
+                            ],
+                            [
+                                "FIFO",
+                                "fifo",
+                                5
+                            ],
+                            [
+                                "Symlink",
+                                "symlink",
+                                6
+                            ],
+                            [
+                                "Socket",
+                                "socket",
+                                7
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                8
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "flags",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "permissions",
+                    "uint16",
+                    1,
+                    "out",
+                    [
+                        "FilePermission",
+                        "file_permission",
+                        [
+                            [
+                                "UserAll",
+                                "user_all",
+                                448
+                            ],
+                            [
+                                "UserRead",
+                                "user_read",
+                                256
+                            ],
+                            [
+                                "UserWrite",
+                                "user_write",
+                                128
+                            ],
+                            [
+                                "UserExecute",
+                                "user_execute",
+                                64
+                            ],
+                            [
+                                "GroupAll",
+                                "group_all",
+                                56
+                            ],
+                            [
+                                "GroupRead",
+                                "group_read",
+                                32
+                            ],
+                            [
+                                "GroupWrite",
+                                "group_write",
+                                16
+                            ],
+                            [
+                                "GroupExecute",
+                                "group_execute",
+                                8
+                            ],
+                            [
+                                "OthersAll",
+                                "others_all",
+                                7
+                            ],
+                            [
+                                "OthersRead",
+                                "others_read",
+                                4
+                            ],
+                            [
+                                "OthersWrite",
+                                "others_write",
+                                2
+                            ],
+                            [
+                                "OthersExecute",
+                                "others_execute",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "uid",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "gid",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "length",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "access_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "modification_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "status_change_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetFileInfo",
+                "get_file_info"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns various information about a file and the resulting error code.\n\nPossible file types are:\n\n* Unknown = 0\n* Regular = 1\n* Directory = 2\n* Character = 3\n* Block = 4\n* FIFO = 5\n* Symlink = 6\n* Socket = 7\n* Pipe = 8\n\nIf the file type is *Pipe* then the returned name string object is invalid,\nbecause a pipe has no name. Otherwise the returned name string object was used\nto open or create the file object, as passed to :func:`OpenFile`.\n\nThe returned flags were used to open or create the file object, as passed to\n:func:`OpenFile` or :func:`CreatePipe`. See the respective function for a list\nof possible file and pipe flags.\n\nFIXME: everything except flags and length is invalid if file type is *Pipe*\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "length_to_read",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "buffer",
+                    "uint8",
+                    62,
+                    "out"
+                ],
+                [
+                    "length_read",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ReadFile",
+                "read_file"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReads up to 62 bytes from a file object.\n\nReturns the bytes read, the actual number of bytes read and the resulting\nerror code.\n\nIf there is not data to be read, either because the file position reached\nend-of-file or because there is not data in the pipe, then zero bytes are\nreturned.\n\nIf the file object was created by :func:`OpenFile` without the *NonBlocking*\nflag or by :func:`CreatePipe` without the *NonBlockingRead* flag then the\nerror code *NotSupported* is returned.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "length_to_read",
+                    "uint64",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "ReadFileAsync",
+                "read_file_async"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReads up to 2\\ :sup:`63`\\  - 1 bytes from a file object asynchronously.\n\nReports the bytes read (in 60 byte chunks), the actual number of bytes read and\nthe resulting error code via the :func:`AsyncFileRead` callback.\n\nIf there is not data to be read, either because the file position reached\nend-of-file or because there is not data in the pipe, then zero bytes are\nreported.\n\nIf the file object was created by :func:`OpenFile` without the *NonBlocking*\nflag or by :func:`CreatePipe` without the *NonBlockingRead* flag then the error\ncode *NotSupported* is reported via the :func:`AsyncFileRead` callback.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 21,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AbortAsyncFileRead",
+                "abort_async_file_read"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nAborts a :func:`ReadFileAsync` operation in progress.\n\nReturns the resulting error code.\n\nOn success the :func:`AsyncFileRead` callback will report *OperationAborted*.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 22,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "buffer",
+                    "uint8",
+                    61,
+                    "in"
+                ],
+                [
+                    "length_to_write",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "length_written",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "WriteFile",
+                "write_file"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nWrites up to 61 bytes to a file object.\n\nReturns the actual number of bytes written and the resulting error code.\n\nIf the file object was created by :func:`OpenFile` without the *NonBlocking*\nflag or by :func:`CreatePipe` without the *NonBlockingWrite* flag then the\nerror code *NotSupported* is returned.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 23,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "buffer",
+                    "uint8",
+                    61,
+                    "in"
+                ],
+                [
+                    "length_to_write",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "WriteFileUnchecked",
+                "write_file_unchecked"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nWrites up to 61 bytes to a file object.\n\nDoes neither report the actual number of bytes written nor the resulting error\ncode.\n\nIf the file object was created by :func:`OpenFile` without the *NonBlocking*\nflag or by :func:`CreatePipe` without the *NonBlockingWrite* flag then the\nwrite operation will fail silently.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 24,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "buffer",
+                    "uint8",
+                    61,
+                    "in"
+                ],
+                [
+                    "length_to_write",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "WriteFileAsync",
+                "write_file_async"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nWrites up to 61 bytes to a file object.\n\nReports the actual number of bytes written and the resulting error code via the\n:func:`AsyncFileWrite` callback.\n\nIf the file object was created by :func:`OpenFile` without the *NonBlocking*\nflag or by :func:`CreatePipe` without the *NonBlockingWrite* flag then the\nerror code *NotSupported* is reported via the :func:`AsyncFileWrite` callback.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 25,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "offset",
+                    "int64",
+                    1,
+                    "in"
+                ],
+                [
+                    "origin",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "FileOrigin",
+                        "file_origin",
+                        [
+                            [
+                                "Beginning",
+                                "beginning",
+                                0
+                            ],
+                            [
+                                "Current",
+                                "current",
+                                1
+                            ],
+                            [
+                                "End",
+                                "end",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "position",
+                    "uint64",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SetFilePosition",
+                "set_file_position"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nSet the current seek position of a file object in bytes relative to ``origin``.\n\nPossible file origins are:\n\n* Beginning = 0\n* Current = 1\n* End = 2\n\nReturns the resulting absolute seek position and error code.\n\nIf the file object was created by :func:`CreatePipe` then it has no seek\nposition and the error code *InvalidSeek* is returned.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 26,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "position",
+                    "uint64",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetFilePosition",
+                "get_file_position"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the current seek position of a file object in bytes and returns the\nresulting error code.\n\nIf the file object was created by :func:`CreatePipe` then it has no seek\nposition and the error code *InvalidSeek* is returned.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 27,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "buffer",
+                    "uint8",
+                    60,
+                    "out"
+                ],
+                [
+                    "length_read",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AsyncFileRead",
+                "async_file_read"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\n",
+                    "en": "\nThis callback reports the result of a call to the :func:`ReadFileAsync`\nfunction.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 28,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "length_written",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AsyncFileWrite",
+                "async_file_write"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\n",
+                    "en": "\nThis callback reports the result of a call to the :func:`WriteFileAsync`\nfunction.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 29,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "follow_symlink",
+                    "bool",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "FileType",
+                        "file_type",
+                        [
+                            [
+                                "Unknown",
+                                "unknown",
+                                0
+                            ],
+                            [
+                                "Regular",
+                                "regular",
+                                1
+                            ],
+                            [
+                                "Directory",
+                                "directory",
+                                2
+                            ],
+                            [
+                                "Character",
+                                "character",
+                                3
+                            ],
+                            [
+                                "Block",
+                                "block",
+                                4
+                            ],
+                            [
+                                "FIFO",
+                                "fifo",
+                                5
+                            ],
+                            [
+                                "Symlink",
+                                "symlink",
+                                6
+                            ],
+                            [
+                                "Socket",
+                                "socket",
+                                7
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                8
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "permissions",
+                    "uint16",
+                    1,
+                    "out",
+                    [
+                        "FilePermission",
+                        "file_permission",
+                        [
+                            [
+                                "UserAll",
+                                "user_all",
+                                448
+                            ],
+                            [
+                                "UserRead",
+                                "user_read",
+                                256
+                            ],
+                            [
+                                "UserWrite",
+                                "user_write",
+                                128
+                            ],
+                            [
+                                "UserExecute",
+                                "user_execute",
+                                64
+                            ],
+                            [
+                                "GroupAll",
+                                "group_all",
+                                56
+                            ],
+                            [
+                                "GroupRead",
+                                "group_read",
+                                32
+                            ],
+                            [
+                                "GroupWrite",
+                                "group_write",
+                                16
+                            ],
+                            [
+                                "GroupExecute",
+                                "group_execute",
+                                8
+                            ],
+                            [
+                                "OthersAll",
+                                "others_all",
+                                7
+                            ],
+                            [
+                                "OthersRead",
+                                "others_read",
+                                4
+                            ],
+                            [
+                                "OthersWrite",
+                                "others_write",
+                                2
+                            ],
+                            [
+                                "OthersExecute",
+                                "others_execute",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "uid",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "gid",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "length",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "access_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "modification_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "status_change_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "LookupFileInfo",
+                "lookup_file_info"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns various information about a file and the resulting error code.\n\nFIXME: name has to be absolute\n\nThe information is obtained via the\n`stat() <http://pubs.opengroup.org/onlinepubs/9699919799/functions/stat.html>`__\nfunction. If ``follow_symlink`` is *false* then the\n`lstat() <http://pubs.opengroup.org/onlinepubs/9699919799/functions/stat.html>`__\nfunction is used instead.\n\nSee :func:`GetFileInfo` for a list of possible file types and see\n:func:`OpenFile` for a list of possible file permissions.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 30,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "canonicalize",
+                    "bool",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "target_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "LookupSymlinkTarget",
+                "lookup_symlink_target"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the target of a symbolic link and the resulting error code.\n\nFIXME: name has to be absolute\n\nIf ``canonicalize`` is *false* then the target of the symbolic link is resolved\none level via the\n`readlink() <http://pubs.opengroup.org/onlinepubs/9699919799/functions/readlink.html>`__\nfunction, otherwise it is fully resolved using the\n`realpath() <http://pubs.opengroup.org/onlinepubs/9699919799/functions/realpath.html>`__\nfunction.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 31,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "directory_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "OpenDirectory",
+                "open_directory"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nOpens an existing directory and allocates a new directory object for it.\n\nFIXME: name has to be absolute\n\nThe reference count of the name string object is increased by one. When the\ndirectory object is destroyed then the reference count of the name string\nobject is decreased by one. Also the name string object is locked and cannot be\nmodified while the directory object holds a reference to it.\n\nReturns the object ID of the new directory object and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 32,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "directory_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDirectoryName",
+                "get_directory_name"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the name of a directory object, as passed to :func:`OpenDirectory`, and\nthe resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 33,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "directory_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "DirectoryEntryType",
+                        "directory_entry_type",
+                        [
+                            [
+                                "Unknown",
+                                "unknown",
+                                0
+                            ],
+                            [
+                                "Regular",
+                                "regular",
+                                1
+                            ],
+                            [
+                                "Directory",
+                                "directory",
+                                2
+                            ],
+                            [
+                                "Character",
+                                "character",
+                                3
+                            ],
+                            [
+                                "Block",
+                                "block",
+                                4
+                            ],
+                            [
+                                "FIFO",
+                                "fifo",
+                                5
+                            ],
+                            [
+                                "Symlink",
+                                "symlink",
+                                6
+                            ],
+                            [
+                                "Socket",
+                                "socket",
+                                7
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetNextDirectoryEntry",
+                "get_next_directory_entry"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the next entry in a directory object and the resulting error code.\n\nIf there is not next entry then error code *NoMoreData* is returned. To rewind\na directory object call :func:`RewindDirectory`.\n\nPossible directory entry types are:\n\n* Unknown = 0\n* Regular = 1\n* Directory = 2\n* Character = 3\n* Block = 4\n* FIFO = 5\n* Symlink = 6\n* Socket = 7\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 34,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "directory_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "RewindDirectory",
+                "rewind_directory"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nRewinds a directory object and returns the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 35,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "flags",
+                    "uint16",
+                    1,
+                    "in",
+                    [
+                        "DirectoryFlag",
+                        "directory_flag",
+                        [
+                            [
+                                "Recursive",
+                                "recursive",
+                                1
+                            ],
+                            [
+                                "Exclusive",
+                                "exclusive",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "permissions",
+                    "uint16",
+                    1,
+                    "in",
+                    [
+                        "FilePermission",
+                        "file_permission",
+                        [
+                            [
+                                "UserAll",
+                                "user_all",
+                                448
+                            ],
+                            [
+                                "UserRead",
+                                "user_read",
+                                256
+                            ],
+                            [
+                                "UserWrite",
+                                "user_write",
+                                128
+                            ],
+                            [
+                                "UserExecute",
+                                "user_execute",
+                                64
+                            ],
+                            [
+                                "GroupAll",
+                                "group_all",
+                                56
+                            ],
+                            [
+                                "GroupRead",
+                                "group_read",
+                                32
+                            ],
+                            [
+                                "GroupWrite",
+                                "group_write",
+                                16
+                            ],
+                            [
+                                "GroupExecute",
+                                "group_execute",
+                                8
+                            ],
+                            [
+                                "OthersAll",
+                                "others_all",
+                                7
+                            ],
+                            [
+                                "OthersRead",
+                                "others_read",
+                                4
+                            ],
+                            [
+                                "OthersWrite",
+                                "others_write",
+                                2
+                            ],
+                            [
+                                "OthersExecute",
+                                "others_execute",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "uid",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "gid",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "CreateDirectory",
+                "create_directory"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: name has to be absolute\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 36,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "processes_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProcesses",
+                "get_processes"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 37,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "executable_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "arguments_list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "environment_list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "working_directory_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "uid",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "gid",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "stdin_file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "stdout_file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "stderr_file_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SpawnProcess",
+                "spawn_process"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 38,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "signal",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ProcessSignal",
+                        "process_signal",
+                        [
+                            [
+                                "Interrupt",
+                                "interrupt",
+                                2
+                            ],
+                            [
+                                "Quit",
+                                "quit",
+                                3
+                            ],
+                            [
+                                "Abort",
+                                "abort",
+                                6
+                            ],
+                            [
+                                "Kill",
+                                "kill",
+                                9
+                            ],
+                            [
+                                "User1",
+                                "user1",
+                                10
+                            ],
+                            [
+                                "User2",
+                                "user2",
+                                12
+                            ],
+                            [
+                                "Terminate",
+                                "terminate",
+                                15
+                            ],
+                            [
+                                "Continue",
+                                "continue",
+                                18
+                            ],
+                            [
+                                "Stop",
+                                "stop",
+                                19
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "KillProcess",
+                "kill_process"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nSends a UNIX signal to a process object and returns the resulting error code.\n\nPossible UNIX signals are:\n\n* Interrupt = 2\n* Quit = 3\n* Abort = 6\n* Kill = 9\n* User1 = 10\n* User2 = 12\n* Terminate = 15\n* Continue =  18\n* Stop = 19\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 39,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "executable_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "arguments_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "environment_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "working_directory_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProcessCommand",
+                "get_process_command"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the executable, arguments, environment and working directory used to\nspawn a process object, as passed to :func:`SpawnProcess`, and the resulting\nerror code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 40,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "pid",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "uid",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "gid",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProcessIdentity",
+                "get_process_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the process ID and the user and group ID used to spawn a process object,\nas passed to :func:`SpawnProcess`, and the resulting error code.\n\nThe process ID is only valid if the state is *Running* or *Stopped*, see\n:func:`GetProcessState`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 41,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "stdin_file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "stdout_file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "stderr_file_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProcessStdio",
+                "get_process_stdio"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the stdin, stdout and stderr files used to spawn a process object, as\npassed to :func:`SpawnProcess`, and the resulting error code.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 42,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "state",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProcessState",
+                        "process_state",
+                        [
+                            [
+                                "Unknown",
+                                "unknown",
+                                0
+                            ],
+                            [
+                                "Running",
+                                "running",
+                                1
+                            ],
+                            [
+                                "Error",
+                                "error",
+                                2
+                            ],
+                            [
+                                "Exited",
+                                "exited",
+                                3
+                            ],
+                            [
+                                "Killed",
+                                "killed",
+                                4
+                            ],
+                            [
+                                "Stopped",
+                                "stopped",
+                                5
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "exit_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProcessState",
+                "get_process_state"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nReturns the current state, timestamp and exit code of a process object, and\nthe resulting error code.\n\nPossible process states are:\n\n* Unknown = 0\n* Running = 1\n* Error = 2\n* Exited = 3\n* Killed = 4\n* Stopped = 5\n\nThe timestamp represents the UNIX time since when the process is in its current\nstate.\n\nThe exit code is only valid if the state is *Error*, *Exited*, *Killed* or\n*Stopped* and has different meanings depending on the state:\n\n* Error: error code for error occurred while spawning the process (see below)\n* Exited: exit status of the process\n* Killed: UNIX signal number used to kill the process\n* Stopped: UNIX signal number used to stop the process\n\nPossible exit/error codes in *Error* state are:\n\n* InternalError = 125\n* CannotExecute = 126\n* DoesNotExist = 127\n\nThe *CannotExecute* error can be caused by the executable being opened for\nwriting.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 43,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "state",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProcessState",
+                        "process_state",
+                        [
+                            [
+                                "Unknown",
+                                "unknown",
+                                0
+                            ],
+                            [
+                                "Running",
+                                "running",
+                                1
+                            ],
+                            [
+                                "Error",
+                                "error",
+                                2
+                            ],
+                            [
+                                "Exited",
+                                "exited",
+                                3
+                            ],
+                            [
+                                "Killed",
+                                "killed",
+                                4
+                            ],
+                            [
+                                "Stopped",
+                                "stopped",
+                                5
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "exit_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ProcessStateChanged",
+                "process_state_changed"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 44,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "programs_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPrograms",
+                "get_programs"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 45,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "identifier_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "DefineProgram",
+                "define_program"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 46,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "cookie",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "PurgeProgram",
+                "purge_program"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 47,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "identifier_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProgramIdentifier",
+                "get_program_identifier"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 48,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "root_directory_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProgramRootDirectory",
+                "get_program_root_directory"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: root directory is absolute: <home>/programs/<identifier>\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 49,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "executable_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "arguments_list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "environment_list_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "working_directory_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SetProgramCommand",
+                "set_program_command"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: working directory is relative to <home>/programs/<identifier>/bin\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 50,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "executable_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "arguments_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "environment_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "working_directory_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProgramCommand",
+                "get_program_command"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: working directory is relative to <home>/programs/<identifier>/bin\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 51,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "stdin_redirection",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ProgramStdioRedirection",
+                        "program_stdio_redirection",
+                        [
+                            [
+                                "DevNull",
+                                "dev_null",
+                                0
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Log",
+                                "log",
+                                3
+                            ],
+                            [
+                                "Stdout",
+                                "stdout",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stdin_file_name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "stdout_redirection",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ProgramStdioRedirection",
+                        "program_stdio_redirection",
+                        [
+                            [
+                                "DevNull",
+                                "dev_null",
+                                0
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Log",
+                                "log",
+                                3
+                            ],
+                            [
+                                "Stdout",
+                                "stdout",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stdout_file_name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "stderr_redirection",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ProgramStdioRedirection",
+                        "program_stdio_redirection",
+                        [
+                            [
+                                "DevNull",
+                                "dev_null",
+                                0
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Log",
+                                "log",
+                                3
+                            ],
+                            [
+                                "Stdout",
+                                "stdout",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stderr_file_name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SetProgramStdioRedirection",
+                "set_program_stdio_redirection"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: stdio file names are relative to <home>/programs/<identifier>/bin\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 52,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "stdin_redirection",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProgramStdioRedirection",
+                        "program_stdio_redirection",
+                        [
+                            [
+                                "DevNull",
+                                "dev_null",
+                                0
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Log",
+                                "log",
+                                3
+                            ],
+                            [
+                                "Stdout",
+                                "stdout",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stdin_file_name_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "stdout_redirection",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProgramStdioRedirection",
+                        "program_stdio_redirection",
+                        [
+                            [
+                                "DevNull",
+                                "dev_null",
+                                0
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Log",
+                                "log",
+                                3
+                            ],
+                            [
+                                "Stdout",
+                                "stdout",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stdout_file_name_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "stderr_redirection",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProgramStdioRedirection",
+                        "program_stdio_redirection",
+                        [
+                            [
+                                "DevNull",
+                                "dev_null",
+                                0
+                            ],
+                            [
+                                "Pipe",
+                                "pipe",
+                                1
+                            ],
+                            [
+                                "File",
+                                "file",
+                                2
+                            ],
+                            [
+                                "Log",
+                                "log",
+                                3
+                            ],
+                            [
+                                "Stdout",
+                                "stdout",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stderr_file_name_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProgramStdioRedirection",
+                "get_program_stdio_redirection"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: stdio file names are relative to <home>/programs/<identifier>/bin\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 53,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "start_condition",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ProgramStartCondition",
+                        "program_start_condition",
+                        [
+                            [
+                                "Never",
+                                "never",
+                                0
+                            ],
+                            [
+                                "Now",
+                                "now",
+                                1
+                            ],
+                            [
+                                "Reboot",
+                                "reboot",
+                                2
+                            ],
+                            [
+                                "Timestamp",
+                                "timestamp",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "start_timestamp",
+                    "uint64",
+                    1,
+                    "in"
+                ],
+                [
+                    "start_delay",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "repeat_mode",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ProgramRepeatMode",
+                        "program_repeat_mode",
+                        [
+                            [
+                                "Never",
+                                "never",
+                                0
+                            ],
+                            [
+                                "Interval",
+                                "interval",
+                                1
+                            ],
+                            [
+                                "Cron",
+                                "cron",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "repeat_interval",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "repeat_fields_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SetProgramSchedule",
+                "set_program_schedule"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 54,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "start_condition",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProgramStartCondition",
+                        "program_start_condition",
+                        [
+                            [
+                                "Never",
+                                "never",
+                                0
+                            ],
+                            [
+                                "Now",
+                                "now",
+                                1
+                            ],
+                            [
+                                "Reboot",
+                                "reboot",
+                                2
+                            ],
+                            [
+                                "Timestamp",
+                                "timestamp",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "start_timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "start_delay",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "repeat_mode",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProgramRepeatMode",
+                        "program_repeat_mode",
+                        [
+                            [
+                                "Never",
+                                "never",
+                                0
+                            ],
+                            [
+                                "Interval",
+                                "interval",
+                                1
+                            ],
+                            [
+                                "Cron",
+                                "cron",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "repeat_interval",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "repeat_fields_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProgramSchedule",
+                "get_program_schedule"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 55,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "state",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ProgramSchedulerState",
+                        "program_scheduler_state",
+                        [
+                            [
+                                "Stopped",
+                                "stopped",
+                                0
+                            ],
+                            [
+                                "WaitingForStartCondition",
+                                "waiting_for_start_condition",
+                                1
+                            ],
+                            [
+                                "DelayingStart",
+                                "delaying_start",
+                                2
+                            ],
+                            [
+                                "WaitingForRepeatCondition",
+                                "waiting_for_repeat_condition",
+                                3
+                            ],
+                            [
+                                "ErrorOccurred",
+                                "error_occurred",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ],
+                [
+                    "message_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProgramSchedulerState",
+                "get_program_scheduler_state"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\nFIXME: message is currently vaild in error-occurred state only\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 56,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ScheduleProgramNow",
+                "schedule_program_now"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 57,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "process_id",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "timestamp",
+                    "uint64",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetLastSpawnedProgramProcess",
+                "get_last_spawned_program_process"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 58,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "names_list_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCustomProgramOptionNames",
+                "get_custom_program_option_names"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 59,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "value_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SetCustomProgramOptionValue",
+                "set_custom_program_option_value"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 60,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "session_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "value_string_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCustomProgramOptionValue",
+                "get_custom_program_option_value"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 61,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "name_string_id",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "error_code",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "RemoveCustomProgramOption",
+                "remove_custom_program_option"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 62,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ProgramSchedulerStateChanged",
+                "program_scheduler_state_changed"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 63,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "program_id",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ProgramProcessSpawned",
+                "program_process_spawned"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\n",
+                    "en": "\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 64,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der der Brick verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann '0'-'8' (Stack Position) sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Brick is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be '0'-'8' (stack position).\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 17,
+    "released": false,
+    "api": {
+        "de": "\n",
+        "en": "\nFIXME: explain sessions\n\nThe RED Brick API operates on reference counted objects (strings, lists, files,\ndirectories, processes and programs) that are identified by their 16bit object\nID. Functions that allocate or return an object ID (e.g. :func:`AllocateString`\nand :func:`GetNextDirectoryEntry`) increase the reference count of the returned\nobject. If the object is no longer needed then :func:`ReleaseObject` has to\nbe called to decrease the reference count of the object again. In contrast to\nallocation and getter functions, the reference count for an object returned by\na callback is not increased and :func:`ReleaseObject` must not be called for\nsuch an object in response to a callback.\n\nThere are functions (e.g. :func:`GetFileInfo`) that only return valid objects\nunder certain conditions. This conditions are documented for the specific\nfunctions. For invalid objects :func:`ReleaseObject` must not be called.\n\nThere are also function (e.g. :func:`SetProcessStdioRedirection`) that have\nconditionally unused object parameters. Under which conditions an object\nparameter is unused is documented for the specific functions. For unused\nobject parameters 0 has to be passed as object ID.\n\nThe RED Brick API is more complex then the typical Brick API and requires more\nelaborate error reporting than the :ref:`TCP/IP protocol <llproto_tcpip>`\ncan provide with its 2bit error code. Therefore, almost all functions of the\nRED Brick API return an 8bit error code. Possible error codes are:\n\n* Success = 0\n* UnknownError = 1\n* InvalidOperation = 2\n* OperationAborted = 3\n* InternalError = 4\n* UnknownSessionID = 5\n* NoFreeSessionID = 6\n* UnknownObjectID = 7\n* NoFreeObjectID = 8\n* ObjectIsLocked = 9\n* NoMoreData = 10\n* WrongListItemType = 11\n* ProgramIsPurged = 12\n* InvalidParameter = 128 (EINVAL)\n* NoFreeMemory = 129 (ENOMEM)\n* NoFreeSpace = 130 (ENOSPC)\n* AccessDenied = 131 (EACCES)\n* AlreadyExists = 132 (EEXIST)\n* DoesNotExist = 133 (ENOENT)\n* Interrupted = 134 (EINTR)\n* IsDirectory = 135 (EISDIR)\n* NotADirectory = 136 (ENOTDIR)\n* WouldBlock = 137 (EWOULDBLOCK)\n* Overflow = 138 (EOVERFLOW)\n* BadFileDescriptor = 139 (EBADF)\n* OutOfRange = 140 (ERANGE)\n* NameTooLong = 141 (ENAMETOOLONG)\n* InvalidSeek = 142 (ESPIPE)\n* NotSupported = 143 (ENOTSUP)\n* TooManyOpenFiles = 144 (EMFILE)\n\nIf a function returns an error code other than *Success* then its other\nreturn values (if any) are invalid and must not be used.\n\nThe error code *InvalidOperation* is returned if the requested operation cannot\nbe performed because the current state of the object does not allow it. For\nexample, trying to append an item to a full list object or trying to undefine\nan already undefined program.\n\nThe error code *NotSupported* is returned if the requested operation can never\nbe performed. For example, trying to append a list object to itself, trying to\nget the name of a file object with type *Pipe* or trying to create a directory\nnon-recursively with more than the last part of the directory name referring\nto non-existing directories.\n\nString objects store UTF-8 encoded data.\n"
+    },
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "RED",
+        "red",
+        "RED"
+    ]
+}

@@ -38,6 +38,8 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
     protected ConsumerType consumer;
     protected ProducerType producer;
     
+    private String callback;
+    
     public TinkerforgeEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
         LOG.trace("TinkerforgeEndpoint(String uri='"+uri+"', TinkerforgeComponent tinkerforgeComponent='"+tinkerforgeComponent+"')");
@@ -87,6 +89,14 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
     public void setTimeout(int timeout) {
         LOG.trace("setTimeout(int timeout='"+timeout+"')");
         this.timeout = timeout;
+    }
+
+    public String getCallback() {
+        return callback;
+    }
+
+    public void setCallback(String callback) {
+        this.callback = callback;
     }
 
     

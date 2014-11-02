@@ -1,0 +1,976 @@
+{
+    "category": "Bricklet",
+    "description": "Device for sensing air pressure and altitude changes",
+    "author": "Matthias Bolte <matthias@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "air_pressure",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAirPressure",
+                "get_air_pressure"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Luftdruck des Luftdrucksensors zur\u00fcck. Der Wertbereich\ngeht von 10000 bis 1200000 und ist in mbar/1000 angegeben, d.h. bei einem Wert von\n1001092 wurde ein Luftdruck von 1001,092 mbar gemessen.\n\nWenn der Luftdruck periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`AirPressure` zu nutzen und die Periode mit \n:func:`SetAirPressureCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the air pressure of the air pressure sensor. The value\nhas a range of 10000 to 1200000 and is given in mbar/1000, i.e. a value\nof 1001092 means that an air pressure of 1001.092 mbar is measured.\n\nIf you want to get the air pressure periodically, it is recommended to use the\ncallback :func:`AirPressure` and set the period with\n:func:`SetAirPressureCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "altitude",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAltitude",
+                "get_altitude"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die relative H\u00f6he des Luftdrucksensors zur\u00fcck. Der Wert ist in cm angegeben\nund wird auf Basis der Differenz zwischen dem aktuellen Luftdruck und dem\nReferenzluftdruck berechnet, welcher mit :func:`SetReferenceAirPressure` gesetzt\nwerden kann.\n\nWenn die H\u00f6he periodisch abgefragt werden soll, wird empfohlen den Callback\n:func:`Altitude` zu nutzen und die Periode mit :func:`SetAltitudeCallbackPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the relative altitude of the air pressure sensor. The value is given in\ncm and is calculated based on the difference between the current air pressure\nand the reference air pressure that can be set with :func:`SetReferenceAirPressure`.\n\nIf you want to get the altitude periodically, it is recommended to use the\ncallback :func:`Altitude` and set the period with\n:func:`SetAltitudeCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAirPressureCallbackPeriod",
+                "set_air_pressure_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`AirPressure` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`AirPressure` wird nur ausgel\u00f6st wenn sich der Luftdruck seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`AirPressure` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`AirPressure` is only triggered if the air pressure has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAirPressureCallbackPeriod",
+                "get_air_pressure_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAirPressureCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAirPressureCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAltitudeCallbackPeriod",
+                "set_altitude_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Altitude` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Altitude` wird nur ausgel\u00f6st wenn sich H\u00f6he seit der letzten Ausl\u00f6sung\nge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Altitude` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Altitude` is only triggered if the altitude has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAltitudeCallbackPeriod",
+                "get_altitude_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAltitudeCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAltitudeCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "int32",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAirPressureCallbackThreshold",
+                "set_air_pressure_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`AirPressureReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn der Luftdruck *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn der Luftdruck *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn der Luftdruck kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn der Luftdruck gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`AirPressureReached` callback.\n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the air pressure is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the air pressure is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the air pressure is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the air pressure is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "int32",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAirPressureCallbackThreshold",
+                "get_air_pressure_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetAirPressureCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetAirPressureCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "int32",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAltitudeCallbackThreshold",
+                "set_altitude_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`AltitudeReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die H\u00f6he *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die H\u00f6he *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die H\u00f6he kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die H\u00f6he gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`AltitudeReached` callback.\n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the altitude is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the altitude is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the altitude is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the altitude is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "int32",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAltitudeCallbackThreshold",
+                "get_altitude_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetAltitudeCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetAltitudeCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDebouncePeriod",
+                "set_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher die Schwellwert Callbacks\n\n* :func:`AirPressureReached`,\n* :func:`AltitudeReached`\n \nausgel\u00f6st werden, wenn die Schwellwerte \n\n* :func:`SetAirPressureCallbackThreshold`,\n* :func:`SetAltitudeCallbackThreshold`\n \nweiterhin erreicht bleiben.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the period in ms with which the threshold callbacks\n\n* :func:`AirPressureReached`,\n* :func:`AltitudeReached`\n\nare triggered, if the thresholds\n\n* :func:`SetAirPressureCallbackThreshold`,\n* :func:`SetAltitudeCallbackThreshold`\n\nkeep being reached.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDebouncePeriod",
+                "get_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Entprellperiode zur\u00fcck, wie von :func:`SetDebouncePeriod`\ngesetzt.\n",
+                    "en": "\nReturns the debounce period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "air_pressure",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetReferenceAirPressure",
+                "set_reference_air_pressure"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt den Referenzluftdruck in mbar/1000 f\u00fcr die H\u00f6henberechnung. Wenn der\naktuelle Luftdruckwert als Referenz \u00fcbergeben wird dann gibt die H\u00f6henberechnung\n0cm aus. Als Abk\u00fcrzung kann auch 0 \u00fcbergeben werden, dadurch wird der\nReferenzluftdruck intern auf den aktuellen Luftdruckwert gesetzt.\n\nWohl bekannte Referenzluftdruckwerte, die in der Luftfahrt verwendet werden, sind\n`QNH <http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QNH>`__ und\n`QFE <http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QFE>`__\naus dem Q-Schl\u00fcssel.\n\nDer Standardwert ist 1013,25mbar.\n",
+                    "en": "\nSets the reference air pressure in mbar/1000 for the altitude calculation.\nSetting the reference to the current air pressure results in a calculated\naltitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as\nreference.\n\nWell known reference values are the Q codes\n`QNH <http://en.wikipedia.org/wiki/QNH>`__ and\n`QFE <http://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__\nused in aviation.\n\nThe default value is 1013.25mbar.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChipTemperature",
+                "get_chip_temperature"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur des Luftdrucksensors zur\u00fcck. Der Wertbereich\nist von -4000 bis 8500 und ist in \u00b0C/100 angegeben, d.h. bei einem Wert von\n2007 wurde eine Temperatur von 20,07 \u00b0C gemessen.\n\nDiese Temperatur wird intern zur Temperaturkompensation der Luftdruckmessung\nverwendet. Sie ist nicht so genau wie die Temperatur die vom\n:ref:`temperature_bricklet` oder dem :ref:`temperature_ir_bricklet` gemessen\nwird.\n",
+                    "en": "\nReturns the temperature of the air pressure sensor. The value\nhas a range of -4000 to 8500 and is given in \u00b0C/100, i.e. a value\nof 2007 means that a temperature of 20.07 \u00b0C is measured.\n\nThis temperature is used internally for temperature compensation of the air\npressure measurement. It is not as accurate as the temperature measured by the\n:ref:`temperature_bricklet` or the :ref:`temperature_ir_bricklet`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "air_pressure",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AirPressure",
+                "air_pressure"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAirPressureCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist der Luftdruck des Luftdrucksensors.\n\n:func:`AirPressure` wird nur ausgel\u00f6st wenn sich der Luftdruck seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAirPressureCallbackPeriod`. The :word:`parameter` is the air pressure of the\nair pressure sensor.\n\n:func:`AirPressure` is only triggered if the air pressure has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "altitude",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Altitude",
+                "altitude"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAltitudeCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die H\u00f6he des Luftdrucksensors.\n\n:func:`Altitude` wird nur ausgel\u00f6st wenn sich die H\u00f6he seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAltitudeCallbackPeriod`. The :word:`parameter` is the altitude of the\nair pressure sensor.\n\n:func:`Altitude` is only triggered if the altitude has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "air_pressure",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AirPressureReached",
+                "air_pressure_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetAirPressureCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist der Luftdruck des Luftdrucksensors.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetAirPressureCallbackThreshold` is reached.\nThe :word:`parameter` is the air pressure of the air pressure sensor.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "altitude",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AltitudeReached",
+                "altitude_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetAltitudeCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist die H\u00f6he des Luftdrucksensors.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetAltitudeCallbackThreshold` is reached.\nThe :word:`parameter` is the altitude of the air pressure sensor.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "air_pressure",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetReferenceAirPressure",
+                "get_reference_air_pressure"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Referenzluftdruckwert zur\u00fcck, wie von :func:`SetReferenceAirPressure`\ngesetzt.\n",
+                    "en": "\nReturns the reference air pressure as set by :func:`SetReferenceAirPressure`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "moving_average_pressure",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "average_pressure",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "average_temperature",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAveraging",
+                "set_averaging"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die unterschiedlichen Averaging-Parameter (Mittelwertbildung).\nEs ist m\u00f6glich die L\u00e4nge des Mittelwerts f\u00fcr Temperatur und\nLuftdruck anzugeben. Zus\u00e4tzlich gibt kann die L\u00e4nge f\u00fcr\neinen \n`gleitenden Mittelwert <http://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__ \nf\u00fcr den Luftdruck angegeben werden. Der gleitende Mittelwert wird\nmit den Werten des normalen Mittelwerts berechnet. Es gibt keinen\ngleitenden Mittelwert f\u00fcr die Temperatur.\n\nDie maximale L\u00e4nge des Luftdruckmittelwerts ist 10, des\nTemperaturmittelwerts 255 und des gleitenden Mittelwertes 25.\n\nWenn alle drei Parameter auf 0 gesetzt werden, ist das Averaging\nkomplett aus. In diesem Fall gibt es viel Rauschen auf den Daten,\nallerdings sind die Daten dann ohne Verz\u00f6gerung. Wir empfehlen\ndas Averaging auszustellen wenn die Daten des Barometer Bricklets\nzusammen mit anderen Sensordaten fusioniert werden sollen.\n\nDer Standardwert ist 10 f\u00fcr die normalen Mittelwerte und 25 f\u00fcr\nden gleitenden Mittelwert\n",
+                    "en": "\nSets the different averaging parameters. It is possible to set\nthe length of a normal averaging for the temperature and pressure,\nas well as an additional length of a \n`moving average <http://en.wikipedia.org/wiki/Moving_average>`__ \nfor the pressure. The moving average is calculated from the normal \naverages.  There is no moving average for the temperature.\n\nThe maximum length for the pressure average is 10, for the\ntemperature average is 255 and for the moving average is 25.\n\nSetting the all three parameters to 0 will turn the averaging\ncompletely off. If the averaging is off, there is lots of noise\non the data, but the data is without delay. Thus we recommend\nto turn the averaging off if the Barometer Bricklet data is\nto be used for sensor fusion with other sensors.\n\nThe default values are 10 for the normal averages and 25 for the\nmoving average.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "moving_average_pressure",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "average_pressure",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "average_temperature",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAveraging",
+                "get_averaging"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Averaging-Konfiguration zur\u00fcck, wie von :func:`SetAveraging`\ngesetzt.\n",
+                    "en": "\nReturns the averaging configuration as set by :func:`SetAveraging`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 21,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 221,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        1
+    ],
+    "name": [
+        "Barometer",
+        "barometer",
+        "Barometer"
+    ]
+}

@@ -1,0 +1,414 @@
+{
+    "category": "Bricklet",
+    "description": "Device for controlling two relays",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "relay1",
+                    "bool",
+                    1,
+                    "in"
+                ],
+                [
+                    "relay2",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetState",
+                "set_state"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt den Zustand der Relais, *true* bedeutet ein und *false* aus.\nBeispiel: (true, false) schaltet Relais 1 ein und Relais 2 aus.\n\nWenn nur eines der Relais gesetzt werden soll und der aktuelle Zustand des anderen Relais\nnicht bekannt ist, dann kann der Zustand mit :func:`GetState` ausgelesen werden oder\nes kann :func:`SetSelectedState` genutzt werden.\n\nLaufende Monoflop Timer werden \u00fcberschrieben wenn diese Funktion aufgerufen wird.\n\nDer Standardwert ist (*false*, *false*).\n",
+                    "en": "\nSets the state of the relays, *true* means on and *false* means off. \nFor example: (true, false) turns relay 1 on and relay 2 off.\n\nIf you just want to set one of the relays and don't know the current state\nof the other relay, you can get the state with :func:`GetState` or you\ncan use :func:`SetSelectedState`.\n\nRunning monoflop timers will be overwritten if this function is called.\n\nThe default value is (*false*, *false*).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "relay1",
+                    "bool",
+                    1,
+                    "out"
+                ],
+                [
+                    "relay2",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetState",
+                "get_state"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Zustand der Relais zur\u00fcck, *true* bedeutet ein und *false* aus.\n",
+                    "en": "\nReturns the state of the relays, *true* means on and *false* means off. \n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "relay",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "state",
+                    "bool",
+                    1,
+                    "in"
+                ],
+                [
+                    "time",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetMonoflop",
+                "set_monoflop"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDer erste Parameter kann 1 oder 2 sein (Relais 1 oder Relais 2). Der zweite\nParameter ist der gew\u00fcnschte Zustand des Relais (*true* bedeutet ein und *false* aus).\nDer dritte Parameter stellt die Zeit (in ms) dar, welche das Relais den Zustand halten soll.\n\nWenn diese Funktion mit den Parametern (1, true, 1500) aufgerufen wird:\nRelais 1 wird angeschaltet und nach 1,5s wieder ausgeschaltet.\n\nEin Monoflop kann als Ausfallsicherung verwendet werden. Beispiel:\nAngenommen ein RS485 Bus und ein Dual Relay Bricklet ist an ein Slave Stapel verbunden.\nJetzt kann diese Funktion sek\u00fcndlich, mit einem Zeitparameter von 2 Sekunden, aufgerufen werden.\nDas Relais wird die gesamte Zeit ein sein. Wenn jetzt die RS485 Verbindung getrennt wird, \nwird das Relais nach sp\u00e4testens zwei Sekunden ausschalten.\n",
+                    "en": "\nThe first parameter can be 1 or 2 (relay 1 or relay 2). The second parameter \nis the desired state of the relay (*true* means on and *false* means off).\nThe third parameter indicates the time (in ms) that the relay should hold \nthe state.\n\nIf this function is called with the parameters (1, true, 1500):\nRelay 1 will turn on and in 1.5s it will turn off again.\n\nA monoflop can be used as a failsafe mechanism. For example: Lets assume you \nhave a RS485 bus and a Dual Relay Bricklet connected to one of the slave \nstacks. You can now call this function every second, with a time parameter\nof two seconds. The relay will be on all the time. If now the RS485 \nconnection is lost, the relay will turn off in at most two seconds.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                1
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "relay",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "state",
+                    "bool",
+                    1,
+                    "out"
+                ],
+                [
+                    "time",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "time_remaining",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMonoflop",
+                "get_monoflop"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt (f\u00fcr das angegebene Relais) den aktuellen Zustand und die Zeit, wie von \n:func:`SetMonoflop` gesetzt, sowie die noch verbleibende Zeit bis zum Zustandswechsel, zur\u00fcck.\n\nWenn der Timer aktuell nicht l\u00e4uft, ist die noch verbleibende Zeit 0.\n",
+                    "en": "\nReturns (for the given relay) the current state and the time as set by \n:func:`SetMonoflop` as well as the remaining time until the state flips.\n\nIf the timer is not running currently, the remaining time will be returned\nas 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                1
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "relay",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "state",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "MonoflopDone",
+                "monoflop_done"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn ein Monoflop Timer abl\u00e4uft (0 erreicht).\nDie Parameter enthalten das ausl\u00f6sende Relais (1 oder 2) und den aktuellen Zustand\ndes Relais (der Zustand nach dem Monoflop).\n",
+                    "en": "\nThis callback is triggered whenever a monoflop timer reaches 0. The \nparameter contain the relay (1 or 2) and the current state of the relay \n(the state after the monoflop).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                1
+            ],
+            "function_id": 5,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "relay",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "state",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetSelectedState",
+                "set_selected_state"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Zustand des selektierten Relais (1 oder 2), *true* bedeutet ein und *false* aus.\n\nDas andere Relais bleibt unangetastet.\n",
+                    "en": "\nSets the state of the selected relay (1 or 2), *true* means on and *false* means off. \n\nThe other relay remains untouched.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 26,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "DualRelay",
+        "dual_relay",
+        "Dual Relay"
+    ]
+}

@@ -1,0 +1,549 @@
+{
+    "category": "Bricklet",
+    "description": "Device for controlling a LCD with 2 lines a 16 characters",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "line",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "position",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "text",
+                    "string",
+                    16,
+                    "in"
+                ]
+            ],
+            "name": [
+                "WriteLine",
+                "write_line"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSchreibt einen Text in die angegebene Zeile (0 bis 1) mit einer vorgegebenen\nPosition (0 bis 15). Der Text kann maximal 16 Zeichen lang sein.\n\nBeispiel: (0, 5, \"Hallo\") schreibt *Hallo* in die Mitte der ersten Zeile\ndes Display.\n\nDas Display nutzt einen speziellen Zeichensatz der alle ASCII Zeichen beinhaltet au\u00dfer\nBackslash und Tilde. Der Zeichensatz des LCD beinhaltet weiterhin einige Nicht-ASCII Zeichen,\nsiehe die `Zeichensatzspezifikation <https://github.com/Tinkerforge/lcd-16x2-bricklet/raw/master/datasheets/standard_charset.pdf>`__\nf\u00fcr Details. Das gezeigte Unicode Beispiel verdeutlicht die Verwendung von Nicht-ASCII Zeichen\nund wie die Wandlung von Unicode in den LCD Zeichensatz m\u00f6glich ist.\n",
+                    "en": "\nWrites text to a specific line (0 to 1) with a specific position \n(0 to 15). The text can have a maximum of 16 characters.\n\nFor example: (0, 5, \"Hello\") will write *Hello* in the middle of the\nfirst line of the display.\n\nThe display uses a special charset that includes all ASCII characters except\nbackslash and tilde. The LCD charset also includes several other non-ASCII characters, see\nthe `charset specification <https://github.com/Tinkerforge/lcd-16x2-bricklet/raw/master/datasheets/standard_charset.pdf>`__\nfor details. The Unicode example above shows how to specify non-ASCII characters\nand how to translate from Unicode to the LCD charset.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "ClearDisplay",
+                "clear_display"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nL\u00f6scht alle Zeichen auf dem Display.\n",
+                    "en": "\nDeletes all characters from the display.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "BacklightOn",
+                "backlight_on"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nAktiviert die Hintergrundbeleuchtung.\n",
+                    "en": "\nTurns the backlight on.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "BacklightOff",
+                "backlight_off"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nDeaktiviert die Hintergrundbeleuchtung.\n",
+                    "en": "\nTurns the backlight off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "backlight",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsBacklightOn",
+                "is_backlight_on"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Hintergrundbeleuchtung aktiv ist, sonst *false*.\n",
+                    "en": "\nReturns *true* if the backlight is on and *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "cursor",
+                    "bool",
+                    1,
+                    "in"
+                ],
+                [
+                    "blinking",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetConfig",
+                "set_config"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nKonfiguriert ob der Cursor (angezeigt als \"_\") sichtbar ist und ob er \nblinkt (angezeigt als blinkender Block). Die Cursor Position ist ein \nZeichen hinter dem zuletzt mit :func:`WriteLine` geschriebenen Text.\n\nDer Standardwert ist (false, false).\n",
+                    "en": "\nConfigures if the cursor (shown as \"_\") should be visible and if it\nshould be blinking (shown as a blinking block). The cursor position\nis one character behind the the last text written with \n:func:`WriteLine`.\n\nThe default is (false, false).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "cursor",
+                    "bool",
+                    1,
+                    "out"
+                ],
+                [
+                    "blinking",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetConfig",
+                "get_config"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetConfig` gesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetConfig`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "button",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "pressed",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsButtonPressed",
+                "is_button_pressed"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Taste (0 bis 2) gedr\u00fcckt ist. Wenn auf Tastendr\u00fccken\nund -loslassen reagiert werden soll, wird empfohlen die :func:`ButtonPressed`\nund :func:`ButtonReleased` Callbacks zu nutzen.\n",
+                    "en": "\nReturns *true* if the button (0 to 2) is pressed. If you want to react\non button presses and releases it is recommended to use the\n:func:`ButtonPressed` and :func:`ButtonReleased` callbacks.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "button",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ButtonPressed",
+                "button_pressed"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn eine Taste gedr\u00fcckt wird. Der :word:`parameter`\nist die Nummer der Taste (0 bis 2).\n",
+                    "en": "\nThis callback is triggered when a button is pressed. The :word:`parameter` is\nthe number of the button (0 to 2).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "button",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ButtonReleased",
+                "button_released"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn eine Taste losgelassen wird. Der :word:`parameter`\nist die Nummer der Taste (0 bis 2).\n",
+                    "en": "\nThis callback is triggered when a button is released. The :word:`parameter` is\nthe number of the button (0 to 2).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "index",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "character",
+                    "uint8",
+                    8,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetCustomCharacter",
+                "set_custom_character"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDas LCD 16x2 Bricklet kann bis zu 8 benutzerdefinierte Buchstaben speichern.\nDie Buchstaben bestehen aus 5x8 Pixel und sie k\u00f6nnen \u00fcber den Index 0-7\nadressiert werden. Um die Pixel zu beschreiben, werden die ersten 5 Bit\nvon 8 Bytes verwenden. Zum Beispiel, um den Buchstaben \"H\" zu erzeugen,\nsollte das folgende Array gesendet werden:\n\n* ``character[0] = 0b00010001`` (Dezimalwert 17)\n* ``character[1] = 0b00010001`` (Dezimalwert 17)\n* ``character[2] = 0b00010001`` (Dezimalwert 17)\n* ``character[3] = 0b00011111`` (Dezimalwert 31)\n* ``character[4] = 0b00010001`` (Dezimalwert 17)\n* ``character[5] = 0b00010001`` (Dezimalwert 17)\n* ``character[6] = 0b00010001`` (Dezimalwert 17)\n* ``character[7] = 0b00000000`` (Dezimalwert 0)\n\nDie Buchstaben k\u00f6nnen sp\u00e4ter mit :func:`WriteLine` mit den chars mit\nden Byterepr\u00e4sentationen 8 bis 15 geschrieben werden.\n\nEs ist m\u00f6glich die benutzerdefinierten Buchstaben im Brick Viewer ab\nVersion 2.0.1 einzustellen.\n\nBenutzerdefinierte Buchstaben werden vom LCD im RAM gespeichert, daher\nm\u00fcssen sie nach jedem Start des LCD 16x2 Bricklets gesetzt werden.\n",
+                    "en": "\nThe LCD 16x2 Bricklet can store up to 8 custom characters. The characters\nconsist of 5x8 pixels and can be addressed with the index 0-7. To describe\nthe pixels, the first 5 bits of 8 bytes are used. For example, to make\na custom character \"H\", you should transfer the following:\n\n* ``character[0] = 0b00010001`` (decimal value 17)\n* ``character[1] = 0b00010001`` (decimal value 17)\n* ``character[2] = 0b00010001`` (decimal value 17)\n* ``character[3] = 0b00011111`` (decimal value 31)\n* ``character[4] = 0b00010001`` (decimal value 17)\n* ``character[5] = 0b00010001`` (decimal value 17)\n* ``character[6] = 0b00010001`` (decimal value 17)\n* ``character[7] = 0b00000000`` (decimal value 0)\n\nThe characters can later be written with :func:`WriteLine` by using the\ncharacters with the byte representation 8 to 15.\n\nYou can play around with the custom characters in Brick Viewer since\nversion 2.0.1.\n\nCustom characters are stored by the LCD in RAM, so they have to be set\nafter each startup.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "index",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "character",
+                    "uint8",
+                    8,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCustomCharacter",
+                "get_custom_character"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den benutzerdefinierten Buchstaben f\u00fcr den gegebenen\nIndex zur\u00fcck, wie von :func:`GetCustomCharacter` gesetzt.\n",
+                    "en": "\nReturns the custom character for a given index, as set with\n:func:`SetCustomCharacter`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 211,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "LCD16x2",
+        "lcd_16x2",
+        "LCD 16x2"
+    ]
+}

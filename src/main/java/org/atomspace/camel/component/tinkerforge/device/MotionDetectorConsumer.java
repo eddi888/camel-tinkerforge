@@ -27,8 +27,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.BrickletMotionDetector;
-import com.tinkerforge.BrickletMotionDetector.DetectionCycleEndedListener;
+
 import com.tinkerforge.BrickletMotionDetector.MotionDetectedListener;
+import com.tinkerforge.BrickletMotionDetector.DetectionCycleEndedListener;;
 
 public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEndpoint, BrickletMotionDetector> implements MotionDetectedListener, DetectionCycleEndedListener {
     
@@ -37,12 +38,23 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
     public MotionDetectorConsumer(MotionDetectorEndpoint endpoint, Processor processor) throws UnknownHostException, AlreadyConnectedException, IOException {
         super(endpoint, processor);
         device = new BrickletMotionDetector(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
-        device.addMotionDetectedListener(this);
-        device.addDetectionCycleEndedListener(this);
+
+        if(endpoint.getCallback()==null || endpoint.getCallback().equals("")){
+            device.addMotionDetectedListener(this);
+            device.addDetectionCycleEndedListener(this);
+            
+        }else{
+            String[] callbacks = endpoint.getCallback().split(",");
+            for (String callback : callbacks) {
+                if(callback.equals("MotionDetectedListener")) device.addMotionDetectedListener(this);
+                if(callback.equals("DetectionCycleEndedListener")) device.addDetectionCycleEndedListener(this);
+                
+            }
+        }
     }
     
     
-    @Override
+	@Override
     public void motionDetected() {
         LOG.trace("motionDetected()");
         
@@ -53,8 +65,9 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
             // ADD HEADER
             exchange.getIn().setHeader("CALLBACK", BrickletMotionDetector.CALLBACK_MOTION_DETECTED);
             
+            
             // ADD BODY
-            exchange.getIn().setBody("CALLBACK_MOTION_DETECTED");;
+            exchange.getIn().setBody("motion_detected");;
             
             getProcessor().process(exchange);
         } catch (Exception e) {
@@ -65,10 +78,11 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
             }
         }
     }
-
-    @Override
+    
+	@Override
     public void detectionCycleEnded() {
         LOG.trace("detectionCycleEnded()");
+        
         Exchange exchange = null;
         try {
             exchange = createExchange();
@@ -76,8 +90,9 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
             // ADD HEADER
             exchange.getIn().setHeader("CALLBACK", BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED);
             
+            
             // ADD BODY
-            exchange.getIn().setBody("CALLBACK_DETECTION_CYCLE_ENDED");
+            exchange.getIn().setBody("detection_cycle_ended");;
             
             getProcessor().process(exchange);
         } catch (Exception e) {
@@ -88,5 +103,7 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
             }
         }
     }
+    
+    
 
 }

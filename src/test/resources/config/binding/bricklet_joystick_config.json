@@ -1,0 +1,987 @@
+{
+    "category": "Bricklet",
+    "description": "Dual-Axis Joystick with Button",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPosition",
+                "get_position"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Position des Joystick zur\u00fcck. Der Wertebereich ist von -100 bis\n100 f\u00fcr beide Achsen. Die Mittelposition des Joysticks ist x=0, y=0.\nDie zur\u00fcckgegebenen Werte sind gemittelt und kalibriert (siehe :func:`Calibrate`).\n\nWenn die Position periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`Position` zu nutzen und die Periode mit \n:func:`SetPositionCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the position of the Joystick. The value ranges between -100 and\n100 for both axis. The middle position of the joystick is x=0, y=0. The\nreturned values are averaged and calibrated (see :func:`Calibrate`).\n\nIf you want to get the position periodically, it is recommended to use the\ncallback :func:`Position` and set the period with \n:func:`SetPositionCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "pressed",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsPressed",
+                "is_pressed"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Taste gedr\u00fcckt ist und sonst *false*.\n\nEs wird empfohlen die :func:`Pressed` und :func:`Released` Callbacks\nzu nutzen, um die Taste programmatisch zu behandeln.\n",
+                    "en": "\nReturns *true* if the button is pressed and *false* otherwise.\n\nIt is recommended to use the :func:`Pressed` and :func:`Released` callbacks\nto handle the button.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAnalogValue",
+                "get_analog_value"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Wert, wie vom 12-Bit Analog-Digital-Wandler gelesen, zur\u00fcck. Der\nWertebereich ist 0 bis 4095.\n\n.. note::\n Der von :func:`GetPosition` zur\u00fcckgegebene Wert ist \u00fcber mehrere\n Messwerte gemittelt um das Rauschen zu vermindern, w\u00e4hrend :func:`GetAnalogValue`\n unverarbeitete Analogwerte zur\u00fcck gibt. Der einzige Grund :func:`GetAnalogValue`\n zu nutzen, ist die volle Aufl\u00f6sung des Analog-Digital-Wandlers zu erhalten.\n \nWenn die Analogwerte periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`AnalogValue` zu nutzen und die Periode mit \n:func:`SetAnalogValueCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the values as read by a 12-bit analog-to-digital converter.\nThe values are between 0 and 4095 for both axis.\n\n.. note::\n The values returned by :func:`GetPosition` are averaged over several samples\n to yield less noise, while :func:`GetAnalogValue` gives back raw\n unfiltered analog values. The only reason to use :func:`GetAnalogValue` is,\n if you need the full resolution of the analog-to-digital converter.\n\nIf you want the analog values periodically, it is recommended to use the \ncallback :func:`AnalogValue` and set the period with \n:func:`SetAnalogValueCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Calibrate",
+                "calibrate"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nKalibriert die Mittelposition des Joysticks. Sollte der Joystick Bricklet\nnicht x=0 und y=0 in der Mittelposition zur\u00fcckgeben, kann diese Funktion\naufgerufen werden wenn der Joystick sich unbewegt in der Mittelposition befindet.\n\nDie resultierende Kalibrierung wird in den EEPROM des Joystick Bricklet gespeichert,\nsomit ist die Kalibrierung nur einmalig notwendig.\n",
+                    "en": "\nCalibrates the middle position of the Joystick. If your Joystick Bricklet\ndoes not return x=0 and y=0 in the middle position, call this function\nwhile the Joystick is standing still in the middle position.\n\nThe resulting calibration will be saved on the EEPROM of the Joystick\nBricklet, thus you only have to calibrate it once.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetPositionCallbackPeriod",
+                "set_position_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Position` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Position` wird nur ausgel\u00f6st wenn sich die Position seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Position` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Position` is only triggered if the position has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPositionCallbackPeriod",
+                "get_position_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetPositionCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetPositionCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAnalogValueCallbackPeriod",
+                "set_analog_value_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`AnalogValue` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`AnalogValue` wird nur ausgel\u00f6st wenn sich die Analogwerte seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`AnalogValue` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`AnalogValue` is only triggered if the analog values have changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAnalogValueCallbackPeriod",
+                "get_analog_value_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAnalogValueCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAnalogValueCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min_x",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max_x",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "min_y",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max_y",
+                    "int16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetPositionCallbackThreshold",
+                "set_position_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`PositionReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Position *au\u00dferhalb* der min und max Werte ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Position *innerhalb* der min und max Werte ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Position kleiner als die min Werte ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Position gr\u00f6\u00dfer als die min Werte ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0, 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`PositionReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the position is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the position is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the position is smaller than the min values (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the position is greater than the min values (max is ignored)\"\n\nThe default value is ('x', 0, 0, 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min_x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max_x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "min_y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max_y",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPositionCallbackThreshold",
+                "get_position_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetPositionCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetPositionCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min_x",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max_x",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "min_y",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max_y",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAnalogValueCallbackThreshold",
+                "set_analog_value_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`AnalogValueReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Analogwerte *au\u00dferhalb* der min und max Werte ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Analogwerte *innerhalb* der min und max Werte ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Analogwerte kleiner als die min Werte ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Analogwerte gr\u00f6\u00dfer als die min Werte ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0, 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`AnalogValueReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the analog values are *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the analog values are *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the analog values are smaller than the min values (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the analog values are greater than the min values (max is ignored)\"\n\nThe default value is ('x', 0, 0, 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min_x",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max_x",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "min_y",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max_y",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAnalogValueCallbackThreshold",
+                "get_analog_value_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetAnalogValueCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetAnalogValueCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDebouncePeriod",
+                "set_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher die Schwellwert Callbacks\n\n* :func:`PositionReached`,\n* :func:`AnalogValueReached`\n \nausgel\u00f6st werden, wenn die Schwellwerte \n\n* :func:`SetPositionCallbackThreshold`,\n* :func:`SetAnalogValueCallbackThreshold`\n \nweiterhin erreicht bleiben.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the period in ms with which the threshold callbacks\n\n* :func:`PositionReached`,\n* :func:`AnalogValueReached`\n\nare triggered, if the thresholds\n\n* :func:`SetPositionCallbackThreshold`,\n* :func:`SetAnalogValueCallbackThreshold`\n\nkeep being reached.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDebouncePeriod",
+                "get_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Entprellperiode zur\u00fcck, wie von :func:`SetDebouncePeriod`\ngesetzt.\n",
+                    "en": "\nReturns the debounce period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Position",
+                "position"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetPositionCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Position des Joysticks.\n\n:func:`Position` wird nur ausgel\u00f6st wenn sich der Strom seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetPositionCallbackPeriod`. The :word:`parameter` is the position of the\nJoystick.\n\n:func:`Position` is only triggered if the position has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AnalogValue",
+                "analog_value"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAnalogValueCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` sind die Analogwerte des Joysticks.\n\n:func:`AnalogValue` wird nur ausgel\u00f6st wenn sich die Analogwerte seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAnalogValueCallbackPeriod`. The :word:`parameters` are the analog values\nof the Joystick.\n\n:func:`AnalogValue` is only triggered if the values have changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "PositionReached",
+                "position_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetPositionCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist die Position des Joysticks.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetPositionCallbackThreshold` is reached.\nThe :word:`parameters` are the position of the Joystick.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AnalogValueReached",
+                "analog_value_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetAnalogValueCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` sind die Analogwerte des Joystick.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetAnalogValueCallbackThreshold` is reached.\nThe :word:`parameters` are the analog values of the Joystick.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "callback"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Pressed",
+                "pressed"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn die Taste gedr\u00fcckt wird.\n",
+                    "en": "\nThis callback is triggered when the button is pressed.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "callback"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Released",
+                "released"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn die Taste losgelassen wird.\n",
+                    "en": "\nThis callback is triggered when the button is released.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 210,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "Joystick",
+        "joystick",
+        "Joystick"
+    ]
+}

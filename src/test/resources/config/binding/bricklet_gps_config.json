@@ -1,0 +1,992 @@
+{
+    "category": "Bricklet",
+    "description": "Device for receiving GPS position",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "latitude",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "ns",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "longitude",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "ew",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "pdop",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "hdop",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "vdop",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "epe",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCoordinates",
+                "get_coordinates"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die GPS Koordinaten zur\u00fcck. Breitengrad und L\u00e4ngengrad werden im Format\n``DD.dddddd\u00b0`` angegeben, der Wert 57123468 bedeutet 57,123468\u00b0.\nDie Parameter ``ns`` und ``ew`` sind Himmelsrichtungen f\u00fcr\nBreiten- und L\u00e4ngengrad. M\u00f6gliche Werte f\u00fcr ``ns`` und ``ew`` sind 'N', 'S', 'E'\nund 'W' (Nord, S\u00fcd, Ost, West).\n\nPDOP, HDOP und VDOP sind die \"Dilution Of Precision\" (DOP) Werte. Sie\nspezifizieren die zus\u00e4tzlichen multiplikativen Effekte von der GPS\nSatellitengeometrie auf die GPS-Pr\u00e4zision.\n`hier <http://en.wikipedia.org/wiki/Dilution_of_precision_(GPS)>`__ gibt\nes mehr Informationen dazu. Die Werte werden in Hundertstel gegeben.\n\nEPE ist der \"Estimated Position Error\". Der EPE wird in cm gegeben.\nDies ist nicht der absolut maximale Fehler, es ist der Fehler mit einer\nspezifischen Konfidenz. Siehe \n`hier <http://www.nps.gov/gis/gps/WhatisEPE.html>`__ f\u00fcr mehr Informationen.\n\nDiese Daten sind nur g\u00fcltig wenn ein Fix vorhanden ist (siehe :func:`GetStatus`).\n",
+                    "en": "\nReturns the GPS coordinates. Latitude and longitude are given in the\n``DD.dddddd\u00b0`` format, the value 57123468 means 57.123468\u00b0.\nThe parameter ``ns`` and ``ew`` are the cardinal directions for\nlatitude and longitude. Possible values for ``ns`` and ``ew`` are 'N', 'S', 'E'\nand 'W' (north, south, east and west).\n\nPDOP, HDOP and VDOP are the dilution of precision (DOP) values. They specify\nthe additional multiplicative effect of GPS satellite geometry on GPS \nprecision. See \n`here <http://en.wikipedia.org/wiki/Dilution_of_precision_(GPS)>`__\nfor more information. The values are give in hundredths.\n\nEPE is the \"Estimated Position Error\". The EPE is given in cm. This is not the\nabsolute maximum error, it is the error with a specific confidence. See\n`here <http://www.nps.gov/gis/gps/WhatisEPE.html>`__ for more information.\n\nThis data is only valid if there is currently a fix as indicated by\n:func:`GetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "fix",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Fix",
+                        "fix",
+                        [
+                            [
+                                "NoFix",
+                                "no_fix",
+                                1
+                            ],
+                            [
+                                "2DFix",
+                                "2d_fix",
+                                2
+                            ],
+                            [
+                                "3DFix",
+                                "3d_fix",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "satellites_view",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "satellites_used",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStatus",
+                "get_status"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den aktuellen Fix-Status, die Anzahl der sichtbaren Satelliten und die\nAnzahl der im Moment benutzten Satelliten zur\u00fcck.\n\nM\u00f6gliche Fix-Status Werte sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 100\n\n \"1\", \"Kein Fix, :func:`GetCoordinates` und :func:`GetAltitude` geben ung\u00fcltige Daten zur\u00fcck\"\n \"2\", \"2D Fix, nur :func:`GetCoordinates` gibt g\u00fcltige Daten zur\u00fcck\"\n \"3\", \"3D Fix, :func:`GetCoordinates` und :func:`GetAltitude` geben g\u00fcltige Daten zur\u00fcck\"\n\nAuf dem Bricklet ist eine :ref:`blaue LED <gps_bricklet_fix_led>`, die den\nFix-Status anzeigt.\n",
+                    "en": "\nReturns the current fix status, the number of satellites that are in view and\nthe number of satellites that are currently used.\n\nPossible fix status values can be:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 100\n\n \"1\", \"No Fix, :func:`GetCoordinates` and :func:`GetAltitude` return invalid data\"\n \"2\", \"2D Fix, only :func:`GetCoordinates` returns valid data\"\n \"3\", \"3D Fix, :func:`GetCoordinates` and :func:`GetAltitude` return valid data\"\n\nThere is also a :ref:`blue LED <gps_bricklet_fix_led>` on the Bricklet that\nindicates the fix status.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "altitude",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "geoidal_separation",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAltitude",
+                "get_altitude"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuelle H\u00f6he und die dazu geh\u00f6rige \"Geoidal Separation\"\nzur\u00fcck.\n\nBeide Werte werden in cm angegeben.\n\nDiese Daten sind nur g\u00fcltig wenn ein Fix vorhanden ist (siehe :func:`GetStatus`).\n",
+                    "en": "\nReturns the current altitude and corresponding geoidal separation.\n\nBoth values are given in cm.\n\nThis data is only valid if there is currently a fix as indicated by\n:func:`GetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "course",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "speed",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMotion",
+                "get_motion"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuelle Richtung und Geschwindigkeit zur\u00fcck. Die Richtung wird\nin hundertstel Grad und die Geschwindigkeit in hundertstel km/h angegeben. Eine\nRichtung von 0\u00b0 bedeutet eine Bewegung des Bricklets nach Norden und 90\u00b0\neiner Bewegung nach Osten.\n\nDabei ist zu beachten: Diese Funktion liefert nur n\u00fctzlich Werte wenn\nauch tats\u00e4chlich eine Bewegung stattfindet.\n\nDiese Daten sind nur g\u00fcltig wenn ein Fix vorhanden ist (siehe :func:`GetStatus`).\n",
+                    "en": "\nReturns the current course and speed. Course is given in hundredths degree\nand speed is given in hundredths km/h. A course of 0\u00b0 means the Bricklet is\ntraveling north bound and 90\u00b0 means it is traveling east bound.\n\nPlease note that this only returns useful values if an actual movement\nis present.\n\nThis data is only valid if there is currently a fix as indicated by\n:func:`GetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "date",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "time",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDateTime",
+                "get_date_time"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt das aktuelle Datum und die aktuelle Zeit zur\u00fcck. Das Datum ist\nim Format ``ddmmyy`` und die Zeit im Format ``hhmmss.sss`` angegeben. Zum\nBeispiel, 140713 bedeutet 14.05.13 als Datum und 195923568 bedeutet\n19:59:23.568 als Zeit.\n",
+                    "en": "\nReturns the current date and time. The date is\ngiven in the format ``ddmmyy`` and the time is given\nin the format ``hhmmss.sss``. For example, 140713 means\n14.05.13 as date and 195923568 means 19:59:23.568 as time.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "restart_type",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "RestartType",
+                        "restart_type",
+                        [
+                            [
+                                "HotStart",
+                                "hot_start",
+                                0
+                            ],
+                            [
+                                "WarmStart",
+                                "warm_start",
+                                1
+                            ],
+                            [
+                                "ColdStart",
+                                "cold_start",
+                                2
+                            ],
+                            [
+                                "FactoryReset",
+                                "factory_reset",
+                                3
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "Restart",
+                "restart"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nStartet das GPS Bricklet neu. Die folgenden Neustart-Typen stehen zur\nVerf\u00fcgung:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 100\n\n \"0\", \"Hot Start (alle verf\u00fcgbaren Daten im NV-Speicher werden weiter genutzt)\"\n \"1\", \"Warm Start (Ephemerisdaten werden verworfen)\"\n \"2\", \"Cold Start (Zeit-, Position-, Almanach- und Ephemerisdaten werden verworfen)\"\n \"3\", \"Factory Reset (Alle System/User Einstellungen werden verworfen)\"\n",
+                    "en": "\nRestarts the GPS Bricklet, the following restart types are available:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 100\n\n \"0\", \"Hot start (use all available data in the NV store)\"\n \"1\", \"Warm start (don't use ephemeris at restart)\"\n \"2\", \"Cold start (don't use time, position, almanacs and ephemeris at restart)\"\n \"3\", \"Factory reset (clear all system/user configurations at restart)\"\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetCoordinatesCallbackPeriod",
+                "set_coordinates_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Coordinates` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Coordinates` wird nur ausgel\u00f6st wenn sich die Koordinaten seit der\nletzten Ausl\u00f6sung ge\u00e4ndert haben.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Coordinates` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Coordinates` is only triggered if the coordinates changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCoordinatesCallbackPeriod",
+                "get_coordinates_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetCoordinatesCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetCoordinatesCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetStatusCallbackPeriod",
+                "set_status_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Status` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Status` wird nur ausgel\u00f6st wenn sich der Status seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Status` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Status` is only triggered if the status changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStatusCallbackPeriod",
+                "get_status_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetStatusCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetStatusCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAltitudeCallbackPeriod",
+                "set_altitude_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Altitude` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Altitude` wird nur ausgel\u00f6st wenn sich die H\u00f6he seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Altitude` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Altitude` is only triggered if the altitude changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAltitudeCallbackPeriod",
+                "get_altitude_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAltitudeCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAltitudeCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetMotionCallbackPeriod",
+                "set_motion_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Motion` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Motion` wird nur ausgel\u00f6st wenn sich die Bewegung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Motion` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Motion` is only triggered if the motion changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMotionCallbackPeriod",
+                "get_motion_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetMotionCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetMotionCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDateTimeCallbackPeriod",
+                "set_date_time_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`DateTime` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`DateTime` wird nur ausgel\u00f6st wenn sich das Datum oder die Zeit seit der\nletzten Ausl\u00f6sung ge\u00e4ndert haben.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`DateTime` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`DateTime` is only triggered if the date or time changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDateTimeCallbackPeriod",
+                "get_date_time_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetDateTimeCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetDateTimeCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "latitude",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "ns",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "longitude",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "ew",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "pdop",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "hdop",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "vdop",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "epe",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Coordinates",
+                "coordinates"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit \n:func:`SetCoordinatesCallbackPeriod`, ausgel\u00f6st. Die Parameter sind die \ngleichen wie die von :func:`GetCoordinates`.\n\n:func:`Coordinates` wird nur ausgel\u00f6st wenn sich die\nKoordinaten seit der letzten Ausl\u00f6sung ge\u00e4ndert haben und ein Fix vorhanden\nist (siehe :func:`GetStatus`).\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetCoordinatesCallbackPeriod`. The parameters are the same\nas for :func:`GetCoordinates`.\n\n:func:`Coordinates` is only triggered if the coordinates changed since the\nlast triggering and if there is currently a fix as indicated by\n:func:`GetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "fix",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Fix",
+                        "fix",
+                        [
+                            [
+                                "NoFix",
+                                "no_fix",
+                                1
+                            ],
+                            [
+                                "2DFix",
+                                "2d_fix",
+                                2
+                            ],
+                            [
+                                "3DFix",
+                                "3d_fix",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "satellites_view",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "satellites_used",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Status",
+                "status"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit \n:func:`SetStatusCallbackPeriod`, ausgel\u00f6st. Die Parameter sind die \ngleichen wie die von :func:`GetStatus`.\n\n:func:`Status` wird nur ausgel\u00f6st wenn sich der \nStatus seit der letzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetStatusCallbackPeriod`. The parameters are the same\nas for :func:`GetStatus`.\n\n:func:`Status` is only triggered if the status changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "altitude",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "geoidal_separation",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Altitude",
+                "altitude"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit \n:func:`SetAltitudeCallbackPeriod`, ausgel\u00f6st. Die Parameter sind die \ngleichen wie die von :func:`GetAltitude`.\n\n:func:`Altitude` wird nur ausgel\u00f6st wenn sich die \nH\u00f6he seit der letzten Ausl\u00f6sung ge\u00e4ndert hat und ein Fix vorhanden\nist (siehe :func:`GetStatus`).\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAltitudeCallbackPeriod`. The parameters are the same\nas for :func:`GetAltitude`.\n\n:func:`Altitude` is only triggered if the altitude changed since the\nlast triggering and if there is currently a fix as indicated by\n:func:`GetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "course",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "speed",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Motion",
+                "motion"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit \n:func:`SetMotionCallbackPeriod`, ausgel\u00f6st. Die Parameter sind die \ngleichen wie die von :func:`GetMotion`.\n\n:func:`Motion` wird nur ausgel\u00f6st wenn sich die \nBewegung seit der letzten Ausl\u00f6sung ge\u00e4ndert hat und ein Fix vorhanden\nist (siehe :func:`GetStatus`).\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetMotionCallbackPeriod`. The parameters are the same\nas for :func:`GetMotion`.\n\n:func:`Motion` is only triggered if the motion changed since the\nlast triggering and if there is currently a fix as indicated by\n:func:`GetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "date",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "time",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "DateTime",
+                "date_time"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit \n:func:`SetDateTimeCallbackPeriod`, ausgel\u00f6st. Die Parameter sind die \ngleichen wie die von :func:`GetDateTime`.\n\n:func:`DateTime` wird nur ausgel\u00f6st wenn sich das Datum oder die Zeit \nseit der letzten Ausl\u00f6sung ge\u00e4ndert haben.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetDateTimeCallbackPeriod`. The parameters are the same\nas for :func:`GetDateTime`.\n\n:func:`DateTime` is only triggered if the date or time changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 21,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 222,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "GPS",
+        "gps",
+        "GPS"
+    ]
+}

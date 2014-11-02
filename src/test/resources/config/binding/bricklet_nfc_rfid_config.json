@@ -1,0 +1,678 @@
+{
+    "category": "Bricklet",
+    "description": "Device that can read and write NFC and RFID tags",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "tag_type",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "TagType",
+                        "tag_type",
+                        [
+                            [
+                                "MifareClassic",
+                                "mifare_classic",
+                                0
+                            ],
+                            [
+                                "Type1",
+                                "type1",
+                                1
+                            ],
+                            [
+                                "Type2",
+                                "type2",
+                                2
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "RequestTagID",
+                "request_tag_id"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nUm ein Tag welches sich in der n\u00e4he des NFC/RFID Bricklets befindet zu\nlesen oder zu schreiben muss zuerst diese Funktion mit dem erwarteten\nTag Typ aufgerufen werden. Es ist kein Problem wenn der Typ nicht bekannt\nist. Es ist m\u00f6glich die ver\u00fcgbaren Tag Typen einfach nacheinander\ndurchzutesten bis das Tag antwortet.\n\nAktuell werden die folgenden Tag Typen unterst\u00fctzt:\n\n* Mifare Classic (``tag_type`` = 0)\n* NFC Forum Type 1 (``tag_type`` = 1)\n* NFC Forum Type 2 (``tag_type`` = 2)\n\nBeim Aufruf von :func:`RequestTagID` probiert das NFC/RFID Bricklet die tag ID\neines Tags auszulesen. Nachdem dieser Prozess beendet ist \u00e4ndert sich\nder Zustand des Bricklets. Es ist m\u00f6glich den Callback :func:`StateChanged` zu\nregistrieren oder den Zustand \u00fcber :func:`GetState` zu pollen.\n\nWenn der Zustand auf *RequestTagIDError* wechselt ist ein Fehler aufgetreten.\nDies bedeutet, dass entweder kein Tag oder kein Tag vom passenden Typ gefunden\nwerden konnte. Wenn der Zustand auf *RequestTagIDReady* wechselt ist ein\nkompatibles Tag gefunden worden und die Tag ID wurde gespeichert. Die\nTag ID kann nun \u00fcber :func:`GetTagID` ausgelesen werden.\n\nWenn sich zwei Tags gleichzeitig in der N\u00e4he des NFC/RFID Bricklets befinden\nwerden diese nacheinander ausgelesen. Um ein spezifisches Tag zu selektieren\nmuss :func:`RequestTagID` so lange aufgerufen werden bis das korrekte Tag\ngefunden wurde.\n\nFalls sich das NFC/RFID Bricklet in einem der *Error* Zust\u00e4nde befindet\nist die Selektion aufgehoben und :func:`RequestTagID` muss erneut\naufgerufen werden.\n",
+                    "en": "\nTo read or write a tag that is in proximity of the NFC/RFID Bricklet you \nfirst have to call this function with the expected tag type as parameter.\nIt is no problem if you don't know the tag type. You can cycle through \nthe available tag types until the tag gives an answer to the request.\n\nCurrent the following tag types are supported:\n\n* Mifare Classic (``tag_type`` = 0)\n* NFC Forum Type 1 (``tag_type`` = 1)\n* NFC Forum Type 2 (``tag_type`` = 2)\n\nAfter you call :func:`RequestTagID` the NFC/RFID Bricklet will try to read \nthe tag ID from the tag. After this process is done the state will change.\nYou can either register the :func:`StateChanged` callback or you can poll\n:func:`GetState` to find out about the state change.\n\nIf the state changes to *RequestTagIDError* it means that either there was \nno tag present or that the tag is of an incompatible type. If the state \nchanges to *RequestTagIDReady* it means that a compatible tag was found \nand that the tag ID could be read out. You can now get the tag ID by\ncalling :func:`GetTagID`.\n\nIf two tags are in the proximity of the NFC/RFID Bricklet, this\nfunction will cycle through the tags. To select a specific tag you have\nto call :func:`RequestTagID` until the correct tag id is found.\n\nIn case of any *Error* state the selection is lost and you have to\nstart again by calling :func:`RequestTagID`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "tag_type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "TagType",
+                        "tag_type",
+                        [
+                            [
+                                "MifareClassic",
+                                "mifare_classic",
+                                0
+                            ],
+                            [
+                                "Type1",
+                                "type1",
+                                1
+                            ],
+                            [
+                                "Type2",
+                                "type2",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "tid_length",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "tid",
+                    "uint8",
+                    7,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetTagID",
+                "get_tag_id"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Tag Typ, die Tag ID und die L\u00e4nge der Tag ID (4 oder 7 Byte\nm\u00f6glich) zur\u00fcck. Diese Funktion kann  nur aufgerufen werden wenn\nsich das Bricklet gerade in einem der *Ready*-Zust\u00e4nde befindet. Die\nzur\u00fcckgegebene ID ist die letzte ID die durch einen Aufruf von \n:func:`RequestTagID` gefunden wurde.\n\nDer Ansatz um die Tag ID eines Tags zu bekommen sieht wie folgt aus:\n\n* Rufe :func:`RequestTagID` auf\n* Warte auf einen Zustandswechsel auf *RequestTagIDReady* (siehe :func:`GetState` oder :func:`StateChanged`)\n* Rufe :func:`GetTagID` auf\n",
+                    "en": "\nReturns the tag type, tag ID and the length of the tag ID \n(4 or 7 bytes are possible length). This function can only be called if the\nNFC/RFID is currently in one of the *Ready* states. The returned ID\nis the ID that was saved through the last call of :func:`RequestTagID`.\n\nTo get the tag ID of a tag the approach is as follows:\n\n* Call :func:`RequestTagID`\n* Wait for state to change to *RequestTagIDReady* (see :func:`GetState` or :func:`StateChanged`)\n* Call :func:`GetTagID`\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "state",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "State",
+                        "state",
+                        [
+                            [
+                                "Initialization",
+                                "initialization",
+                                0
+                            ],
+                            [
+                                "Idle",
+                                "idle",
+                                128
+                            ],
+                            [
+                                "Error",
+                                "error",
+                                192
+                            ],
+                            [
+                                "RequestTagID",
+                                "request_tag_id",
+                                2
+                            ],
+                            [
+                                "RequestTagIDReady",
+                                "request_tag_id_ready",
+                                130
+                            ],
+                            [
+                                "RequestTagIDError",
+                                "request_tag_id_error",
+                                194
+                            ],
+                            [
+                                "AuthenticatingMifareClassicPage",
+                                "authenticating_mifare_classic_page",
+                                3
+                            ],
+                            [
+                                "AuthenticatingMifareClassicPageReady",
+                                "authenticating_mifare_classic_page_ready",
+                                131
+                            ],
+                            [
+                                "AuthenticatingMifareClassicPageError",
+                                "authenticating_mifare_classic_page_error",
+                                195
+                            ],
+                            [
+                                "WritePage",
+                                "write_page",
+                                4
+                            ],
+                            [
+                                "WritePageReady",
+                                "write_page_ready",
+                                132
+                            ],
+                            [
+                                "WritePageError",
+                                "write_page_error",
+                                196
+                            ],
+                            [
+                                "RequestPage",
+                                "request_page",
+                                5
+                            ],
+                            [
+                                "RequestPageReady",
+                                "request_page_ready",
+                                133
+                            ],
+                            [
+                                "RequestPageError",
+                                "request_page_error",
+                                197
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "idle",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetState",
+                "get_state"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den aktuellen Zustand des NFC/RFID Bricklets aus.\n\nW\u00e4hrend der Startphase ist der Zustand *Initialization*. Die \nInitialisierung dauert etwa 20ms. Danach \u00e4ndert sich der Zustand zu\n*Idle*.\n\nDie Funktionen dieses Bricklets k\u00f6nnen aufgerufen werden wenn der Zustand\nentweder *Idle* ist oder einer der *Ready* oder *Error*-Zust\u00e4nde\nerreicht wurde.\n\nBeispiel: Wenn :func:`RequestPage` aufgerufen wird, \u00e4nder sich der\nZustand zu *RequestPage* solange der Leseprozess noch nicht abgeschlossen\nist. Danach \u00e4ndert sich der Zustand zu *RequestPageReady* wenn das lesen\nfunktioniert hat oder zu *RequestPageError* wenn nicht. Wenn die Anfrage\nerfolgreich war kann die Page mit :func:`GetPage` abgerufen werden.\n\nDer gleiche Ansatz kann analog f\u00fcr andere API Funktionen verwendet werden.\n\nM\u00f6gliche Zust\u00e4nde sind:\n\n* Initialization = 0\n* Idle = 128\n* Error = 192\n* RequestTagID = 2\n* RequestTagIDReady = 130\n* RequestTagIDError = 194\n* AuthenticatingMifareClassicPage = 3\n* AuthenticatingMifareClassicPageReady = 131\n* AuthenticatingMifareClassicPageError = 195\n* WritePage = 4\n* WritePageReady = 132\n* WritePageError = 196\n* RequestPage = 5\n* RequestPageReady = 133\n* RequestPageError = 197\n",
+                    "en": "\nReturns the current state of the NFC/RFID Bricklet.\n\nOn startup the Bricklet will be in the *Initialization* state. The\ninitialization will only take about 20ms. After that it changes to *Idle*.\n\nThe functions of this Bricklet can be called in the *Idle* state and all of\nthe *Ready* and *Error* states.\n\nExample: If you call :func:`RequestPage`, the state will change to \n*RequestPage* until the reading of the page is finished. Then it will change\nto either *RequestPageReady* if it worked or to *RequestPageError* if it\ndidn't. If the request worked you can get the page by calling :func:`GetPage`.\n\nThe same approach is used analogously for the other API functions.\n\nPossible states are:\n\n* Initialization = 0\n* Idle = 128\n* Error = 192\n* RequestTagID = 2\n* RequestTagIDReady = 130\n* RequestTagIDError = 194\n* AuthenticatingMifareClassicPage = 3\n* AuthenticatingMifareClassicPageReady = 131\n* AuthenticatingMifareClassicPageError = 195\n* WritePage = 4\n* WritePageReady = 132\n* WritePageError = 196\n* RequestPage = 5\n* RequestPageReady = 133\n* RequestPageError = 197\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "page",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "key_number",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Key",
+                        "key",
+                        [
+                            [
+                                "A",
+                                "a",
+                                0
+                            ],
+                            [
+                                "B",
+                                "b",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "key",
+                    "uint8",
+                    6,
+                    "in"
+                ]
+            ],
+            "name": [
+                "AuthenticateMifareClassicPage",
+                "authenticate_mifare_classic_page"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nMifare Classic Tags nutzen Authentifizierung. Wenn eine Page eines \nMifare Classic Tags gelesen oder geschrieben werden soll muss diese\nzuvor Authentifiziert werden. Jede Page kann mit zwei Schl\u00fcsseln, A\n(``key_number`` = 0) und B (``key_number`` = 1),\nauthentifiziert werden. Ein neues Mifare Classic Tag welches noch nicht\nbeschrieben wurde kann \u00fcber Schl\u00fcssel A mit dem Standardschl\u00fcssel\n``[0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]`` genutzt werden.\n\nDer Ansatz um eine Mifare Classic Page zu lesen oder zu schreiben sieht wie\nfolgt aus:\n\n* Rufe :func:`RequestTagID` auf\n* Warte auf einen Zustandswechsel auf *RequestTagIDReady* (siehe :func:`GetState`\n  oder :func:`StateChanged`)\n* Rufe :func:`GetTagID` auf und \u00fcberpr\u00fcfe ob Tag ID korrekt ist.\n* Rufe :func:`AuthenticateMifareClassicPage` mit Page und Schl\u00fcssel f\u00fcr die Page auf\n* Warte auf einen Zustandswechsel auf *AuthenticatingMifareClassicPageReady*\n* Rufe :func:`RequestPage` oder :func`WritePage` zum lesen/schreiben einer Page auf\n",
+                    "en": "\nMifare Classic tags use authentication. If you want to read from or write to\na Mifare Classic page you have to authenticate it beforehand.\nEach page can be authenticated with two keys: A (``key_number`` = 0) and B\n(``key_number`` = 1). A new Mifare Classic\ntag that has not yet been written to can can be accessed with key A\nand the default key ``[0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]``.\n\nThe approach to read or write a Mifare Classic page is as follows:\n\n* Call :func:`RequestTagID`\n* Wait for state to change to *RequestTagIDReady* (see :func:`GetState`\n  or :func:`StateChanged`)\n* Call :func:`GetTagID` and check if tag ID is correct\n* Call :func:`AuthenticateMifareClassicPage` with page and key for the page\n* Wait for state to change to *AuthenticatingMifareClassicPageReady*\n* Call :func:`RequestPage` or :func`WritePage` to read/write page\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "page",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "data",
+                    "uint8",
+                    16,
+                    "in"
+                ]
+            ],
+            "name": [
+                "WritePage",
+                "write_page"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSchreibt 16 Bytes startend von der \u00fcbergebenen Page. Wie viele Pages\ndadurch geschrieben werden h\u00e4ngt vom Typ des Tags ab. Die Pagegr\u00f6\u00dfen\nverhalten sich wie folgt:\n\n* Mifare Classic Pagegr\u00f6\u00dfe: 16 byte (eine Page wird geschrieben)\n* NFC Forum Type 1 Pagegr\u00f6\u00dfe: 8 byte (zwei Pages werden geschrieben)\n* NFC Forum Type 2 Pagegr\u00f6\u00dfe: 4 byte (vier Pages werden geschrieben)\n\nDer generelle Ansatz zum Schreiben eines Tags sieht wie folgt aus:\n\n* Rufe :func:`RequestTagID` auf\n* Warte auf einen Zustandswechsel auf *RequestTagIDReady* (siehe :func:`GetState` oder :func:`StateChanged`)\n* Rufe :func:`GetTagID` auf und \u00fcberpr\u00fcfe ob Tag ID korrekt ist.\n* Rufe :func:`WritePage` mit der Page sowie den zu schreibenden Daten auf.\n* Warte auf einen Zustandswechsel auf *WritePageReady*\n\nWenn ein Mifare Classic Tag verwendet wird muss die Page authentifiziert\nwerden bevor sie geschrieben werden kann. Siehe :func:`AuthenticateMifareClassicPage`.\n",
+                    "en": "\nWrites 16 bytes starting from the given page. How many pages are written\ndepends on the tag type. The page sizes are as follows:\n\n* Mifare Classic page size: 16 byte (one page is written)\n* NFC Forum Type 1 page size: 8 byte (two pages are written)\n* NFC Forum Type 2 page size: 4 byte (four pages are written)\n\nThe general approach for writing to a tag is as follows:\n\n* Call :func:`RequestTagID`\n* Wait for state to change to *RequestTagIDReady* (see :func:`GetState` or :func:`StateChanged`)\n* Call :func:`GetTagID` and check if tag ID is correct\n* Call :func:`WritePage` with page number and data\n* Wait for state to change to *WritePageReady*\n\nIf you use a Mifare Classic tag you have to authenticate a page before you\ncan write to it. See :func:`AuthenticateMifareClassicPage`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "page",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "RequestPage",
+                "request_page"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nLiest 16 Bytes startend von der \u00fcbergebenen Page und speichert sie in\neinem Buffer. Dieser Buffer kann mit :func:`GetPage` ausgelesen werden. \nWie viele Pages dadurch gelesen werden h\u00e4ngt vom Typ des Tags ab. \nDie Pagegr\u00f6\u00dfen verhalten sich wie folgt:\n\n* Mifare Classic Pagegr\u00f6\u00dfe: 16 byte (eine Page wird gelesen)\n* NFC Forum Type 1 Pagegr\u00f6\u00dfe: 8 byte (zwei Pages werden gelesen)\n* NFC Forum Type 2 Pagegr\u00f6\u00dfe: 4 byte (vier Pages werden gelesen)\n\nDer generelle Ansatz zum Lesen eines Tags sieht wie folgt aus:\n\n* Rufe :func:`RequestTagID` auf\n* Warte auf einen Zustandswechsel auf *RequestTagIDReady* (siehe :func:`GetState` oder :func:`StateChanged`)\n* Rufe :func:`GetTagID` auf und \u00fcberpr\u00fcfe ob Tag ID korrekt ist.\n* Rufe :func:`RequestPage` mit der zu lesenden Page auf\n* Warte auf einen Zustandswechsel auf *RequestPageReady*\n* Rufe :func:`GetPage` auf um die gespeicherte Page abzufragen\n\nWenn ein Mifare Classic Tag verwendet wird muss die Page authentifiziert\nwerden bevor sie gelesen werden kann. Siehe :func:`AuthenticateMifareClassicPage`.\n",
+                    "en": "\nReads 16 bytes starting from the given page and stores them into a buffer. \nThe buffer can then be read out with :func:`GetPage`.\nHow many pages are read depends on the tag type. The page sizes are \nas follows:\n\n* Mifare Classic page size: 16 byte (one page is read)\n* NFC Forum Type 1 page size: 8 byte (two pages are read)\n* NFC Forum Type 2 page size: 4 byte (four pages are read)\n\nThe general approach for reading a tag is as follows:\n\n* Call :func:`RequestTagID`\n* Wait for state to change to *RequestTagIDReady* (see :func:`GetState` or :func:`StateChanged`)\n* Call :func:`GetTagID` and check if tag ID is correct\n* Call :func:`RequestPage` with page number\n* Wait for state to change to *RequestPageReady*\n* Call :func:`GetPage` to retrieve the page from the buffer\n\nIf you use a Mifare Classic tag you have to authenticate a page before you\ncan read it. See :func:`AuthenticateMifareClassicPage`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "data",
+                    "uint8",
+                    16,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPage",
+                "get_page"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt 16 Bytes Daten aus einem internen Buffer zur\u00fcck. Der Buffer\nkann zuvor mit spezifischen Pages \u00fcber einen Aufruf von  \n:func:`RequestPage` gef\u00fcllt werden.\n",
+                    "en": "\nReturns 16 bytes of data from an internal buffer. To fill the buffer\nwith specific pages you have to call :func:`RequestPage` beforehand.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "state",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "State",
+                        "state",
+                        [
+                            [
+                                "Initialization",
+                                "initialization",
+                                0
+                            ],
+                            [
+                                "Idle",
+                                "idle",
+                                128
+                            ],
+                            [
+                                "Error",
+                                "error",
+                                192
+                            ],
+                            [
+                                "RequestTagID",
+                                "request_tag_id",
+                                2
+                            ],
+                            [
+                                "RequestTagIDReady",
+                                "request_tag_id_ready",
+                                130
+                            ],
+                            [
+                                "RequestTagIDError",
+                                "request_tag_id_error",
+                                194
+                            ],
+                            [
+                                "AuthenticatingMifareClassicPage",
+                                "authenticating_mifare_classic_page",
+                                3
+                            ],
+                            [
+                                "AuthenticatingMifareClassicPageReady",
+                                "authenticating_mifare_classic_page_ready",
+                                131
+                            ],
+                            [
+                                "AuthenticatingMifareClassicPageError",
+                                "authenticating_mifare_classic_page_error",
+                                195
+                            ],
+                            [
+                                "WritePage",
+                                "write_page",
+                                4
+                            ],
+                            [
+                                "WritePageReady",
+                                "write_page_ready",
+                                132
+                            ],
+                            [
+                                "WritePageError",
+                                "write_page_error",
+                                196
+                            ],
+                            [
+                                "RequestPage",
+                                "request_page",
+                                5
+                            ],
+                            [
+                                "RequestPageReady",
+                                "request_page_ready",
+                                133
+                            ],
+                            [
+                                "RequestPageError",
+                                "request_page_error",
+                                197
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "idle",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "StateChanged",
+                "state_changed"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Zustand des NFC/RFID Bricklets\nsich ver\u00e4ndert. Siehe :func:`GetState` f\u00fcr mehr Informationen\n\u00fcber die m\u00f6glichen Zust\u00e4nde des Bricklets.\n",
+                    "en": "\nThis callback is called if the state of the NFC/RFID Bricklet changes.\nSee :func:`GetState` for more information about the possible states.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 246,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "NFCRFID",
+        "nfc_rfid",
+        "NFC/RFID"
+    ]
+}

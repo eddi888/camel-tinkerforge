@@ -41,7 +41,6 @@ public class MotionDetectorProducer extends TinkerforgeProducer<MotionDetectorEn
         LOG.trace("process(Exchange exchange='"+exchange+"')");
 
         // TODO IMPL
-        // device.getMotionDetected();
         
     }
 

@@ -21,16 +21,21 @@ import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MotionDetectorEndpoint extends TinkerforgeEndpoint<MotionDetectorConsumer, MotionDetectorProducer> {
-    
+
+    private static final Logger LOG = LoggerFactory.getLogger(MotionDetectorEndpoint.class);
+        
     public MotionDetectorEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
     }
 
     @Override
     public Producer createProducer() throws Exception {
-        if (producer == null) {
+        LOG.trace("createProducer()");
+        if(producer==null){
             producer = new MotionDetectorProducer(this);
         }
         return producer;
@@ -38,8 +43,9 @@ public class MotionDetectorEndpoint extends TinkerforgeEndpoint<MotionDetectorCo
 
     @Override
     public Consumer createConsumer(Processor processor) throws Exception {
-        if (consumer == null) {
-            consumer = new MotionDetectorConsumer(this, processor);   
+        LOG.trace("createConsumer(Processor processor='"+processor+"')");
+        if(consumer==null){
+            consumer = new MotionDetectorConsumer(this, processor);
         }
         return consumer;
     }
@@ -48,5 +54,5 @@ public class MotionDetectorEndpoint extends TinkerforgeEndpoint<MotionDetectorCo
     public boolean isSingleton() {
         return false;
     }
-    
+
 }

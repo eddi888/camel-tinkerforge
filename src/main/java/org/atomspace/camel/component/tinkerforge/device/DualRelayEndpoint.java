@@ -28,6 +28,7 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
     
     private static final Logger LOG = LoggerFactory.getLogger(DualRelayProducer.class);
     
+    private String method;
     private String state;
     private String selectedState;
     private String monoflop;
@@ -38,6 +39,7 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
 
     @Override
     public Producer createProducer() throws Exception {
+        LOG.trace("createProducer()");
         if(producer==null){
             producer = new DualRelayProducer(this);
         }
@@ -46,6 +48,7 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
 
     @Override
     public Consumer createConsumer(Processor processor) throws Exception {
+        LOG.trace("createConsumer(Processor processor='"+processor+"')");
         if(consumer==null){
             consumer = new DualRelayConsumer(this, processor);
         }
@@ -81,6 +84,14 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
 
     public void setMonoflop(String monoflop) {
         this.monoflop = monoflop;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 
    

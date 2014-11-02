@@ -27,9 +27,7 @@ import org.slf4j.LoggerFactory;
 public class MockEndpoint extends TinkerforgeEndpoint<MockConsumer, MockProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MockEndpoint.class);
-    
-    private MockConsumer consumer;
-    
+        
     public MockEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
     }
@@ -37,7 +35,10 @@ public class MockEndpoint extends TinkerforgeEndpoint<MockConsumer, MockProducer
     @Override
     public Producer createProducer() throws Exception {
         LOG.trace("createProducer()");
-        return null;
+        if(producer==null){
+            producer = new MockProducer(this);
+        }
+        return producer;
     }
 
     @Override
@@ -53,5 +54,5 @@ public class MockEndpoint extends TinkerforgeEndpoint<MockConsumer, MockProducer
     public boolean isSingleton() {
         return false;
     }
-    
+
 }

@@ -28,13 +28,27 @@ public class MotionDetectorTest extends CamelTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
+                
+                //LISTEN ONLY ONE
+                /*from("tinkerforge://MotionDetector?uid=oTu&callback=MotionDetectedListener")
+                    .to("log:md")
+                    .to("mock:result");
+                
+                //LISTEN 2
+                from("tinkerforge://MotionDetector?uid=oTu&callback=MotionDetectedListener,DetectionCycleEndedListener")
+                    .to("log:md")
+                    .to("mock:result");*/
+                
+                //LISTEN ALL
                 from("tinkerforge://MotionDetector?uid=oTu")
                     .to("log:md")
                     .to("mock:result");
                 
-                from("tinkerforge://DualRelay?uid=kPu")
-                .to("log:md?showHeaders=true")
-                .to("mock:result");
+                /*
+                from("direct://testing")
+                    .to("DualRelay?uid=kPu")
+                    .to("log:md?showHeaders=true")
+                    .to("mock:result");*/
             }
         };
     }

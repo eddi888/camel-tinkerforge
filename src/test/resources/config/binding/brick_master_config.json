@@ -1,0 +1,3571 @@
+{
+    "category": "Brick",
+    "description": "Device for controlling Stacks and four Bricklets",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackVoltage",
+                "get_stack_voltage"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Spannung des Stapels in mV zur\u00fcck. Diese Spannung wird \u00fcber\nden Stapel verteilt und kann zum Beispiel \u00fcber eine Step-Down oder\nStep-Up Power Supply eingespeist werden.\n",
+                    "en": "\nReturns the stack voltage in mV. The stack voltage is the\nvoltage that is supplied via the stack, i.e. it is given by a \nStep-Down or Step-Up Power Supply.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackCurrent",
+                "get_stack_current"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Stromverbrauch des Stapels in mA zur\u00fcck. Der angegebene Strom\nbezieht sich auf den Stromverbrauch der am Stapel angeschlossenen Verbraucher.\nDie Speisung kann z.B. \u00fcber eine Step-Down oder Step-Up Power Supply erfolgen.\n",
+                    "en": "\nReturns the stack current in mA. The stack current is the\ncurrent that is drawn via the stack, i.e. it is given by a\nStep-Down or Step-Up Power Supply.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "extension",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "exttype",
+                    "uint32",
+                    1,
+                    "in",
+                    [
+                        "ExtensionType",
+                        "extension_type",
+                        [
+                            [
+                                "Chibi",
+                                "chibi",
+                                1
+                            ],
+                            [
+                                "RS485",
+                                "rs485",
+                                2
+                            ],
+                            [
+                                "Wifi",
+                                "wifi",
+                                3
+                            ],
+                            [
+                                "Ethernet",
+                                "ethernet",
+                                4
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetExtensionType",
+                "set_extension_type"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSchreibt den Typ der Extension in den EEPROM der angegebenen Extension.\nDie Extension kann entweder 0 oder 1 sein (0 ist an der Unterseite, 1\nauf der Oberseite, wenn nur eine Extension verf\u00fcgbar ist, ist 0 zu verwenden)\n\nM\u00f6gliche Extensiontypen:\n\n.. csv-table::\n :header: \"Typ\", \"Beschreibung\"\n :widths: 10, 100\n \n \"1\",    \"Chibi\"\n \"2\",    \"RS485\"\n \"3\",    \"WIFI\"\n \"4\",    \"Ethernet\"\n\nDer Typ der Extension ist schon gesetzt beim Erwerb der Extension und kann\n\u00fcber den Brick Viewer gesetzt werden. Daher ist es unwahrscheinlich, dass\ndiese Funktion ben\u00f6tigt wird.\n",
+                    "en": "\nWrites the extension type to the EEPROM of a specified extension. \nThe extension is either 0 or 1 (0 is the on the bottom, 1 is the on on top, \nif only one extension is present use 0).\n\nPossible extension types:\n\n.. csv-table::\n :header: \"Type\", \"Description\"\n :widths: 10, 100\n\n \"1\",    \"Chibi\"\n \"2\",    \"RS485\"\n \"3\",    \"WIFI\"\n \"4\",    \"Ethernet\"\n\nThe extension type is already set when bought and it can be set with the \nBrick Viewer, it is unlikely that you need this function.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "extension",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "exttype",
+                    "uint32",
+                    1,
+                    "out",
+                    [
+                        "ExtensionType",
+                        "extension_type",
+                        [
+                            [
+                                "Chibi",
+                                "chibi",
+                                1
+                            ],
+                            [
+                                "RS485",
+                                "rs485",
+                                2
+                            ],
+                            [
+                                "Wifi",
+                                "wifi",
+                                3
+                            ],
+                            [
+                                "Ethernet",
+                                "ethernet",
+                                4
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetExtensionType",
+                "get_extension_type"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Typ der angegebenen Extension zur\u00fcck, wie von :func:`SetExtensionType`\ngesetzt.\n",
+                    "en": "\nReturns the type for a given extension as set by :func:`SetExtensionType`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "present",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsChibiPresent",
+                "is_chibi_present"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt zur\u00fcck ob eine Chibi Extension zur Nutzung durch den Master Brick\nverf\u00fcgbar ist.\n",
+                    "en": "\nReturns *true* if a Chibi Extension is available to be used by the Master Brick.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetChibiAddress",
+                "set_chibi_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die zugeh\u00f6rige Adresse (1-255) der Chibi Extension.\n\nEs ist m\u00f6glich die Adresse mit dem Brick Viewer zu setzen und diese\nwird im EEPROM der Chibi Extension abgespeichert. Ein Setzen bei\njedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets the address (1-255) belonging to the Chibi Extension.\n\nIt is possible to set the address with the Brick Viewer and it will be \nsaved in the EEPROM of the Chibi Extension, it does not\nhave to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChibiAddress",
+                "get_chibi_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Adresse zur\u00fcck, wie von :func:`SetChibiAddress` gesetzt.\n",
+                    "en": "\nReturns the address as set by :func:`SetChibiAddress`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetChibiMasterAddress",
+                "set_chibi_master_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Adresse (1-255) des Chibi Master. Diese Adresse wird verwendet\nwenn die Chibi Extension als Slave verwendet wird (z.B. wenn keine USB-Verbindung\nbesteht).\n\nEs ist m\u00f6glich die Adresse mit dem Brick Viewer zu setzen und diese wird im\nEEPROM der Chibi Extension abgespeichert. Ein Setzen bei\njedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets the address (1-255) of the Chibi Master. This address is used if the\nChibi Extension is used as slave (i.e. it does not have a USB connection).\n\nIt is possible to set the address with the Brick Viewer and it will be \nsaved in the EEPROM of the Chibi Extension, it does not\nhave to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChibiMasterAddress",
+                "get_chibi_master_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Adresse zur\u00fcck, wie von :func:`SetChibiMasterAddress` gesetzt.\n",
+                    "en": "\nReturns the address as set by :func:`SetChibiMasterAddress`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetChibiSlaveAddress",
+                "set_chibi_slave_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt bis zu 254 Slave Adressen. G\u00fcltige Adressen sind 1-255. 0 hat eine\nbesondere Bedeutung, sie wird zur Terminierung der Liste verwendet und ist nicht\nals normale Slave Adresse erlaubt.\nDie Adressnummerierung (mittels :param:`num` Parameter) muss aufsteigend ab\n0 erfolgen. Beispiel: Wenn die Chibi Extension im Master Modus verwendet wird\n(z.B. wenn der Stapel eine USB-Verbindung hat) und es soll mit drei weiteren\nChibi Stapeln kommuniziert werden, mit den Adressen 17, 23 und 42, sollten die\nAufrufe ``(0, 17)``, ``(1, 23)``, ``(2, 42)`` und ``(3, 0)`` sein. Der letzte\nAufruf mit ``(3, 0)`` dient der Terminierung der Liste und zeigt an, dass die\nChibi Slave Adressliste in diesem Fall 3 Eintr\u00e4ge beinhaltet.\n\nEs ist m\u00f6glich die Adressen mit dem Brick Viewer zu setzen, dieser k\u00fcmmert sich\ndann um korrekte Adressnummerierung und Terminierung der Liste.\n\nDie Slave Adresse werden im EEPROM der Chibi Extension abgespeichert. Ein\nSetzen bei jedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets up to 254 slave addresses. Valid addresses are in range 1-255. 0 has a\nspecial meaning, it is used as list terminator and not allowed as normal slave\naddress. The address numeration (via :param:`num` parameter) has to be used\nascending from 0. For example: If you use the Chibi Extension in Master mode\n(i.e. the stack has an USB connection) and you want to talk to three other\nChibi stacks with the slave addresses 17, 23, and 42, you should call with\n``(0, 17)``, ``(1, 23)``, ``(2, 42)`` and ``(3, 0)``. The last call with\n``(3, 0)`` is a list terminator and indicates that the Chibi slave address\nlist contains 3 addresses in this case.\n\nIt is possible to set the addresses with the Brick Viewer, that will take care\nof correct address numeration and list termination.\n\nThe slave addresses will be saved in the EEPROM of the Chibi Extension, they\ndon't have to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChibiSlaveAddress",
+                "get_chibi_slave_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Slave Adresse f\u00fcr eine Adressnummerierung (mittels :param:`num` Parameter)\nzur\u00fcck, wie von :func:`SetChibiSlaveAddress` gesetzt.\n",
+                    "en": "\nReturns the slave address for a given :param:`num` as set by\n:func:`SetChibiSlaveAddress`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "signal_strength",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChibiSignalStrength",
+                "get_chibi_signal_strength"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Signalst\u00e4rke in dBm zur\u00fcck. Die Aktualisierung der Signalst\u00e4rke\nwird bei jedem Empfang eines Paketes durchgef\u00fchrt.\n",
+                    "en": "\nReturns the signal strength in dBm. The signal strength updates every time a\npacket is received.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "underrun",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "crc_error",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "no_ack",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "overflow",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChibiErrorLog",
+                "get_chibi_error_log"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt folgende Fehlerz\u00e4hler der Chibi Kommunikation zur\u00fcck: Underrun, CRC Fehler,\nkein ACK und Overflow. Bei Anstieg dieser Fehlerz\u00e4hler ist es wahrscheinlich, dass\nentweder die Entfernung zwischen zwei Chibi Stapeln zu gro\u00df wird oder St\u00f6rungen\nvorliegen.\n",
+                    "en": "\nReturns underrun, CRC error, no ACK and overflow error counts of the Chibi\ncommunication. If these errors start rising, it is likely that either the\ndistance between two Chibi stacks is becoming too big or there are\ninterferences.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "frequency",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "ChibiFrequency",
+                        "chibi_frequency",
+                        [
+                            [
+                                "OQPSK868MHz",
+                                "oqpsk_868_mhz",
+                                0
+                            ],
+                            [
+                                "OQPSK915MHz",
+                                "oqpsk_915_mhz",
+                                1
+                            ],
+                            [
+                                "OQPSK780MHz",
+                                "oqpsk_780_mhz",
+                                2
+                            ],
+                            [
+                                "BPSK40915MHz",
+                                "bpsk40_915_mhz",
+                                3
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetChibiFrequency",
+                "set_chibi_frequency"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Chibi Frequenzbereich der Chibi Extension. M\u00f6gliche Werte sind:\n\n.. csv-table::\n :header: \"Typ\", \"Beschreibung\"\n :widths: 10, 100\n\n \"0\",    \"OQPSK 868MHz (Europe)\"\n \"1\",    \"OQPSK 915MHz (US)\"\n \"2\",    \"OQPSK 780MHz (China)\"\n \"3\",    \"BPSK40 915MHz\"\n \nEs ist m\u00f6glich den Frequenzbereich mit dem Brick Viewer zu setzen und dieser wird\nim EEPROM der Chibi Extension abgespeichert. Ein Setzen bei\njedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets the Chibi frequency range for the Chibi Extension. Possible values are:\n\n.. csv-table::\n :header: \"Type\", \"Description\"\n :widths: 10, 100\n\n \"0\",    \"OQPSK 868MHz (Europe)\"\n \"1\",    \"OQPSK 915MHz (US)\"\n \"2\",    \"OQPSK 780MHz (China)\"\n \"3\",    \"BPSK40 915MHz\"\n\nIt is possible to set the frequency with the Brick Viewer and it will be \nsaved in the EEPROM of the Chibi Extension, it does not\nhave to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "frequency",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "ChibiFrequency",
+                        "chibi_frequency",
+                        [
+                            [
+                                "OQPSK868MHz",
+                                "oqpsk_868_mhz",
+                                0
+                            ],
+                            [
+                                "OQPSK915MHz",
+                                "oqpsk_915_mhz",
+                                1
+                            ],
+                            [
+                                "OQPSK780MHz",
+                                "oqpsk_780_mhz",
+                                2
+                            ],
+                            [
+                                "BPSK40915MHz",
+                                "bpsk40_915_mhz",
+                                3
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetChibiFrequency",
+                "get_chibi_frequency"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Frequenzbereich zur\u00fcck, wie von :func:`SetChibiFrequency` gesetzt.\n",
+                    "en": "\nReturns the frequency value as set by :func:`SetChibiFrequency`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "channel",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetChibiChannel",
+                "set_chibi_channel"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den verwendeten Kanal der Chibi Extension. Die m\u00f6glichen Kan\u00e4le sind\nabh\u00e4ngig vom verwendeten Frequenzbereich:\n\n.. csv-table::\n :header: \"Frequenzbereich\",             \"M\u00f6gliche Kan\u00e4le\"\n :widths: 40, 60\n\n \"OQPSK 868MHz (Europe)\", \"0\"\n \"OQPSK 915MHz (US)\",     \"1, 2, 3, 4, 5, 6, 7, 8, 9, 10\"\n \"OQPSK 780MHz (China)\",  \"0, 1, 2, 3\"\n \"BPSK40 915MHz\",         \"1, 2, 3, 4, 5, 6, 7, 8, 9, 10\"\n \nEs ist m\u00f6glich den Kanal mit dem Brick Viewer zu setzen und dieser wird\nim EEPROM der Chibi Extension abgespeichert. Ein Setzen bei\njedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets the channel used by the Chibi Extension. Possible channels are\ndifferent for different frequencies:\n\n.. csv-table::\n :header: \"Frequency\",             \"Possible Channels\"\n :widths: 40, 60\n\n \"OQPSK 868MHz (Europe)\", \"0\"\n \"OQPSK 915MHz (US)\",     \"1, 2, 3, 4, 5, 6, 7, 8, 9, 10\"\n \"OQPSK 780MHz (China)\",  \"0, 1, 2, 3\"\n \"BPSK40 915MHz\",         \"1, 2, 3, 4, 5, 6, 7, 8, 9, 10\"\n\nIt is possible to set the channel with the Brick Viewer and it will be \nsaved in the EEPROM of the Chibi Extension, it does not\nhave to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "channel",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChibiChannel",
+                "get_chibi_channel"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Kanal zur\u00fcck, wie von :func:`SetChibiChannel` gesetzt.\n",
+                    "en": "\nReturns the channel as set by :func:`SetChibiChannel`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                0
+            ],
+            "function_id": 17,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "present",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsRS485Present",
+                "is_rs485_present"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt zur\u00fcck ob eine RS485 Extension zur Nutzung durch den Master Brick\nverf\u00fcgbar ist.\n",
+                    "en": "\nReturns *true* if a RS485 Extension is available to be used by the Master Brick.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 18,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetRS485Address",
+                "set_rs485_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die zugeh\u00f6rige Adresse (0-255) der RS485 Extension.\n\nUm eine RS485 Extension als RS485 Master (z.B. verbunden mit einem PC \u00fcber\nUSB) zu betreiben muss die Adresse auf 0 gesetzt werden.\n\nEs ist m\u00f6glich die Adresse mit dem Brick Viewer zu setzen und diese wird im\nEEPROM der RS485 Extension abgespeichert. Ein Setzen bei\njedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets the address (0-255) belonging to the RS485 Extension.\n\nSet to 0 if the RS485 Extension should be the RS485 Master (i.e.\nconnected to a PC via USB).\n\nIt is possible to set the address with the Brick Viewer and it will be \nsaved in the EEPROM of the RS485 Extension, it does not\nhave to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetRS485Address",
+                "get_rs485_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Adresse zur\u00fcck, wie von :func:`SetRS485Address` gesetzt.\n",
+                    "en": "\nReturns the address as set by :func:`SetRS485Address`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetRS485SlaveAddress",
+                "set_rs485_slave_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt bis zu 255 Slave Adressen. G\u00fcltige Adressen sind 1-255. 0 hat eine\nbesondere Bedeutung, sie wird zur Terminierung der Liste verwendet und ist nicht\nals normale Slave Adresse erlaubt.\nDie Adressnummerierung (mittels ``num`` Parameter) muss aufsteigend ab\n0 erfolgen. Beispiel: Wenn die RS485 Extension im Master Modus verwendet wird\n(z.B. wenn der Stapel eine USB-Verbindung hat) und es soll mit drei weiteren\nRS485 Stapeln kommuniziert werden, mit den Adressen 17, 23 und 42, sollten die\nAufrufe ``(0, 17)``, ``(1, 23)``, ``(2, 42)`` und ``(3, 0)`` sein. Der letzte\nAufruf mit ``(3, 0)`` dient der Terminierung der Liste und zeigt an, dass die\nRS485 Slave Adressliste in diesem Fall 3 Eintr\u00e4ge beinhaltet.\n\nEs ist m\u00f6glich die Adressen mit dem Brick Viewer zu setzen, dieser k\u00fcmmert sich\ndann um korrekte Adressnummerierung und Terminierung der Liste.\n\nDie Slave Adresse werden im EEPROM der RS485 Extension abgespeichert. Ein\nSetzen bei jedem Start ist daher nicht notwendig.\n",
+                    "en": "\nSets up to 255 slave addresses. Valid addresses are in range 1-255. 0 has a\nspecial meaning, it is used as list terminator and not allowed as normal slave\naddress. The address numeration (via ``num`` parameter) has to be used\nascending from 0. For example: If you use the RS485 Extension in Master mode\n(i.e. the stack has an USB connection) and you want to talk to three other\nRS485 stacks with the addresses 17, 23, and 42, you should call with\n``(0, 17)``, ``(1, 23)``, ``(2, 42)`` and ``(3, 0)``. The last call with\n``(3, 0)`` is a list terminator and indicates that the RS485 slave address list\ncontains 3 addresses in this case.\n\nIt is possible to set the addresses with the Brick Viewer, that will take care\nof correct address numeration and list termination.\n\nThe slave addresses will be saved in the EEPROM of the Chibi Extension, they\ndon't have to be set on every startup.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 21,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "address",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetRS485SlaveAddress",
+                "get_rs485_slave_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Slave Adresse f\u00fcr eine Adressnummerierung (mittels ``num`` Parameter)\nzur\u00fcck, wie von :func:`SetRS485SlaveAddress` gesetzt.\n",
+                    "en": "\nReturns the slave address for a given ``num`` as set by\n:func:`SetRS485SlaveAddress`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 22,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "crc_error",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetRS485ErrorLog",
+                "get_rs485_error_log"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den CRC Fehlerz\u00e4hler der RS485 Kommunikation zur\u00fcck. Wenn dieser Z\u00e4hler\nansteigt ist es wahrscheinlich, dass der Abstand zwischen zwei RS485-Teilnehmern\nzu gro\u00df ist oder es St\u00f6rungen gibt.\n",
+                    "en": "\nReturns CRC error counts of the RS485 communication.\nIf this counter starts rising, it is likely that the distance\nbetween the RS485 nodes is too big or there is some kind of\ninterference.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 23,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "speed",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "parity",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "RS485Parity",
+                        "rs485_parity",
+                        [
+                            [
+                                "None",
+                                "none",
+                                "n"
+                            ],
+                            [
+                                "Even",
+                                "even",
+                                "e"
+                            ],
+                            [
+                                "Odd",
+                                "odd",
+                                "o"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stopbits",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetRS485Configuration",
+                "set_rs485_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Schnittstellenkonfiguration der RS485 Extension. Die Geschwindigkeit\nwird in Baud angegeben. Der Master Brick versucht die vorgegebene Baudrate so\ngenau wie m\u00f6glich zu erreichen. Die maximale empfohlene Baudrate ist 2000000\n(2Mbit/s). M\u00f6gliche Werte f\u00fcr die Parit\u00e4t sind 'n' (keine), 'e' (gerade) und\n'o' (ungerade). M\u00f6gliche Werte f\u00fcr Stoppbits sind 1 und 2.\n\nWenn die RS485 Kommunikation instabil ist (verlorene Nachrichten etc.), sollte\nzuerst die Baudrate verringert werden. Sehr lange Busleitungen (z.B. 1km)\nsollten m\u00f6glichst Werte im Bereich von 100000 (100kbit/s) verwenden.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt. Dass\nbedeutet, der Master Brick muss nach einer Konfiguration neu gestartet werden.\n",
+                    "en": "\nSets the configuration of the RS485 Extension. Speed is given in baud. The\nMaster Brick will try to match the given baud rate as exactly as possible.\nThe maximum recommended baud rate is 2000000 (2Mbit/s).\nPossible values for parity are 'n' (none), 'e' (even) and 'o' (odd).\nPossible values for stop bits are 1 and 2.\n\nIf your RS485 is unstable (lost messages etc.), the first thing you should\ntry is to decrease the speed. On very large bus (e.g. 1km), you probably\nshould use a value in the range of 100000 (100kbit/s).\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 24,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "speed",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "parity",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "RS485Parity",
+                        "rs485_parity",
+                        [
+                            [
+                                "None",
+                                "none",
+                                "n"
+                            ],
+                            [
+                                "Even",
+                                "even",
+                                "e"
+                            ],
+                            [
+                                "Odd",
+                                "odd",
+                                "o"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "stopbits",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetRS485Configuration",
+                "get_rs485_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Schnittstellenkonfiguration zur\u00fcck, wie von :func:`SetRS485Configuration`\ngesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetRS485Configuration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 25,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "present",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsWifiPresent",
+                "is_wifi_present"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt zur\u00fcck ob eine WIFI Extension zur Nutzung durch den Master Brick verf\u00fcgbar\nist.\n",
+                    "en": "\nReturns *true* if a WIFI Extension is available to be used by the Master Brick.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                0
+            ],
+            "function_id": 26,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "ssid",
+                    "string",
+                    32,
+                    "in"
+                ],
+                [
+                    "connection",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "WifiConnection",
+                        "wifi_connection",
+                        [
+                            [
+                                "DHCP",
+                                "dhcp",
+                                0
+                            ],
+                            [
+                                "StaticIP",
+                                "static_ip",
+                                1
+                            ],
+                            [
+                                "AccessPointDHCP",
+                                "access_point_dhcp",
+                                2
+                            ],
+                            [
+                                "AccessPointStaticIP",
+                                "access_point_static_ip",
+                                3
+                            ],
+                            [
+                                "AdHocDHCP",
+                                "ad_hoc_dhcp",
+                                4
+                            ],
+                            [
+                                "AdHocStaticIP",
+                                "ad_hoc_static_ip",
+                                5
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "ip",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "subnet_mask",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "gateway",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "port",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetWifiConfiguration",
+                "set_wifi_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Konfiguration der WIFI Extension. Die ``ssid`` darf eine maximale\nL\u00e4nge von 32 Zeichen haben. M\u00f6gliche Werte f\u00fcr ``connection`` sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"DHCP\"\n \"1\", \"Statische IP\"\n \"2\", \"Access Point: DHCP\"\n \"3\", \"Access Point: Statische IP\"\n \"4\", \"Ad Hoc: DHCP\"\n \"5\", \"Ad Hoc: Statische IP\"\n\nWenn ``connection`` auf eine der statische IP Optionen gesetzt wird, dann m\u00fcssen\n``ip``, ``subnet_mask`` und ``gateway`` als ein Array der Gr\u00f6\u00dfe 4 angegeben\nwerden. Dabei ist das erste Element im Array das niederwertigste Byte. Falls\n``connection`` auf eine der DHCP Optionen gesetzt ist, werden ``ip``,\n``subnet_mask`` und ``gateway`` ignoriert.\n\nDer letzte Parameter ist der Port auf den das Anwendungsprogramm sich\nverbindet. Der Standardport von brickd ist 4223.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt. Dass\nbedeutet, der Master Brick muss nach einer Konfiguration neu gestartet werden.\n\nWir empfehlen den Brick Viewer zu nutzen um die WIFI Extension zu\nkonfigurieren.\n",
+                    "en": "\nSets the configuration of the WIFI Extension. The ``ssid`` can have a max length\nof 32 characters. Possible values for ``connection`` are:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"DHCP\"\n \"1\", \"Static IP\"\n \"2\", \"Access Point: DHCP\"\n \"3\", \"Access Point: Static IP\"\n \"4\", \"Ad Hoc: DHCP\"\n \"5\", \"Ad Hoc: Static IP\"\n\nIf you set ``connection`` to one of the static IP options then you have to\nsupply ``ip``, ``subnet_mask`` and ``gateway`` as an array of size 4 (first\nelement of the array is the least significant byte of the address). If\n``connection`` is set to one of the DHCP options then ``ip``, ``subnet_mask``\nand ``gateway`` are ignored, you can set them to 0.\n\nThe last parameter is the port that your program will connect to. The\ndefault port, that is used by brickd, is 4223.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the WIFI configuration.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 27,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "ssid",
+                    "string",
+                    32,
+                    "out"
+                ],
+                [
+                    "connection",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "WifiConnection",
+                        "wifi_connection",
+                        [
+                            [
+                                "DHCP",
+                                "dhcp",
+                                0
+                            ],
+                            [
+                                "StaticIP",
+                                "static_ip",
+                                1
+                            ],
+                            [
+                                "AccessPointDHCP",
+                                "access_point_dhcp",
+                                2
+                            ],
+                            [
+                                "AccessPointStaticIP",
+                                "access_point_static_ip",
+                                3
+                            ],
+                            [
+                                "AdHocDHCP",
+                                "ad_hoc_dhcp",
+                                4
+                            ],
+                            [
+                                "AdHocStaticIP",
+                                "ad_hoc_static_ip",
+                                5
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "ip",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "subnet_mask",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "gateway",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "port",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetWifiConfiguration",
+                "get_wifi_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetWifiConfiguration`\ngesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetWifiConfiguration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 28,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "encryption",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "WifiEncryption",
+                        "wifi_encryption",
+                        [
+                            [
+                                "WPAWPA2",
+                                "wpa_wpa2",
+                                0
+                            ],
+                            [
+                                "WPAEnterprise",
+                                "wpa_enterprise",
+                                1
+                            ],
+                            [
+                                "WEP",
+                                "wep",
+                                2
+                            ],
+                            [
+                                "NoEncryption",
+                                "no_encryption",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "key",
+                    "string",
+                    50,
+                    "in"
+                ],
+                [
+                    "key_index",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "eap_options",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "WifiEAPOption",
+                        "wifi_eap_option",
+                        [
+                            [
+                                "OuterAuthEAPFAST",
+                                "outer_auth_eap_fast",
+                                0
+                            ],
+                            [
+                                "OuterAuthEAPTLS",
+                                "outer_auth_eap_tls",
+                                1
+                            ],
+                            [
+                                "OuterAuthEAPTTLS",
+                                "outer_auth_eap_ttls",
+                                2
+                            ],
+                            [
+                                "OuterAuthEAPPEAP",
+                                "outer_auth_eap_peap",
+                                3
+                            ],
+                            [
+                                "InnerAuthEAPMSCHAP",
+                                "inner_auth_eap_mschap",
+                                0
+                            ],
+                            [
+                                "InnerAuthEAPGTC",
+                                "inner_auth_eap_gtc",
+                                4
+                            ],
+                            [
+                                "CertTypeCACert",
+                                "cert_type_ca_cert",
+                                0
+                            ],
+                            [
+                                "CertTypeClientCert",
+                                "cert_type_client_cert",
+                                8
+                            ],
+                            [
+                                "CertTypePrivateKey",
+                                "cert_type_private_key",
+                                16
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "ca_certificate_length",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "client_certificate_length",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "private_key_length",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetWifiEncryption",
+                "set_wifi_encryption"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Verschl\u00fcsselung der WIFI Extension. Der erste Parameter ist der\nTyp der Verschl\u00fcsselung. M\u00f6gliche Werte sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"WPA/WPA2\"\n \"1\", \"WPA Enterprise (EAP-FAST, EAP-TLS, EAP-TTLS, PEAP)\"\n \"2\", \"WEP\"\n \"3\", \"Keine Verschl\u00fcsselung\"\n\nDer ``key`` hat eine maximale L\u00e4nge von 50 Zeichen und wird benutzt\nfalls ``encryption`` auf 0 oder 2 (WPA/WPA2 oder WEP) gesetzt ist. Andernfalls\nwird dieser Parameter ignoriert.\n\nF\u00fcr WPA/WPA2 muss der Schl\u00fcssel mindestens 8 Zeichen lang sein. Wenn ein\nSchl\u00fcssel mit mehr als 50 Zeichen gesetzt werden soll, kann\n:func:`SetLongWifiKey` genutzt werden.\n\nF\u00fcr WEP muss der Schl\u00fcssel entweder 10 oder 26 hexadezimale Zeichen lang sein.\nEs ist m\u00f6glich den ``key_index`` zu setzen (1-4). Fall der ``key_index``\nunbekannt ist, ist er wahrscheinlich 1.\n\nWenn WPA Enterprise als ``encryption`` gew\u00e4hlt wird, m\u00fcssen ``eap_options`` und\ndie L\u00e4nge der Zertifikate gesetzt werden. Die L\u00e4nge wird in Byte angegeben\nund die Zertifikate selbst k\u00f6nnen mit :func:`SetWifiCertificate` \u00fcbertragen\nwerden. Die ``eap_options`` bestehen aus Outer Authentication (Bits 1-2),\nInner Authentication (Bit 3) und Certificate Type (Bits 4-5):\n\n.. csv-table::\n :header: \"Option\", \"Bits\", \"Beschreibung\"\n :widths: 10, 10, 80\n\n \"Outer Authentication\", \"1-2\", \"0=EAP-FAST, 1=EAP-TLS, 2=EAP-TTLS, 3=EAP-PEAP\"\n \"Inner Authentication\", \"3\", \"0=EAP-MSCHAP, 1=EAP-GTC\"\n \"Certificate Type\", \"4-5\", \"0=CA Certificate, 1=Client Certificate, 2=Private Key\"\n\nBeispiel f\u00fcr EAP-TTLS + EAP-GTC + Private Key: ``option = 2 | (1 << 2) | (2 << 3)``.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet werden.\n\nWir empfehlen den Brick Viewer zu nutzen um die WIFI Extension Verschl\u00fcsselung\nzu konfigurieren.\n",
+                    "en": "\nSets the encryption of the WIFI Extension. The first parameter is the\ntype of the encryption. Possible values are:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"WPA/WPA2\"\n \"1\", \"WPA Enterprise (EAP-FAST, EAP-TLS, EAP-TTLS, PEAP)\"\n \"2\", \"WEP\"\n \"3\", \"No Encryption\"\n\nThe ``key`` has a max length of 50 characters and is used if ``encryption``\nis set to 0 or 2 (WPA/WPA2 or WEP). Otherwise the value is ignored.\n\nFor WPA/WPA2 the key has to be at least 8 characters long. If you want to set\na key with more than 50 characters, see :func:`SetLongWifiKey`.\n\nFor WEP the key has to be either 10 or 26 hexadecimal digits long. It is\npossible to set the WEP ``key_index`` (1-4). If you don't know your\n``key_index``, it is likely 1.\n\nIf you choose WPA Enterprise as encryption, you have to set ``eap_options`` and\nthe length of the certificates (for other encryption types these parameters\nare ignored). The certificate length are given in byte and the certificates\nthemselves can be set with :func:`SetWifiCertificate`. ``eap_options`` consist\nof the outer authentication (bits 1-2), inner authentication (bit 3) and\ncertificate type (bits 4-5):\n\n.. csv-table::\n :header: \"Option\", \"Bits\", \"Description\"\n :widths: 20, 10, 70\n\n \"outer authentication\", \"1-2\", \"0=EAP-FAST, 1=EAP-TLS, 2=EAP-TTLS, 3=EAP-PEAP\"\n \"inner authentication\", \"3\", \"0=EAP-MSCHAP, 1=EAP-GTC\"\n \"certificate type\", \"4-5\", \"0=CA Certificate, 1=Client Certificate, 2=Private Key\"\n\nExample for EAP-TTLS + EAP-GTC + Private Key: ``option = 2 | (1 << 2) | (2 << 3)``.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the WIFI encryption.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 29,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "encryption",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "WifiEncryption",
+                        "wifi_encryption",
+                        [
+                            [
+                                "WPAWPA2",
+                                "wpa_wpa2",
+                                0
+                            ],
+                            [
+                                "WPAEnterprise",
+                                "wpa_enterprise",
+                                1
+                            ],
+                            [
+                                "WEP",
+                                "wep",
+                                2
+                            ],
+                            [
+                                "NoEncryption",
+                                "no_encryption",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "key",
+                    "string",
+                    50,
+                    "out"
+                ],
+                [
+                    "key_index",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "eap_options",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "WifiEAPOption",
+                        "wifi_eap_option",
+                        [
+                            [
+                                "OuterAuthEAPFAST",
+                                "outer_auth_eap_fast",
+                                0
+                            ],
+                            [
+                                "OuterAuthEAPTLS",
+                                "outer_auth_eap_tls",
+                                1
+                            ],
+                            [
+                                "OuterAuthEAPTTLS",
+                                "outer_auth_eap_ttls",
+                                2
+                            ],
+                            [
+                                "OuterAuthEAPPEAP",
+                                "outer_auth_eap_peap",
+                                3
+                            ],
+                            [
+                                "InnerAuthEAPMSCHAP",
+                                "inner_auth_eap_mschap",
+                                0
+                            ],
+                            [
+                                "InnerAuthEAPGTC",
+                                "inner_auth_eap_gtc",
+                                4
+                            ],
+                            [
+                                "CertTypeCACert",
+                                "cert_type_ca_cert",
+                                0
+                            ],
+                            [
+                                "CertTypeClientCert",
+                                "cert_type_client_cert",
+                                8
+                            ],
+                            [
+                                "CertTypePrivateKey",
+                                "cert_type_private_key",
+                                16
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "ca_certificate_length",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "client_certificate_length",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "private_key_length",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetWifiEncryption",
+                "get_wifi_encryption"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Verschl\u00fcsselungseinstellungen zur\u00fcck, wie von \n:func:`SetWifiEncryption` gesetzt.\n",
+                    "en": "\nReturns the encryption as set by :func:`SetWifiEncryption`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 30,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mac_address",
+                    "uint8",
+                    6,
+                    "out"
+                ],
+                [
+                    "bssid",
+                    "uint8",
+                    6,
+                    "out"
+                ],
+                [
+                    "channel",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "rssi",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "ip",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "subnet_mask",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "gateway",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "rx_count",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "tx_count",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "state",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "WifiState",
+                        "wifi_state",
+                        [
+                            [
+                                "Disassociated",
+                                "disassociated",
+                                0
+                            ],
+                            [
+                                "Associated",
+                                "associated",
+                                1
+                            ],
+                            [
+                                "Associating",
+                                "associating",
+                                2
+                            ],
+                            [
+                                "Error",
+                                "error",
+                                3
+                            ],
+                            [
+                                "NotInitializedYet",
+                                "not_initialized_yet",
+                                255
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetWifiStatus",
+                "get_wifi_status"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Status der WIFI Extension zur\u00fcck. ``state`` wird automatisch\naktualisiert, alle anderen Parameter werden nur beim Starten und nach jedem\nAufruf von :func:`RefreshWifiStatus` aktualisiert.\n\nM\u00f6gliche Werte f\u00fcr *state* sind:\n\n.. csv-table::\n :header: \"State\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"Getrennt\"\n \"1\", \"Verbunden\"\n \"2\", \"Verbindung wird aufgebaut\"\n \"3\", \"Fehler\"\n \"255\", \"Noch nicht initialisiert\"\n",
+                    "en": "\nReturns the status of the WIFI Extension. The ``state`` is updated automatically,\nall of the other parameters are updated on startup and every time\n:func:`RefreshWifiStatus` is called.\n\nPossible states are:\n\n.. csv-table::\n :header: \"State\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"Disassociated\"\n \"1\", \"Associated\"\n \"2\", \"Associating\"\n \"3\", \"Error\"\n \"255\", \"Not initialized yet\"\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 31,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "RefreshWifiStatus",
+                "refresh_wifi_status"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktualisiert den WIFI Status (siehe :func:`GetWifiStatus`). Um den Status\nvom WIFI Modul zu lesen, muss der Master Brick vom Datenmodus in den\nKommandomodus und wieder zur\u00fcck wechseln. Dieser Wechsel und das eigentliche\nAuslesen ist leider zeitaufw\u00e4ndig. Dass hei\u00dft, es dauert ein paar ms bis der\nStapel mit aufgesteckter WIFI Extension wieder reagiert nachdem die\nFunktion aufgerufen wurde.\n",
+                    "en": "\nRefreshes the WIFI status (see :func:`GetWifiStatus`). To read the status\nof the WIFI module, the Master Brick has to change from data mode to\ncommand mode and back. This transaction and the readout itself is\nunfortunately time consuming. This means, that it might take some ms\nuntil the stack with attached WIFI Extension reacts again after this\nfunction is called.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 32,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "index",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "data",
+                    "uint8",
+                    32,
+                    "in"
+                ],
+                [
+                    "data_length",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetWifiCertificate",
+                "set_wifi_certificate"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDiese Funktion kann benutzt werden um sowohl das Zertifikat als auch\nBenutzername und Passwort f\u00fcr WPA Enterprise zu setzen. F\u00fcr den Benutzernamen\nmuss Index 0xFFFF und f\u00fcr das Password Index 0xFFFE genutzt werden.\nDie maximale L\u00e4nge f\u00fcr beide ist 32.\n\nDas Zertifikat wird in Chunks der Gr\u00f6\u00dfe 32 geschrieben und der Index\ngibt den Index des Chunk an. ``data_length`` sollte fast immer auf 32 gesetzt\nwerden. Nur beim letzten Chunk ist eine L\u00e4nge ungleich 32 m\u00f6glich.\n\nDer Startindex f\u00fcr CA Certificate ist 0, f\u00fcr Client Certificate 10000 und\nf\u00fcr Private Key 20000. Die Maximalen Dateigr\u00f6\u00dfen sind jeweils 1312, 1312 und \n4320 Byte.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet werden.\n\nWir empfehlen den Brick Viewer zu nutzen um die WIFI Extension Verschl\u00fcsselung\nzu konfigurieren.\n",
+                    "en": "\nThis function is used to set the certificate as well as password and username\nfor WPA Enterprise. To set the username use index 0xFFFF,\nto set the password use index 0xFFFE. The max length of username and \npassword is 32.\n\nThe certificate is written in chunks of size 32 and the index is used as\nthe index of the chunk. ``data_length`` should nearly always be 32. Only\nthe last chunk can have a length that is not equal to 32.\n\nThe starting index of the CA Certificate is 0, of the Client Certificate\n10000 and for the Private Key 20000. Maximum sizes are 1312, 1312 and\n4320 byte respectively.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after uploading the certificate.\n\nIt is recommended to use the Brick Viewer to set the certificate, username\nand password.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 33,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "index",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "data",
+                    "uint8",
+                    32,
+                    "out"
+                ],
+                [
+                    "data_length",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetWifiCertificate",
+                "get_wifi_certificate"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Zertifikat f\u00fcr einen Index zur\u00fcck, wie von \n:func:`SetWifiCertificate` gesetzt.\n",
+                    "en": "\nReturns the certificate for a given index as set by :func:`SetWifiCertificate`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 34,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mode",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "WifiPowerMode",
+                        "wifi_power_mode",
+                        [
+                            [
+                                "FullSpeed",
+                                "full_speed",
+                                0
+                            ],
+                            [
+                                "LowPower",
+                                "low_power",
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetWifiPowerMode",
+                "set_wifi_power_mode"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Stromsparmodus f\u00fcr die WIFI Extension. M\u00f6gliche Werte sind:\n\n.. csv-table::\n :header: \"Mode\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"Full Speed (hoher Stromverbrauch, hoher Durchsatz)\"\n \"1\", \"Low Power (geringer Stromverbrauch, geringer Durchsatz)\"\n\nDer Standardwert ist 0 (Full Speed).\n",
+                    "en": "\nSets the power mode of the WIFI Extension. Possible modes are:\n\n.. csv-table::\n :header: \"Mode\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"Full Speed (high power consumption, high throughput)\"\n \"1\", \"Low Power (low power consumption, low throughput)\"\n\nThe default value is 0 (Full Speed).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 35,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mode",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "WifiPowerMode",
+                        "wifi_power_mode",
+                        [
+                            [
+                                "FullSpeed",
+                                "full_speed",
+                                0
+                            ],
+                            [
+                                "LowPower",
+                                "low_power",
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetWifiPowerMode",
+                "get_wifi_power_mode"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Stromsparmodus zur\u00fcck, wie von :func:`SetWifiPowerMode` gesetzt.\n",
+                    "en": "\nReturns the power mode as set by :func:`SetWifiPowerMode`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                0
+            ],
+            "function_id": 36,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "overflow",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "low_watermark",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "used",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetWifiBufferInfo",
+                "get_wifi_buffer_info"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt Informationen \u00fcber denn WIFI Empfangsbuffer zur\u00fcck. Der WIFI\nEmpfangsbuffer hat eine maximale Gr\u00f6\u00dfe von 1500 Byte und falls zu viele\nDaten \u00fcbertragen werden, kann er \u00fcberlaufen.\n\nDie R\u00fcckgabewerte sind die Anzahl der Overflows, die Low-Watermark\n(d.h. die kleinste Anzahl an Byte die je noch frei waren im Buffer) und\ndie Anzahl der im Moment verwendeten Bytes im Buffer.\n\nEs sollte immer versucht werden den Buffer leer zu halten, andernfalls\nist mit einer permanenten Latenz zu rechnen. Eine gute Daumenregel ist,\nnicht mehr als 1000 Nachrichten pro Sekunde zu verschicken.\n\nDabei sollten am besten nie mehr als 50 Nachrichten auf einmal ohne \nPausen gesendet werden.\n",
+                    "en": "\nReturns informations about the WIFI receive buffer. The WIFI\nreceive buffer has a max size of 1500 byte and if data is transfered\ntoo fast, it might overflow.\n\nThe return values are the number of overflows, the low watermark \n(i.e. the smallest number of bytes that were free in the buffer) and\nthe bytes that are currently used.\n\nYou should always try to keep the buffer empty, otherwise you will\nhave a permanent latency. A good rule of thumb is, that you can transfer\n1000 messages per second without problems.\n\nTry to not send more then 50 messages at a time without any kind of\nbreak between them.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                2
+            ],
+            "function_id": 37,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "domain",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "WifiDomain",
+                        "wifi_domain",
+                        [
+                            [
+                                "Channel1To11",
+                                "channel_1to11",
+                                0
+                            ],
+                            [
+                                "Channel1To13",
+                                "channel_1to13",
+                                1
+                            ],
+                            [
+                                "Channel1To14",
+                                "channel_1to14",
+                                2
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetWifiRegulatoryDomain",
+                "set_wifi_regulatory_domain"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Geltungsbereich der WIFI Extension. M\u00f6gliche Werte sind:\n\n.. csv-table::\n :header: \"Geltungsbereich\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"FCC: Kanal 1-11 (N/S Amerika, Australien, Neuseeland)\"\n \"1\", \"ETSI: Kanal 1-13 (Europa, Mittlerer Osten, Afrika)\"\n \"2\", \"TELEC: Kanal 1-14 (Japan)\"\n\nDer Standardwert ist 1 (ETSI).\n",
+                    "en": "\nSets the regulatory domain of the WIFI Extension. Possible domains are:\n\n.. csv-table::\n :header: \"Domain\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"FCC: Channel 1-11 (N/S America, Australia, New Zealand)\"\n \"1\", \"ETSI: Channel 1-13 (Europe, Middle East, Africa)\"\n \"2\", \"TELEC: Channel 1-14 (Japan)\"\n\nThe default value is 1 (ETSI).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                4
+            ],
+            "function_id": 38,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "domain",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "WifiDomain",
+                        "wifi_domain",
+                        [
+                            [
+                                "Channel1To11",
+                                "channel_1to11",
+                                0
+                            ],
+                            [
+                                "Channel1To13",
+                                "channel_1to13",
+                                1
+                            ],
+                            [
+                                "Channel1To14",
+                                "channel_1to14",
+                                2
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetWifiRegulatoryDomain",
+                "get_wifi_regulatory_domain"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Geltungsbereich zur\u00fcck, wie von :func:`SetWifiRegulatoryDomain` gesetzt.\n",
+                    "en": "\nReturns the regulatory domain as set by :func:`SetWifiRegulatoryDomain`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                4
+            ],
+            "function_id": 39,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetUSBVoltage",
+                "get_usb_voltage"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die USB Spannung in mV zur\u00fcck.\n",
+                    "en": "\nReturns the USB voltage in mV.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                3,
+                5
+            ],
+            "function_id": 40,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "key",
+                    "string",
+                    64,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetLongWifiKey",
+                "set_long_wifi_key"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt einen langen WIFI Schl\u00fcssel (bis zu 63 Zeichen, mindestens 8 Zeichen) f\u00fcr\nWPA Verschl\u00fcsselung. Dieser Schl\u00fcssel wird genutzt, wenn der Schl\u00fcssel in\n:func:`SetWifiEncryption` auf \"-\" gesetzt wird. Im alten Protokoll war\nein Payload der Gr\u00f6\u00dfe 63 nicht m\u00f6glich, dadurch wurde die maximale\nSchl\u00fcssell\u00e4nge auf 50 gesetzt. \n\nMit dem neuen Protokoll ist die volle\nSchl\u00fcssell\u00e4nge m\u00f6glich. Da wir keine API brechen wollten, wurde diese\nFunktion zus\u00e4tzlich hinzugef\u00fcgt.\n",
+                    "en": "\nSets a long WIFI key (up to 63 chars, at least 8 chars) for WPA encryption.\nThis key will be used\nif the key in :func:`SetWifiEncryption` is set to \"-\". In the old protocol,\na payload of size 63 was not possible, so the maximum key length was 50 chars.\n\nWith the new protocol this is possible, since we didn't want to break API,\nthis function was added additionally.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                2
+            ],
+            "function_id": 41,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "key",
+                    "string",
+                    64,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetLongWifiKey",
+                "get_long_wifi_key"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Verschl\u00fcsselungsschl\u00fcssel zur\u00fcck, wie von \n:func:`SetLongWifiKey` gesetzt.\n",
+                    "en": "\nReturns the encryption key as set by :func:`SetLongWifiKey`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                2
+            ],
+            "function_id": 42,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "hostname",
+                    "string",
+                    16,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetWifiHostname",
+                "set_wifi_hostname"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Hostnamen der WIFI Extension. Der Hostname wird von\nAccess Points als Hostname in der DHCP-Client Tabelle angezeigt.\n\nDas setzen eines leeren Strings stellt den voreingestellten Hostnamen\nwieder her.\n",
+                    "en": "\nSets the hostname of the WIFI Extension. The hostname will be displayed \nby access points as the hostname in the DHCP clients table.\n\nSetting an empty String will restore the default hostname.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 43,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "hostname",
+                    "string",
+                    16,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetWifiHostname",
+                "get_wifi_hostname"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Hostnamen zur\u00fcck, wie von :func:`GetWifiHostname` gesetzt.\n\nEin leerer String bedeutet, dass der voreingestellte Hostname\ngenutzt wird.\n",
+                    "en": "\nReturns the hostname as set by :func:`GetWifiHostname`.\n\nAn empty String means, that the default hostname is used.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 44,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetStackCurrentCallbackPeriod",
+                "set_stack_current_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`StackCurrent` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`StackCurrent` wird nur ausgel\u00f6st wenn sich die Stromst\u00e4rke seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`StackCurrent` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`StackCurrent` is only triggered if the current has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 45,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackCurrentCallbackPeriod",
+                "get_stack_current_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetCurrentCallbackPeriod`\ngesetzt\n",
+                    "en": "\nReturns the period as set by :func:`SetCurrentCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 46,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetStackVoltageCallbackPeriod",
+                "set_stack_voltage_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`StackVoltage` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`StackVoltage` wird nur ausgel\u00f6st wenn sich die Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`StackVoltage` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`StackVoltage` is only triggered if the voltage has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 47,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackVoltageCallbackPeriod",
+                "get_stack_voltage_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetStackVoltageCallbackPeriod`\ngesetzt\n",
+                    "en": "\nReturns the period as set by :func:`SetStackVoltageCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 48,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetUSBVoltageCallbackPeriod",
+                "set_usb_voltage_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`USBVoltage` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`USBVoltage` wird nur ausgel\u00f6st wenn sich die Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`USBVoltage` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`USBVoltage` is only triggered if the voltage has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 49,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetUSBVoltageCallbackPeriod",
+                "get_usb_voltage_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetUSBVoltageCallbackPeriod`\ngesetzt\n",
+                    "en": "\nReturns the period as set by :func:`SetUSBVoltageCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 50,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetStackCurrentCallbackThreshold",
+                "set_stack_current_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`StackCurrentReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Stromst\u00e4rke *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Stromst\u00e4rke *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Stromst\u00e4rke kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Stromst\u00e4rke gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`StackCurrentReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the current is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the current is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the current is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the current is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 51,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackCurrentCallbackThreshold",
+                "get_stack_current_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetStackCurrentCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetStackCurrentCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 52,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetStackVoltageCallbackThreshold",
+                "set_stack_voltage_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`StackVoltageReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Spannung *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Spannung *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Spannung kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Spannung gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`StackStackVoltageReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the voltage is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the voltage is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the voltage is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the voltage is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 53,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackVoltageCallbackThreshold",
+                "get_stack_voltage_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetStackVoltageCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetStackVoltageCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 54,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetUSBVoltageCallbackThreshold",
+                "set_usb_voltage_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`USBVoltageReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Spannung *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Spannung *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Spannung kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Spannung gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`USBVoltageReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the voltage is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the voltage is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the voltage is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the voltage is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 55,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetUSBVoltageCallbackThreshold",
+                "get_usb_voltage_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetUSBVoltageCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetUSBVoltageCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 56,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDebouncePeriod",
+                "set_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher die Schwellwert Callbacks\n\n* :func:`StackCurrentReached`,\n* :func:`StackVoltageReached`,\n* :func:`USBVoltageReached`\n \nausgel\u00f6st werden, wenn die Schwellwerte \n\n* :func:`SetStackCurrentCallbackThreshold`,\n* :func:`SetStackVoltageCallbackThreshold`,\n* :func:`SetUSBVoltageCallbackThreshold`\n \nweiterhin erreicht bleiben.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the period in ms with which the threshold callbacks\n\n* :func:`StackCurrentReached`,\n* :func:`StackVoltageReached`,\n* :func:`USBVoltageReached`\n\nare triggered, if the thresholds\n\n* :func:`SetStackCurrentCallbackThreshold`,\n* :func:`SetStackVoltageCallbackThreshold`,\n* :func:`SetUSBVoltageCallbackThreshold`\n\nkeep being reached.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 57,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDebouncePeriod",
+                "get_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Entprellperiode zur\u00fcck, wie von :func:`SetDebouncePeriod`\ngesetzt.\n",
+                    "en": "\nReturns the debounce period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 58,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "StackCurrent",
+                "stack_current"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetStackCurrentCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Stromst\u00e4rke des Sensors.\n\n:func:`StackCurrent` wird nur ausgel\u00f6st wenn sich die Stromst\u00e4rke seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetStackCurrentCallbackPeriod`. The :word:`parameter` is the current of the\nsensor.\n\n:func:`StackCurrent` is only triggered if the current has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 59,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "StackVoltage",
+                "stack_voltage"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetStackVoltageCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Spannung des Sensors.\n\n:func:`StackVoltage` wird nur ausgel\u00f6st wenn sich die Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetStackVoltageCallbackPeriod`. The :word:`parameter` is the voltage of the\nsensor.\n\n:func:`StackVoltage` is only triggered if the voltage has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 60,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "USBVoltage",
+                "usb_voltage"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetUSBVoltageCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die USB Spannung in mV.\n\n:func:`USBVoltage` wird nur ausgel\u00f6st wenn sich die USB Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetUSBVoltageCallbackPeriod`. The :word:`parameter` is the USB voltage\nin mV.\n\n:func:`USBVoltage` is only triggered if the USB voltage has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 61,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "StackCurrentReached",
+                "stack_current_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetStackCurrentCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist der Stromverbrauch des Stapels in mA.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetStackCurrentCallbackThreshold` is reached.\nThe :word:`parameter` is the stack current in mA.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 62,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "StackVoltageReached",
+                "stack_voltage_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetStackVoltageCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist die Spannung des Stapels in mV.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetStackVoltageCallbackThreshold` is reached.\nThe :word:`parameter` is the stack voltage in mV.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 63,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "USBVoltageReached",
+                "usb_voltage_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetUSBVoltageCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist die Spannung des Sensors.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetUSBVoltageCallbackThreshold` is reached.\nThe :word:`parameter` is the voltage of the sensor.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                5
+            ],
+            "function_id": 64,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "present",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsEthernetPresent",
+                "is_ethernet_present"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt zur\u00fcck ob eine Ethernet Extension zur Nutzung durch den Master Brick\nverf\u00fcgbar ist.\n",
+                    "en": "\nReturns *true* if a Ethernet Extension is available to be used by the Master\nBrick.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                1,
+                0
+            ],
+            "function_id": 65,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "connection",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "EthernetConnection",
+                        "ethernet_connection",
+                        [
+                            [
+                                "DHCP",
+                                "dhcp",
+                                0
+                            ],
+                            [
+                                "StaticIP",
+                                "static_ip",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "ip",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "subnet_mask",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "gateway",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "port",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetEthernetConfiguration",
+                "set_ethernet_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Konfiguration der Ethernet Extension. M\u00f6gliche Werte f\u00fcr\n``connection`` sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"DHCP\"\n \"1\", \"Statische IP\"\n\nWenn ``connection`` auf die statische IP Option gesetzt wird, dann m\u00fcssen\n``ip``, ``subnet_mask`` und ``gateway`` als ein Array der Gr\u00f6\u00dfe 4 angegeben\nwerden. Dabei ist das erste Element im Array das niederwertigste Byte. Falls\n``connection`` auf die DHCP Option gesetzt ist, werden ``ip``, ``subnet_mask``\nund ``gateway`` ignoriert.\n\nDer letzte Parameter ist der Port auf den das Anwendungsprogramm sich\nverbindet. Der Standardport von brickd ist 4223.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet\nwerden.\n\nWir empfehlen den Brick Viewer zu nutzen um die Ethernet Extension zu\nkonfigurieren.\n",
+                    "en": "\nSets the configuration of the Ethernet Extension. Possible values for\n``connection`` are:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"DHCP\"\n \"1\", \"Static IP\"\n\nIf you set ``connection`` to static IP options then you have to supply ``ip``,\n``subnet_mask`` and ``gateway`` as an array of size 4 (first element of the\narray is the least significant byte of the address). If ``connection`` is set\nto the DHCP options then ``ip``, ``subnet_mask`` and ``gateway`` are ignored,\nyou can set them to 0.\n\nThe last parameter is the port that your program will connect to. The\ndefault port, that is used by brickd, is 4223.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the Ethernet configuration.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                1,
+                0
+            ],
+            "function_id": 66,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "connection",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "EthernetConnection",
+                        "ethernet_connection",
+                        [
+                            [
+                                "DHCP",
+                                "dhcp",
+                                0
+                            ],
+                            [
+                                "StaticIP",
+                                "static_ip",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "ip",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "subnet_mask",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "gateway",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "port",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetEthernetConfiguration",
+                "get_ethernet_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetEthernetConfiguration`\ngesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetEthernetConfiguration`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                1,
+                0
+            ],
+            "function_id": 67,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mac_address",
+                    "uint8",
+                    6,
+                    "out"
+                ],
+                [
+                    "ip",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "subnet_mask",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "gateway",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "rx_count",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "tx_count",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "hostname",
+                    "string",
+                    32,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetEthernetStatus",
+                "get_ethernet_status"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Status der Ethernet Extension zur\u00fcck.\n\n``mac_address``, ``ip``, ``subnet_mask`` und ``gateway`` werden als Array\n\u00fcbergeben. Das erste Element des Arrays ist das niederwertigste Byte.\n\n``rx_count`` und ``tx_count`` sind die Anzahl der Bytes die seit dem letzten\nNeustart empfangen/gesendet wurden.\n\n``hostname`` ist der aktuell genutzte Hostname.\n",
+                    "en": "\nReturns the status of the Ethernet Extension.\n\n``mac_address``, ``ip``, ``subnet_mask`` and ``gateway`` are given as an array.\nThe first element of the array is the least significant byte of the address.\n\n``rx_count`` and ``tx_count`` are the number of bytes that have been\nreceived/send since last restart.\n\n``hostname`` is the currently used hostname.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                1,
+                0
+            ],
+            "function_id": 68,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "hostname",
+                    "string",
+                    32,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetEthernetHostname",
+                "set_ethernet_hostname"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Hostnamen der Ethernet Extension. Der Hostname wird von\nAccess Points als Hostname in der DHCP-Client Tabelle angezeigt.\n\nDas setzen eines leeren Strings stellt den voreingestellten Hostnamen\nwieder her.\n\nDer aktuelle Hostname kann mit :func:`GetEthernetStatus` herausgefunden werden.\n",
+                    "en": "\nSets the hostname of the Ethernet Extension. The hostname will be displayed \nby access points as the hostname in the DHCP clients table.\n\nSetting an empty String will restore the default hostname.\n\nThe current hostname can be discovered with :func:`GetEthernetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                1,
+                0
+            ],
+            "function_id": 69,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mac_address",
+                    "uint8",
+                    6,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetEthernetMACAddress",
+                "set_ethernet_mac_address"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die MAC Adresse der Ethernet Extension. Die Ethernet Extension sollte\nmit einer vorkonfigurierten MAC Adresse ausgeliefert werden. Diese MAC Adresse\nsteht auch auf einem Aufkleber auf der Ethernet Extension.\n\nDie MAC Adresse kann mit :func:`GetEthernetStatus` wieder ausgelesen werden.\n",
+                    "en": "\nSets the MAC address of the Ethernet Extension. The Ethernet Extension should\ncome configured with a valid MAC address, that is also written on a\nsticker of the extension itself.\n\nThe MAC address can be read out again with :func:`GetEthernetStatus`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                1,
+                0
+            ],
+            "function_id": 70,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "sockets",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "port",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetEthernetWebsocketConfiguration",
+                "set_ethernet_websocket_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Ethernet WebSocket-Konfiguration. Der erste Parameter setzt\ndie Anzahl der Socket-Verbindungen die f\u00fcr WebSockets reserviert werden.\nDer m\u00f6gliche Wertebereich ist 0-7. Die Verbindungen werden zwischen den\nnormalen Sockets und den WebSockets aufgeteilt. Beispiel: Wenn die Socket-Verbindungen auf 3\ngesetzt werden, stehen 3 WebSockets und 4 normale Sockets zur Verf\u00fcgung.\n\nDer zweite Parameter ist der Port f\u00fcr die WebSocket-Verbindungen. Der Port\nkann nicht der gleiche sein wie der Port des normalen Sockets.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet\nwerden.\n\nWir empfehlen den Brick Viewer zu nutzen um die Ethernet Extension zu\nkonfigurieren.\n\nDie Standardwerte sind 3 f\u00fcr die Anzahl der Socket-Verbindungen und\n4280 f\u00fcr den Port.\n",
+                    "en": "\nSets the Ethernet WebSocket configuration. The first parameter sets the number of socket\nconnections that are reserved for WebSockets. The range is 0-7. The connections\nare shared with the plain sockets. Example: If you set the connections to 3,\nthere will be 3 WebSocket and 4 plain socket connections available.\n\nThe second parameter is the port for the WebSocket connections. The port can\nnot be the same as the port for the plain socket connections.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the Ethernet configuration.\n\nThe default values are 3 for the socket connections and 4280 for the port.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                2,
+                0
+            ],
+            "function_id": 71,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "sockets",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "port",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetEthernetWebsocketConfiguration",
+                "get_ethernet_websocket_configuration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetEthernetConfiguration`\ngesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetEthernetConfiguration`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                2,
+                0
+            ],
+            "function_id": 72,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "secret",
+                    "string",
+                    64,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetEthernetAuthenticationSecret",
+                "set_ethernet_authentication_secret"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt das Authentifizierungsgeheimnis. Das Geheimnis ist ein String aus bis zu\n64 Buchstaben. Ein leerer String deaktiviert die Authentifizierung.\n\nF\u00fcr mehr Informationen zur Authentifizierung siehe das dazugeh\u00f6rige\n:ref:`Tutorial <tutorial_authentication>`.\n\nDas Authentifizierungsgehemnis wird im EEPROM gespeichert und nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet\nwerden.\n\nWir empfehlen den Brick Viewer zu nutzen um die Authentifizierung der Ethernet\nExtension einzurichten.\n\nDer Standardwert ist ein leerer String (Authentifizierung deaktiviert).\n",
+                    "en": "\nSets the Ethernet authentication secret. The secret can be a string of up to 64\ncharacters. An empty string disables the authentication.\n\nSee the :ref:`authentication tutorial <tutorial_authentication>` for more\ninformation.\n\nThe secret is stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the Ethernet authentication secret.\n\nThe default value is an empty string (authentication disabled).\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                2,
+                0
+            ],
+            "function_id": 73,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "secret",
+                    "string",
+                    64,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetEthernetAuthenticationSecret",
+                "get_ethernet_authentication_secret"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Authentifizierungsgeheimnis zur\u00fcck, wie von\n:func:`SetEthernetAuthenticationSecret` gesetzt.\n",
+                    "en": "\nReturns the authentication secret as set by :func:`SetEthernetAuthenticationSecret`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                2,
+                0
+            ],
+            "function_id": 74,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "secret",
+                    "string",
+                    64,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetWifiAuthenticationSecret",
+                "set_wifi_authentication_secret"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt das Authentifizierungsgeheimnis. Das Geheimnis ist ein String aus bis zu\n64 Buchstaben. Ein leerer String deaktiviert die Authentifizierung.\n\nF\u00fcr mehr Informationen zur Authentifizierung siehe das dazugeh\u00f6rige\n:ref:`Tutorial <tutorial_authentication>`.\n\nDas Authentifizierungsgehemnis wird im EEPROM gespeichert und nur beim Start\nangewandt. Das bedeutet der Master Brick muss nach einer Konfiguration neu\ngestartet werden.\n\nWir empfehlen den Brick Viewer zu nutzen um die Authentifizierung der WIFI \nExtension einzurichten.\n\nDer Standardwert ist ein leerer String (Authentifizierung deaktiviert).\n",
+                    "en": "\nSets the WIFI authentication secret. The secret can be a string of up to 64\ncharacters. An empty string disables the authentication.\n\nSee the :ref:`authentication tutorial <tutorial_authentication>` for more\ninformation.\n\nThe secret is stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the WIFI authentication secret.\n\nThe default value is an empty string (authentication disabled).\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                2,
+                0
+            ],
+            "function_id": 75,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "secret",
+                    "string",
+                    64,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetWifiAuthenticationSecret",
+                "get_wifi_authentication_secret"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Authentifizierungsgeheimnis zur\u00fcck, wie von\n:func:`SetWifiAuthenticationSecret` gesetzt.\n",
+                    "en": "\nReturns the authentication secret as set by :func:`SetWifiAuthenticationSecret`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                2,
+                0
+            ],
+            "function_id": 76,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "port",
+                    "char",
+                    1,
+                    "in"
+                ],
+                [
+                    "protocol_version",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "name",
+                    "string",
+                    40,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProtocol1BrickletName",
+                "get_protocol1_bricklet_name"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Firmware und Protokoll Version und den Namen des Bricklets f\u00fcr einen\ngegebenen Port zur\u00fcck.\n\nDer einzige Zweck dieser Funktion ist es, automatischen Flashen von Bricklet\nv1.x.y Plugins zu erm\u00f6glichen.\n",
+                    "en": "\nReturns the firmware and protocol version and the name of the Bricklet for a\ngiven port.\n\nThis functions sole purpose is to allow automatic flashing of v1.x.y Bricklet\nplugins.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 241,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChipTemperature",
+                "get_chip_temperature"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur in \u00b0C/10, gemessen im Mikrocontroller, aus. Der\nR\u00fcckgabewert ist nicht die Umgebungstemperatur.\n\nDie Temperatur ist lediglich proportional zur echten Temperatur und hat eine\nGenauigkeit von +-15%. Daher beschr\u00e4nkt sich der praktische Nutzen auf die\nIndikation von Temperaturver\u00e4nderungen.\n",
+                    "en": "\nReturns the temperature in \u00b0C/10 as measured inside the microcontroller. The\nvalue returned is not the ambient temperature!\n\nThe temperature is only proportional to the real temperature and it has an\naccuracy of +-15%. Practically it is only useful as an indicator for\ntemperature changes.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                1
+            ],
+            "function_id": 242,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Reset",
+                "reset"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nEin Aufruf dieser Funktion setzt den Brick zur\u00fcck. Befindet sich der Brick\ninnerhalb eines Stapels wird der gesamte Stapel zur\u00fcck gesetzt.\n\nNach dem Zur\u00fccksetzen ist es notwendig neue Ger\u00e4teobjekte zu erzeugen,\nFunktionsaufrufe auf bestehende f\u00fchrt zu undefiniertem Verhalten.\n",
+                    "en": "\nCalling this function will reset the Brick. Calling this function\non a Brick inside of a stack will reset the whole stack.\n\nAfter a reset you have to create new device objects,\ncalling functions on the existing ones will result in\nundefined behavior!\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                2,
+                1
+            ],
+            "function_id": 243,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der der Brick verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann '0'-'8' (Stack Position) sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Brick is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be '0'-'8' (stack position).\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 13,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        3
+    ],
+    "name": [
+        "Master",
+        "master",
+        "Master"
+    ]
+}

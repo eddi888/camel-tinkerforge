@@ -1,0 +1,578 @@
+{
+    "category": "Bricklet",
+    "description": "Device to control up to 320 RGB LEDs",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "index",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "length",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "r",
+                    "uint8",
+                    16,
+                    "in"
+                ],
+                [
+                    "g",
+                    "uint8",
+                    16,
+                    "in"
+                ],
+                [
+                    "b",
+                    "uint8",
+                    16,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetRGBValues",
+                "set_rgb_values"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die *rgb* Werte f\u00fcr die LEDs mit der angegebenen *length*,\nbeginnend vom angegebenen *index*.\n\nDie maximale L\u00e4nge ist 16. Der Index geht von 0 bis 319 und die\nrgb Werte haben jeweils 8 Bit.\n\nBeispiel: Wenn\n\n* index auf 5,\n* length auf 3,\n* r auf |r_values|,\n* g auf |g_values| und\n* b auf |b_values|\n\ngesetzt wird, wird die LED an Index 5 die Farbe Rot annehmen, 6 wird Gr\u00fcn und 7\nwird Blau.\n\n.. note:: Abh\u00e4ngig von der internen LED Schaltung k\u00f6nnen die Farben vertauscht \n   sein.\n\nDie Farben werden auf die tats\u00e4chlichen LEDs transferiert wenn die\nn\u00e4chste *frame duration* abgelaufen ist, siehe :func:`SetFrameDuration`.\n\nGenereller Ansatz:\n\n* Setze *frame duration* auf einen Wert welcher der Anzahl der\n  Bilder pro Sekunde entspricht die erreicht werden sollen.\n* Setze alle LEDs f\u00fcr einen Frame.\n* Warte auf :func:`FrameRendered` Callback.\n* Setze alle LEDs f\u00fcr den n\u00e4chsten Frame.\n* Warte auf :func:`FrameRendered` Callback.\n* Und so weiter.\n\nDieser Ansatz garantiert das die LED Farben mit einer\nfesten Framerate angezeigt werden.\n\nDie effektive Anzahl steuerbarer LEDs ist abh\u00e4ngig von der Anzahl\nder freien Bricklet Ports (siehe :ref:`hier <led_strip_bricklet_ram_constraints>`).\nEin Aufruf von :func:`SetRGBValues` mit index + length gr\u00f6\u00dfer als die \nBegrenzung werden komplett ingnoriert.\n",
+                    "en": "\nSets the *rgb* values for the LEDs with the given *length* starting \nfrom *index*.\n\nThe maximum length is 16, the index goes from 0 to 319 and the rgb values\nhave 8 bits each.\n\nExample: If you set\n\n* index to 5,\n* length to 3,\n* r to |r_values|,\n* g to |g_values| and\n* b to |b_values|\n\nthe LED with index 5 will be red, 6 will be green and 7 will be blue.\n\n.. note:: Depending on the LED circuitry colors can be permuted.\n\nThe colors will be transfered to actual LEDs when the next\nframe duration ends, see :func:`SetFrameDuration`.\n\nGeneric approach: \n\n* Set the frame duration to a value that represents\n  the number of frames per second you want to achieve. \n* Set all of the LED colors for one frame.\n* Wait for the :func:`FrameRendered` callback.\n* Set all of the LED colors for next frame.\n* Wait for the :func:`FrameRendered` callback.\n* and so on.\n\nThis approach ensures that you can change the LED colors with\na fixed frame rate.\n\nThe actual number of controllable LEDs depends on the number of free\nBricklet ports. See :ref:`here <led_strip_bricklet_ram_constraints>` for more\ninformation. A call of :func:`SetRGBValues` with index + length above the\nbounds is ignored completely.\n"
+                },
+                {
+                    "*": {
+                        "r_values": {
+                            "*": "[255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+                            "php": "array(255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)"
+                        },
+                        "b_values": {
+                            "*": "[0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+                            "php": "array(0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)"
+                        },
+                        "g_values": {
+                            "*": "[0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+                            "php": "array(0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)"
+                        }
+                    }
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "index",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "length",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "r",
+                    "uint8",
+                    16,
+                    "out"
+                ],
+                [
+                    "g",
+                    "uint8",
+                    16,
+                    "out"
+                ],
+                [
+                    "b",
+                    "uint8",
+                    16,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetRGBValues",
+                "get_rgb_values"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt rgb Werte mit der \u00fcbergebenen *length* zur\u00fcck, beginnend vom\n\u00fcbergebenen *index*.\n\nDie Werte sind die letzten von :func:`SetRGBValues` gesetzten Werte.\n",
+                    "en": "\nReturns the rgb with the given *length* starting from the\ngiven *index*.\n\nThe values are the last values that were set by :func:`SetRGBValues`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "duration",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetFrameDuration",
+                "set_frame_duration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die *frame duration* (L\u00e4nge des Frames) in ms.\n\nBeispiel: Wenn 20 Frames pro Sekunde erreicht werden sollen, muss\ndie L\u00e4nge des Frames auf 50ms gesetzt werden (50ms * 20 = 1 Sekunde).\n\nF\u00fcr eine Erkl\u00e4rung des generellen Ansatzes siehe :func:`SetRGBValues`.\n\nStandardwert: 100ms (10 Frames pro Sekunde).\n",
+                    "en": "\nSets the frame duration in ms.\n\nExample: If you want to achieve 20 frames per second, you should\nset the frame duration to 50ms (50ms * 20 = 1 second). \n\nFor an explanation of the general approach see :func:`SetRGBValues`.\n\nDefault value: 100ms (10 frames per second).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "duration",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetFrameDuration",
+                "get_frame_duration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die *frame duration* (L\u00e4nge des Frames) zur\u00fcck, wie von\n:func:`SetFrameDuration` gesetzt.\n",
+                    "en": "\nReturns the frame duration as set by :func:`SetFrameDuration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetSupplyVoltage",
+                "get_supply_voltage"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuelle Versorgungsspannung der LEDs zur\u00fcck. Die Spannung ist\nin mV angegeben.\n",
+                    "en": "\nReturns the current supply voltage of the LEDs. The voltage is given in mV.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "length",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "FrameRendered",
+                "frame_rendered"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird direkt direkt nachdem ein Frame gerendert wurde ausgel\u00f6st.\n\nDie Daten f\u00fcr das n\u00e4chste Frame sollten direkt nach dem ausl\u00f6sen dieses\nCallbacks \u00fcbertragen werden.\n\nF\u00fcr eine Erkl\u00e4rung des generellen Ansatzes siehe :func:`SetRGBValues`.\n",
+                    "en": "\nThis callback is triggered directly after a new frame is rendered.\n\nYou should send the data for the next frame directly after this callback\nwas triggered.\n\nFor an explanation of the general approach see :func:`SetRGBValues`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "frequency",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetClockFrequency",
+                "set_clock_frequency"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Frequenz der Clock-Leitung in Hz. Der erlaubte Wertebereich\nbel\u00e4uft von sich 10000Hz (10kHz) bis 2000000Hz (2MHz).\n\nDas Bricklet w\u00e4hlt die n\u00e4chst m\u00f6gliche erreichbare Frequenz. Diese\nkann ein paar Hz neben des gesetzten Wertes liegen. Die exakte Frequenz\nwie sie genutzt wird kann mit :func:`GetClockFrequency` erfragt werden.\n\nWenn Probleme mit flackernden LEDs auftreten kann es daran liegen das\nBits auf der Leitung flippen. Dies kann behoben werden in dem man die\nVerbindung zwischen Bricklet und LEDs verringert oder in dem man die\nFrequenz reduziert.\n\nMit abnehmender Frequenz nimmt allerdings auch die maximale Framerateab.\n\nDer Standardwert ist 1,66MHz\n\n.. note::\n Die Frequenz in Firmware Version 2.0.0 ist fest auf 2MHz gesetzt.\n",
+                    "en": "\nSets the frequency of the clock in Hz. The range is 10000Hz (10kHz) up to\n2000000Hz (2MHz).\n\nThe Bricklet will choose the nearest achievable frequency, which may\nbe off by a few Hz. You can get the exact frequency that is used by\ncalling :func:`GetClockFrequency`.\n\nIf you have problems with flickering LEDs, they may be bits flipping. You\ncan fix this by either making the connection between the LEDs and the\nBricklet shorter or by reducing the frequency.\n\nWith a decreasing frequency your maximum frames per second will decrease\ntoo.\n\nThe default value is 1.66MHz.\n\n.. note::\n The frequency in firmware version 2.0.0 is fixed at 2MHz.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "frequency",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetClockFrequency",
+                "get_clock_frequency"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuell genutzte Clock-Frequenz zur\u00fcck, wie von\n:func:`SetClockFrequency` gesetzt.\n",
+                    "en": "\nReturns the currently used clock frequency as set by :func:`SetClockFrequency`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "chip",
+                    "uint16",
+                    1,
+                    "in",
+                    [
+                        "ChipType",
+                        "chip_type",
+                        [
+                            [
+                                "WS2801",
+                                "ws2801",
+                                2801
+                            ],
+                            [
+                                "WS2811",
+                                "ws2811",
+                                2811
+                            ],
+                            [
+                                "WS2812",
+                                "ws2812",
+                                2812
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetChipType",
+                "set_chip_type"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt den Typ des LED-Treiber-Chips. Aktuell unterst\u00fctzen\nwir die Chips\n\n* WS2801 (``chip`` = 2801),\n* WS2811 (``chip`` = 2811) und\n* WS2812 (``chip`` = 2812).\n\nDer WS2812 wird manchmal auch \"NeoPixel\" genannt, ein Name\nder von Adafruit gepr\u00e4gt wurde.\n\nDer Standardwert ist WS2801 (``chip`` = 2801).\n",
+                    "en": "\nSets the type of the led driver chip. We currently support\nthe chips\n\n* WS2801 (``chip`` = 2801),\n* WS2811 (``chip`` = 2811) and\n* WS2812 (``chip`` = 2812).\n\nThe WS2812 is sometimes also called \"NeoPixel\", a name coined by\nAdafruit.\n\nThe default value is WS2801 (``chip`` = 2801).\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                2
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "chip",
+                    "uint16",
+                    1,
+                    "out",
+                    [
+                        "ChipType",
+                        "chip_type",
+                        [
+                            [
+                                "WS2801",
+                                "ws2801",
+                                2801
+                            ],
+                            [
+                                "WS2811",
+                                "ws2811",
+                                2811
+                            ],
+                            [
+                                "WS2812",
+                                "ws2812",
+                                2812
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetChipType",
+                "get_chip_type"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den aktuell genutzten Typ des Chips zur\u00fcck, wie von\n:func:`SetChipType` gesetzt.\n",
+                    "en": "\nReturns the currently used chip type as set by :func:`SetChipType`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                2
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 231,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        2
+    ],
+    "name": [
+        "LEDStrip",
+        "led_strip",
+        "LED Strip"
+    ]
+}

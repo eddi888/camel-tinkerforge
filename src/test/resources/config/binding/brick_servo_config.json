@@ -1,0 +1,1347 @@
+{
+    "category": "Brick",
+    "description": "Device for controlling up to seven servos",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "Enable",
+                "enable"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nAktiviert einen Servo (0 bis 6). Wenn ein Servo aktiviert wird, wird die \nkonfigurierte Position, Geschwindigkeit, Beschleunigung, etc. sofort \u00fcbernommen.\n",
+                    "en": "\nEnables a servo (0 to 6). If a servo is enabled, the configured position,\nvelocity, acceleration, etc. are applied immediately.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "Disable",
+                "disable"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nDeaktiviert einen Servo (0 bis 6). Deaktivierte Servos werden nicht angesteuert,\nz.B. halten deaktivierte Servos nicht ihre Position wenn eine Last angebracht ist.\n",
+                    "en": "\nDisables a servo (0 to 6). Disabled servos are not driven at all, i.e. a\ndisabled servo will not hold its position if a load is applied.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsEnabled",
+                "is_enabled"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt zur\u00fcck ob ein Servo aktiviert ist.\n",
+                    "en": "\nReturns *true* if the specified servo is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "position",
+                    "int16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetPosition",
+                "set_position"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Position in \u00b0/100 f\u00fcr den angegebenen Servo.\n\nDer Standardbereich f\u00fcr die Position ist -9000 bis 9000, aber dies kann,\nentsprechend dem verwendetem Servo, mit :func:`SetDegree` definiert werden.\n\nWenn ein Linearservo oder RC Brushless Motor Controller oder \u00e4hnlich mit dem\nServo Brick gesteuert werden soll, k\u00f6nnen L\u00e4ngen oder Geschwindigkeiten mit\n:func:`SetDegree` definiert werden.\n",
+                    "en": "\nSets the position in \u00b0/100 for the specified servo. \n\nThe default range of the position is -9000 to 9000, but it can be specified\naccording to your servo with :func:`SetDegree`.\n\nIf you want to control a linear servo or RC brushless motor controller or\nsimilar with the Servo Brick, you can also define lengths or speeds with\n:func:`SetDegree`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "position",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPosition",
+                "get_position"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Position des angegebenen Servos zur\u00fcck, wie von :func:`SetPosition`\ngesetzt.\n",
+                    "en": "\nReturns the position of the specified servo as set by :func:`SetPosition`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "position",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCurrentPosition",
+                "get_current_position"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die *aktuelle* Position des angegebenen Servos zur\u00fcck. Dies kann vom Wert\nvon :func:`SetPosition` abweichen, wenn der Servo gerade sein Positionsziel anf\u00e4hrt.\n",
+                    "en": "\nReturns the *current* position of the specified servo. This may not be the\nvalue of :func:`SetPosition` if the servo is currently approaching a\nposition goal.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "velocity",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetVelocity",
+                "set_velocity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die maximale Geschwindigkeit des angegebenen Servos in \u00b0/100s. \nDie Geschwindigkeit wird entsprechend mit dem Wert, wie von :func:`SetAcceleration`\ngesetzt, beschleunigt.\n\nDie minimale Geschwindigkeit ist 0 (keine Bewegung) und die maximale ist 65535.\nMit einem Wert von 65535 wird die Position sofort gesetzt (keine Geschwindigkeit).\n\nDer Standardwert ist 65535.\n",
+                    "en": "\nSets the maximum velocity of the specified servo in \u00b0/100s. The velocity\nis accelerated according to the value set by :func:`SetAcceleration`.\n\nThe minimum velocity is 0 (no movement) and the maximum velocity is 65535.\nWith a value of 65535 the position will be set immediately (no velocity).\n\nThe default value is 65535.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "velocity",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetVelocity",
+                "get_velocity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Geschwindigkeit des angegebenen Servos zur\u00fcck, wie von :func:`SetVelocity`\ngesetzt.\n",
+                    "en": "\nReturns the velocity of the specified servo as set by :func:`SetVelocity`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "velocity",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCurrentVelocity",
+                "get_current_velocity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die *aktuelle* Geschwindigkeit des angegebenen Servos zur\u00fcck. Dies kann vom Wert\nvon :func:`SetVelocity` abweichen, wenn der Servo gerade sein Geschwindigkeitsziel anf\u00e4hrt.\n",
+                    "en": "\nReturns the *current* velocity of the specified servo. This may not be the\nvalue of :func:`SetVelocity` if the servo is currently approaching a\nvelocity goal.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "acceleration",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAcceleration",
+                "set_acceleration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Beschleunigung des angegebenen Servos in \u00b0/100s\u00b2.\n\nDie minimale Beschleunigung ist 1 und die maximale 65535. Mit einem Wert von\n65535 wird die Geschwindigkeit sofort gesetzt (keine Beschleunigung).\n\nDer Standardwert ist 65535.\n",
+                    "en": "\nSets the acceleration of the specified servo in \u00b0/100s\u00b2.\n\nThe minimum acceleration is 1 and the maximum acceleration is 65535.\nWith a value of 65535 the velocity will be set immediately (no acceleration).\n\nThe default value is 65535.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "acceleration",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAcceleration",
+                "get_acceleration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Beschleunigung des angegebenen Servos zur\u00fcck, wie von \n:func:`SetAcceleration` gesetzt.\n",
+                    "en": "\nReturns the acceleration for the specified servo as set by \n:func:`SetAcceleration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetOutputVoltage",
+                "set_output_voltage"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Ausgangsspannung mit welchem der Servo angetrieben wird in mV.\nDie minimale Ausgangsspannung ist 2000mV und die maximale 9000mV.\n\n.. note::\n Es wird empfohlen diesen Wert auf die maximale Spannung laut Spezifikation\n des Servos zu setzten. Die meisten Servos erreichen ihre maximale Kraft\n nur mit hohen Spannungen\n\nDer Standardwert ist 5000.\n",
+                    "en": "\nSets the output voltages with which the servos are driven in mV.\nThe minimum output voltage is 2000mV and the maximum output voltage is \n9000mV.\n\n.. note::\n We recommend that you set this value to the maximum voltage that is\n specified for your servo, most servos achieve their maximum force only\n with high voltages.\n\nThe default value is 5000.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetOutputVoltage",
+                "get_output_voltage"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Ausgangsspannung zur\u00fcck, wie von :func:`SetOutputVoltage` gesetzt.\n",
+                    "en": "\nReturns the output voltage as specified by :func:`SetOutputVoltage`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetPulseWidth",
+                "set_pulse_width"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die minimale und maximale Pulsweite des angegebenen Servos in \u00b5s.\n\nNormalerweise werden Servos mit einer\n`PWM <http://de.wikipedia.org/wiki/Pulsweitenmodulation>`__ angesteuert,\nwobei die L\u00e4nge des Pulses die Position des Servos steuert. Jeder Servo\nhat unterschiedliche minimale und maximale Pulsweiten, diese k\u00f6nnen mit\ndieser Funktion spezifiziert werden.\n\nWenn im Datenblatt des Servos die minimale und maximale Pulsweite \nspezifiziert ist, sollten diese Werte entsprechend gesetzt werden. Sollte\nder Servo ohne ein Datenblatt vorliegen, m\u00fcssen die Werte durch Ausprobieren\ngefunden werden.\n\nBeide Werte haben einen Wertebereich von 1 bis 65535 (unsigned 16-bit integer).\nDer minimale Wert muss kleiner als der maximale sein.\n\nDie Standardwerte sind 1000\u00b5s (1ms) und 2000\u00b5s (2ms) f\u00fcr minimale und maximale\nPulsweite.\n",
+                    "en": "\nSets the minimum and maximum pulse width of the specified servo in \u00b5s.\n\nUsually, servos are controlled with a \n`PWM <http://en.wikipedia.org/wiki/Pulse-width_modulation>`__, whereby the\nlength of the pulse controls the position of the servo. Every servo has\ndifferent minimum and maximum pulse widths, these can be specified with\nthis function.\n\nIf you have a datasheet for your servo that specifies the minimum and\nmaximum pulse width, you should set the values accordingly. If your servo\ncomes without any datasheet you have to find the values via trial and error.\n\nBoth values have a range from 1 to 65535 (unsigned 16-bit integer). The\nminimum must be smaller than the maximum.\n\nThe default values are 1000\u00b5s (1ms) and 2000\u00b5s (2ms) for minimum and \nmaximum pulse width.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPulseWidth",
+                "get_pulse_width"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die minimale und maximale Pulsweite des angegebenen Servos zur\u00fcck, wie von\n:func:`SetPulseWidth` gesetzt.\n",
+                    "en": "\nReturns the minimum and maximum pulse width for the specified servo as set by\n:func:`SetPulseWidth`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "min",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "int16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDegree",
+                "set_degree"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt den minimalen und maximalen Winkel des angegebenen Servos (standardm\u00e4\u00dfig\nin \u00b0/100).\n\nDies definiert die abstrakten Werte zwischen welchen die minimale und maximale\nPulsweite skaliert wird. Beispiel: Wenn eine Pulsweite von 1000\u00b5s bis 2000\u00b5s und\nein Winkelbereich von -90\u00b0 bis 90\u00b0 spezifiziert ist, wird ein Aufruf von \n:func:`SetPosition` mit 0 in einer Pulsweite von 1500\u00b5s resultieren\n(-90\u00b0 = 1000\u00b5s, 90\u00b0 = 2000\u00b5s, etc.).\n\nAnwendungsf\u00e4lle:\n\n* Das Datenblatt des Servos spezifiziert einen Bereich von 200\u00b0 mit einer\n  Mittelposition bei 110\u00b0. In diesem Fall kann das Minimum auf -9000 und das\n  Maximum auf 11000 gesetzt werden.\n* Es wird ein Bereich von 220\u00b0 am Servo gemessen und eine Mittelposition ist\n  nicht bekannt bzw. wird nicht ben\u00f6tigt. In diesem Fall kann das Minimum auf 0\n  und das Maximum auf 22000 gesetzt werden.\n* Ein Linearservo mit einer Antriebsl\u00e4nge von 20cm. In diesem Fall kann das\n  Minimum auf 0 und das Maximum auf 20000 gesetzt werden. Jetzt kann die\n  Position mittels :func:`SetPosition` mit einer Aufl\u00f6sung von cm/100 gesetzt\n  werden. Auch die Geschwindigkeit hat eine Aufl\u00f6sung von cm/100s und die\n  Beschleunigung von cm/100s\u00b2.\n* Die Einheit ist irrelevant und eine m\u00f6glichst hohe Aufl\u00f6sung ist gew\u00fcnscht.\n  In diesem Fall kann das Minimum auf -32767 und das Maximum auf 32767 gesetzt\n  werden.\n* Ein Brushless Motor, mit einer maximalen Drehzahl von 1000 U/min, soll mit\n  einem RC Brushless Motor Controller gesteuert werden. In diesem Fall kann das\n  Minimum auf 0 und das Maximum auf 10000 gesetzt werden. :func:`SetPosition`\n  steuert jetzt die Drehzahl in U/min.\n\nBeide Werte haben einen Wertebereich von -32767 bis 32767 (signed 16-bit integer).\nDer minimale Wert muss kleiner als der maximale sein.\n\nDie Standardwerte sind -9000 und 9000 f\u00fcr den minimalen und maximalen Winkel.\n",
+                    "en": "\nSets the minimum and maximum degree for the specified servo (by default\ngiven as \u00b0/100).\n\nThis only specifies the abstract values between which the minimum and maximum\npulse width is scaled. For example: If you specify a pulse width of 1000\u00b5s\nto 2000\u00b5s and a degree range of -90\u00b0 to 90\u00b0, a call of :func:`SetPosition`\nwith 0 will result in a pulse width of 1500\u00b5s \n(-90\u00b0 = 1000\u00b5s, 90\u00b0 = 2000\u00b5s, etc.).\n\nPossible usage:\n\n* The datasheet of your servo specifies a range of 200\u00b0 with the middle position\n  at 110\u00b0. In this case you can set the minimum to -9000 and the maximum to 11000.\n* You measure a range of 220\u00b0 on your servo and you don't have or need a middle\n  position. In this case you can set the minimum to 0 and the maximum to 22000.\n* You have a linear servo with a drive length of 20cm, In this case you could\n  set the minimum to 0 and the maximum to 20000. Now you can set the Position\n  with :func:`SetPosition` with a resolution of cm/100. Also the velocity will\n  have a resolution of cm/100s and the acceleration will have a resolution of\n  cm/100s\u00b2.\n* You don't care about units and just want the highest possible resolution. In\n  this case you should set the minimum to -32767 and the maximum to 32767.\n* You have a brushless motor with a maximum speed of 10000 rpm and want to\n  control it with a RC brushless motor controller. In this case you can set the\n  minimum to 0 and the maximum to 10000. :func:`SetPosition` now controls the rpm.\n\nBoth values have a possible range from -32767 to 32767 \n(signed 16-bit integer). The minimum must be smaller than the maximum.\n\nThe default values are -9000 and 9000 for the minimum and maximum degree.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "min",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDegree",
+                "get_degree"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den minimalen und maximalen Winkel f\u00fcr den angegebenen Servo zur\u00fcck,\nwie von :func:`SetDegree` gesetzt.\n",
+                    "en": "\nReturns the minimum and maximum degree for the specified servo as set by\n:func:`SetDegree`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "period",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetPeriod",
+                "set_period"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Periode des angegebenen Servos in \u00b5s.\n\nNormalerweise werden Servos mit einer\n`PWM <http://de.wikipedia.org/wiki/Pulsweitenmodulation>`__ angesteuert.\nUnterschiedliche Servos erwarten PWMs mit unterschiedlichen Perioden.\nDie meisten Servos werden mit einer Periode von 20ms betrieben.\n\nWenn im Datenblatt des Servos die Periode spezifiziert ist, sollte dieser\nWert entsprechend gesetzt werden. Sollte der Servo ohne ein Datenblatt\nvorliegen und die korrekte Periode unbekannt sein, wird der Standardwert\n(19,5ms) meinst funktionieren.\n\nDie minimal m\u00f6gliche Periode ist 1\u00b5s und die maximale 65535\u00b5s.\n\nDer Standardwert ist 19,5ms (19500\u00b5s).\n",
+                    "en": "\nSets the period of the specified servo in \u00b5s.\n\nUsually, servos are controlled with a \n`PWM <http://en.wikipedia.org/wiki/Pulse-width_modulation>`__. Different\nservos expect PWMs with different periods. Most servos run well with a \nperiod of about 20ms.\n\nIf your servo comes with a datasheet that specifies a period, you should\nset it accordingly. If you don't have a datasheet and you have no idea\nwhat the correct period is, the default value (19.5ms) will most likely\nwork fine. \n\nThe minimum possible period is 1\u00b5s and the maximum is 65535\u00b5s.\n\nThe default value is 19.5ms (19500\u00b5s).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "period",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPeriod",
+                "get_period"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Periode f\u00fcr den angegebenen Servo zur\u00fcck, wie von :func:`SetPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period for the specified servo as set by :func:`SetPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetServoCurrent",
+                "get_servo_current"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Stromverbrauch des angegebenen Servos in mA zur\u00fcck.\n",
+                    "en": "\nReturns the current consumption of the specified servo in mA.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetOverallCurrent",
+                "get_overall_current"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Stromverbrauch aller Servos zusammen in mA zur\u00fcck.\n",
+                    "en": "\nReturns the current consumption of all servos together in mA.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 21,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackInputVoltage",
+                "get_stack_input_voltage"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Eingangsspannung des Stapels in mV zur\u00fcck. Die Eingangsspannung\ndes Stapels wird \u00fcber diesen verteilt, z.B. mittels einer Step-Down\noder Step-Up Power Supply.\n",
+                    "en": "\nReturns the stack input voltage in mV. The stack input voltage is the\nvoltage that is supplied via the stack, i.e. it is given by a \nStep-Down or Step-Up Power Supply.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 22,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetExternalInputVoltage",
+                "get_external_input_voltage"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die externe Eingangsspannung (in mV) zur\u00fcck. Die externe Eingangsspannung\nwird \u00fcber die schwarze Stromversorgungsbuchse, in den Servo Brick, eingespeist.\n\nSobald eine externe Eingangsspannung und die Spannungsversorgung des Stapels anliegt,\nwerden die Motoren \u00fcber die externe Spannung versorgt. Sollte nur die Spannungsversorgung\ndes Stapels verf\u00fcgbar sein, erfolgt die Versorgung der Motoren \u00fcber diese.\n\n.. warning::\n Das bedeutet, bei einer hohen Versorgungsspannung des Stapels und einer geringen\n externen Versorgungsspannung erfolgt die Spannungsversorgung der Motoren \u00fcber die geringere\n externe Versorgungsspannung. Wenn dann die externe Spannungsversorgung getrennt wird,\n erfolgt sofort die Versorgung der Motoren \u00fcber die h\u00f6here Versorgungsspannung des Stapels.\n",
+                    "en": "\nReturns the external input voltage in mV. The external input voltage is\ngiven via the black power input connector on the Servo Brick. \n \nIf there is an external input voltage and a stack input voltage, the motors\nwill be driven by the external input voltage. If there is only a stack \nvoltage present, the motors will be driven by this voltage.\n\n.. warning::\n This means, if you have a high stack voltage and a low external voltage,\n the motors will be driven with the low external voltage. If you then remove\n the external connection, it will immediately be driven by the high\n stack voltage\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 23,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetMinimumVoltage",
+                "set_minimum_voltage"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die minimale Spannung in mV, bei welcher der :func:`UnderVoltage` Callback\nausgel\u00f6st wird. Der kleinste m\u00f6gliche Wert mit dem der Servo Brick noch funktioniert,\nist 5V. Mit dieser Funktion kann eine Entladung der versorgenden Batterie detektiert\nwerden. Beim Einsatz einer Netzstromversorgung wird diese Funktionalit\u00e4t\nh\u00f6chstwahrscheinlich nicht ben\u00f6tigt.\n\nDer Standardwert ist 5V (5000mV).\n",
+                    "en": "\nSets the minimum voltage in mV, below which the :func:`UnderVoltage` callback\nis triggered. The minimum possible value that works with the Servo Brick is 5V.\nYou can use this function to detect the discharge of a battery that is used\nto drive the stepper motor. If you have a fixed power supply, you likely do \nnot need this functionality.\n\nThe default value is 5V (5000mV).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 24,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMinimumVoltage",
+                "get_minimum_voltage"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die minimale Spannung zur\u00fcck, wie von :func:`SetMinimumVoltage` gesetzt.\n",
+                    "en": "\nReturns the minimum voltage as set by :func:`SetMinimumVoltage`\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 25,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "UnderVoltage",
+                "under_voltage"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn die Eingangsspannung unter den, mittels\n:func:`SetMinimumVoltage` gesetzten, Schwellwert sinkt. Der :word:`parameter`\nist die aktuelle Spannung in mV.\n",
+                    "en": "\nThis callback is triggered when the input voltage drops below the value set by\n:func:`SetMinimumVoltage`. The :word:`parameter` is the current voltage given\nin mV.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 26,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "position",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "PositionReached",
+                "position_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st immer wenn eine konfigurierte Position, wie von\n:func:`SetPosition` gesetzt, erreicht wird. Die :word:`parameters` sind der\nServo und die Position die erreicht wurde.\n\nDieser Callback kann mit :func:`EnablePositionReachedCallback` aktiviert werden.\n\n.. note::\n Da es nicht m\u00f6glich ist eine R\u00fcckmeldung vom Servo zu erhalten,\n funktioniert dies nur wenn die konfigurierte Geschwindigkeit (siehe :func:`SetVelocity`)\n kleiner oder gleich der maximalen Geschwindigkeit des Motors ist. Andernfalls\n wird der Motor hinter dem Vorgabewert zur\u00fcckbleiben und der Callback wird\n zu fr\u00fch ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when a position set by :func:`SetPosition`\nis reached. The :word:`parameters` are the servo and the position that is reached.\n\nYou can enable this callback with :func:`EnablePositionReachedCallback`.\n\n.. note::\n Since we can't get any feedback from the servo, this only works if the\n velocity (see :func:`SetVelocity`) is set smaller or equal to the\n maximum velocity of the servo. Otherwise the servo will lag behind the\n control value and the callback will be triggered too early.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 27,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "servo_num",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "velocity",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "VelocityReached",
+                "velocity_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st immer wenn eine konfigurierte Geschwindigkeit, wie von\n:func:`SetVelocity` gesetzt, erreicht wird. Die :word:`parameters` sind der\nServo und die Geschwindigkeit die erreicht wurde.\n\nDieser Callback kann mit :func:`EnableVelocityReachedCallback` aktiviert werden.\n\n.. note::\n Da es nicht m\u00f6glich ist eine R\u00fcckmeldung vom Servo zu erhalten,\n funktioniert dies nur wenn die konfigurierte Beschleunigung (siehe :func:`SetAcceleration`)\n kleiner oder gleich der maximalen Beschleunigung des Motors ist. Andernfalls\n wird der Motor hinter dem Vorgabewert zur\u00fcckbleiben und der Callback wird\n zu fr\u00fch ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when a velocity set by :func:`SetVelocity`\nis reached. The :word:`parameters` are the servo and the velocity that is reached.\n\nYou can enable this callback with :func:`EnableVelocityReachedCallback`.\n\n.. note::\n Since we can't get any feedback from the servo, this only works if the\n acceleration (see :func:`SetAcceleration`) is set smaller or equal to the\n maximum acceleration of the servo. Otherwise the servo will lag behind the\n control value and the callback will be triggered too early.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 28,
+            "type": "callback"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EnablePositionReachedCallback",
+                "enable_position_reached_callback"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nAktiviert den :func:`PositionReached` Callback.\n\nVoreinstellung ist deaktiviert.\n",
+                    "en": "\nEnables the :func:`PositionReached` callback.\n\nDefault is disabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 29,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "DisablePositionReachedCallback",
+                "disable_position_reached_callback"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nDeaktiviert den :func:`PositionReached` Callback.\n\nVoreinstellung ist deaktiviert.\n",
+                    "en": "\nDisables the :func:`PositionReached` callback.\n\nDefault is disabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 30,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsPositionReachedCallbackEnabled",
+                "is_position_reached_callback_enabled"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn der :func:`PositionReached` Callback aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if :func:`PositionReached` callback is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 31,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EnableVelocityReachedCallback",
+                "enable_velocity_reached_callback"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nAktiviert den :func:`VelocityReached` Callback.\n\nVoreinstellung ist deaktiviert.\n",
+                    "en": "\nEnables the :func:`VelocityReached` callback.\n\nDefault is disabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 32,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "DisableVelocityReachedCallback",
+                "disable_velocity_reached_callback"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nDeaktiviert den :func:`VelocityReached` Callback.\n\nVoreinstellung ist deaktiviert.\n",
+                    "en": "\nDisables the :func:`VelocityReached` callback.\n\nDefault is disabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 33,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsVelocityReachedCallbackEnabled",
+                "is_velocity_reached_callback_enabled"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn der :func:`VelocityReached` Callback aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if :func:`VelocityReached` callback is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 34,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "port",
+                    "char",
+                    1,
+                    "in"
+                ],
+                [
+                    "protocol_version",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "name",
+                    "string",
+                    40,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProtocol1BrickletName",
+                "get_protocol1_bricklet_name"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Firmware und Protokoll Version und den Namen des Bricklets f\u00fcr einen\ngegebenen Port zur\u00fcck.\n\nDer einzige Zweck dieser Funktion ist es, automatischen Flashen von Bricklet\nv1.x.y Plugins zu erm\u00f6glichen.\n",
+                    "en": "\nReturns the firmware and protocol version and the name of the Bricklet for a\ngiven port.\n\nThis functions sole purpose is to allow automatic flashing of v1.x.y Bricklet\nplugins.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 241,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChipTemperature",
+                "get_chip_temperature"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur in \u00b0C/10, gemessen im Mikrocontroller, aus. Der\nR\u00fcckgabewert ist nicht die Umgebungstemperatur.\n\nDie Temperatur ist lediglich proportional zur echten Temperatur und hat eine\nGenauigkeit von +-15%. Daher beschr\u00e4nkt sich der praktische Nutzen auf die\nIndikation von Temperaturver\u00e4nderungen.\n",
+                    "en": "\nReturns the temperature in \u00b0C/10 as measured inside the microcontroller. The\nvalue returned is not the ambient temperature!\n\nThe temperature is only proportional to the real temperature and it has an\naccuracy of +-15%. Practically it is only useful as an indicator for\ntemperature changes.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                3
+            ],
+            "function_id": 242,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Reset",
+                "reset"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nEin Aufruf dieser Funktion setzt den Brick zur\u00fcck. Befindet sich der Brick\ninnerhalb eines Stapels wird der gesamte Stapel zur\u00fcck gesetzt.\n\nNach dem Zur\u00fccksetzen ist es notwendig neue Ger\u00e4teobjekte zu erzeugen,\nFunktionsaufrufe auf bestehende f\u00fchrt zu undefiniertem Verhalten.\n",
+                    "en": "\nCalling this function will reset the Brick. Calling this function\non a Brick inside of a stack will reset the whole stack.\n\nAfter a reset you have to create new device objects,\ncalling functions on the existing ones will result in\nundefined behavior!\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                3
+            ],
+            "function_id": 243,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der der Brick verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann '0'-'8' (Stack Position) sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Brick is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be '0'-'8' (stack position).\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 14,
+    "released": true,
+    "api": {
+        "de": "\nJede Funktion der Servo Brick API, welche den *servo_num* Parameter verwendet,\nkann einen Servo \u00fcber die Servo Nummer (0 bis 6) adressieren. Falls es sich um\neine Setter-Funktion handelt k\u00f6nnen mehrere Servos gleichzeitig mit einer\nBitmaske adressiert werden. Um dies zu kennzeichnen muss das h\u00f6chstwertigste\nBit gesetzt werden. Beispiel: ``1`` adressiert den Servo 1,\n``(1 << 1) | (1 << 5) | (1 << 7)`` adressiert die Servos 1 und 5, ``0xFF``\nadressiert alle 7 Servos, und so weiter. Das erm\u00f6glicht es Konfigurationen von\nverschiedenen Servos mit einem Funktionsaufruf durchzuf\u00fchren. Es ist\nsichergestellt das die \u00c4nderungen in der selben PWM Periode vorgenommen werden,\nf\u00fcr alle Servos entsprechend der Bitmaske.\n",
+        "en": "\nEvery function of the Servo Brick API that has a *servo_num* parameter can\naddress a servo with the servo number (0 to 6). If it is a setter function then\nmultiple servos can be addressed at once with a bitmask for the\nservos, if the highest bit is set. For example: ``1`` will address servo 1,\n``(1 << 1) | (1 << 5) | (1 << 7)`` will address servos 1 and 5, ``0xFF`` will\naddress all seven servos, etc. This allows to set configurations to several\nservos with one function call. It is guaranteed that the changes will take\neffect in the same PWM period for all servos you specified in the bitmask.\n"
+    },
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "Servo",
+        "servo",
+        "Servo"
+    ]
+}

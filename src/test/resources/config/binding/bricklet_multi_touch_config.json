@@ -1,0 +1,381 @@
+{
+    "category": "Bricklet",
+    "description": "Device with 12 touch sensors",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "state",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetTouchState",
+                "get_touch_state"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den aktuellen Tastzustand zur\u00fcck. Der Zustand ist als ein\nBitfeld repr\u00e4sentiert.\n\nBits 0 bis 11 repr\u00e4sentieren die 12 Elektroden und Bit 12\nrepr\u00e4sentiert die Proximity (N\u00e4he).\n\nWird eine Elektrode ber\u00fchrt, ist das korrespondierende Bit *true*.\nWenn eine Hand oder vergleichbares in der N\u00e4he der Elektroden ist\nwird Bit 12 auf *true* gesetzt.\n\nBeispiel: Der Zustand 4103 = 0x1007 = 0b1000000000111 bedeutet dass\ndie Elektroden 0, 1 und 2 ber\u00fchrt werden und das sich etwas in der\nn\u00e4he der Elektroden befindet.\n\nDas Proximity Bit wird ab einer Distanz von ca. 1-2cm aktiviert.\nEine Elektrode wird schon als ber\u00fchrt gez\u00e4hlt wenn ein Finger sie\nbeinahe ber\u00fchrt. Dadurch ist es m\u00f6glich ein St\u00fcck Papier oder Folie\n\u00fcber die Elektrode zu kleben um damit ein Touchpanel mit einem\nprofessionellen Aussehen zu bauen.\n",
+                    "en": "\nReturns the current touch state. The state is given as a bitfield.\n\nBits 0 to 11 represent the 12 electrodes and bit 12 represents\nthe proximity.\n\nIf an electrode is touched, the corresponding bit is true. If\na hand or similar is in proximity to the electrodes, bit 12 is\n*true*.\n\nExample: The state 4103 = 0x1007 = 0b1000000000111 means that\nelectrodes 0, 1 and 2 are touched and that something is in the\nproximity of the electrodes.\n\nThe proximity is activated with a distance of 1-2cm. An electrode\nis already counted as touched if a finger is nearly touching the\nelectrode. This means that you can put a piece of paper or foil\nor similar on top of a electrode to build a touch panel with\na professional look.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Recalibrate",
+                "recalibrate"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nRekalibriert die Elektroden. Rufe diese Funktion auf wenn die\nElektroden ver\u00e4ndert oder bewegt wurden.\n",
+                    "en": "\nRecalibrates the electrodes. Call this function whenever you changed\nor moved you electrodes.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled_electrodes",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetElectrodeConfig",
+                "set_electrode_config"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nAktiviert/deaktiviert Elektroden mit einem Bitfeld (siehe :func:`GetTouchState`).\n\n*True* aktiviert eine Elektrode, *false* deaktiviert eine Elektrode. Eine\ndeaktivierte Elektrode hat immer den Zustand *false*. Wenn nicht alle\nElektroden gebraucht werden k\u00f6nnen die ungebrauchten deaktiviert werden.\n\nWir empfehlen das Proximity Bit (Bit 12) zu deaktivieren wenn\ndas Proximity-Feature nicht ben\u00f6tigt wird. Das verringert den Datenverkehr\nder durch den :func:`TouchState` Callback ausgel\u00f6st wird.\n\nEine deaktivierte Elektrode verringert zus\u00e4tzlich den Stromverbrauch.\n\nStandardwert: 8191 = 0x1FFF = 0b1111111111111 (alle Elektroden aktiviert)\n",
+                    "en": "\nEnables/disables electrodes with a bitfield (see :func:`GetTouchState`).\n\n*True* enables the electrode, *false* disables the electrode. A\ndisabled electrode will always return *false* as its state. If you\ndon't need all electrodes you can disable the electrodes that are\nnot needed.\n\nIt is recommended that you disable the proximity bit (bit 12) if\nthe proximity feature is not needed. This will reduce the amount of\ntraffic that is produced by the :func:`TouchState` callback.\n\nDisabling electrodes will also reduce power consumption.\n\nDefault: 8191 = 0x1FFF = 0b1111111111111 (all electrodes enabled)\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled_electrodes",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetElectrodeConfig",
+                "get_electrode_config"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Elektrodenkonfiguration zur\u00fcck, wie von :func:`SetElectrodeConfig`\ngesetzt.\n",
+                    "en": "\nReturns the electrode configuration, as set by :func:`SetElectrodeConfig`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "state",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "TouchState",
+                "touch_state"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nGibt den aktuellen Tastzustand zur\u00fcck, siehe :func:`GetTouchState`\nf\u00fcr mehr Informationen \u00fcber den Zustand.\n\nDieser Callback wird ausgel\u00f6st wenn sich ein Tastzustand \u00e4ndert.\n",
+                    "en": "\nReturns the current touch state, see :func:`GetTouchState` for\ninformation about the state.\n\nThis callback is triggered every time the touch state changes.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "sensitivity",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetElectrodeSensitivity",
+                "set_electrode_sensitivity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Empfindlichkeit der Elektrode. Eine Elektrode mit einer hohen\nEmpfindlichkeit registriert eine Ber\u00fchrung fr\u00fcher als eine Elektrode mit einer\nniedrigen Empfindlichkeit.\n\nWenn eine gro\u00dfe Elektrode verwendet wird sollte die Empfindlichkeit verringert\nwerden, da eine gr\u00f6\u00dfere Fl\u00e4che aufgeladen werden kann. Wenn eine Elektrode aus \ngr\u00f6\u00dferem Abstand aktivierbar seien soll, muss die Empfindlichkeit\nvergr\u00f6\u00dfert werden.\n\nNachdem eine neue Empfindlichkeit gesetzt wurde, macht es Sinn\n:func:`Recalibrate` aufzurufen damit die Elektroden mit der neu\ndefinierten Empfindlichkeit kalibriert werden.\n\nDer zul\u00e4ssige Wertebereich f\u00fcr den Empfindlichkeitswert ist 5-201.\n\nDer voreingestellte Empfindlichkeitswert ist 181.\n",
+                    "en": "\nSets the sensitivity of the electrodes. An electrode with a high sensitivity\nwill register a touch earlier then an electrode with a low sensitivity.\n\nIf you build a big electrode you might need to decrease the sensitivity, since\nthe area that can be charged will get bigger. If you want to be able to\nactivate an electrode from further away you need to increase the sensitivity.\n\nAfter a new sensitivity is set, you likely want to call :func:`Recalibrate`\nto calibrate the electrodes with the newly defined sensitivity.\n\nThe valid sensitivity value range is 5-201.\n\nThe default sensitivity value is 181.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "sensitivity",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetElectrodeSensitivity",
+                "get_electrode_sensitivity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuelle Empfindlichkeit zur\u00fcck, wie von \n:func:`SetElectrodeSensitivity` gesetzt.\n",
+                    "en": "\nReturns the current sensitivity, as set by :func:`SetElectrodeSensitivity`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 234,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "MultiTouch",
+        "multi_touch",
+        "Multi Touch"
+    ]
+}

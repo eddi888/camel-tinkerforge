@@ -1,0 +1,367 @@
+{
+    "category": "Bricklet",
+    "description": "Device for controling four 7-segment displays",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "segments",
+                    "uint8",
+                    4,
+                    "in"
+                ],
+                [
+                    "brightness",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "colon",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetSegments",
+                "set_segments"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nDie 7-Segment Anzeige kann mit Bitmaps gesetzt werden. Jedes Bit kontrolliert\nein Segment:\n\n.. image:: /Images/Bricklets/bricklet_segment_display_4x7_bit_order.png\n   :scale: 100 %\n   :alt: Bitreihenfolge eines Segments\n   :align: center\n\nBeispiel: Um eine \"5\" auf der Anzeige darzustellen m\u00fcssen die Segment \n0, 2, 3, 5 und 6 aktiviert werden. Dies kann mit der Zahl \n0b01101101 = 0x6d = 109 repr\u00e4sentiert werden.\n\nDie Helligkeit kann zwischen 0 (dunkel) und 7 (hell) gesetzt werden.\nDer dritte Parameter aktiviert/deaktiviert den Doppelpunkt auf der Anzeige.\n",
+                    "en": "\nThe 7-segment display can be set with bitmaps. Every bit controls one\nsegment:\n\n.. image:: /Images/Bricklets/bricklet_segment_display_4x7_bit_order.png\n   :scale: 100 %\n   :alt: Bit order of one segment\n   :align: center\n\nFor example to set a \"5\" you would want to activate segments 0, 2, 3, 5 and 6.\nThis is represented by the number 0b01101101 = 0x6d = 109.\n\nThe brightness can be set between 0 (dark) and 7 (bright). The colon\nparameter turns the colon of the display on or off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "segments",
+                    "uint8",
+                    4,
+                    "out"
+                ],
+                [
+                    "brightness",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "colon",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetSegments",
+                "get_segments"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Segment-, Helligkeit- und Doppelpunktdaten zur\u00fcck, wie von\n:func:`SetSegments` gesetzt.\n",
+                    "en": "\nReturns the segment, brightness and color data as set by \n:func:`SetSegments`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "value_from",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "value_to",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "increment",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "length",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "StartCounter",
+                "start_counter"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nStarter einen Z\u00e4hler mit dem *from* Wert der bis zum *to* Wert Z\u00e4hlt\nmit einer Schrittweite von *increment*. Das Argument *length* gibt die\nPause zwischen den Erh\u00f6hungen in ms an.\n\nBeispiel: Wenn *from* auf 0, *to* auf 100, *increment* auf 1 und\n*length* auf 1000 gesetzt wird, wird ein Z\u00e4hler gestartet der von\n0 bis 100 z\u00e4hlt mit Rate von 1 Sekunde zwischen jeder Erh\u00f6hung.\n\nDer Z\u00e4hler kann jederzeit durch einen Aufruf von :func:`SetSegments`\ngestoppt werden.\n",
+                    "en": "\nStarts a counter with the *from* value that counts to the *to*\nvalue with the each step incremented by *increment*.\nThe *length* of the increment is given in ms.\n\nExample: If you set *from* to 0, *to* to 100, *increment* to 1 and\n*length* to 1000, a counter that goes from 0 to 100 with 1 second\npause between each increment will be started.\n\nThe maximum values for *from*, *to* and *increment* is 9999, \nthe minimum value is -999.\n\nYou can stop the counter at every time by calling :func:`SetSegments`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCounterValue",
+                "get_counter_value"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den aktuellen Z\u00e4hlerstand zur\u00fcck der auf der Anzeige\nangezeigt wird.\n\nWenn kein Z\u00e4hler am laufen ist wird eine 0 zur\u00fcckgegeben.\n",
+                    "en": "\nReturns the counter value that is currently shown on the display.\n\nIf there is no counter running a 0 will be returned.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "CounterFinished",
+                "counter_finished"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDiese Callback wird ausgel\u00f6st wenn der Z\u00e4hler (siehe :func:`StartCounter`)\nfertig ist.\n",
+                    "en": "\nThis callback is triggered when the counter (see :func:`StartCounter`) is\nfinished.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 237,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "SegmentDisplay4x7",
+        "segment_display_4x7",
+        "Segment Display 4x7"
+    ]
+}

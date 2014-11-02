@@ -1,0 +1,812 @@
+{
+    "category": "Bricklet",
+    "description": "Device for sensing Ambient Light",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "illuminance",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIlluminance",
+                "get_illuminance"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Beleuchtungsst\u00e4rke des Umgebungslichtsensors zur\u00fcck. Der Wertbereich\nist von 0 bis 9000 und ist in Lux/10 angegeben, d.h. bei einem Wert von \n4500 wurde eine Beleuchtungsst\u00e4rke von 450 Lux gemessen.\n\nWenn die Beleuchtungsst\u00e4rke periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Illuminance` zu nutzen und die Periode mit \n:func:`SetIlluminanceCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the illuminance of the ambient light sensor. The value\nhas a range of 0 to 9000 and is given in Lux/10, i.e. a value\nof 4500 means that an illuminance of 450 Lux is measured.\n\nIf you want to get the illuminance periodically, it is recommended to use the\ncallback :func:`Illuminance` and set the period with \n:func:`SetIlluminanceCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAnalogValue",
+                "get_analog_value"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Wert, wie vom 12-Bit Analog-Digital-Wandler gelesen, zur\u00fcck. Der\nWertebereich ist 0 bis 4095.\n\n.. note::\n Der von :func:`GetIlluminance` zur\u00fcckgegebene Wert ist \u00fcber mehrere\n Messwerte gemittelt um das Rauschen zu vermindern, w\u00e4hrend :func:`GetAnalogValue`\n unverarbeitete Analogwerte zur\u00fcck gibt. Der einzige Grund :func:`GetAnalogValue`\n zu nutzen, ist die volle Aufl\u00f6sung des Analog-Digital-Wandlers zu erhalten.\n \n Weiterhin deckt der Analog-Digital-Wandler drei unterschiedliche Bereiche ab,\n welche dynamisch gewechselt werden abh\u00e4ngig von der Lichtintensit\u00e4t. Es ist\n nicht m\u00f6glich, anhand der Analogwerte, zwischen diesen Bereichen zu unterscheiden.\n \nWenn der Analogwert periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`AnalogValue` zu nutzen und die Periode mit \n:func:`SetAnalogValueCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the value as read by a 12-bit analog-to-digital converter.\nThe value is between 0 and 4095.\n\n.. note::\n The value returned by :func:`GetIlluminance` is averaged over several samples\n to yield less noise, while :func:`GetAnalogValue` gives back raw\n unfiltered analog values. The only reason to use :func:`GetAnalogValue` is,\n if you need the full resolution of the analog-to-digital converter.\n\n Also, the analog-to-digital converter covers three different ranges that are\n set dynamically depending on the light intensity. It is impossible to\n distinguish between these ranges with the analog value.\n\nIf you want the analog value periodically, it is recommended to use the \ncallback :func:`AnalogValue` and set the period with \n:func:`SetAnalogValueCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetIlluminanceCallbackPeriod",
+                "set_illuminance_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Illuminance` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Illuminance` wird nur ausgel\u00f6st wenn sich die Beleuchtungsst\u00e4rke seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Illuminance` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Illuminance` is only triggered if the illuminance has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIlluminanceCallbackPeriod",
+                "get_illuminance_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetIlluminanceCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetIlluminanceCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAnalogValueCallbackPeriod",
+                "set_analog_value_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`AnalogValue` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`AnalogValue` wird nur ausgel\u00f6st wenn sich der Analogwert seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`AnalogValue` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`AnalogValue` is only triggered if the analog value has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAnalogValueCallbackPeriod",
+                "get_analog_value_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAnalogValueCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAnalogValueCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "int16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "int16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetIlluminanceCallbackThreshold",
+                "set_illuminance_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`IlluminanceReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Beleuchtungsst\u00e4rke *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Beleuchtungsst\u00e4rke *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Beleuchtungsst\u00e4rke kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Beleuchtungsst\u00e4rke gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`IlluminanceReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the illuminance is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the illuminance is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the illuminance is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the illuminance is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIlluminanceCallbackThreshold",
+                "get_illuminance_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetIlluminanceCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetIlluminanceCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAnalogValueCallbackThreshold",
+                "set_analog_value_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`AnalogValueReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn der Analogwert *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn der Analogwert *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn der Analogwert kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn der Analogwert gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`AnalogValueReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the analog value is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the analog value is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the analog value is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the analog value is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAnalogValueCallbackThreshold",
+                "get_analog_value_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetAnalogValueCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetAnalogValueCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDebouncePeriod",
+                "set_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher die Schwellwert Callbacks\n\n* :func:`IlluminanceReached`,\n* :func:`AnalogValueReached`\n \nausgel\u00f6st werden, wenn die Schwellwerte \n\n* :func:`SetIlluminanceCallbackThreshold`,\n* :func:`SetAnalogValueCallbackThreshold`\n \nweiterhin erreicht bleiben.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the period in ms with which the threshold callbacks\n\n* :func:`IlluminanceReached`,\n* :func:`AnalogValueReached`\n\nare triggered, if the thresholds\n\n* :func:`SetIlluminanceCallbackThreshold`,\n* :func:`SetAnalogValueCallbackThreshold`\n\nkeep being reached.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDebouncePeriod",
+                "get_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Entprellperiode zur\u00fcck, wie von :func:`SetDebouncePeriod`\ngesetzt.\n",
+                    "en": "\nReturns the debounce period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "illuminance",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Illuminance",
+                "illuminance"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetIlluminanceCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Beleuchtungsst\u00e4rke des Umgebungslichtsensors.\n\n:func:`Illuminance` wird nur ausgel\u00f6st wenn sich die Beleuchtungsst\u00e4rke seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetIlluminanceCallbackPeriod`. The :word:`parameter` is the illuminance of the\nambient light sensor.\n\n:func:`Illuminance` is only triggered if the illuminance has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AnalogValue",
+                "analog_value"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAnalogValueCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist der Analogwert des Umgebungslichtsensors.\n\n:func:`AnalogValue` wird nur ausgel\u00f6st wenn sich der Analogwert seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAnalogValueCallbackPeriod`. The :word:`parameter` is the analog value of the\nambient light sensor.\n\n:func:`AnalogValue` is only triggered if the analog value has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "illuminance",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IlluminanceReached",
+                "illuminance_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetIlluminanceCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist die Beleuchtungsst\u00e4rke des Umgebungslichtsensors.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetIlluminanceCallbackThreshold` is reached.\nThe :word:`parameter` is the illuminance of the ambient light sensor.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AnalogValueReached",
+                "analog_value_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetAnalogValueCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist der Analogwert des Umgebungslichtsensors.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetAnalogValueCallbackThreshold` is reached.\nThe :word:`parameter` is the analog value of the ambient light sensor.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 21,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "AmbientLight",
+        "ambient_light",
+        "Ambient Light"
+    ]
+}

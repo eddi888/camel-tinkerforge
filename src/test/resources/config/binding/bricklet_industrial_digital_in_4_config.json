@@ -1,0 +1,620 @@
+{
+    "category": "Bricklet",
+    "description": "Device for controlling up to 4 optically coupled digital inputs",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "value_mask",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetValue",
+                "get_value"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Ausgabewerte mit einer Bitmaske zur\u00fcck. Die Bitmaske ist 16Bit lang.\n*true* bedeutet logisch 1 und *false* logisch 0.\n\nZum Beispiel: Der Wert 3 bzw. 0b0011 bedeutet, dass die Pins 0-1 auf logisch 1\nund alle anderen auf logisch 0 sind.\n\nFalls keine Gruppen verwendet werden (siehe :func:`SetGroup`), entsprechen\ndie Pins der Beschriftung auf dem Digital In 4 Bricklet.\n\nFalls Gruppen verwendet werden, entsprechen die Pins den Elementen der\nGruppe. Element 1 in der Gruppe bekommt Pins 0-3,\nElement 2 Pins 4-7, Element 3 Pins 8-11 und Element 4 Pins 12-15.\n",
+                    "en": "\nReturns the input value with a bitmask. The bitmask is 16bit long, *true*\nrefers to high and *false* refers to low.\n\nFor example: The value 3 or 0b0011 means that pins 0-1 are high and the other\npins are low.\n\nIf no groups are used (see :func:`SetGroup`), the pins correspond to the\nmarkings on the Digital In 4 Bricklet.\n\nIf groups are used, the pins correspond to the element in the group.\nElement 1 in the group will get pins 0-3, element 2 pins 4-7, element 3\npins 8-11 and element 4 pins 12-15.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "group",
+                    "char",
+                    4,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetGroup",
+                "set_group"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt eine Gruppe von Digital In 4 Bricklets die zusammenarbeiten sollen.\nM\u00f6gliche Gruppierungen k\u00f6nnen mit der Funktion :func:`GetAvailableForGroup`\ngefunden werden.\n\nEine Gruppe besteht aus 4 Element. Element 1 in der Gruppe bekommt Pins 0-3,\nElement 2 Pins 4-7, Element 3 Pins 8-11 und Element 4 Pins 12-15.\n\nJedes Element kann entweder auf einen der Ports ('a' bis 'd') gesetzt werden\noder falls nicht genutzt 'n' gesetzt werden.\n\nZum Beispiel: Falls zwei Digital In 4 Bricklets mit Port A und Port B verbunden\nsind, k\u00f6nnte diese Funktion mit |abnn| aufgerufen werden.\n\nIn diesem Fall w\u00e4ren die Pins von Port A den Werten 0-3 zugewiesen und\ndie Pins von Port B den Werten 4-7. Es ist jetzt m\u00f6glich mit der Funktion\n:func:`GetValue` beide Bricklets gleichzeitig auszulesen.\n\n\u00c4nderungen an der Gruppeneinteilung setzt die Konfiguration und Z\u00e4hlerwerte\naller Flankenz\u00e4hler zur\u00fcck.\n",
+                    "en": "\nSets a group of Digital In 4 Bricklets that should work together. You can\nfind Bricklets that can be grouped together with :func:`GetAvailableForGroup`.\n\nThe group consists of 4 elements. Element 1 in the group will get pins 0-3,\nelement 2 pins 4-7, element 3 pins 8-11 and element 4 pins 12-15.\n\nEach element can either be one of the ports ('a' to 'd') or 'n' if it should\nnot be used.\n\nFor example: If you have two Digital In 4 Bricklets connected to port A and\nport B respectively, you could call with |abnn|.\n\nNow the pins on the Digital In 4 on port A are assigned to 0-3 and the\npins on the Digital In 4 on port B are assigned to 4-7. It is now possible\nto call :func:`GetValue` and read out two Bricklets at the same time.\n\nChanging the group configuration resets all edge counter configurations\nand values.\n"
+                },
+                {
+                    "*": {
+                        "abnn": {
+                            "*": "``['a', 'b', 'n', 'n']``",
+                            "php": "``array('a', 'b', 'n', 'n')``"
+                        }
+                    }
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "group",
+                    "char",
+                    4,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetGroup",
+                "get_group"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Gruppierung zur\u00fcck, wie von :func:`SetGroup` gesetzt.\n",
+                    "en": "\nReturns the group as set by :func:`SetGroup`\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "available",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAvailableForGroup",
+                "get_available_for_group"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt eine Bitmaske von Ports zur\u00fcck die f\u00fcr die Gruppierung zur Verf\u00fcgung\nstehen. Zum Beispiel bedeutet der Wert 5 bzw. 0b0101: Port A und Port C sind\nmit Bricklets verbunden die zusammen gruppiert werden k\u00f6nnen.\n",
+                    "en": "\nReturns a bitmask of ports that are available for grouping. For example the\nvalue 5 or 0b0101 means: Port A and port C are connected to Bricklets that\ncan be grouped together.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDebouncePeriod",
+                "set_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Entprellperiode der :func:`Interrupt` Callback in ms.\n\nBeispiel: Wenn dieser Wert auf 100 gesetzt wird, erh\u00e4lt man den Interrupt\nmaximal alle 100ms. Dies ist notwendig falls etwas prellendes an\ndas Digital In 4 Bricklet angeschlossen ist, wie z.B. einen Schalter.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the debounce period of the :func:`Interrupt` callback in ms.\n\nFor example: If you set this value to 100, you will get the interrupt\nmaximal every 100ms. This is necessary if something that bounces is\nconnected to the Digital In 4 Bricklet, such as a button.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDebouncePeriod",
+                "get_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Entprellperiode zur\u00fcck, wie von :func:`SetDebouncePeriod`\ngesetzt.\n",
+                    "en": "\nReturns the debounce period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "interrupt_mask",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetInterrupt",
+                "set_interrupt"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt durch eine Bitmaske die Pins f\u00fcr welche der Interrupt aktiv ist.\nInterrupts werden ausgel\u00f6st bei \u00c4nderung des Spannungspegels eines Pins,\nz.B. ein Wechsel von logisch 1 zu logisch 0 und logisch 0 zu logisch 1.\n\nBeispiel: Eine Interrupt Bitmaske von 9 bzw. 0b1001 aktiviert den Interrupt f\u00fcr\ndie Pins 0 und 3.\n\nDie Interrupts benutzen die Gruppierung, wie von :func:`SetGroup`\ngesetzt.\n\nDer Interrupt wird mit der Callback :func:`Interrupt` zugestellt.\n",
+                    "en": "\nSets the pins on which an interrupt is activated with a bitmask.\nInterrupts are triggered on changes of the voltage level of the pin,\ni.e. changes from high to low and low to high.\n\nFor example: An interrupt bitmask of 9 or 0b1001 will enable the interrupt for\npins 0 and 3.\n\nThe interrupts use the grouping as set by :func:`SetGroup`.\n\nThe interrupt is delivered with the callback :func:`Interrupt`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "interrupt_mask",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetInterrupt",
+                "get_interrupt"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Interrupt Bitmaske zur\u00fcck, wie von :func:`SetInterrupt` gesetzt.\n",
+                    "en": "\nReturns the interrupt bitmask as set by :func:`SetInterrupt`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "interrupt_mask",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "value_mask",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Interrupt",
+                "interrupt"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st sobald eine \u00c4nderung des Spannungspegels\ndetektiert wird, an Pins f\u00fcr welche der Interrupt mit :func:`SetInterrupt`\naktiviert wurde.\n\nDie R\u00fcckgabewerte sind eine Bitmaske der aufgetretenen Interrupts und der\naktuellen Zust\u00e4nde.\n\nBeispiele:\n\n* (1, 1) bzw. (0b0001, 0b0001) bedeutet, dass ein Interrupt am Pin 0 aufgetreten\n  ist und aktuell Pin 0 logisch 1 ist und die Pins 1-3 logisch 0 sind.\n* (9, 14) bzw. (0b1001, 0b1110) bedeutet, dass Interrupts an den Pins 0 und 3\n  aufgetreten sind und aktuell Pin 0 logisch 0 ist und die Pins 1-3 logisch 1 sind.\n",
+                    "en": "\nThis callback is triggered whenever a change of the voltage level is detected\non pins where the interrupt was activated with :func:`SetInterrupt`.\n\nThe values are a bitmask that specifies which interrupts occurred\nand the current value bitmask.\n\nFor example:\n\n* (1, 1) or (0b0001, 0b0001) means that an interrupt on pin 0 occurred and\n  currently pin 0 is high and pins 1-3 are low.\n* (9, 14) or (0b1001, 0b1110) means that interrupts on pins 0 and 3\n  occurred and currently pin 0 is low and pins 1-3 are high.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "pin",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "reset_counter",
+                    "bool",
+                    1,
+                    "in"
+                ],
+                [
+                    "count",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetEdgeCount",
+                "get_edge_count"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den aktuellen Wert des Flankenz\u00e4hlers f\u00fcr den ausgew\u00e4hlten Pin zur\u00fcck. Die\nzu z\u00e4hlenden Flanken k\u00f6nnen mit :func:`SetEdgeCountConfig` konfiguriert werden.\n\nWenn reset counter auf *true* gesetzt wird, wird der Z\u00e4hlerstand direkt\nnach dem auslesen auf 0 zur\u00fcckgesetzt.\n",
+                    "en": "\nReturns the current value of the edge counter for the selected pin. You can\nconfigure the edges that are counted with :func:`SetEdgeCountConfig`.\n\nIf you set the reset counter to *true*, the count is set back to 0\ndirectly after it is read.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "selection_mask",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "edge_type",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "EdgeType",
+                        "edge_type",
+                        [
+                            [
+                                "Rising",
+                                "rising",
+                                0
+                            ],
+                            [
+                                "Falling",
+                                "falling",
+                                1
+                            ],
+                            [
+                                "Both",
+                                "both",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "debounce",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetEdgeCountConfig",
+                "set_edge_count_config"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nKonfiguriert den Flankenz\u00e4hler f\u00fcr die ausgew\u00e4hlten Pins. Eine Bitmaske von 9\nbzw. 0b1001 aktiviert den Flankenz\u00e4hler f\u00fcr die Pins 0 und 3.\n\nDer edge type Parameter konfiguriert den zu z\u00e4hlenden Flankentyp. Es k\u00f6nnen\nsteigende, fallende oder beide Flanken gez\u00e4hlt werden f\u00fcr Pins die als Eingang\nkonfiguriert sind. M\u00f6gliche Flankentypen sind:\n\n* 0 = steigend (Standard)\n* 1 = fallend\n* 2 = beide\n\nDie Entprellzeit (debounce) wird in ms angegeben.\n\nDurch das Konfigurieren wird der Wert des Flankenz\u00e4hlers auf 0 zur\u00fcckgesetzt.\n\nFalls unklar ist was dies alles bedeutet, kann diese Funktion einfach\nignoriert werden. Die Standardwerte sind in fast allen Situationen OK.\n\nStandardwerte: 0 (edge type) und 100ms (debounce).\n",
+                    "en": "\nConfigures the edge counter for the selected pins. A bitmask of 9 or 0b1001 will\nenable the edge counter for pins 0 and 3.\n\nThe edge type parameter configures if rising edges, falling edges or\nboth are counted if the pin is configured for input. Possible edge types are:\n\n* 0 = rising (default)\n* 1 = falling\n* 2 = both\n\nThe debounce time is given in ms.\n\nConfiguring an edge counter resets its value to 0.\n\nIf you don't know what any of this means, just leave it at default. The\ndefault configuration is very likely OK for you.\n\nDefault values: 0 (edge type) and 100ms (debounce time)\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "pin",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "edge_type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "EdgeType",
+                        "edge_type",
+                        [
+                            [
+                                "Rising",
+                                "rising",
+                                0
+                            ],
+                            [
+                                "Falling",
+                                "falling",
+                                1
+                            ],
+                            [
+                                "Both",
+                                "both",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "debounce",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetEdgeCountConfig",
+                "get_edge_count_config"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Flankentyp sowie die Entprellzeit f\u00fcr den ausgew\u00e4hlten Pin zur\u00fcck,\nwie von :func:`SetEdgeCountConfig` gesetzt.\n",
+                    "en": "\nReturns the edge type and debounce time for the selected pin as set by\n:func:`SetEdgeCountConfig`.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 223,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        1
+    ],
+    "name": [
+        "IndustrialDigitalIn4",
+        "industrial_digital_in_4",
+        "Industrial Digital In 4"
+    ]
+}

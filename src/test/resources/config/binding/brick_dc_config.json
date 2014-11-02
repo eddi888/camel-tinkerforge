@@ -1,0 +1,963 @@
+{
+    "category": "Brick",
+    "description": "Device for controlling DC motors",
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "velocity",
+                    "int16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetVelocity",
+                "set_velocity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Geschwindigkeit des Motors. Hierbei sind -32767 maximale\nGeschwindigkeit r\u00fcckw\u00e4rts, 0 ist Halt und 32767 maximale Geschwindigkeit\nvorw\u00e4rts. In Abh\u00e4ngigkeit von der Beschleunigung (siehe :func:`SetAcceleration`)\nwird der Motor nicht direkt auf die Geschwindigkeit gebracht sondern\ngleichm\u00e4\u00dfig beschleunigt.\n\nDie Geschwindigkeit beschreibt das Tastverh\u00e4ltnis der PWM f\u00fcr die\nMotoransteuerung. Z.B. entspricht ein Geschwindigkeitswert von 3277 einer PWM\nmit einem Tastverh\u00e4ltnis von 10%. Weiterhin kann neben dem Tastverh\u00e4ltnis auch\ndie Frequenz der PWM ver\u00e4ndert werden, siehe :func:`SetPWMFrequency`.\n\nDer Standardwert f\u00fcr die Geschwindigkeit ist 0.\n",
+                    "en": "\nSets the velocity of the motor. Whereas -32767 is full speed backward,\n0 is stop and 32767 is full speed forward. Depending on the\nacceleration (see :func:`SetAcceleration`), the motor is not immediately\nbrought to the velocity but smoothly accelerated.\n\nThe velocity describes the duty cycle of the PWM with which the motor is\ncontrolled, e.g. a velocity of 3277 sets a PWM with a 10% duty cycle.\nYou can not only control the duty cycle of the PWM but also the frequency,\nsee :func:`SetPWMFrequency`.\n\nThe default velocity is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "velocity",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetVelocity",
+                "get_velocity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Geschwindigkeit zur\u00fcck, wie gesetzt von :func:`SetVelocity`.\n",
+                    "en": "\nReturns the velocity as set by :func:`SetVelocity`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "velocity",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCurrentVelocity",
+                "get_current_velocity"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die *aktuelle* Geschwindigkeit des Motors zur\u00fcck. Dieser Wert\nunterscheidet sich von :func:`GetVelocity`, sobald der Motor auf einen\nneuen Zielwert, wie von :func:`SetVelocity` vorgegeben, beschleunigt.\n",
+                    "en": "\nReturns the *current* velocity of the motor. This value is different\nfrom :func:`GetVelocity` whenever the motor is currently accelerating\nto a goal set by :func:`SetVelocity`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "acceleration",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAcceleration",
+                "set_acceleration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Beschleunigung des Motors. Die Einheit dieses Wertes ist\n*Geschwindigkeit/s*. Ein Beschleunigungswert von 10000 bedeutet, dass jede\nSekunde die Geschwindigkeit um 10000 erh\u00f6ht wird (entspricht rund 30%\nTastverh\u00e4ltnis).\n\nBeispiel: Soll die Geschwindigkeit von 0 auf 16000 (entspricht ungef\u00e4hr\n50% Tastverh\u00e4ltnis) in 10 Sekunden beschleunigt werden, so ist die\nBeschleunigung auf 1600 einzustellen.\n\nEine Beschleunigung von 0 bedeutet ein direkter Sprung des Motors auf die\nZielgeschwindigkeit. Es Wird keine Beschleunigungsrampe gefahren.\n\nDer Standardwert f\u00fcr die Beschleunigung betr\u00e4gt 10000.\n",
+                    "en": "\nSets the acceleration of the motor. It is given in *velocity/s*. An\nacceleration of 10000 means, that every second the velocity is increased\nby 10000 (or about 30% duty cycle).\n\nFor example: If the current velocity is 0 and you want to accelerate to a\nvelocity of 16000 (about 50% duty cycle) in 10 seconds, you should set\nan acceleration of 1600.\n\nIf acceleration is set to 0, there is no speed ramping, i.e. a new velocity\nis immediately given to the motor.\n\nThe default acceleration is 10000.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "acceleration",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAcceleration",
+                "get_acceleration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Beschleunigung zur\u00fcck, wie gesetzt von :func:`SetAcceleration`.\n",
+                    "en": "\nReturns the acceleration as set by :func:`SetAcceleration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "frequency",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetPWMFrequency",
+                "set_pwm_frequency"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Frequenz (in Hz) der PWM, welche den Motor steuert.\nDer Wertebereich der Frequenz ist 1-20000Hz. Oftmals ist eine\nhohe Frequenz ger\u00e4usch\u00e4rmer und der Motor l\u00e4uft dadurch ruhiger. Trotz dessen\nf\u00fchrt eine geringe Frequenz zu weniger Schaltvorg\u00e4ngen und somit zu\nweniger Schaltverlusten. Bei einer Vielzahl von Motoren erm\u00f6glichen\ngeringere Frequenzen h\u00f6here Drehmomente.\n\nIm Allgemeinen kann diese Funktion ignoriert werden, da der Standardwert\nh\u00f6chstwahrscheinlich zu einem akzeptablen Ergebnis f\u00fchrt.\n\nDer Standardwert der Frequenz ist 15 kHz.\n",
+                    "en": "\nSets the frequency (in Hz) of the PWM with which the motor is driven.\nThe possible range of the frequency is 1-20000Hz. Often a high frequency\nis less noisy and the motor runs smoother. However, with a low frequency\nthere are less switches and therefore fewer switching losses. Also with\nmost motors lower frequencies enable higher torque.\n\nIf you have no idea what all this means, just ignore this function and use\nthe default frequency, it will very likely work fine.\n\nThe default frequency is 15 kHz.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "frequency",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetPWMFrequency",
+                "get_pwm_frequency"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die PWM Frequenz (in Hz) zur\u00fcck, wie gesetzt von :func:`SetPWMFrequency`.\n",
+                    "en": "\nReturns the PWM frequency (in Hz) as set by :func:`SetPWMFrequency`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "FullBrake",
+                "full_brake"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nF\u00fchrt eine aktive Vollbremsung aus.\n\n.. warning::\n Diese Funktion ist f\u00fcr Notsituationen bestimmt,\n in denen ein unverz\u00fcglicher Halt notwendig ist. Abh\u00e4ngig von der aktuellen\n Geschwindigkeit und der Kraft des Motors kann eine Vollbremsung brachial sein.\n\nEin Aufruf von :func:`SetVelocity` mit 0 erlaubt einen normalen Stopp des Motors.\n",
+                    "en": "\nExecutes an active full brake.\n\n.. warning::\n This function is for emergency purposes,\n where an immediate brake is necessary. Depending on the current velocity and\n the strength of the motor, a full brake can be quite violent.\n\nCall :func:`SetVelocity` with 0 if you just want to stop the motor.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetStackInputVoltage",
+                "get_stack_input_voltage"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Eingangsspannung (in mV) des Stapels zur\u00fcck. Die Eingangsspannung\ndes Stapel wird \u00fcber diesen bereitgestellt und von einer Step-Down oder\nStep-Up Power Supply erzeugt.\n",
+                    "en": "\nReturns the stack input voltage in mV. The stack input voltage is the\nvoltage that is supplied via the stack, i.e. it is given by a\nStep-Down or Step-Up Power Supply.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetExternalInputVoltage",
+                "get_external_input_voltage"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die externe Eingangsspannung (in mV) zur\u00fcck. Die externe Eingangsspannung\nwird \u00fcber die schwarze Stromversorgungsbuchse, in den DC Brick, eingespeist.\n\nSobald eine externe Eingangsspannung und die Spannungsversorgung des Stapels anliegt,\nwird der Motor \u00fcber die externe Spannung versorgt. Sollte nur die Spannungsversorgung\ndes Stapels verf\u00fcgbar sein, erfolgt die Versorgung des Motors \u00fcber diese.\n\n.. warning::\n Das bedeutet, bei einer hohen Versorgungsspannung des Stapels und einer geringen\n externen Versorgungsspannung erfolgt die Spannungsversorgung des Motors \u00fcber die geringere\n externe Versorgungsspannung. Wenn dann die externe Spannungsversorgung getrennt wird,\n erfolgt sofort die Versorgung des Motors \u00fcber die h\u00f6here Versorgungsspannung des Stapels.\n",
+                    "en": "\nReturns the external input voltage in mV. The external input voltage is\ngiven via the black power input connector on the DC Brick.\n\nIf there is an external input voltage and a stack input voltage, the motor\nwill be driven by the external input voltage. If there is only a stack\nvoltage present, the motor will be driven by this voltage.\n\n.. warning::\n This means, if you have a high stack voltage and a low external voltage,\n the motor will be driven with the low external voltage. If you then remove\n the external connection, it will immediately be driven by the high\n stack voltage.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCurrentConsumption",
+                "get_current_consumption"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Stromaufnahme des Motors zur\u00fcck (in mA).\n",
+                    "en": "\nReturns the current consumption of the motor in mA.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Enable",
+                "enable"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nAktiviert die Treiberstufe. Die Treiberparameter k\u00f6nnen vor der Aktivierung\nkonfiguriert werden (Geschwindigkeit, Beschleunigung, etc.).\n",
+                    "en": "\nEnables the driver chip. The driver parameters can be configured (velocity,\nacceleration, etc) before it is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Disable",
+                "disable"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nDeaktiviert die Treiberstufe. Die Konfiguration (Geschwindigkeit, Beschleunigung,\netc.) bleibt erhalten aber der Motor wird nicht angesteuert bis eine erneute\nAktivierung erfolgt.\n",
+                    "en": "\nDisables the driver chip. The configurations are kept (velocity,\nacceleration, etc) but the motor is not driven until it is enabled again.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsEnabled",
+                "is_enabled"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Treiberstufe aktiv ist, sonst *false*.\n",
+                    "en": "\nReturns *true* if the driver chip is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetMinimumVoltage",
+                "set_minimum_voltage"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die minimale Spannung in mV, bei welcher der :func:`UnderVoltage` Callback\nausgel\u00f6st wird. Der kleinste m\u00f6gliche Wert mit dem der DC Brick noch funktioniert,\nist 6V. Mit dieser Funktion kann eine Entladung der versorgenden Batterie detektiert\nwerden. Beim Einsatz einer Netzstromversorgung wird diese Funktionalit\u00e4t\nh\u00f6chstwahrscheinlich nicht ben\u00f6tigt.\n\nDer Standardwert ist 6V.\n",
+                    "en": "\nSets the minimum voltage in mV, below which the :func:`UnderVoltage` callback\nis triggered. The minimum possible value that works with the DC Brick is 6V.\nYou can use this function to detect the discharge of a battery that is used\nto drive the motor. If you have a fixed power supply, you likely do not need\nthis functionality.\n\nThe default value is 6V.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMinimumVoltage",
+                "get_minimum_voltage"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die minimale Spannung zur\u00fcck, wie von :func:`SetMinimumVoltage` gesetzt.\n",
+                    "en": "\nReturns the minimum voltage as set by :func:`SetMinimumVoltage`\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mode",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "DriveMode",
+                        "drive_mode",
+                        [
+                            [
+                                "DriveBrake",
+                                "drive_brake",
+                                0
+                            ],
+                            [
+                                "DriveCoast",
+                                "drive_coast",
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetDriveMode",
+                "set_drive_mode"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Fahrmodus. Verf\u00fcgbare Modi sind:\n\n* 0 = Fahren/Bremsen\n* 1 = Fahren/Leerlauf\n\nDiese Modi sind verschiedene Arten der Motoransteuerung.\n\nIm Fahren/Bremsen Modus wird der Motor entweder gefahren oder gebremst.\nEs gibt keinen Leerlauf. Vorteile sind die lineare Korrelation zwischen PWM und\nGeschwindigkeit, pr\u00e4zisere Beschleunigungen und die M\u00f6glichkeit mit geringeren\nGeschwindigkeiten zu fahren.\n\nIm Fahren/Leerlauf Modus wir der Motor entweder gefahren oder befindet sich\nim Leerlauf. Vorteile sind die geringere Stromaufnahme und geringere\nBelastung des Motors und der Treiberstufe.\n\nDer Standardwert ist 0 = Fahren/Bremsen.\n",
+                    "en": "\nSets the drive mode. Possible modes are:\n\n* 0 = Drive/Brake\n* 1 = Drive/Coast\n\nThese modes are different kinds of motor controls.\n\nIn Drive/Brake mode, the motor is always either driving or braking. There\nis no freewheeling. Advantages are: A more linear correlation between\nPWM and velocity, more exact accelerations and the possibility to drive\nwith slower velocities.\n\nIn Drive/Coast mode, the motor is always either driving or freewheeling.\nAdvantages are: Less current consumption and less demands on the motor and\ndriver chip.\n\nThe default value is 0 = Drive/Brake.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "mode",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "DriveMode",
+                        "drive_mode",
+                        [
+                            [
+                                "DriveBrake",
+                                "drive_brake",
+                                0
+                            ],
+                            [
+                                "DriveCoast",
+                                "drive_coast",
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetDriveMode",
+                "get_drive_mode"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Fahrmodus zur\u00fcck, wie von :func:`SetDriveMode` gesetzt.\n",
+                    "en": "\nReturns the drive mode, as set by :func:`SetDriveMode`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetCurrentVelocityPeriod",
+                "set_current_velocity_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`CurrentVelocity` Callback\nausgel\u00f6st wird. Ein Wert von 0 deaktiviert den Callback.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets a period in ms with which the :func:`CurrentVelocity` callback is triggered.\nA period of 0 turns the callback off.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetCurrentVelocityPeriod",
+                "get_current_velocity_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetCurrentVelocityPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetCurrentVelocityPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "UnderVoltage",
+                "under_voltage"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn die Eingangsspannung unter den, mittels\n:func:`SetMinimumVoltage` gesetzten, Schwellwert sinkt. Der :word:`parameter`\nist die aktuelle Spannung in mV.\n",
+                    "en": "\nThis callback is triggered when the input voltage drops below the value set by\n:func:`SetMinimumVoltage`. The :word:`parameter` is the current voltage given\nin mV.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 21,
+            "type": "callback"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EmergencyShutdown",
+                "emergency_shutdown"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn entweder der Stromverbrauch (\u00fcber 5A)\noder die Temperatur der Treiberstufe zu hoch ist (\u00fcber 175\u00b0C). Beide\nM\u00f6glichkeiten sind letztendlich gleichbedeutend, da die Temperatur\nihren Schwellwert \u00fcberschreitet sobald der Motor zu viel Strom verbraucht.\nIm Falle einer Spannung unter 3,3V (Stapel- oder externe\nSpannungsversorgung) wird dieser Callback auch ausgel\u00f6st.\n\nSobald dieser Callback ausgel\u00f6st wird, wird die Treiberstufe deaktiviert.\nDas bedeutet :func:`Enable` muss aufgerufen werden, um den Motor\nerneut zu fahren.\n\n.. note::\n Dieser Callback funktioniert nur im Fahren/Bremsen Modus (siehe :func:`SetDriveMode`).\n Im Fahren/Leerlauf Modus ist es leider nicht m\u00f6glich das\n \u00dcberstrom/\u00dcbertemperatur-Signal zuverl\u00e4ssig aus dem Chip der Treiberstufe\n auszulesen.\n",
+                    "en": "\nThis callback is triggered if either the current consumption\nis too high (above 5A) or the temperature of the driver chip is too high\n(above 175\u00b0C). These two possibilities are essentially the same, since the\ntemperature will reach this threshold immediately if the motor consumes too\nmuch current. In case of a voltage below 3.3V (external or stack) this\ncallback is triggered as well.\n\nIf this callback is triggered, the driver chip gets disabled at the same time.\nThat means, :func:`Enable` has to be called to drive the motor again.\n\n.. note::\n This callback only works in Drive/Brake mode (see :func:`SetDriveMode`). In\n Drive/Coast mode it is unfortunately impossible to reliably read the\n overcurrent/overtemperature signal from the driver chip.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 22,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "velocity",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "VelocityReached",
+                "velocity_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st immer wenn eine konfigurierte Geschwindigkeit\nerreicht wird. Beispiel: Wenn die aktuelle Geschwindigkeit 0 ist, die\nBeschleunigung auf 5000 und die Geschwindigkeit auf 10000 konfiguriert ist,\nwird :func:`VelocityReached` nach ungef\u00e4hr 2 Sekunden ausgel\u00f6st, wenn die\nkonfigurierte Geschwindigkeit letztendlich erreicht ist.\n\n.. note::\n Da es nicht m\u00f6glich ist eine R\u00fcckmeldung vom Gleichstrommotor zu erhalten,\n funktioniert dies nur wenn die konfigurierte Beschleunigung (siehe :func:`SetAcceleration`)\n kleiner oder gleich der maximalen Beschleunigung des Motors ist. Andernfalls\n wird der Motor hinter dem Vorgabewert zur\u00fcckbleiben und der Callback wird\n zu fr\u00fch ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered whenever a set velocity is reached. For example:\nIf a velocity of 0 is present, acceleration is set to 5000 and velocity\nto 10000, :func:`VelocityReached` will be triggered after about 2 seconds, when\nthe set velocity is actually reached.\n\n.. note::\n Since we can't get any feedback from the DC motor, this only works if the\n acceleration (see :func:`SetAcceleration`) is set smaller or equal to the\n maximum acceleration of the motor. Otherwise the motor will lag behind the\n control value and the callback will be triggered too early.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 23,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "velocity",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "CurrentVelocity",
+                "current_velocity"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetCurrentVelocityPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die *aktuelle* vom Motor genutzte Geschwindigkeit.\n\n:func:`CurrentVelocity` wird nur nach Ablauf der Periode ausgel\u00f6st, wenn sich die\nGeschwindigkeit ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered with the period that is set by\n:func:`SetCurrentVelocityPeriod`. The :word:`parameter` is the *current* velocity\nused by the motor.\n\n:func:`CurrentVelocity` is only triggered after the set period if there is\na change in the velocity.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 24,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "port",
+                    "char",
+                    1,
+                    "in"
+                ],
+                [
+                    "protocol_version",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "name",
+                    "string",
+                    40,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProtocol1BrickletName",
+                "get_protocol1_bricklet_name"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Firmware und Protokoll Version und den Namen des Bricklets f\u00fcr einen\ngegebenen Port zur\u00fcck.\n\nDer einzige Zweck dieser Funktion ist es, automatischen Flashen von Bricklet\nv1.x.y Plugins zu erm\u00f6glichen.\n",
+                    "en": "\nReturns the firmware and protocol version and the name of the Bricklet for a\ngiven port.\n\nThis functions sole purpose is to allow automatic flashing of v1.x.y Bricklet\nplugins.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 241,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChipTemperature",
+                "get_chip_temperature"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur in \u00b0C/10, gemessen im Mikrocontroller, aus. Der\nR\u00fcckgabewert ist nicht die Umgebungstemperatur.\n\nDie Temperatur ist lediglich proportional zur echten Temperatur und hat eine\nGenauigkeit von +-15%. Daher beschr\u00e4nkt sich der praktische Nutzen auf die\nIndikation von Temperaturver\u00e4nderungen.\n",
+                    "en": "\nReturns the temperature in \u00b0C/10 as measured inside the microcontroller. The\nvalue returned is not the ambient temperature!\n\nThe temperature is only proportional to the real temperature and it has an\naccuracy of +-15%. Practically it is only useful as an indicator for\ntemperature changes.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                3
+            ],
+            "function_id": 242,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Reset",
+                "reset"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nEin Aufruf dieser Funktion setzt den Brick zur\u00fcck. Befindet sich der Brick\ninnerhalb eines Stapels wird der gesamte Stapel zur\u00fcck gesetzt.\n\nNach dem Zur\u00fccksetzen ist es notwendig neue Ger\u00e4teobjekte zu erzeugen,\nFunktionsaufrufe auf bestehende f\u00fchrt zu undefiniertem Verhalten.\n",
+                    "en": "\nCalling this function will reset the Brick. Calling this function\non a Brick inside of a stack will reset the whole stack.\n\nAfter a reset you have to create new device objects,\ncalling functions on the existing ones will result in\nundefined behavior!\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                3
+            ],
+            "function_id": 243,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der der Brick verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann '0'-'8' (Stack Position) sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Brick is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be '0'-'8' (stack position).\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 11,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "DC",
+        "dc",
+        "DC"
+    ]
+}

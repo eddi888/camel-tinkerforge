@@ -29,9 +29,9 @@ port           | 4223          | Port
 secret         |               | Secret String for authenticate
 autoReconnect  | true          | reconnection on broken connection
 timeout        | 2500          | Timeout
-enumerate      | false         | Enumerate list over all devices
 deviceType     |               | Temperatur, Line, IO-4, Color, MotionDetector, ...
 uid            |               | UID of the Bricklet
+callback       |               | add Listener to ConsumerEndpoint for receive values, if callback is null all Listeners will be registrate
 
 
 ## Producer Endpoints
