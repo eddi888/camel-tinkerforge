@@ -37,17 +37,20 @@ function       |               | execute Device Function, can use for configure 
 ## Consumer Endpoints
 ------------------------------------------------
 
+<dl>
+<table>
+<tr><th>Callback</th><th>Response Heade</th><th>Header Type </th></tr>
+<tr><th>MotionDetector</th><td></td><td></td></tr>
+<tr><td>MotionDetectedListener</td><td>CALLBACK</td><td>BrickletMotionDetector.CALLBACK_ MOTIONDETECTED</td></tr>
+<tr><td>DetectionCycleEndedListener</td><td>CALLBACK</td><td>BrickletMotionDetector.CALLBACK_ DETECTION_ CYCLEENDED</td></tr>
+<tr><th>Temperature</th><td></td><td></td></tr>
+<tr><td>TemperatureListener</td><td>CALLBACK</td><td>BrickletTemperature.CALLBACK_TEMPERATURE</td></tr>
+<tr><td></td><td>temperature</td><td>short</td></tr>
+<tr><td>TemperatureReachedListener</td><td>CALLBACK</td><td>BrickletTemperature.CALLBACK_ TEMPERATURE_ REACHED</td></tr>
+<tr><td></td><td>temperature</td><td>short</td></tr>
+</table>
+</dl>
 
-Callback                       | Response Header     | Header Type
------------------------------- | ------------------- | --
-**MotionDetector**             | x                   | x
-MotionDetectedListener         | CALLBACK            | BrickletMotionDetector.CALLBACK_ MOTIONDETECTED
-DetectionCycleEndedListener    | CALLBACK            | BrickletMotionDetector.CALLBACK_ DETECTION_ CYCLEENDED
-**Temperature**                | x                   | x
-TemperatureListener            | CALLBACK            | BrickletTemperature.CALLBACK_TEMPERATURE
-TemperatureListener            | temperature         | short
-TemperatureReachedListener     | CALLBACK            | BrickletTemperature.CALLBACK_ TEMPERATURE_ REACHED
-TemperatureReachedListener     | temperature         | short
 
 ## Producer Endpoints
 ------------------------------------------------
