@@ -24,8 +24,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
+import org.apache.camel.SuspendableService;
 import org.apache.log4j.Logger;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -75,7 +80,7 @@ public class Generate {
         for (File file : configFiles) {
             if(file.toString().endsWith("brick_red_config.json") || file.toString().endsWith("bricklet_heart_rate_config.json") ){
                 
-            }else if(file.toString().endsWith("bricklet_nfc_rfid_config.json")){
+            }else if(file.toString().endsWith("json")){
                 createClassBundle("device2", file, endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate) ;
             }
         }
@@ -202,7 +207,7 @@ public class Generate {
                     
                 }                
             }else{
-                System.err.println(element);
+                System.err.println("createEndpointClass unknown element structure: "+element);
             }
             
         }
@@ -228,6 +233,81 @@ public class Generate {
         VelocityContext context = new VelocityContext();
         context.put("namespace", namespace);
         context.put("config_name_0", config.name[0]);
+        context.put("config_category", config.category);
+        
+        StringBuffer parameters = new StringBuffer();
+        StringBuffer parameterGetteSetters = new StringBuffer();
+        Map<String, String> parameterSet = new HashMap<String, String>();
+        StringBuffer callFunctions = new StringBuffer();
+        // Find possible transfer parameters. 
+        for (Packet packet : config.packets) {
+            //System.out.println(packet.elements);
+            
+            if(packet.type.equals("function") 
+                    && !packet.name[1].equals("get_response_expected") 
+                    && !packet.name[1].equals("set_response_expected")
+                    && !packet.name[1].equals("set_response_expected_all") 
+                    && !packet.name[1].equals("get_api_version")){
+            
+                boolean out=false;
+                boolean first=true;
+                String callFunctionPre = "            case \""+camelCaseName(packet.name[1])+"\":\n";
+                String callFunction = "device."+camelCaseName(packet.name[1])+"(";
+                for (JsonNode element : packet.elements) {
+                    
+                    if(element.size()==4 || element.size()==5 ){ // SIMPLE TYPE LIKE [["relay1","bool",1,"in"]
+                        String name = element.get(0).asText();
+                        String type = element.get(1).asText();
+                        String num = element.get(2).asText(); //FOR WHAT???
+                        String inout = element.get(3).asText();
+                        
+                        if(inout.equals("in")){
+                            if(parameterSet.get(name)==null){
+                                parameterSet.put(name, name);
+                                
+                                parameters.append("    private "+javaBigType(type)+ " " +camelCaseName(name)+";\n");
+                                
+                                parameterGetteSetters.append("    public "+javaBigType(type)+ " " +camelCaseMethodeNameGet(name)+"(){\n");
+                                parameterGetteSetters.append("        return "+camelCaseName(name)+";\n");
+                                parameterGetteSetters.append("    }\n\n");
+                                parameterGetteSetters.append("    public void "+camelCaseMethodeNameSet(name)+"("+javaBigType(type)+ " " +camelCaseName(name)+"){\n");
+                                parameterGetteSetters.append("        this."+camelCaseName(name)+" = "+camelCaseName(name)+";\n");
+                                parameterGetteSetters.append("    }\n\n");
+                            }
+                            
+                            if(first){
+                                callFunction += "\n                        ("+javaType(type)+") getValue(\"" +camelCaseName(name)+"\", m, e)";
+                                first=false;
+                            }else{
+                                callFunction += ",\n                        ("+javaType(type)+") getValue(\"" +camelCaseName(name)+"\", m, e)";
+                            }
+                            
+                        }else if(inout.equals("out")){
+                            out = true;
+                        }
+                            
+                    }else{
+                        System.err.println("createEndpointClass unknown element structure: "+element);
+                    }
+                }
+                if(first)callFunction+= ");\n";
+                else callFunction+= "\n                    );\n";
+                
+                callFunction+= "                break;\n\n";
+                
+                if(out==true){ 
+                    callFunction = callFunctionPre+ "                response = " + callFunction;
+                }else{
+                    callFunction = callFunctionPre+ "                " + callFunction;
+                }
+                
+                callFunctions.append(callFunction);
+            }
+            
+        }
+        context.put("parameters", parameters);
+        context.put("parameterGetteSetters", parameterGetteSetters);
+        context.put("callFunctions", callFunctions);
         
         // WRITE FILE
         BufferedWriter writer =  new BufferedWriter(new FileWriter(file)); 
@@ -236,6 +316,9 @@ public class Generate {
         //System.out.println(writer.toString());
     }
     
+    /**
+     * mapping to simple Java Type
+     */
     private String javaType(String type){
         if(type.equals("int8")) return "byte";
         if(type.equals("uint8")) return "short";
@@ -251,6 +334,61 @@ public class Generate {
         if(type.equals("string")) return "String";
         return "";
     }
+
+    /**
+     * mapping to big Java Type, they can be null
+     */
+    private String javaBigType(String type){
+        if(type.equals("int8")) return "Byte";
+        if(type.equals("uint8")) return "Short";
+        if(type.equals("int16")) return "Short";
+        if(type.equals("uint16")) return "Integer";
+        if(type.equals("int32")) return "Integer";
+        if(type.equals("uint32")) return "Long";
+        if(type.equals("int64")) return "Long";
+        if(type.equals("uint64")) return "Long";
+        if(type.equals("float")) return "Float";
+        if(type.equals("bool")) return "Boolean";
+        if(type.equals("char")) return "Character";
+        if(type.equals("string")) return "String";
+        return "";
+    }
     
+    /**
+     * Convert 'response_expected' to 'responseExpected'
+     */
+    private String camelCaseName(String name){
+        String camelCaseName = null;
+        String[] parts = name.split("_");
+        for (String part : parts) {
+            if(camelCaseName==null) camelCaseName=part.toLowerCase();
+            else camelCaseName+=part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase();
+        }
+        return camelCaseName;
+    }
+    
+    /**
+     * Convert 'response_expected' to 'getResponseExpected'
+     */
+    private String camelCaseMethodeNameGet(String name){
+        String camelCaseName = "get";
+        String[] parts = name.split("_");
+        for (String part : parts) {
+            camelCaseName+=part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase();
+        }
+        return camelCaseName;
+    }
+    
+    /**
+     * Convert 'response_expected' to 'setResponseExpected'
+     */
+    private String camelCaseMethodeNameSet(String name){
+        String camelCaseName = "set";
+        String[] parts = name.split("_");
+        for (String part : parts) {
+            camelCaseName+=part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase();
+        }
+        return camelCaseName;
+    }
     
 }

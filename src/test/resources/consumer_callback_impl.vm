@@ -16,7 +16,7 @@
 ## ------------------------------------------------------------------------
 ## consumer_callback_impl.vm
 
-	@Override
+    @Override
     public void $!{methodName}($!{methodParameters}) {
         LOG.trace("$!{methodName}()");
         
@@ -25,7 +25,7 @@
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("CALLBACK", $!{headerCallbackValue});
+            exchange.getIn().setHeader("listener", $!{headerCallbackValue});
             $!{headerValues}
             
             // ADD BODY

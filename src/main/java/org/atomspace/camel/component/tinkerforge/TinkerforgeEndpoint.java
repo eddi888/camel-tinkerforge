@@ -16,11 +16,15 @@
 */
 package org.atomspace.camel.component.tinkerforge;
 
+import org.apache.camel.Endpoint;
+import org.apache.camel.Message;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.impl.DefaultProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.tinkerforge.Device;
 
 /**
  * Represents a Tinkerforge endpoint.
@@ -39,6 +43,7 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
     protected ProducerType producer;
     
     private String callback;
+    private String init;
     private String function;
     
     public TinkerforgeEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -46,6 +51,50 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
         LOG.trace("TinkerforgeEndpoint(String uri='"+uri+"', TinkerforgeComponent tinkerforgeComponent='"+tinkerforgeComponent+"')");
         this.createExchange();
     }
+    
+    /**
+     * Get Header-Parameter or alternative Configured Endpoint Parameter
+     */
+    public Object getValue(String parameter, Message message, Endpoint endpoint){
+        if(message==null && endpoint!=null){
+            return endpoint.getEndpointConfiguration().getParameter("parameter");
+        }
+        Object value = message.getHeader(parameter);
+        if(value==null){
+            value = endpoint.getEndpointConfiguration().getParameter("parameter");
+        }
+        return value;
+    }
+    
+    /**
+     * Get Configured Endpoint Parameter
+     */
+    public Object getValue(String parameter, Endpoint endpoint){
+        return endpoint.getEndpointConfiguration().getParameter("parameter");
+        
+    }
+    
+    /**
+     * Get Header-Parameter
+     */
+    public Object getValue(String parameter, Message message){
+        return message.getHeader(parameter);
+        
+    }
+    
+    
+    /**
+     * Extract values out from Functions
+     * 
+     * init=functionName1('parameter':'value','parameter2':'value2'),functionName1('parameter':'value','parameter2':'value2')
+     * 
+     */
+    public Object getFunctionsValue(String parameter, String function){
+        
+        Object value=null;
+        return value;
+    }
+    
     
     public String getUid() {
         return uid;
@@ -106,6 +155,14 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
 
     public void setFunction(String function) {
         this.function = function;
+    }
+
+    public String getInit() {
+        return init;
+    }
+
+    public void setInit(String init) {
+        this.init = init;
     }
 
     

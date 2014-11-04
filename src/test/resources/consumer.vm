@@ -33,16 +33,12 @@
 */
 package org.atomspace.camel.component.tinkerforge.device2;
 
-import java.io.IOException;
-import java.net.UnknownHostException;
-
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tinkerforge.AlreadyConnectedException;
 import com.tinkerforge.$!{config_category}$!{config_name_0};
 $!{config_packet_import_listener};
 
@@ -50,9 +46,11 @@ public class $!{config_name_0}Consumer extends TinkerforgeConsumer<$!{config_nam
     
     private static final Logger LOG = LoggerFactory.getLogger($!{config_name_0}Consumer.class);
     
-    public $!{config_name_0}Consumer($!{config_name_0}Endpoint endpoint, Processor processor) throws UnknownHostException, AlreadyConnectedException, IOException {
+    public $!{config_name_0}Consumer($!{config_name_0}Endpoint endpoint, Processor processor) throws Exception {
         super(endpoint, processor);
+
         device = new $!{config_category}$!{config_name_0}(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
+        endpoint.init(device);
 
         if(endpoint.getCallback()==null || endpoint.getCallback().equals("")){
             $!{config_packet_callback_all}

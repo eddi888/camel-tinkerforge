@@ -57,7 +57,7 @@ public class $!{config_name_0}Producer extends TinkerforgeProducer<$!{config_nam
     public void process(Exchange exchange) throws Exception {
         LOG.trace("process(Exchange exchange='"+exchange+"')");
 
-        // TODO IMPL
+        endpoint.callFunction(device, (String) endpoint.getValue("function", endpoint), exchange.getIn(), endpoint);
         
     }
 

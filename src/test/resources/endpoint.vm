@@ -34,6 +34,8 @@
 package org.atomspace.camel.component.tinkerforge.device2;
 
 import org.apache.camel.Consumer;
+import org.apache.camel.Endpoint;
+import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
@@ -41,9 +43,13 @@ import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.tinkerforge.$!{config_category}$!{config_name_0};
+
 public class $!{config_name_0}Endpoint extends TinkerforgeEndpoint<$!{config_name_0}Consumer, $!{config_name_0}Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger($!{config_name_0}Endpoint.class);
+    
+$!{parameters}
         
     public $!{config_name_0}Endpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);
@@ -71,5 +77,29 @@ public class $!{config_name_0}Endpoint extends TinkerforgeEndpoint<$!{config_nam
     public boolean isSingleton() {
         return false;
     }
+    
+    public void init($!{config_category}$!{config_name_0} device) throws Exception {
+        if(getInit()==null) return;
+        
+        String[] initFunctions = getInit().split(",");
+        for (String function : initFunctions) {
+            callFunction(device, function, null, this);
+        }
+    }
+    
+    public Object callFunction($!{config_category}$!{config_name_0} device, String function, Message m, Endpoint e) throws Exception{
+        Object response = null;
+        switch (function) {
+                
+$!{callFunctions}
+            default: throw new Exception("unknown function '"+function+"'");
+            
+        }
+        
+        return response;
+    }
+    
+    
+$!{parameterGetteSetters}
 
 }
