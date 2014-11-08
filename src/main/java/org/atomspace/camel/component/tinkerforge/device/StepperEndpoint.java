@@ -36,6 +36,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
     private Integer acceleration;
     private Integer deacceleration;
     private Integer position;
+    private Integer position2;
     private Integer steps;
     private Short mode;
     private Integer current;
@@ -89,7 +90,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
                 
             case "setMaxVelocity":
                 device.setMaxVelocity(
-                        (int) getValue("velocity", m, e)
+                        getValue(int.class, "velocity", m, getVelocity())
                     );
                 break;
 
@@ -103,8 +104,8 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setSpeedRamping":
                 device.setSpeedRamping(
-                        (int) getValue("acceleration", m, e),
-                        (int) getValue("deacceleration", m, e)
+                        getValue(int.class, "acceleration", m, getAcceleration()),
+                        getValue(int.class, "deacceleration", m, getDeacceleration())
                     );
                 break;
 
@@ -118,7 +119,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setCurrentPosition":
                 device.setCurrentPosition(
-                        (int) getValue("position", m, e)
+                        getValue(int.class, "position", m, getPosition())
                     );
                 break;
 
@@ -128,7 +129,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setTargetPosition":
                 device.setTargetPosition(
-                        (int) getValue("position", m, e)
+                        getValue(int.class, "position2", m, getPosition2())
                     );
                 break;
 
@@ -138,7 +139,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setSteps":
                 device.setSteps(
-                        (int) getValue("steps", m, e)
+                        getValue(int.class, "steps", m, getSteps())
                     );
                 break;
 
@@ -152,7 +153,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setStepMode":
                 device.setStepMode(
-                        (short) getValue("mode", m, e)
+                        getValue(short.class, "mode", m, getMode())
                     );
                 break;
 
@@ -186,7 +187,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setMotorCurrent":
                 device.setMotorCurrent(
-                        (int) getValue("current", m, e)
+                        getValue(int.class, "current", m, getCurrent())
                     );
                 break;
 
@@ -208,7 +209,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setDecay":
                 device.setDecay(
-                        (int) getValue("decay", m, e)
+                        getValue(int.class, "decay", m, getDecay())
                     );
                 break;
 
@@ -218,7 +219,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setMinimumVoltage":
                 device.setMinimumVoltage(
-                        (int) getValue("voltage", m, e)
+                        getValue(int.class, "voltage", m, getVoltage())
                     );
                 break;
 
@@ -228,7 +229,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setSyncRect":
                 device.setSyncRect(
-                        (boolean) getValue("syncRect", m, e)
+                        getValue(boolean.class, "syncRect", m, getSyncRect())
                     );
                 break;
 
@@ -238,7 +239,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setTimeBase":
                 device.setTimeBase(
-                        (long) getValue("timeBase", m, e)
+                        getValue(long.class, "timeBase", m, getTimeBase())
                     );
                 break;
 
@@ -252,7 +253,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "setAllDataPeriod":
                 device.setAllDataPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -262,7 +263,7 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port", m, getPort())
                     );
                 break;
 
@@ -317,6 +318,14 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
 
     public void setPosition(Integer position){
         this.position = position;
+    }
+
+    public Integer getPosition2(){
+        return position2;
+    }
+
+    public void setPosition2(Integer position2){
+        this.position2 = position2;
     }
 
     public Integer getSteps(){

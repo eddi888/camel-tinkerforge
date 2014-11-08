@@ -58,7 +58,7 @@ public class SolidStateRelayConsumer extends TinkerforgeConsumer<SolidStateRelay
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletSolidStateRelay.CALLBACK_MONOFLOP_DONE);
+            exchange.getIn().setHeader("fireBy", BrickletSolidStateRelay.CALLBACK_MONOFLOP_DONE);
             exchange.getIn().setHeader("state", state);
             
             

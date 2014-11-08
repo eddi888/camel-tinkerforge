@@ -67,7 +67,7 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickStepper.CALLBACK_UNDER_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickStepper.CALLBACK_UNDER_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -93,7 +93,7 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickStepper.CALLBACK_POSITION_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickStepper.CALLBACK_POSITION_REACHED);
             exchange.getIn().setHeader("position", position);
             
             
@@ -119,7 +119,7 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickStepper.CALLBACK_ALL_DATA);
+            exchange.getIn().setHeader("fireBy", BrickStepper.CALLBACK_ALL_DATA);
             exchange.getIn().setHeader("current_velocity", current_velocity);
             exchange.getIn().setHeader("current_position", current_position);
             exchange.getIn().setHeader("remaining_steps", remaining_steps);
@@ -150,7 +150,7 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickStepper.CALLBACK_NEW_STATE);
+            exchange.getIn().setHeader("fireBy", BrickStepper.CALLBACK_NEW_STATE);
             exchange.getIn().setHeader("state_new", state_new);
             exchange.getIn().setHeader("state_previous", state_previous);
             

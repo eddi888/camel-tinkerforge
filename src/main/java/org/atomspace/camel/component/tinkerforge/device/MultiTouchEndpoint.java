@@ -86,7 +86,7 @@ public class MultiTouchEndpoint extends TinkerforgeEndpoint<MultiTouchConsumer, 
 
             case "setElectrodeConfig":
                 device.setElectrodeConfig(
-                        (int) getValue("enabledElectrodes", m, e)
+                        getValue(int.class, "enabledElectrodes", m, getEnabledElectrodes())
                     );
                 break;
 
@@ -96,7 +96,7 @@ public class MultiTouchEndpoint extends TinkerforgeEndpoint<MultiTouchConsumer, 
 
             case "setElectrodeSensitivity":
                 device.setElectrodeSensitivity(
-                        (short) getValue("sensitivity", m, e)
+                        getValue(short.class, "sensitivity", m, getSensitivity())
                     );
                 break;
 

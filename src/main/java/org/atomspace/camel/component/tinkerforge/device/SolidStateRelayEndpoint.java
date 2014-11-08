@@ -33,6 +33,7 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
     private static final Logger LOG = LoggerFactory.getLogger(SolidStateRelayEndpoint.class);
     
     private Boolean state;
+    private Boolean state2;
     private Long time;
 
         
@@ -78,7 +79,7 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
                 
             case "setState":
                 device.setState(
-                        (boolean) getValue("state", m, e)
+                        getValue(boolean.class, "state", m, getState())
                     );
                 break;
 
@@ -88,8 +89,8 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
 
             case "setMonoflop":
                 device.setMonoflop(
-                        (boolean) getValue("state", m, e),
-                        (long) getValue("time", m, e)
+                        getValue(boolean.class, "state2", m, getState2()),
+                        getValue(long.class, "time", m, getTime())
                     );
                 break;
 
@@ -116,6 +117,14 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
 
     public void setState(Boolean state){
         this.state = state;
+    }
+
+    public Boolean getState2(){
+        return state2;
+    }
+
+    public void setState2(Boolean state2){
+        this.state2 = state2;
     }
 
     public Long getTime(){

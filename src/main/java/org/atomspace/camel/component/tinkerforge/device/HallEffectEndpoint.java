@@ -85,14 +85,14 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
 
             case "getEdgeCount":
                 response = device.getEdgeCount(
-                        (boolean) getValue("resetCounter", m, e)
+                        getValue(boolean.class, "resetCounter", m, getResetCounter())
                     );
                 break;
 
             case "setEdgeCountConfig":
                 device.setEdgeCountConfig(
-                        (short) getValue("edgeType", m, e),
-                        (short) getValue("debounce", m, e)
+                        getValue(short.class, "edgeType", m, getEdgeType()),
+                        getValue(short.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -102,7 +102,7 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
 
             case "setEdgeInterrupt":
                 device.setEdgeInterrupt(
-                        (long) getValue("edges", m, e)
+                        getValue(long.class, "edges", m, getEdges())
                     );
                 break;
 
@@ -112,7 +112,7 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
 
             case "setEdgeCountCallbackPeriod":
                 device.setEdgeCountCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 

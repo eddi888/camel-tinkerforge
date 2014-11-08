@@ -83,7 +83,7 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
                 
             case "setVelocity":
                 device.setVelocity(
-                        (short) getValue("velocity", m, e)
+                        getValue(short.class, "velocity", m, getVelocity())
                     );
                 break;
 
@@ -97,12 +97,22 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
             case "setAcceleration":
                 device.setAcceleration(
-                        (int) getValue("acceleration", m, e)
+                        getValue(int.class, "acceleration", m, getAcceleration())
                     );
                 break;
 
             case "getAcceleration":
                 response = device.getAcceleration();
+                break;
+
+            case "setPwmFrequency":
+                device.setPWMFrequency(
+                        getValue(int.class, "frequency", m, getFrequency())
+                    );
+                break;
+
+            case "getPwmFrequency":
+                response = device.getPWMFrequency();
                 break;
 
             case "fullBrake":
@@ -135,7 +145,7 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
             case "setMinimumVoltage":
                 device.setMinimumVoltage(
-                        (int) getValue("voltage", m, e)
+                        getValue(int.class, "voltage", m, getVoltage())
                     );
                 break;
 
@@ -145,7 +155,7 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
             case "setDriveMode":
                 device.setDriveMode(
-                        (short) getValue("mode", m, e)
+                        getValue(short.class, "mode", m, getMode())
                     );
                 break;
 
@@ -155,7 +165,7 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
             case "setCurrentVelocityPeriod":
                 device.setCurrentVelocityPeriod(
-                        (int) getValue("period", m, e)
+                        getValue(int.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -165,7 +175,7 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port", m, getPort())
                     );
                 break;
 

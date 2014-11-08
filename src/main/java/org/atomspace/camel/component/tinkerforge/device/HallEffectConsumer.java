@@ -58,7 +58,7 @@ public class HallEffectConsumer extends TinkerforgeConsumer<HallEffectEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletHallEffect.CALLBACK_EDGE_COUNT);
+            exchange.getIn().setHeader("fireBy", BrickletHallEffect.CALLBACK_EDGE_COUNT);
             exchange.getIn().setHeader("count", count);
             exchange.getIn().setHeader("value", value);
             

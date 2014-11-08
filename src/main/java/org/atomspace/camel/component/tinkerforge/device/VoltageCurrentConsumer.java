@@ -73,7 +73,7 @@ public class VoltageCurrentConsumer extends TinkerforgeConsumer<VoltageCurrentEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletVoltageCurrent.CALLBACK_CURRENT);
+            exchange.getIn().setHeader("fireBy", BrickletVoltageCurrent.CALLBACK_CURRENT);
             exchange.getIn().setHeader("current", current);
             
             
@@ -99,7 +99,7 @@ public class VoltageCurrentConsumer extends TinkerforgeConsumer<VoltageCurrentEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletVoltageCurrent.CALLBACK_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickletVoltageCurrent.CALLBACK_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -125,7 +125,7 @@ public class VoltageCurrentConsumer extends TinkerforgeConsumer<VoltageCurrentEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletVoltageCurrent.CALLBACK_POWER);
+            exchange.getIn().setHeader("fireBy", BrickletVoltageCurrent.CALLBACK_POWER);
             exchange.getIn().setHeader("power", power);
             
             
@@ -151,7 +151,7 @@ public class VoltageCurrentConsumer extends TinkerforgeConsumer<VoltageCurrentEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletVoltageCurrent.CALLBACK_CURRENT_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletVoltageCurrent.CALLBACK_CURRENT_REACHED);
             exchange.getIn().setHeader("current", current);
             
             
@@ -177,7 +177,7 @@ public class VoltageCurrentConsumer extends TinkerforgeConsumer<VoltageCurrentEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletVoltageCurrent.CALLBACK_VOLTAGE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletVoltageCurrent.CALLBACK_VOLTAGE_REACHED);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -203,7 +203,7 @@ public class VoltageCurrentConsumer extends TinkerforgeConsumer<VoltageCurrentEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletVoltageCurrent.CALLBACK_POWER_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletVoltageCurrent.CALLBACK_POWER_REACHED);
             exchange.getIn().setHeader("power", power);
             
             

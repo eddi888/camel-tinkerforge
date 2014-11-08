@@ -58,7 +58,7 @@ public class NFCRFIDConsumer extends TinkerforgeConsumer<NFCRFIDEndpoint, Brickl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletNFCRFID.CALLBACK_STATE_CHANGED);
+            exchange.getIn().setHeader("fireBy", BrickletNFCRFID.CALLBACK_STATE_CHANGED);
             exchange.getIn().setHeader("state", state);
             exchange.getIn().setHeader("idle", idle);
             

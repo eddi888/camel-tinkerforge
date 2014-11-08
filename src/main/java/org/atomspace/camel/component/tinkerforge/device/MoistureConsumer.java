@@ -61,7 +61,7 @@ public class MoistureConsumer extends TinkerforgeConsumer<MoistureEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletMoisture.CALLBACK_MOISTURE);
+            exchange.getIn().setHeader("fireBy", BrickletMoisture.CALLBACK_MOISTURE);
             exchange.getIn().setHeader("moisture", moisture);
             
             
@@ -87,7 +87,7 @@ public class MoistureConsumer extends TinkerforgeConsumer<MoistureEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletMoisture.CALLBACK_MOISTURE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletMoisture.CALLBACK_MOISTURE_REACHED);
             exchange.getIn().setHeader("moisture", moisture);
             
             

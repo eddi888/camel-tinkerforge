@@ -85,7 +85,7 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
 
             case "setReflectivityCallbackPeriod":
                 device.setReflectivityCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -95,9 +95,9 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
 
             case "setReflectivityCallbackThreshold":
                 device.setReflectivityCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -107,7 +107,7 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 

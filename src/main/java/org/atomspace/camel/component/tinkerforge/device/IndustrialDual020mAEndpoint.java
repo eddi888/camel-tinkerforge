@@ -33,10 +33,14 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDual020mAEndpoint.class);
     
     private Short sensor;
+    private Short sensor2;
     private Long period;
+    private Short sensor3;
+    private Short sensor4;
     private Character option;
     private Integer min;
     private Integer max;
+    private Short sensor5;
     private Long debounce;
     private Short rate;
 
@@ -83,41 +87,41 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
                 
             case "getCurrent":
                 response = device.getCurrent(
-                        (short) getValue("sensor", m, e)
+                        getValue(short.class, "sensor", m, getSensor())
                     );
                 break;
 
             case "setCurrentCallbackPeriod":
                 device.setCurrentCallbackPeriod(
-                        (short) getValue("sensor", m, e),
-                        (long) getValue("period", m, e)
+                        getValue(short.class, "sensor2", m, getSensor2()),
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
             case "getCurrentCallbackPeriod":
                 response = device.getCurrentCallbackPeriod(
-                        (short) getValue("sensor", m, e)
+                        getValue(short.class, "sensor3", m, getSensor3())
                     );
                 break;
 
             case "setCurrentCallbackThreshold":
                 device.setCurrentCallbackThreshold(
-                        (short) getValue("sensor", m, e),
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(short.class, "sensor4", m, getSensor4()),
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
             case "getCurrentCallbackThreshold":
                 response = device.getCurrentCallbackThreshold(
-                        (short) getValue("sensor", m, e)
+                        getValue(short.class, "sensor5", m, getSensor5())
                     );
                 break;
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -127,7 +131,7 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
 
             case "setSampleRate":
                 device.setSampleRate(
-                        (short) getValue("rate", m, e)
+                        getValue(short.class, "rate", m, getRate())
                     );
                 break;
 
@@ -156,12 +160,36 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.sensor = sensor;
     }
 
+    public Short getSensor2(){
+        return sensor2;
+    }
+
+    public void setSensor2(Short sensor2){
+        this.sensor2 = sensor2;
+    }
+
     public Long getPeriod(){
         return period;
     }
 
     public void setPeriod(Long period){
         this.period = period;
+    }
+
+    public Short getSensor3(){
+        return sensor3;
+    }
+
+    public void setSensor3(Short sensor3){
+        this.sensor3 = sensor3;
+    }
+
+    public Short getSensor4(){
+        return sensor4;
+    }
+
+    public void setSensor4(Short sensor4){
+        this.sensor4 = sensor4;
     }
 
     public Character getOption(){
@@ -186,6 +214,14 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
 
     public void setMax(Integer max){
         this.max = max;
+    }
+
+    public Short getSensor5(){
+        return sensor5;
+    }
+
+    public void setSensor5(Short sensor5){
+        this.sensor5 = sensor5;
     }
 
     public Long getDebounce(){

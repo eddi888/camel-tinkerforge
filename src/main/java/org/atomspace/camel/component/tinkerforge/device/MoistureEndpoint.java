@@ -86,7 +86,7 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
 
             case "setMoistureCallbackPeriod":
                 device.setMoistureCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -96,9 +96,9 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
 
             case "setMoistureCallbackThreshold":
                 device.setMoistureCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -108,7 +108,7 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -118,7 +118,7 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
 
             case "setMovingAverage":
                 device.setMovingAverage(
-                        (short) getValue("average", m, e)
+                        getValue(short.class, "average", m, getAverage())
                     );
                 break;
 

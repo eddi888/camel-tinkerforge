@@ -36,11 +36,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
     private Short receiverCode;
     private Short switchTo;
     private Short repeats;
+    private Short houseCode2;
+    private Short receiverCode2;
+    private Short switchTo2;
     private Long address;
     private Short unit;
+    private Short switchTo3;
+    private Long address2;
+    private Short unit2;
     private Short dimValue;
     private Character systemCode;
     private Short deviceCode;
+    private Short switchTo4;
 
         
     public RemoteSwitchEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -85,9 +92,9 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
                 
             case "switchSocket":
                 device.switchSocket(
-                        (short) getValue("houseCode", m, e),
-                        (short) getValue("receiverCode", m, e),
-                        (short) getValue("switchTo", m, e)
+                        getValue(short.class, "houseCode", m, getHouseCode()),
+                        getValue(short.class, "receiverCode", m, getReceiverCode()),
+                        getValue(short.class, "switchTo", m, getSwitchTo())
                     );
                 break;
 
@@ -97,7 +104,7 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
 
             case "setRepeats":
                 device.setRepeats(
-                        (short) getValue("repeats", m, e)
+                        getValue(short.class, "repeats", m, getRepeats())
                     );
                 break;
 
@@ -107,33 +114,33 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
 
             case "switchSocketA":
                 device.switchSocketA(
-                        (short) getValue("houseCode", m, e),
-                        (short) getValue("receiverCode", m, e),
-                        (short) getValue("switchTo", m, e)
+                        getValue(short.class, "houseCode2", m, getHouseCode2()),
+                        getValue(short.class, "receiverCode2", m, getReceiverCode2()),
+                        getValue(short.class, "switchTo2", m, getSwitchTo2())
                     );
                 break;
 
             case "switchSocketB":
                 device.switchSocketB(
-                        (long) getValue("address", m, e),
-                        (short) getValue("unit", m, e),
-                        (short) getValue("switchTo", m, e)
+                        getValue(long.class, "address", m, getAddress()),
+                        getValue(short.class, "unit", m, getUnit()),
+                        getValue(short.class, "switchTo3", m, getSwitchTo3())
                     );
                 break;
 
             case "dimSocketB":
                 device.dimSocketB(
-                        (long) getValue("address", m, e),
-                        (short) getValue("unit", m, e),
-                        (short) getValue("dimValue", m, e)
+                        getValue(long.class, "address2", m, getAddress2()),
+                        getValue(short.class, "unit2", m, getUnit2()),
+                        getValue(short.class, "dimValue", m, getDimValue())
                     );
                 break;
 
             case "switchSocketC":
                 device.switchSocketC(
-                        (char) getValue("systemCode", m, e),
-                        (short) getValue("deviceCode", m, e),
-                        (short) getValue("switchTo", m, e)
+                        getValue(char.class, "systemCode", m, getSystemCode()),
+                        getValue(short.class, "deviceCode", m, getDeviceCode()),
+                        getValue(short.class, "switchTo4", m, getSwitchTo4())
                     );
                 break;
 
@@ -182,6 +189,30 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.repeats = repeats;
     }
 
+    public Short getHouseCode2(){
+        return houseCode2;
+    }
+
+    public void setHouseCode2(Short houseCode2){
+        this.houseCode2 = houseCode2;
+    }
+
+    public Short getReceiverCode2(){
+        return receiverCode2;
+    }
+
+    public void setReceiverCode2(Short receiverCode2){
+        this.receiverCode2 = receiverCode2;
+    }
+
+    public Short getSwitchTo2(){
+        return switchTo2;
+    }
+
+    public void setSwitchTo2(Short switchTo2){
+        this.switchTo2 = switchTo2;
+    }
+
     public Long getAddress(){
         return address;
     }
@@ -196,6 +227,30 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
 
     public void setUnit(Short unit){
         this.unit = unit;
+    }
+
+    public Short getSwitchTo3(){
+        return switchTo3;
+    }
+
+    public void setSwitchTo3(Short switchTo3){
+        this.switchTo3 = switchTo3;
+    }
+
+    public Long getAddress2(){
+        return address2;
+    }
+
+    public void setAddress2(Long address2){
+        this.address2 = address2;
+    }
+
+    public Short getUnit2(){
+        return unit2;
+    }
+
+    public void setUnit2(Short unit2){
+        this.unit2 = unit2;
     }
 
     public Short getDimValue(){
@@ -220,6 +275,14 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
 
     public void setDeviceCode(Short deviceCode){
         this.deviceCode = deviceCode;
+    }
+
+    public Short getSwitchTo4(){
+        return switchTo4;
+    }
+
+    public void setSwitchTo4(Short switchTo4){
+        this.switchTo4 = switchTo4;
     }
 
 

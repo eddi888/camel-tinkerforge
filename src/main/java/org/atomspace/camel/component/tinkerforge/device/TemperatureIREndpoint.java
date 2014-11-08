@@ -34,9 +34,13 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
     
     private Integer emissivity;
     private Long period;
+    private Long period2;
     private Character option;
     private Short min;
     private Short max;
+    private Character option2;
+    private Short min2;
+    private Short max2;
     private Long debounce;
 
         
@@ -90,7 +94,7 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
             case "setEmissivity":
                 device.setEmissivity(
-                        (int) getValue("emissivity", m, e)
+                        getValue(int.class, "emissivity", m, getEmissivity())
                     );
                 break;
 
@@ -100,7 +104,7 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
             case "setAmbientTemperatureCallbackPeriod":
                 device.setAmbientTemperatureCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -110,7 +114,7 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
             case "setObjectTemperatureCallbackPeriod":
                 device.setObjectTemperatureCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -120,9 +124,9 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
             case "setAmbientTemperatureCallbackThreshold":
                 device.setAmbientTemperatureCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (short) getValue("min", m, e),
-                        (short) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(short.class, "min", m, getMin()),
+                        getValue(short.class, "max", m, getMax())
                     );
                 break;
 
@@ -132,9 +136,9 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
             case "setObjectTemperatureCallbackThreshold":
                 device.setObjectTemperatureCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (short) getValue("min", m, e),
-                        (short) getValue("max", m, e)
+                        getValue(char.class, "option2", m, getOption2()),
+                        getValue(short.class, "min2", m, getMin2()),
+                        getValue(short.class, "max2", m, getMax2())
                     );
                 break;
 
@@ -144,7 +148,7 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -181,6 +185,14 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.period = period;
     }
 
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
     public Character getOption(){
         return option;
     }
@@ -203,6 +215,30 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
 
     public void setMax(Short max){
         this.max = max;
+    }
+
+    public Character getOption2(){
+        return option2;
+    }
+
+    public void setOption2(Character option2){
+        this.option2 = option2;
+    }
+
+    public Short getMin2(){
+        return min2;
+    }
+
+    public void setMin2(Short min2){
+        this.min2 = min2;
+    }
+
+    public Short getMax2(){
+        return max2;
+    }
+
+    public void setMax2(Short max2){
+        this.max2 = max2;
     }
 
     public Long getDebounce(){

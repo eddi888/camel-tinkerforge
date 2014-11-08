@@ -32,7 +32,7 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
 
     private static final Logger LOG = LoggerFactory.getLogger(SegmentDisplay4x7Endpoint.class);
     
-    private Short segments;
+    private short[] segments;
     private Short brightness;
     private Boolean colon;
     private Short valueFrom;
@@ -81,16 +81,24 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         Object response = null;
         switch (function) {
                 
+            case "setSegments":
+                device.setSegments(
+                        getValue(short[].class, "segments", m, getSegments()),
+                        getValue(short.class, "brightness", m, getBrightness()),
+                        getValue(boolean.class, "colon", m, getColon())
+                    );
+                break;
+
             case "getSegments":
                 response = device.getSegments();
                 break;
 
             case "startCounter":
                 device.startCounter(
-                        (short) getValue("valueFrom", m, e),
-                        (short) getValue("valueTo", m, e),
-                        (short) getValue("increment", m, e),
-                        (long) getValue("length", m, e)
+                        getValue(short.class, "valueFrom", m, getValueFrom()),
+                        getValue(short.class, "valueTo", m, getValueTo()),
+                        getValue(short.class, "increment", m, getIncrement()),
+                        getValue(long.class, "length", m, getLength())
                     );
                 break;
 
@@ -111,11 +119,11 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
     }
     
     
-    public Short getSegments(){
+    public short[] getSegments(){
         return segments;
     }
 
-    public void setSegments(Short segments){
+    public void setSegments(short[] segments){
         this.segments = segments;
     }
 

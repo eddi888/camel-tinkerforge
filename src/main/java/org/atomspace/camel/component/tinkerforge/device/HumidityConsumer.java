@@ -67,7 +67,7 @@ public class HumidityConsumer extends TinkerforgeConsumer<HumidityEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletHumidity.CALLBACK_HUMIDITY);
+            exchange.getIn().setHeader("fireBy", BrickletHumidity.CALLBACK_HUMIDITY);
             exchange.getIn().setHeader("humidity", humidity);
             
             
@@ -93,7 +93,7 @@ public class HumidityConsumer extends TinkerforgeConsumer<HumidityEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletHumidity.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletHumidity.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("value", value);
             
             
@@ -119,7 +119,7 @@ public class HumidityConsumer extends TinkerforgeConsumer<HumidityEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletHumidity.CALLBACK_HUMIDITY_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletHumidity.CALLBACK_HUMIDITY_REACHED);
             exchange.getIn().setHeader("humidity", humidity);
             
             
@@ -145,7 +145,7 @@ public class HumidityConsumer extends TinkerforgeConsumer<HumidityEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletHumidity.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletHumidity.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("value", value);
             
             

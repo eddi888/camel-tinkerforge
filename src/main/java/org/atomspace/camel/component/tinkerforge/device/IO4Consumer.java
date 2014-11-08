@@ -61,7 +61,7 @@ public class IO4Consumer extends TinkerforgeConsumer<IO4Endpoint, BrickletIO4> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletIO4.CALLBACK_INTERRUPT);
+            exchange.getIn().setHeader("fireBy", BrickletIO4.CALLBACK_INTERRUPT);
             exchange.getIn().setHeader("interrupt_mask", interrupt_mask);
             exchange.getIn().setHeader("value_mask", value_mask);
             
@@ -88,7 +88,7 @@ public class IO4Consumer extends TinkerforgeConsumer<IO4Endpoint, BrickletIO4> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletIO4.CALLBACK_MONOFLOP_DONE);
+            exchange.getIn().setHeader("fireBy", BrickletIO4.CALLBACK_MONOFLOP_DONE);
             exchange.getIn().setHeader("selection_mask", selection_mask);
             exchange.getIn().setHeader("value_mask", value_mask);
             

@@ -78,7 +78,7 @@ public class AnalogOutEndpoint extends TinkerforgeEndpoint<AnalogOutConsumer, An
                 
             case "setVoltage":
                 device.setVoltage(
-                        (int) getValue("voltage", m, e)
+                        getValue(int.class, "voltage", m, getVoltage())
                     );
                 break;
 
@@ -88,7 +88,7 @@ public class AnalogOutEndpoint extends TinkerforgeEndpoint<AnalogOutConsumer, An
 
             case "setMode":
                 device.setMode(
-                        (short) getValue("mode", m, e)
+                        getValue(short.class, "mode", m, getMode())
                     );
                 break;
 

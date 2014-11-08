@@ -34,15 +34,31 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
     
     private Character port;
     private Short valueMask;
+    private Character port2;
+    private Character port3;
     private Short selectionMask;
     private Character direction;
     private Boolean value;
+    private Character port4;
     private Long debounce;
+    private Character port5;
     private Short interruptMask;
+    private Character port6;
+    private Character port7;
+    private Short selectionMask2;
+    private Short valueMask2;
     private Long time;
+    private Character port8;
     private Short pin;
+    private Character port9;
+    private Short selectionMask3;
+    private Short valueMask3;
+    private Short pin2;
     private Boolean resetCounter;
+    private Short pin3;
     private Short edgeType;
+    private Short debounce2;
+    private Short pin4;
 
         
     public IO16Endpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -87,35 +103,35 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
                 
             case "setPort":
                 device.setPort(
-                        (char) getValue("port", m, e),
-                        (short) getValue("valueMask", m, e)
+                        getValue(char.class, "port", m, getPort()),
+                        getValue(short.class, "valueMask", m, getValueMask())
                     );
                 break;
 
             case "getPort":
                 response = device.getPort(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port2", m, getPort2())
                     );
                 break;
 
             case "setPortConfiguration":
                 device.setPortConfiguration(
-                        (char) getValue("port", m, e),
-                        (short) getValue("selectionMask", m, e),
-                        (char) getValue("direction", m, e),
-                        (boolean) getValue("value", m, e)
+                        getValue(char.class, "port3", m, getPort3()),
+                        getValue(short.class, "selectionMask", m, getSelectionMask()),
+                        getValue(char.class, "direction", m, getDirection()),
+                        getValue(boolean.class, "value", m, getValue())
                     );
                 break;
 
             case "getPortConfiguration":
                 response = device.getPortConfiguration(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port4", m, getPort4())
                     );
                 break;
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -125,59 +141,59 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
 
             case "setPortInterrupt":
                 device.setPortInterrupt(
-                        (char) getValue("port", m, e),
-                        (short) getValue("interruptMask", m, e)
+                        getValue(char.class, "port5", m, getPort5()),
+                        getValue(short.class, "interruptMask", m, getInterruptMask())
                     );
                 break;
 
             case "getPortInterrupt":
                 response = device.getPortInterrupt(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port6", m, getPort6())
                     );
                 break;
 
             case "setPortMonoflop":
                 device.setPortMonoflop(
-                        (char) getValue("port", m, e),
-                        (short) getValue("selectionMask", m, e),
-                        (short) getValue("valueMask", m, e),
-                        (long) getValue("time", m, e)
+                        getValue(char.class, "port7", m, getPort7()),
+                        getValue(short.class, "selectionMask2", m, getSelectionMask2()),
+                        getValue(short.class, "valueMask2", m, getValueMask2()),
+                        getValue(long.class, "time", m, getTime())
                     );
                 break;
 
             case "getPortMonoflop":
                 response = device.getPortMonoflop(
-                        (char) getValue("port", m, e),
-                        (short) getValue("pin", m, e)
+                        getValue(char.class, "port8", m, getPort8()),
+                        getValue(short.class, "pin", m, getPin())
                     );
                 break;
 
             case "setSelectedValues":
                 device.setSelectedValues(
-                        (char) getValue("port", m, e),
-                        (short) getValue("selectionMask", m, e),
-                        (short) getValue("valueMask", m, e)
+                        getValue(char.class, "port9", m, getPort9()),
+                        getValue(short.class, "selectionMask3", m, getSelectionMask3()),
+                        getValue(short.class, "valueMask3", m, getValueMask3())
                     );
                 break;
 
             case "getEdgeCount":
                 response = device.getEdgeCount(
-                        (short) getValue("pin", m, e),
-                        (boolean) getValue("resetCounter", m, e)
+                        getValue(short.class, "pin2", m, getPin2()),
+                        getValue(boolean.class, "resetCounter", m, getResetCounter())
                     );
                 break;
 
             case "setEdgeCountConfig":
                 device.setEdgeCountConfig(
-                        (short) getValue("pin", m, e),
-                        (short) getValue("edgeType", m, e),
-                        (short) getValue("debounce", m, e)
+                        getValue(short.class, "pin3", m, getPin3()),
+                        getValue(short.class, "edgeType", m, getEdgeType()),
+                        getValue(short.class, "debounce2", m, getDebounce2())
                     );
                 break;
 
             case "getEdgeCountConfig":
                 response = device.getEdgeCountConfig(
-                        (short) getValue("pin", m, e)
+                        getValue(short.class, "pin4", m, getPin4())
                     );
                 break;
 
@@ -210,6 +226,22 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
         this.valueMask = valueMask;
     }
 
+    public Character getPort2(){
+        return port2;
+    }
+
+    public void setPort2(Character port2){
+        this.port2 = port2;
+    }
+
+    public Character getPort3(){
+        return port3;
+    }
+
+    public void setPort3(Character port3){
+        this.port3 = port3;
+    }
+
     public Short getSelectionMask(){
         return selectionMask;
     }
@@ -234,12 +266,28 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
         this.value = value;
     }
 
+    public Character getPort4(){
+        return port4;
+    }
+
+    public void setPort4(Character port4){
+        this.port4 = port4;
+    }
+
     public Long getDebounce(){
         return debounce;
     }
 
     public void setDebounce(Long debounce){
         this.debounce = debounce;
+    }
+
+    public Character getPort5(){
+        return port5;
+    }
+
+    public void setPort5(Character port5){
+        this.port5 = port5;
     }
 
     public Short getInterruptMask(){
@@ -250,12 +298,52 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
         this.interruptMask = interruptMask;
     }
 
+    public Character getPort6(){
+        return port6;
+    }
+
+    public void setPort6(Character port6){
+        this.port6 = port6;
+    }
+
+    public Character getPort7(){
+        return port7;
+    }
+
+    public void setPort7(Character port7){
+        this.port7 = port7;
+    }
+
+    public Short getSelectionMask2(){
+        return selectionMask2;
+    }
+
+    public void setSelectionMask2(Short selectionMask2){
+        this.selectionMask2 = selectionMask2;
+    }
+
+    public Short getValueMask2(){
+        return valueMask2;
+    }
+
+    public void setValueMask2(Short valueMask2){
+        this.valueMask2 = valueMask2;
+    }
+
     public Long getTime(){
         return time;
     }
 
     public void setTime(Long time){
         this.time = time;
+    }
+
+    public Character getPort8(){
+        return port8;
+    }
+
+    public void setPort8(Character port8){
+        this.port8 = port8;
     }
 
     public Short getPin(){
@@ -266,6 +354,38 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
         this.pin = pin;
     }
 
+    public Character getPort9(){
+        return port9;
+    }
+
+    public void setPort9(Character port9){
+        this.port9 = port9;
+    }
+
+    public Short getSelectionMask3(){
+        return selectionMask3;
+    }
+
+    public void setSelectionMask3(Short selectionMask3){
+        this.selectionMask3 = selectionMask3;
+    }
+
+    public Short getValueMask3(){
+        return valueMask3;
+    }
+
+    public void setValueMask3(Short valueMask3){
+        this.valueMask3 = valueMask3;
+    }
+
+    public Short getPin2(){
+        return pin2;
+    }
+
+    public void setPin2(Short pin2){
+        this.pin2 = pin2;
+    }
+
     public Boolean getResetCounter(){
         return resetCounter;
     }
@@ -274,12 +394,36 @@ public class IO16Endpoint extends TinkerforgeEndpoint<IO16Consumer, IO16Producer
         this.resetCounter = resetCounter;
     }
 
+    public Short getPin3(){
+        return pin3;
+    }
+
+    public void setPin3(Short pin3){
+        this.pin3 = pin3;
+    }
+
     public Short getEdgeType(){
         return edgeType;
     }
 
     public void setEdgeType(Short edgeType){
         this.edgeType = edgeType;
+    }
+
+    public Short getDebounce2(){
+        return debounce2;
+    }
+
+    public void setDebounce2(Short debounce2){
+        this.debounce2 = debounce2;
+    }
+
+    public Short getPin4(){
+        return pin4;
+    }
+
+    public void setPin4(Short pin4){
+        this.pin4 = pin4;
     }
 
 

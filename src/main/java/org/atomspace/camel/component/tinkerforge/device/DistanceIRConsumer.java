@@ -67,7 +67,7 @@ public class DistanceIRConsumer extends TinkerforgeConsumer<DistanceIREndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDistanceIR.CALLBACK_DISTANCE);
+            exchange.getIn().setHeader("fireBy", BrickletDistanceIR.CALLBACK_DISTANCE);
             exchange.getIn().setHeader("distance", distance);
             
             
@@ -93,7 +93,7 @@ public class DistanceIRConsumer extends TinkerforgeConsumer<DistanceIREndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDistanceIR.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletDistanceIR.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("value", value);
             
             
@@ -119,7 +119,7 @@ public class DistanceIRConsumer extends TinkerforgeConsumer<DistanceIREndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDistanceIR.CALLBACK_DISTANCE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletDistanceIR.CALLBACK_DISTANCE_REACHED);
             exchange.getIn().setHeader("distance", distance);
             
             
@@ -145,7 +145,7 @@ public class DistanceIRConsumer extends TinkerforgeConsumer<DistanceIREndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDistanceIR.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletDistanceIR.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("value", value);
             
             

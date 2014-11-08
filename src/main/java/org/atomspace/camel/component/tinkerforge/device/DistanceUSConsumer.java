@@ -61,7 +61,7 @@ public class DistanceUSConsumer extends TinkerforgeConsumer<DistanceUSEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDistanceUS.CALLBACK_DISTANCE);
+            exchange.getIn().setHeader("fireBy", BrickletDistanceUS.CALLBACK_DISTANCE);
             exchange.getIn().setHeader("distance", distance);
             
             
@@ -87,7 +87,7 @@ public class DistanceUSConsumer extends TinkerforgeConsumer<DistanceUSEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDistanceUS.CALLBACK_DISTANCE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletDistanceUS.CALLBACK_DISTANCE_REACHED);
             exchange.getIn().setHeader("distance", distance);
             
             

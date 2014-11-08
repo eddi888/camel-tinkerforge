@@ -33,10 +33,17 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
     private static final Logger LOG = LoggerFactory.getLogger(IMUEndpoint.class);
     
     private Short range;
+    private Short range2;
     private Integer speed;
     private Short typ;
-    private Short data;
+    private short[] data;
+    private Short typ2;
     private Long period;
+    private Long period2;
+    private Long period3;
+    private Long period4;
+    private Long period5;
+    private Long period6;
     private Character port;
 
         
@@ -104,6 +111,10 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
                 response = device.getQuaternion();
                 break;
 
+            case "getImuTemperature":
+                response = device.getIMUTemperature();
+                break;
+
             case "ledsOn":
                 device.ledsOn();
                 break;
@@ -118,7 +129,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setAccelerationRange":
                 device.setAccelerationRange(
-                        (short) getValue("range", m, e)
+                        getValue(short.class, "range", m, getRange())
                     );
                 break;
 
@@ -128,7 +139,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setMagnetometerRange":
                 device.setMagnetometerRange(
-                        (short) getValue("range", m, e)
+                        getValue(short.class, "range2", m, getRange2())
                     );
                 break;
 
@@ -138,7 +149,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setConvergenceSpeed":
                 device.setConvergenceSpeed(
-                        (int) getValue("speed", m, e)
+                        getValue(int.class, "speed", m, getSpeed())
                     );
                 break;
 
@@ -146,15 +157,22 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
                 response = device.getConvergenceSpeed();
                 break;
 
+            case "setCalibration":
+                device.setCalibration(
+                        getValue(short.class, "typ", m, getTyp()),
+                        getValue(short[].class, "data", m, getData())
+                    );
+                break;
+
             case "getCalibration":
                 response = device.getCalibration(
-                        (short) getValue("typ", m, e)
+                        getValue(short.class, "typ2", m, getTyp2())
                     );
                 break;
 
             case "setAccelerationPeriod":
                 device.setAccelerationPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -164,7 +182,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setMagneticFieldPeriod":
                 device.setMagneticFieldPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -174,7 +192,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setAngularVelocityPeriod":
                 device.setAngularVelocityPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period3", m, getPeriod3())
                     );
                 break;
 
@@ -184,7 +202,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setAllDataPeriod":
                 device.setAllDataPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period4", m, getPeriod4())
                     );
                 break;
 
@@ -194,7 +212,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setOrientationPeriod":
                 device.setOrientationPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period5", m, getPeriod5())
                     );
                 break;
 
@@ -204,7 +222,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "setQuaternionPeriod":
                 device.setQuaternionPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period6", m, getPeriod6())
                     );
                 break;
 
@@ -226,7 +244,7 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port", m, getPort())
                     );
                 break;
 
@@ -259,6 +277,14 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.range = range;
     }
 
+    public Short getRange2(){
+        return range2;
+    }
+
+    public void setRange2(Short range2){
+        this.range2 = range2;
+    }
+
     public Integer getSpeed(){
         return speed;
     }
@@ -275,12 +301,20 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.typ = typ;
     }
 
-    public Short getData(){
+    public short[] getData(){
         return data;
     }
 
-    public void setData(Short data){
+    public void setData(short[] data){
         this.data = data;
+    }
+
+    public Short getTyp2(){
+        return typ2;
+    }
+
+    public void setTyp2(Short typ2){
+        this.typ2 = typ2;
     }
 
     public Long getPeriod(){
@@ -289,6 +323,46 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
     public void setPeriod(Long period){
         this.period = period;
+    }
+
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
+    public Long getPeriod3(){
+        return period3;
+    }
+
+    public void setPeriod3(Long period3){
+        this.period3 = period3;
+    }
+
+    public Long getPeriod4(){
+        return period4;
+    }
+
+    public void setPeriod4(Long period4){
+        this.period4 = period4;
+    }
+
+    public Long getPeriod5(){
+        return period5;
+    }
+
+    public void setPeriod5(Long period5){
+        this.period5 = period5;
+    }
+
+    public Long getPeriod6(){
+        return period6;
+    }
+
+    public void setPeriod6(Long period6){
+        this.period6 = period6;
     }
 
     public Character getPort(){

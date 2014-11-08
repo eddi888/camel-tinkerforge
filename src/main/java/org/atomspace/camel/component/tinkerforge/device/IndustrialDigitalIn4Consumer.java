@@ -58,7 +58,7 @@ public class IndustrialDigitalIn4Consumer extends TinkerforgeConsumer<Industrial
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletIndustrialDigitalIn4.CALLBACK_INTERRUPT);
+            exchange.getIn().setHeader("fireBy", BrickletIndustrialDigitalIn4.CALLBACK_INTERRUPT);
             exchange.getIn().setHeader("interrupt_mask", interrupt_mask);
             exchange.getIn().setHeader("value_mask", value_mask);
             

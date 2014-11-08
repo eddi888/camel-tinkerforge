@@ -45,6 +45,8 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
     private Long debounce;
     private Short gain;
     private Short integrationTime;
+    private Long period2;
+    private Long period3;
 
         
     public ColorEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -93,7 +95,7 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
             case "setColorCallbackPeriod":
                 device.setColorCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -103,15 +105,15 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
             case "setColorCallbackThreshold":
                 device.setColorCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("minR", m, e),
-                        (int) getValue("maxR", m, e),
-                        (int) getValue("minG", m, e),
-                        (int) getValue("maxG", m, e),
-                        (int) getValue("minB", m, e),
-                        (int) getValue("maxB", m, e),
-                        (int) getValue("minC", m, e),
-                        (int) getValue("maxC", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "minR", m, getMinR()),
+                        getValue(int.class, "maxR", m, getMaxR()),
+                        getValue(int.class, "minG", m, getMinG()),
+                        getValue(int.class, "maxG", m, getMaxG()),
+                        getValue(int.class, "minB", m, getMinB()),
+                        getValue(int.class, "maxB", m, getMaxB()),
+                        getValue(int.class, "minC", m, getMinC()),
+                        getValue(int.class, "maxC", m, getMaxC())
                     );
                 break;
 
@@ -121,7 +123,7 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -143,8 +145,8 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
             case "setConfig":
                 device.setConfig(
-                        (short) getValue("gain", m, e),
-                        (short) getValue("integrationTime", m, e)
+                        getValue(short.class, "gain", m, getGain()),
+                        getValue(short.class, "integrationTime", m, getIntegrationTime())
                     );
                 break;
 
@@ -162,7 +164,7 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
             case "setIlluminanceCallbackPeriod":
                 device.setIlluminanceCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -172,7 +174,7 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
             case "setColorTemperatureCallbackPeriod":
                 device.setColorTemperatureCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period3", m, getPeriod3())
                     );
                 break;
 
@@ -295,6 +297,22 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
 
     public void setIntegrationTime(Short integrationTime){
         this.integrationTime = integrationTime;
+    }
+
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
+    public Long getPeriod3(){
+        return period3;
+    }
+
+    public void setPeriod3(Long period3){
+        this.period3 = period3;
     }
 
 

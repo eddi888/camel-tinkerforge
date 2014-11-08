@@ -17,6 +17,7 @@
 package org.atomspace.camel.component.tinkerforge;
 
 import org.apache.camel.Endpoint;
+import org.apache.camel.EndpointConfiguration;
 import org.apache.camel.Message;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
@@ -24,7 +25,6 @@ import org.apache.camel.impl.DefaultProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tinkerforge.Device;
 
 /**
  * Represents a Tinkerforge endpoint.
@@ -52,25 +52,58 @@ public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, 
         this.createExchange();
     }
     
+    @Override
+    public EndpointConfiguration getEndpointConfiguration() {
+        return super.getEndpointConfiguration();
+    }
+    
     /**
      * Get Header-Parameter or alternative Configured Endpoint Parameter
      */
-    public Object getValue(String parameter, Message message, Endpoint endpoint){
+    /*public Object getValue(String parameter, Message message, Endpoint endpoint){
         if(message==null && endpoint!=null){
-            return endpoint.getEndpointConfiguration().getParameter("parameter");
+            return endpoint.getEndpointConfiguration().getParameter(parameter);
         }
         Object value = message.getHeader(parameter);
         if(value==null){
-            value = endpoint.getEndpointConfiguration().getParameter("parameter");
+            value = endpoint.getEndpointConfiguration().getParameter(parameter);
+        }
+        return value;
+    }*/
+    
+    /**
+     * Get Header-Parameter or alternative Configured URI Parameter Value
+     */
+    public <T> T getValue(Class<T> type, String parameter, Message message, T uriParameterValue){
+        if(message==null && uriParameterValue!=null){
+            return uriParameterValue;
+        }
+        T value = message.getHeader(parameter, type);
+        if(value==null){
+            value = uriParameterValue;
         }
         return value;
     }
     
     /**
+     * Get Header-Parameter or alternative Configured Endpoint Parameter
+     */
+    /*public <T> T getValue(Class<T> type, String parameter, Message message, Endpoint endpoint){
+        if(message==null && endpoint!=null){
+            return endpoint.getEndpointConfiguration().getParameter(parameter);
+        }
+        T value = message.getHeader(parameter, type);
+        if(value==null){
+            value = endpoint.getEndpointConfiguration().getParameter(parameter);
+        }
+        return value;
+    }*/
+    
+    /**
      * Get Configured Endpoint Parameter
      */
     public Object getValue(String parameter, Endpoint endpoint){
-        return endpoint.getEndpointConfiguration().getParameter("parameter");
+        return endpoint.getEndpointConfiguration().getParameter(parameter);
         
     }
     

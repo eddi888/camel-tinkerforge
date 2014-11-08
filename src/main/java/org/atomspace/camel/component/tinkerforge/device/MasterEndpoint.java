@@ -34,18 +34,26 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
     
     private Short extension;
     private Long exttype;
+    private Short extension2;
     private Short address;
+    private Short address2;
     private Short num;
+    private Short address3;
+    private Short num2;
     private Short frequency;
     private Short channel;
+    private Short address4;
+    private Short num3;
+    private Short address5;
+    private Short num4;
     private Long speed;
     private Character parity;
     private Short stopbits;
     private String ssid;
     private Short connection;
-    private Short ip;
-    private Short subnetMask;
-    private Short gateway;
+    private short[] ip;
+    private short[] subnetMask;
+    private short[] gateway;
     private Integer port;
     private Short encryption;
     private String key;
@@ -55,19 +63,38 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
     private Integer clientCertificateLength;
     private Integer privateKeyLength;
     private Integer index;
-    private Short data;
+    private short[] data;
     private Short dataLength;
+    private Integer index2;
     private Short mode;
     private Short domain;
+    private String key2;
     private String hostname;
     private Long period;
+    private Long period2;
+    private Long period3;
     private Character option;
     private Integer min;
     private Integer max;
+    private Character option2;
+    private Integer min2;
+    private Integer max2;
+    private Character option3;
+    private Integer min3;
+    private Integer max3;
     private Long debounce;
-    private Short macAddress;
+    private Short connection2;
+    private short[] ip2;
+    private short[] subnetMask2;
+    private short[] gateway2;
+    private Integer port2;
+    private String hostname2;
+    private short[] macAddress;
     private Short sockets;
+    private Integer port3;
     private String secret;
+    private String secret2;
+    private Character port4;
 
         
     public MasterEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -120,14 +147,14 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setExtensionType":
                 device.setExtensionType(
-                        (short) getValue("extension", m, e),
-                        (long) getValue("exttype", m, e)
+                        getValue(short.class, "extension", m, getExtension()),
+                        getValue(long.class, "exttype", m, getExttype())
                     );
                 break;
 
             case "getExtensionType":
                 response = device.getExtensionType(
-                        (short) getValue("extension", m, e)
+                        getValue(short.class, "extension2", m, getExtension2())
                     );
                 break;
 
@@ -137,7 +164,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setChibiAddress":
                 device.setChibiAddress(
-                        (short) getValue("address", m, e)
+                        getValue(short.class, "address", m, getAddress())
                     );
                 break;
 
@@ -147,7 +174,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setChibiMasterAddress":
                 device.setChibiMasterAddress(
-                        (short) getValue("address", m, e)
+                        getValue(short.class, "address2", m, getAddress2())
                     );
                 break;
 
@@ -157,14 +184,14 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setChibiSlaveAddress":
                 device.setChibiSlaveAddress(
-                        (short) getValue("num", m, e),
-                        (short) getValue("address", m, e)
+                        getValue(short.class, "num", m, getNum()),
+                        getValue(short.class, "address3", m, getAddress3())
                     );
                 break;
 
             case "getChibiSlaveAddress":
                 response = device.getChibiSlaveAddress(
-                        (short) getValue("num", m, e)
+                        getValue(short.class, "num2", m, getNum2())
                     );
                 break;
 
@@ -178,7 +205,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setChibiFrequency":
                 device.setChibiFrequency(
-                        (short) getValue("frequency", m, e)
+                        getValue(short.class, "frequency", m, getFrequency())
                     );
                 break;
 
@@ -188,7 +215,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setChibiChannel":
                 device.setChibiChannel(
-                        (short) getValue("channel", m, e)
+                        getValue(short.class, "channel", m, getChannel())
                     );
                 break;
 
@@ -196,8 +223,62 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
                 response = device.getChibiChannel();
                 break;
 
+            case "isRs485Present":
+                response = device.isRS485Present();
+                break;
+
+            case "setRs485Address":
+                device.setRS485Address(
+                        getValue(short.class, "address4", m, getAddress4())
+                    );
+                break;
+
+            case "getRs485Address":
+                response = device.getRS485Address();
+                break;
+
+            case "setRs485SlaveAddress":
+                device.setRS485SlaveAddress(
+                        getValue(short.class, "num3", m, getNum3()),
+                        getValue(short.class, "address5", m, getAddress5())
+                    );
+                break;
+
+            case "getRs485SlaveAddress":
+                response = device.getRS485SlaveAddress(
+                        getValue(short.class, "num4", m, getNum4())
+                    );
+                break;
+
+            case "getRs485ErrorLog":
+                response = device.getRS485ErrorLog();
+                break;
+
+            case "setRs485Configuration":
+                device.setRS485Configuration(
+                        getValue(long.class, "speed", m, getSpeed()),
+                        getValue(char.class, "parity", m, getParity()),
+                        getValue(short.class, "stopbits", m, getStopbits())
+                    );
+                break;
+
+            case "getRs485Configuration":
+                response = device.getRS485Configuration();
+                break;
+
             case "isWifiPresent":
                 response = device.isWifiPresent();
+                break;
+
+            case "setWifiConfiguration":
+                device.setWifiConfiguration(
+                        getValue(String.class, "ssid", m, getSsid()),
+                        getValue(short.class, "connection", m, getConnection()),
+                        getValue(short[].class, "ip", m, getIp()),
+                        getValue(short[].class, "subnetMask", m, getSubnetMask()),
+                        getValue(short[].class, "gateway", m, getGateway()),
+                        getValue(int.class, "port", m, getPort())
+                    );
                 break;
 
             case "getWifiConfiguration":
@@ -206,13 +287,13 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setWifiEncryption":
                 device.setWifiEncryption(
-                        (short) getValue("encryption", m, e),
-                        (String) getValue("key", m, e),
-                        (short) getValue("keyIndex", m, e),
-                        (short) getValue("eapOptions", m, e),
-                        (int) getValue("caCertificateLength", m, e),
-                        (int) getValue("clientCertificateLength", m, e),
-                        (int) getValue("privateKeyLength", m, e)
+                        getValue(short.class, "encryption", m, getEncryption()),
+                        getValue(String.class, "key", m, getKey()),
+                        getValue(short.class, "keyIndex", m, getKeyIndex()),
+                        getValue(short.class, "eapOptions", m, getEapOptions()),
+                        getValue(int.class, "caCertificateLength", m, getCaCertificateLength()),
+                        getValue(int.class, "clientCertificateLength", m, getClientCertificateLength()),
+                        getValue(int.class, "privateKeyLength", m, getPrivateKeyLength())
                     );
                 break;
 
@@ -228,15 +309,23 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
                 device.refreshWifiStatus();
                 break;
 
+            case "setWifiCertificate":
+                device.setWifiCertificate(
+                        getValue(int.class, "index", m, getIndex()),
+                        getValue(short[].class, "data", m, getData()),
+                        getValue(short.class, "dataLength", m, getDataLength())
+                    );
+                break;
+
             case "getWifiCertificate":
                 response = device.getWifiCertificate(
-                        (int) getValue("index", m, e)
+                        getValue(int.class, "index2", m, getIndex2())
                     );
                 break;
 
             case "setWifiPowerMode":
                 device.setWifiPowerMode(
-                        (short) getValue("mode", m, e)
+                        getValue(short.class, "mode", m, getMode())
                     );
                 break;
 
@@ -250,7 +339,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setWifiRegulatoryDomain":
                 device.setWifiRegulatoryDomain(
-                        (short) getValue("domain", m, e)
+                        getValue(short.class, "domain", m, getDomain())
                     );
                 break;
 
@@ -264,7 +353,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setLongWifiKey":
                 device.setLongWifiKey(
-                        (String) getValue("key", m, e)
+                        getValue(String.class, "key2", m, getKey2())
                     );
                 break;
 
@@ -274,7 +363,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setWifiHostname":
                 device.setWifiHostname(
-                        (String) getValue("hostname", m, e)
+                        getValue(String.class, "hostname", m, getHostname())
                     );
                 break;
 
@@ -284,7 +373,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setStackCurrentCallbackPeriod":
                 device.setStackCurrentCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -294,7 +383,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setStackVoltageCallbackPeriod":
                 device.setStackVoltageCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -304,7 +393,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setUsbVoltageCallbackPeriod":
                 device.setUSBVoltageCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period3", m, getPeriod3())
                     );
                 break;
 
@@ -314,9 +403,9 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setStackCurrentCallbackThreshold":
                 device.setStackCurrentCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -326,9 +415,9 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setStackVoltageCallbackThreshold":
                 device.setStackVoltageCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option2", m, getOption2()),
+                        getValue(int.class, "min2", m, getMin2()),
+                        getValue(int.class, "max2", m, getMax2())
                     );
                 break;
 
@@ -338,15 +427,19 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setUsbVoltageCallbackThreshold":
                 device.setUSBVoltageCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option3", m, getOption3()),
+                        getValue(int.class, "min3", m, getMin3()),
+                        getValue(int.class, "max3", m, getMax3())
                     );
+                break;
+
+            case "getUsbVoltageCallbackThreshold":
+                response = device.getUSBVoltageCallbackThreshold();
                 break;
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -356,6 +449,16 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "isEthernetPresent":
                 response = device.isEthernetPresent();
+                break;
+
+            case "setEthernetConfiguration":
+                device.setEthernetConfiguration(
+                        getValue(short.class, "connection2", m, getConnection2()),
+                        getValue(short[].class, "ip2", m, getIp2()),
+                        getValue(short[].class, "subnetMask2", m, getSubnetMask2()),
+                        getValue(short[].class, "gateway2", m, getGateway2()),
+                        getValue(int.class, "port2", m, getPort2())
+                    );
                 break;
 
             case "getEthernetConfiguration":
@@ -368,14 +471,20 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setEthernetHostname":
                 device.setEthernetHostname(
-                        (String) getValue("hostname", m, e)
+                        getValue(String.class, "hostname2", m, getHostname2())
+                    );
+                break;
+
+            case "setEthernetMacAddress":
+                device.setEthernetMACAddress(
+                        getValue(short[].class, "macAddress", m, getMacAddress())
                     );
                 break;
 
             case "setEthernetWebsocketConfiguration":
                 device.setEthernetWebsocketConfiguration(
-                        (short) getValue("sockets", m, e),
-                        (int) getValue("port", m, e)
+                        getValue(short.class, "sockets", m, getSockets()),
+                        getValue(int.class, "port3", m, getPort3())
                     );
                 break;
 
@@ -385,7 +494,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setEthernetAuthenticationSecret":
                 device.setEthernetAuthenticationSecret(
-                        (String) getValue("secret", m, e)
+                        getValue(String.class, "secret", m, getSecret())
                     );
                 break;
 
@@ -395,7 +504,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "setWifiAuthenticationSecret":
                 device.setWifiAuthenticationSecret(
-                        (String) getValue("secret", m, e)
+                        getValue(String.class, "secret2", m, getSecret2())
                     );
                 break;
 
@@ -405,7 +514,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
-                        (char) getValue("port", m, e)
+                        getValue(char.class, "port4", m, getPort4())
                     );
                 break;
 
@@ -446,6 +555,14 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.exttype = exttype;
     }
 
+    public Short getExtension2(){
+        return extension2;
+    }
+
+    public void setExtension2(Short extension2){
+        this.extension2 = extension2;
+    }
+
     public Short getAddress(){
         return address;
     }
@@ -454,12 +571,36 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.address = address;
     }
 
+    public Short getAddress2(){
+        return address2;
+    }
+
+    public void setAddress2(Short address2){
+        this.address2 = address2;
+    }
+
     public Short getNum(){
         return num;
     }
 
     public void setNum(Short num){
         this.num = num;
+    }
+
+    public Short getAddress3(){
+        return address3;
+    }
+
+    public void setAddress3(Short address3){
+        this.address3 = address3;
+    }
+
+    public Short getNum2(){
+        return num2;
+    }
+
+    public void setNum2(Short num2){
+        this.num2 = num2;
     }
 
     public Short getFrequency(){
@@ -476,6 +617,38 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
     public void setChannel(Short channel){
         this.channel = channel;
+    }
+
+    public Short getAddress4(){
+        return address4;
+    }
+
+    public void setAddress4(Short address4){
+        this.address4 = address4;
+    }
+
+    public Short getNum3(){
+        return num3;
+    }
+
+    public void setNum3(Short num3){
+        this.num3 = num3;
+    }
+
+    public Short getAddress5(){
+        return address5;
+    }
+
+    public void setAddress5(Short address5){
+        this.address5 = address5;
+    }
+
+    public Short getNum4(){
+        return num4;
+    }
+
+    public void setNum4(Short num4){
+        this.num4 = num4;
     }
 
     public Long getSpeed(){
@@ -518,27 +691,27 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.connection = connection;
     }
 
-    public Short getIp(){
+    public short[] getIp(){
         return ip;
     }
 
-    public void setIp(Short ip){
+    public void setIp(short[] ip){
         this.ip = ip;
     }
 
-    public Short getSubnetMask(){
+    public short[] getSubnetMask(){
         return subnetMask;
     }
 
-    public void setSubnetMask(Short subnetMask){
+    public void setSubnetMask(short[] subnetMask){
         this.subnetMask = subnetMask;
     }
 
-    public Short getGateway(){
+    public short[] getGateway(){
         return gateway;
     }
 
-    public void setGateway(Short gateway){
+    public void setGateway(short[] gateway){
         this.gateway = gateway;
     }
 
@@ -614,11 +787,11 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.index = index;
     }
 
-    public Short getData(){
+    public short[] getData(){
         return data;
     }
 
-    public void setData(Short data){
+    public void setData(short[] data){
         this.data = data;
     }
 
@@ -628,6 +801,14 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
     public void setDataLength(Short dataLength){
         this.dataLength = dataLength;
+    }
+
+    public Integer getIndex2(){
+        return index2;
+    }
+
+    public void setIndex2(Integer index2){
+        this.index2 = index2;
     }
 
     public Short getMode(){
@@ -646,6 +827,14 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.domain = domain;
     }
 
+    public String getKey2(){
+        return key2;
+    }
+
+    public void setKey2(String key2){
+        this.key2 = key2;
+    }
+
     public String getHostname(){
         return hostname;
     }
@@ -660,6 +849,22 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
 
     public void setPeriod(Long period){
         this.period = period;
+    }
+
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
+    public Long getPeriod3(){
+        return period3;
+    }
+
+    public void setPeriod3(Long period3){
+        this.period3 = period3;
     }
 
     public Character getOption(){
@@ -686,6 +891,54 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.max = max;
     }
 
+    public Character getOption2(){
+        return option2;
+    }
+
+    public void setOption2(Character option2){
+        this.option2 = option2;
+    }
+
+    public Integer getMin2(){
+        return min2;
+    }
+
+    public void setMin2(Integer min2){
+        this.min2 = min2;
+    }
+
+    public Integer getMax2(){
+        return max2;
+    }
+
+    public void setMax2(Integer max2){
+        this.max2 = max2;
+    }
+
+    public Character getOption3(){
+        return option3;
+    }
+
+    public void setOption3(Character option3){
+        this.option3 = option3;
+    }
+
+    public Integer getMin3(){
+        return min3;
+    }
+
+    public void setMin3(Integer min3){
+        this.min3 = min3;
+    }
+
+    public Integer getMax3(){
+        return max3;
+    }
+
+    public void setMax3(Integer max3){
+        this.max3 = max3;
+    }
+
     public Long getDebounce(){
         return debounce;
     }
@@ -694,11 +947,59 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.debounce = debounce;
     }
 
-    public Short getMacAddress(){
+    public Short getConnection2(){
+        return connection2;
+    }
+
+    public void setConnection2(Short connection2){
+        this.connection2 = connection2;
+    }
+
+    public short[] getIp2(){
+        return ip2;
+    }
+
+    public void setIp2(short[] ip2){
+        this.ip2 = ip2;
+    }
+
+    public short[] getSubnetMask2(){
+        return subnetMask2;
+    }
+
+    public void setSubnetMask2(short[] subnetMask2){
+        this.subnetMask2 = subnetMask2;
+    }
+
+    public short[] getGateway2(){
+        return gateway2;
+    }
+
+    public void setGateway2(short[] gateway2){
+        this.gateway2 = gateway2;
+    }
+
+    public Integer getPort2(){
+        return port2;
+    }
+
+    public void setPort2(Integer port2){
+        this.port2 = port2;
+    }
+
+    public String getHostname2(){
+        return hostname2;
+    }
+
+    public void setHostname2(String hostname2){
+        this.hostname2 = hostname2;
+    }
+
+    public short[] getMacAddress(){
         return macAddress;
     }
 
-    public void setMacAddress(Short macAddress){
+    public void setMacAddress(short[] macAddress){
         this.macAddress = macAddress;
     }
 
@@ -710,12 +1011,36 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
         this.sockets = sockets;
     }
 
+    public Integer getPort3(){
+        return port3;
+    }
+
+    public void setPort3(Integer port3){
+        this.port3 = port3;
+    }
+
     public String getSecret(){
         return secret;
     }
 
     public void setSecret(String secret){
         this.secret = secret;
+    }
+
+    public String getSecret2(){
+        return secret2;
+    }
+
+    public void setSecret2(String secret2){
+        this.secret2 = secret2;
+    }
+
+    public Character getPort4(){
+        return port4;
+    }
+
+    public void setPort4(Character port4){
+        this.port4 = port4;
     }
 
 

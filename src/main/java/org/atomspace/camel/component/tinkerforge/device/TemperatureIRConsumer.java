@@ -67,7 +67,7 @@ public class TemperatureIRConsumer extends TinkerforgeConsumer<TemperatureIREndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTemperatureIR.CALLBACK_AMBIENT_TEMPERATURE);
+            exchange.getIn().setHeader("fireBy", BrickletTemperatureIR.CALLBACK_AMBIENT_TEMPERATURE);
             exchange.getIn().setHeader("temperature", temperature);
             
             
@@ -93,7 +93,7 @@ public class TemperatureIRConsumer extends TinkerforgeConsumer<TemperatureIREndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTemperatureIR.CALLBACK_OBJECT_TEMPERATURE);
+            exchange.getIn().setHeader("fireBy", BrickletTemperatureIR.CALLBACK_OBJECT_TEMPERATURE);
             exchange.getIn().setHeader("temperature", temperature);
             
             
@@ -119,7 +119,7 @@ public class TemperatureIRConsumer extends TinkerforgeConsumer<TemperatureIREndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTemperatureIR.CALLBACK_AMBIENT_TEMPERATURE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletTemperatureIR.CALLBACK_AMBIENT_TEMPERATURE_REACHED);
             exchange.getIn().setHeader("temperature", temperature);
             
             
@@ -145,7 +145,7 @@ public class TemperatureIRConsumer extends TinkerforgeConsumer<TemperatureIREndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTemperatureIR.CALLBACK_OBJECT_TEMPERATURE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletTemperatureIR.CALLBACK_OBJECT_TEMPERATURE_REACHED);
             exchange.getIn().setHeader("temperature", temperature);
             
             

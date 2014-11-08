@@ -64,7 +64,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickServo.CALLBACK_UNDER_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickServo.CALLBACK_UNDER_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -90,7 +90,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickServo.CALLBACK_POSITION_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickServo.CALLBACK_POSITION_REACHED);
             exchange.getIn().setHeader("servo_num", servo_num);
             exchange.getIn().setHeader("position", position);
             
@@ -117,7 +117,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickServo.CALLBACK_VELOCITY_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickServo.CALLBACK_VELOCITY_REACHED);
             exchange.getIn().setHeader("servo_num", servo_num);
             exchange.getIn().setHeader("velocity", velocity);
             

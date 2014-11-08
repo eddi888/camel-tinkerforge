@@ -67,7 +67,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletBarometer.CALLBACK_AIR_PRESSURE);
+            exchange.getIn().setHeader("fireBy", BrickletBarometer.CALLBACK_AIR_PRESSURE);
             exchange.getIn().setHeader("air_pressure", air_pressure);
             
             
@@ -93,7 +93,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletBarometer.CALLBACK_ALTITUDE);
+            exchange.getIn().setHeader("fireBy", BrickletBarometer.CALLBACK_ALTITUDE);
             exchange.getIn().setHeader("altitude", altitude);
             
             
@@ -119,7 +119,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletBarometer.CALLBACK_AIR_PRESSURE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletBarometer.CALLBACK_AIR_PRESSURE_REACHED);
             exchange.getIn().setHeader("air_pressure", air_pressure);
             
             
@@ -145,7 +145,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletBarometer.CALLBACK_ALTITUDE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletBarometer.CALLBACK_ALTITUDE_REACHED);
             exchange.getIn().setHeader("altitude", altitude);
             
             

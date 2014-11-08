@@ -34,9 +34,11 @@ public class LEDStripEndpoint extends TinkerforgeEndpoint<LEDStripConsumer, LEDS
     
     private Integer index;
     private Short length;
-    private Short r;
-    private Short g;
-    private Short b;
+    private short[] r;
+    private short[] g;
+    private short[] b;
+    private Integer index2;
+    private Short length2;
     private Integer duration;
     private Long frequency;
     private Integer chip;
@@ -82,9 +84,26 @@ public class LEDStripEndpoint extends TinkerforgeEndpoint<LEDStripConsumer, LEDS
         Object response = null;
         switch (function) {
                 
+            case "setRgbValues":
+                device.setRGBValues(
+                        getValue(int.class, "index", m, getIndex()),
+                        getValue(short.class, "length", m, getLength()),
+                        getValue(short[].class, "r", m, getR()),
+                        getValue(short[].class, "g", m, getG()),
+                        getValue(short[].class, "b", m, getB())
+                    );
+                break;
+
+            case "getRgbValues":
+                response = device.getRGBValues(
+                        getValue(int.class, "index2", m, getIndex2()),
+                        getValue(short.class, "length2", m, getLength2())
+                    );
+                break;
+
             case "setFrameDuration":
                 device.setFrameDuration(
-                        (int) getValue("duration", m, e)
+                        getValue(int.class, "duration", m, getDuration())
                     );
                 break;
 
@@ -98,7 +117,7 @@ public class LEDStripEndpoint extends TinkerforgeEndpoint<LEDStripConsumer, LEDS
 
             case "setClockFrequency":
                 device.setClockFrequency(
-                        (long) getValue("frequency", m, e)
+                        getValue(long.class, "frequency", m, getFrequency())
                     );
                 break;
 
@@ -108,7 +127,7 @@ public class LEDStripEndpoint extends TinkerforgeEndpoint<LEDStripConsumer, LEDS
 
             case "setChipType":
                 device.setChipType(
-                        (int) getValue("chip", m, e)
+                        getValue(int.class, "chip", m, getChip())
                     );
                 break;
 
@@ -145,28 +164,44 @@ public class LEDStripEndpoint extends TinkerforgeEndpoint<LEDStripConsumer, LEDS
         this.length = length;
     }
 
-    public Short getR(){
+    public short[] getR(){
         return r;
     }
 
-    public void setR(Short r){
+    public void setR(short[] r){
         this.r = r;
     }
 
-    public Short getG(){
+    public short[] getG(){
         return g;
     }
 
-    public void setG(Short g){
+    public void setG(short[] g){
         this.g = g;
     }
 
-    public Short getB(){
+    public short[] getB(){
         return b;
     }
 
-    public void setB(Short b){
+    public void setB(short[] b){
         this.b = b;
+    }
+
+    public Integer getIndex2(){
+        return index2;
+    }
+
+    public void setIndex2(Integer index2){
+        this.index2 = index2;
+    }
+
+    public Short getLength2(){
+        return length2;
+    }
+
+    public void setLength2(Short length2){
+        this.length2 = length2;
     }
 
     public Integer getDuration(){

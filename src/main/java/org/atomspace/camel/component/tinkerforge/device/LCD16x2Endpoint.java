@@ -39,7 +39,8 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
     private Boolean blinking;
     private Short button;
     private Short index;
-    private Short character;
+    private short[] character;
+    private Short index2;
 
         
     public LCD16x2Endpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -84,9 +85,9 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
                 
             case "writeLine":
                 device.writeLine(
-                        (short) getValue("line", m, e),
-                        (short) getValue("position", m, e),
-                        (String) getValue("text", m, e)
+                        getValue(short.class, "line", m, getLine()),
+                        getValue(short.class, "position", m, getPosition()),
+                        getValue(String.class, "text", m, getText())
                     );
                 break;
 
@@ -108,8 +109,8 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
 
             case "setConfig":
                 device.setConfig(
-                        (boolean) getValue("cursor", m, e),
-                        (boolean) getValue("blinking", m, e)
+                        getValue(boolean.class, "cursor", m, getCursor()),
+                        getValue(boolean.class, "blinking", m, getBlinking())
                     );
                 break;
 
@@ -119,13 +120,20 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
 
             case "isButtonPressed":
                 response = device.isButtonPressed(
-                        (short) getValue("button", m, e)
+                        getValue(short.class, "button", m, getButton())
+                    );
+                break;
+
+            case "setCustomCharacter":
+                device.setCustomCharacter(
+                        getValue(short.class, "index", m, getIndex()),
+                        getValue(short[].class, "character", m, getCharacter())
                     );
                 break;
 
             case "getCustomCharacter":
                 response = device.getCustomCharacter(
-                        (short) getValue("index", m, e)
+                        getValue(short.class, "index2", m, getIndex2())
                     );
                 break;
 
@@ -198,12 +206,20 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.index = index;
     }
 
-    public Short getCharacter(){
+    public short[] getCharacter(){
         return character;
     }
 
-    public void setCharacter(Short character){
+    public void setCharacter(short[] character){
         this.character = character;
+    }
+
+    public Short getIndex2(){
+        return index2;
+    }
+
+    public void setIndex2(Short index2){
+        this.index2 = index2;
     }
 
 

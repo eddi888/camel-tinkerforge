@@ -73,7 +73,7 @@ public class JoystickConsumer extends TinkerforgeConsumer<JoystickEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletJoystick.CALLBACK_POSITION);
+            exchange.getIn().setHeader("fireBy", BrickletJoystick.CALLBACK_POSITION);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             
@@ -100,7 +100,7 @@ public class JoystickConsumer extends TinkerforgeConsumer<JoystickEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletJoystick.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletJoystick.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             
@@ -127,7 +127,7 @@ public class JoystickConsumer extends TinkerforgeConsumer<JoystickEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletJoystick.CALLBACK_POSITION_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletJoystick.CALLBACK_POSITION_REACHED);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             
@@ -154,7 +154,7 @@ public class JoystickConsumer extends TinkerforgeConsumer<JoystickEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletJoystick.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletJoystick.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             
@@ -181,7 +181,7 @@ public class JoystickConsumer extends TinkerforgeConsumer<JoystickEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletJoystick.CALLBACK_PRESSED);
+            exchange.getIn().setHeader("fireBy", BrickletJoystick.CALLBACK_PRESSED);
             
             
             // ADD BODY
@@ -206,7 +206,7 @@ public class JoystickConsumer extends TinkerforgeConsumer<JoystickEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletJoystick.CALLBACK_RELEASED);
+            exchange.getIn().setHeader("fireBy", BrickletJoystick.CALLBACK_RELEASED);
             
             
             // ADD BODY

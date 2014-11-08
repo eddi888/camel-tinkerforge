@@ -82,13 +82,13 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
                 
             case "getCount":
                 response = device.getCount(
-                        (boolean) getValue("reset", m, e)
+                        getValue(boolean.class, "reset", m, getReset())
                     );
                 break;
 
             case "setCountCallbackPeriod":
                 device.setCountCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -98,9 +98,9 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
 
             case "setCountCallbackThreshold":
                 device.setCountCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -110,7 +110,7 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 

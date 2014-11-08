@@ -59,10 +59,10 @@ public abstract class TinkerforgeConsumer<EndpointType extends TinkerforgeEndpoi
         
         // SET DEFAULT HEADER
         Message message = exchange.getIn();
-        message.setHeader("com.tinkerforge.bricklet.uid", info.uid);
-        message.setHeader("com.tinkerforge.bricklet.connectedUid", info.connectedUid);
-        message.setHeader("com.tinkerforge.bricklet.deviceIdentifier", info.deviceIdentifier);
-        message.setHeader("com.tinkerforge.bricklet.position", info.position);
+        message.setHeader("uid", info.uid);
+        message.setHeader("connectedUid", info.connectedUid);
+        message.setHeader("deviceIdentifier", info.deviceIdentifier);
+        message.setHeader("position", info.position);
         
         return exchange;
     }

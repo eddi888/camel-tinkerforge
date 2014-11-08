@@ -34,6 +34,10 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
     
     private Short restartType;
     private Long period;
+    private Long period2;
+    private Long period3;
+    private Long period4;
+    private Long period5;
 
         
     public GPSEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -98,13 +102,13 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
             case "restart":
                 device.restart(
-                        (short) getValue("restartType", m, e)
+                        getValue(short.class, "restartType", m, getRestartType())
                     );
                 break;
 
             case "setCoordinatesCallbackPeriod":
                 device.setCoordinatesCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -114,7 +118,7 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
             case "setStatusCallbackPeriod":
                 device.setStatusCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -124,7 +128,7 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
             case "setAltitudeCallbackPeriod":
                 device.setAltitudeCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period3", m, getPeriod3())
                     );
                 break;
 
@@ -134,7 +138,7 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
             case "setMotionCallbackPeriod":
                 device.setMotionCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period4", m, getPeriod4())
                     );
                 break;
 
@@ -144,7 +148,7 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
             case "setDateTimeCallbackPeriod":
                 device.setDateTimeCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period5", m, getPeriod5())
                     );
                 break;
 
@@ -179,6 +183,38 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
     public void setPeriod(Long period){
         this.period = period;
+    }
+
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
+    public Long getPeriod3(){
+        return period3;
+    }
+
+    public void setPeriod3(Long period3){
+        this.period3 = period3;
+    }
+
+    public Long getPeriod4(){
+        return period4;
+    }
+
+    public void setPeriod4(Long period4){
+        this.period4 = period4;
+    }
+
+    public Long getPeriod5(){
+        return period5;
+    }
+
+    public void setPeriod5(Long period5){
+        this.period5 = period5;
     }
 
 

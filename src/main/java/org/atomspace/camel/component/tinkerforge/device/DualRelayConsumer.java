@@ -58,7 +58,7 @@ public class DualRelayConsumer extends TinkerforgeConsumer<DualRelayEndpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDualRelay.CALLBACK_MONOFLOP_DONE);
+            exchange.getIn().setHeader("fireBy", BrickletDualRelay.CALLBACK_MONOFLOP_DONE);
             exchange.getIn().setHeader("relay", relay);
             exchange.getIn().setHeader("state", state);
             

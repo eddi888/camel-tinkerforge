@@ -38,9 +38,17 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
     private Integer gainMultiplier;
     private Integer gainDivisor;
     private Long period;
+    private Long period2;
+    private Long period3;
     private Character option;
     private Integer min;
     private Integer max;
+    private Character option2;
+    private Integer min2;
+    private Integer max2;
+    private Character option3;
+    private Integer min3;
+    private Integer max3;
     private Long debounce;
 
         
@@ -98,9 +106,9 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setConfiguration":
                 device.setConfiguration(
-                        (short) getValue("averaging", m, e),
-                        (short) getValue("voltageConversionTime", m, e),
-                        (short) getValue("currentConversionTime", m, e)
+                        getValue(short.class, "averaging", m, getAveraging()),
+                        getValue(short.class, "voltageConversionTime", m, getVoltageConversionTime()),
+                        getValue(short.class, "currentConversionTime", m, getCurrentConversionTime())
                     );
                 break;
 
@@ -110,8 +118,8 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setCalibration":
                 device.setCalibration(
-                        (int) getValue("gainMultiplier", m, e),
-                        (int) getValue("gainDivisor", m, e)
+                        getValue(int.class, "gainMultiplier", m, getGainMultiplier()),
+                        getValue(int.class, "gainDivisor", m, getGainDivisor())
                     );
                 break;
 
@@ -121,7 +129,7 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setCurrentCallbackPeriod":
                 device.setCurrentCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -131,7 +139,7 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setVoltageCallbackPeriod":
                 device.setVoltageCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -141,7 +149,7 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setPowerCallbackPeriod":
                 device.setPowerCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period3", m, getPeriod3())
                     );
                 break;
 
@@ -151,9 +159,9 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setCurrentCallbackThreshold":
                 device.setCurrentCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -163,9 +171,9 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setVoltageCallbackThreshold":
                 device.setVoltageCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option2", m, getOption2()),
+                        getValue(int.class, "min2", m, getMin2()),
+                        getValue(int.class, "max2", m, getMax2())
                     );
                 break;
 
@@ -175,9 +183,9 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setPowerCallbackThreshold":
                 device.setPowerCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option3", m, getOption3()),
+                        getValue(int.class, "min3", m, getMin3()),
+                        getValue(int.class, "max3", m, getMax3())
                     );
                 break;
 
@@ -187,7 +195,7 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -256,6 +264,22 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.period = period;
     }
 
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
+    public Long getPeriod3(){
+        return period3;
+    }
+
+    public void setPeriod3(Long period3){
+        this.period3 = period3;
+    }
+
     public Character getOption(){
         return option;
     }
@@ -278,6 +302,54 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
 
     public void setMax(Integer max){
         this.max = max;
+    }
+
+    public Character getOption2(){
+        return option2;
+    }
+
+    public void setOption2(Character option2){
+        this.option2 = option2;
+    }
+
+    public Integer getMin2(){
+        return min2;
+    }
+
+    public void setMin2(Integer min2){
+        this.min2 = min2;
+    }
+
+    public Integer getMax2(){
+        return max2;
+    }
+
+    public void setMax2(Integer max2){
+        this.max2 = max2;
+    }
+
+    public Character getOption3(){
+        return option3;
+    }
+
+    public void setOption3(Character option3){
+        this.option3 = option3;
+    }
+
+    public Integer getMin3(){
+        return min3;
+    }
+
+    public void setMin3(Integer min3){
+        this.min3 = min3;
+    }
+
+    public Integer getMax3(){
+        return max3;
+    }
+
+    public void setMax3(Integer max3){
+        this.max3 = max3;
     }
 
     public Long getDebounce(){

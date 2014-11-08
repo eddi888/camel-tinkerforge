@@ -86,7 +86,7 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
 
             case "setDistanceCallbackPeriod":
                 device.setDistanceCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -96,9 +96,9 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
 
             case "setDistanceCallbackThreshold":
                 device.setDistanceCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (short) getValue("min", m, e),
-                        (short) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(short.class, "min", m, getMin()),
+                        getValue(short.class, "max", m, getMax())
                     );
                 break;
 
@@ -108,7 +108,7 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -118,7 +118,7 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
 
             case "setMovingAverage":
                 device.setMovingAverage(
-                        (short) getValue("average", m, e)
+                        getValue(short.class, "average", m, getAverage())
                     );
                 break;
 

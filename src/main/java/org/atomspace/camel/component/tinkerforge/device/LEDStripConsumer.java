@@ -58,7 +58,7 @@ public class LEDStripConsumer extends TinkerforgeConsumer<LEDStripEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLEDStrip.CALLBACK_FRAME_RENDERED);
+            exchange.getIn().setHeader("fireBy", BrickletLEDStrip.CALLBACK_FRAME_RENDERED);
             exchange.getIn().setHeader("length", length);
             
             

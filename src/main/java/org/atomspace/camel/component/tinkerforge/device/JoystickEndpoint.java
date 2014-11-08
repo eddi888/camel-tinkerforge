@@ -33,11 +33,17 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
     private static final Logger LOG = LoggerFactory.getLogger(JoystickEndpoint.class);
     
     private Long period;
+    private Long period2;
     private Character option;
     private Short minX;
     private Short maxX;
     private Short minY;
     private Short maxY;
+    private Character option2;
+    private Integer minX2;
+    private Integer maxX2;
+    private Integer minY2;
+    private Integer maxY2;
     private Long debounce;
 
         
@@ -99,7 +105,7 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
             case "setPositionCallbackPeriod":
                 device.setPositionCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -109,7 +115,7 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
             case "setAnalogValueCallbackPeriod":
                 device.setAnalogValueCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -119,11 +125,11 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
             case "setPositionCallbackThreshold":
                 device.setPositionCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (short) getValue("minX", m, e),
-                        (short) getValue("maxX", m, e),
-                        (short) getValue("minY", m, e),
-                        (short) getValue("maxY", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(short.class, "minX", m, getMinX()),
+                        getValue(short.class, "maxX", m, getMaxX()),
+                        getValue(short.class, "minY", m, getMinY()),
+                        getValue(short.class, "maxY", m, getMaxY())
                     );
                 break;
 
@@ -133,11 +139,11 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
             case "setAnalogValueCallbackThreshold":
                 device.setAnalogValueCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("minX", m, e),
-                        (int) getValue("maxX", m, e),
-                        (int) getValue("minY", m, e),
-                        (int) getValue("maxY", m, e)
+                        getValue(char.class, "option2", m, getOption2()),
+                        getValue(int.class, "minX2", m, getMinX2()),
+                        getValue(int.class, "maxX2", m, getMaxX2()),
+                        getValue(int.class, "minY2", m, getMinY2()),
+                        getValue(int.class, "maxY2", m, getMaxY2())
                     );
                 break;
 
@@ -147,7 +153,7 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -174,6 +180,14 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
     public void setPeriod(Long period){
         this.period = period;
+    }
+
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
     }
 
     public Character getOption(){
@@ -214,6 +228,46 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
 
     public void setMaxY(Short maxY){
         this.maxY = maxY;
+    }
+
+    public Character getOption2(){
+        return option2;
+    }
+
+    public void setOption2(Character option2){
+        this.option2 = option2;
+    }
+
+    public Integer getMinX2(){
+        return minX2;
+    }
+
+    public void setMinX2(Integer minX2){
+        this.minX2 = minX2;
+    }
+
+    public Integer getMaxX2(){
+        return maxX2;
+    }
+
+    public void setMaxX2(Integer maxX2){
+        this.maxX2 = maxX2;
+    }
+
+    public Integer getMinY2(){
+        return minY2;
+    }
+
+    public void setMinY2(Integer minY2){
+        this.minY2 = minY2;
+    }
+
+    public Integer getMaxY2(){
+        return maxY2;
+    }
+
+    public void setMaxY2(Integer maxY2){
+        this.maxY2 = maxY2;
     }
 
     public Long getDebounce(){

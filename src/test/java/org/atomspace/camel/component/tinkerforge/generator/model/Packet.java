@@ -17,13 +17,15 @@
 package org.atomspace.camel.component.tinkerforge.generator.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.JsonNode;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Packet {
     public String[] name;
     public String type;
-    public JsonNode  elements;
+
+    public Elements  elements;
+
     public Integer[] sinceFirmware;
     
 }

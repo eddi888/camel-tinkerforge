@@ -78,9 +78,26 @@ public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, 
         Object response = null;
         switch (function) {
                 
+            case "setLedState":
+                device.setLEDState(
+                        getValue(short.class, "ledL", m, getLedL()),
+                        getValue(short.class, "ledR", m, getLedR())
+                    );
+                break;
+
+            case "getLedState":
+                response = device.getLEDState();
+                break;
 
             case "getButtonState":
                 response = device.getButtonState();
+                break;
+
+            case "setSelectedLedState":
+                device.setSelectedLEDState(
+                        getValue(short.class, "led", m, getLed()),
+                        getValue(short.class, "state", m, getState())
+                    );
                 break;
 
             case "getIdentity":

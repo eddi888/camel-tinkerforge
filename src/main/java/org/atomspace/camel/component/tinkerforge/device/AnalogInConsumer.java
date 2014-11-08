@@ -67,7 +67,7 @@ public class AnalogInConsumer extends TinkerforgeConsumer<AnalogInEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAnalogIn.CALLBACK_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickletAnalogIn.CALLBACK_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -93,7 +93,7 @@ public class AnalogInConsumer extends TinkerforgeConsumer<AnalogInEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAnalogIn.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletAnalogIn.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("value", value);
             
             
@@ -119,7 +119,7 @@ public class AnalogInConsumer extends TinkerforgeConsumer<AnalogInEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAnalogIn.CALLBACK_VOLTAGE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletAnalogIn.CALLBACK_VOLTAGE_REACHED);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -145,7 +145,7 @@ public class AnalogInConsumer extends TinkerforgeConsumer<AnalogInEndpoint, Bric
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAnalogIn.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletAnalogIn.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("value", value);
             
             

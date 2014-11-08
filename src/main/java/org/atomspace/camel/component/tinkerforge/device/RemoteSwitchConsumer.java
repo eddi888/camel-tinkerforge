@@ -58,7 +58,7 @@ public class RemoteSwitchConsumer extends TinkerforgeConsumer<RemoteSwitchEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletRemoteSwitch.CALLBACK_SWITCHING_DONE);
+            exchange.getIn().setHeader("fireBy", BrickletRemoteSwitch.CALLBACK_SWITCHING_DONE);
             
             
             // ADD BODY

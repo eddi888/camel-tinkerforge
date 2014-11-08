@@ -61,7 +61,7 @@ public class PiezoBuzzerConsumer extends TinkerforgeConsumer<PiezoBuzzerEndpoint
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPiezoBuzzer.CALLBACK_BEEP_FINISHED);
+            exchange.getIn().setHeader("fireBy", BrickletPiezoBuzzer.CALLBACK_BEEP_FINISHED);
             
             
             // ADD BODY
@@ -86,7 +86,7 @@ public class PiezoBuzzerConsumer extends TinkerforgeConsumer<PiezoBuzzerEndpoint
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPiezoBuzzer.CALLBACK_MORSE_CODE_FINISHED);
+            exchange.getIn().setHeader("fireBy", BrickletPiezoBuzzer.CALLBACK_MORSE_CODE_FINISHED);
             
             
             // ADD BODY

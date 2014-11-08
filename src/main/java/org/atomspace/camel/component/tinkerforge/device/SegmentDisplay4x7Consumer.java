@@ -58,7 +58,7 @@ public class SegmentDisplay4x7Consumer extends TinkerforgeConsumer<SegmentDispla
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletSegmentDisplay4x7.CALLBACK_COUNTER_FINISHED);
+            exchange.getIn().setHeader("fireBy", BrickletSegmentDisplay4x7.CALLBACK_COUNTER_FINISHED);
             
             
             // ADD BODY

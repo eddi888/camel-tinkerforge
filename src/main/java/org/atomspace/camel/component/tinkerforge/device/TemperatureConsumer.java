@@ -61,7 +61,7 @@ public class TemperatureConsumer extends TinkerforgeConsumer<TemperatureEndpoint
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTemperature.CALLBACK_TEMPERATURE);
+            exchange.getIn().setHeader("fireBy", BrickletTemperature.CALLBACK_TEMPERATURE);
             exchange.getIn().setHeader("temperature", temperature);
             
             
@@ -87,7 +87,7 @@ public class TemperatureConsumer extends TinkerforgeConsumer<TemperatureEndpoint
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTemperature.CALLBACK_TEMPERATURE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletTemperature.CALLBACK_TEMPERATURE_REACHED);
             exchange.getIn().setHeader("temperature", temperature);
             
             

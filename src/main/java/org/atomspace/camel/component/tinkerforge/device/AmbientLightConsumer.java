@@ -67,7 +67,7 @@ public class AmbientLightConsumer extends TinkerforgeConsumer<AmbientLightEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAmbientLight.CALLBACK_ILLUMINANCE);
+            exchange.getIn().setHeader("fireBy", BrickletAmbientLight.CALLBACK_ILLUMINANCE);
             exchange.getIn().setHeader("illuminance", illuminance);
             
             
@@ -93,7 +93,7 @@ public class AmbientLightConsumer extends TinkerforgeConsumer<AmbientLightEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAmbientLight.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletAmbientLight.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("value", value);
             
             
@@ -119,7 +119,7 @@ public class AmbientLightConsumer extends TinkerforgeConsumer<AmbientLightEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAmbientLight.CALLBACK_ILLUMINANCE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletAmbientLight.CALLBACK_ILLUMINANCE_REACHED);
             exchange.getIn().setHeader("illuminance", illuminance);
             
             
@@ -145,7 +145,7 @@ public class AmbientLightConsumer extends TinkerforgeConsumer<AmbientLightEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletAmbientLight.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletAmbientLight.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("value", value);
             
             

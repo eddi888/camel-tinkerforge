@@ -67,7 +67,7 @@ public class ColorConsumer extends TinkerforgeConsumer<ColorEndpoint, BrickletCo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletColor.CALLBACK_COLOR);
+            exchange.getIn().setHeader("fireBy", BrickletColor.CALLBACK_COLOR);
             exchange.getIn().setHeader("r", r);
             exchange.getIn().setHeader("g", g);
             exchange.getIn().setHeader("b", b);
@@ -96,7 +96,7 @@ public class ColorConsumer extends TinkerforgeConsumer<ColorEndpoint, BrickletCo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletColor.CALLBACK_COLOR_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletColor.CALLBACK_COLOR_REACHED);
             exchange.getIn().setHeader("r", r);
             exchange.getIn().setHeader("g", g);
             exchange.getIn().setHeader("b", b);
@@ -125,7 +125,7 @@ public class ColorConsumer extends TinkerforgeConsumer<ColorEndpoint, BrickletCo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletColor.CALLBACK_ILLUMINANCE);
+            exchange.getIn().setHeader("fireBy", BrickletColor.CALLBACK_ILLUMINANCE);
             exchange.getIn().setHeader("illuminance", illuminance);
             
             
@@ -151,7 +151,7 @@ public class ColorConsumer extends TinkerforgeConsumer<ColorEndpoint, BrickletCo
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletColor.CALLBACK_COLOR_TEMPERATURE);
+            exchange.getIn().setHeader("fireBy", BrickletColor.CALLBACK_COLOR_TEMPERATURE);
             exchange.getIn().setHeader("color_temperature", color_temperature);
             
             

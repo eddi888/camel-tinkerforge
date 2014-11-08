@@ -61,7 +61,7 @@ public class SoundIntensityConsumer extends TinkerforgeConsumer<SoundIntensityEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletSoundIntensity.CALLBACK_INTENSITY);
+            exchange.getIn().setHeader("fireBy", BrickletSoundIntensity.CALLBACK_INTENSITY);
             exchange.getIn().setHeader("intensity", intensity);
             
             
@@ -87,7 +87,7 @@ public class SoundIntensityConsumer extends TinkerforgeConsumer<SoundIntensityEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletSoundIntensity.CALLBACK_INTENSITY_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletSoundIntensity.CALLBACK_INTENSITY_REACHED);
             exchange.getIn().setHeader("intensity", intensity);
             
             

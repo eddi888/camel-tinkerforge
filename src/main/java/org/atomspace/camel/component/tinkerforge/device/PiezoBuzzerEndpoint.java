@@ -78,13 +78,13 @@ public class PiezoBuzzerEndpoint extends TinkerforgeEndpoint<PiezoBuzzerConsumer
                 
             case "beep":
                 device.beep(
-                        (long) getValue("duration", m, e)
+                        getValue(long.class, "duration", m, getDuration())
                     );
                 break;
 
             case "morseCode":
                 device.morseCode(
-                        (String) getValue("morse", m, e)
+                        getValue(String.class, "morse", m, getMorse())
                     );
                 break;
 

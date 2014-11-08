@@ -86,7 +86,7 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
 
             case "setTemperatureCallbackPeriod":
                 device.setTemperatureCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -96,9 +96,9 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
 
             case "setTemperatureCallbackThreshold":
                 device.setTemperatureCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (short) getValue("min", m, e),
-                        (short) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(short.class, "min", m, getMin()),
+                        getValue(short.class, "max", m, getMax())
                     );
                 break;
 
@@ -108,12 +108,22 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
             case "getDebouncePeriod":
                 response = device.getDebouncePeriod();
+                break;
+
+            case "setI2cMode":
+                device.setI2CMode(
+                        getValue(short.class, "mode", m, getMode())
+                    );
+                break;
+
+            case "getI2cMode":
+                response = device.getI2CMode();
                 break;
 
             case "getIdentity":

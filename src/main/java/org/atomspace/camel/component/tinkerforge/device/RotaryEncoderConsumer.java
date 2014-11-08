@@ -67,7 +67,7 @@ public class RotaryEncoderConsumer extends TinkerforgeConsumer<RotaryEncoderEndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletRotaryEncoder.CALLBACK_COUNT);
+            exchange.getIn().setHeader("fireBy", BrickletRotaryEncoder.CALLBACK_COUNT);
             exchange.getIn().setHeader("count", count);
             
             
@@ -93,7 +93,7 @@ public class RotaryEncoderConsumer extends TinkerforgeConsumer<RotaryEncoderEndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletRotaryEncoder.CALLBACK_COUNT_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletRotaryEncoder.CALLBACK_COUNT_REACHED);
             exchange.getIn().setHeader("count", count);
             
             
@@ -119,7 +119,7 @@ public class RotaryEncoderConsumer extends TinkerforgeConsumer<RotaryEncoderEndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletRotaryEncoder.CALLBACK_PRESSED);
+            exchange.getIn().setHeader("fireBy", BrickletRotaryEncoder.CALLBACK_PRESSED);
             
             
             // ADD BODY
@@ -144,7 +144,7 @@ public class RotaryEncoderConsumer extends TinkerforgeConsumer<RotaryEncoderEndp
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletRotaryEncoder.CALLBACK_RELEASED);
+            exchange.getIn().setHeader("fireBy", BrickletRotaryEncoder.CALLBACK_RELEASED);
             
             
             // ADD BODY

@@ -16,12 +16,18 @@
 */
 package org.atomspace.camel.component.tinkerforge.device;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeConsumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletAnalogOut;
+;
 
 public class AnalogOutConsumer extends TinkerforgeConsumer<AnalogOutEndpoint, BrickletAnalogOut>  {
+    
+    private static final Logger LOG = LoggerFactory.getLogger(AnalogOutConsumer.class);
     
     public AnalogOutConsumer(AnalogOutEndpoint endpoint, Processor processor) throws Exception {
         super(endpoint, processor);
@@ -29,6 +35,14 @@ public class AnalogOutConsumer extends TinkerforgeConsumer<AnalogOutEndpoint, Br
         device = new BrickletAnalogOut(endpoint.getUid(),endpoint.getSharedConnection().getConnection());
         endpoint.init(device);
 
+        if(endpoint.getCallback()==null || endpoint.getCallback().equals("")){
+            
+        }else{
+            String[] callbacks = endpoint.getCallback().split(",");
+            for (String callback : callbacks) {
+                
+            }
+        }
     }
     
     

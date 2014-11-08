@@ -67,7 +67,7 @@ public class LinearPotiConsumer extends TinkerforgeConsumer<LinearPotiEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLinearPoti.CALLBACK_POSITION);
+            exchange.getIn().setHeader("fireBy", BrickletLinearPoti.CALLBACK_POSITION);
             exchange.getIn().setHeader("position", position);
             
             
@@ -93,7 +93,7 @@ public class LinearPotiConsumer extends TinkerforgeConsumer<LinearPotiEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLinearPoti.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletLinearPoti.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("value", value);
             
             
@@ -119,7 +119,7 @@ public class LinearPotiConsumer extends TinkerforgeConsumer<LinearPotiEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLinearPoti.CALLBACK_POSITION_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletLinearPoti.CALLBACK_POSITION_REACHED);
             exchange.getIn().setHeader("position", position);
             
             
@@ -145,7 +145,7 @@ public class LinearPotiConsumer extends TinkerforgeConsumer<LinearPotiEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLinearPoti.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletLinearPoti.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("value", value);
             
             

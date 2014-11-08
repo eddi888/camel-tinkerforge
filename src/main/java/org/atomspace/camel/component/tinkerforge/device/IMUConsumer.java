@@ -73,7 +73,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickIMU.CALLBACK_ACCELERATION);
+            exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_ACCELERATION);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             exchange.getIn().setHeader("z", z);
@@ -101,7 +101,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickIMU.CALLBACK_MAGNETIC_FIELD);
+            exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_MAGNETIC_FIELD);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             exchange.getIn().setHeader("z", z);
@@ -129,7 +129,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickIMU.CALLBACK_ANGULAR_VELOCITY);
+            exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_ANGULAR_VELOCITY);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             exchange.getIn().setHeader("z", z);
@@ -157,7 +157,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickIMU.CALLBACK_ALL_DATA);
+            exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_ALL_DATA);
             exchange.getIn().setHeader("acc_x", acc_x);
             exchange.getIn().setHeader("acc_y", acc_y);
             exchange.getIn().setHeader("acc_z", acc_z);
@@ -192,7 +192,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickIMU.CALLBACK_ORIENTATION);
+            exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_ORIENTATION);
             exchange.getIn().setHeader("roll", roll);
             exchange.getIn().setHeader("pitch", pitch);
             exchange.getIn().setHeader("yaw", yaw);
@@ -220,7 +220,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickIMU.CALLBACK_QUATERNION);
+            exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_QUATERNION);
             exchange.getIn().setHeader("x", x);
             exchange.getIn().setHeader("y", y);
             exchange.getIn().setHeader("z", z);

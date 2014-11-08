@@ -61,7 +61,7 @@ public class IndustrialDual020mAConsumer extends TinkerforgeConsumer<IndustrialD
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletIndustrialDual020mA.CALLBACK_CURRENT);
+            exchange.getIn().setHeader("fireBy", BrickletIndustrialDual020mA.CALLBACK_CURRENT);
             exchange.getIn().setHeader("sensor", sensor);
             exchange.getIn().setHeader("current", current);
             
@@ -88,7 +88,7 @@ public class IndustrialDual020mAConsumer extends TinkerforgeConsumer<IndustrialD
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletIndustrialDual020mA.CALLBACK_CURRENT_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletIndustrialDual020mA.CALLBACK_CURRENT_REACHED);
             exchange.getIn().setHeader("sensor", sensor);
             exchange.getIn().setHeader("current", current);
             

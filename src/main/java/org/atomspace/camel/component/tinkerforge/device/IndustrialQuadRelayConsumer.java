@@ -58,7 +58,7 @@ public class IndustrialQuadRelayConsumer extends TinkerforgeConsumer<IndustrialQ
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletIndustrialQuadRelay.CALLBACK_MONOFLOP_DONE);
+            exchange.getIn().setHeader("fireBy", BrickletIndustrialQuadRelay.CALLBACK_MONOFLOP_DONE);
             exchange.getIn().setHeader("selection_mask", selection_mask);
             exchange.getIn().setHeader("value_mask", value_mask);
             

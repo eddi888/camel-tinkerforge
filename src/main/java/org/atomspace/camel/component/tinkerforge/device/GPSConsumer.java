@@ -70,7 +70,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletGPS.CALLBACK_COORDINATES);
+            exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_COORDINATES);
             exchange.getIn().setHeader("latitude", latitude);
             exchange.getIn().setHeader("ns", ns);
             exchange.getIn().setHeader("longitude", longitude);
@@ -103,7 +103,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletGPS.CALLBACK_STATUS);
+            exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_STATUS);
             exchange.getIn().setHeader("fix", fix);
             exchange.getIn().setHeader("satellites_view", satellites_view);
             exchange.getIn().setHeader("satellites_used", satellites_used);
@@ -131,7 +131,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletGPS.CALLBACK_ALTITUDE);
+            exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_ALTITUDE);
             exchange.getIn().setHeader("altitude", altitude);
             exchange.getIn().setHeader("geoidal_separation", geoidal_separation);
             
@@ -158,7 +158,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletGPS.CALLBACK_MOTION);
+            exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_MOTION);
             exchange.getIn().setHeader("course", course);
             exchange.getIn().setHeader("speed", speed);
             
@@ -185,7 +185,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletGPS.CALLBACK_DATE_TIME);
+            exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_DATE_TIME);
             exchange.getIn().setHeader("date", date);
             exchange.getIn().setHeader("time", time);
             

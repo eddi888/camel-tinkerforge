@@ -35,8 +35,10 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
     private Short tagType;
     private Integer page;
     private Short keyNumber;
-    private Short key;
-    private Short data;
+    private short[] key;
+    private Integer page2;
+    private short[] data;
+    private Integer page3;
 
         
     public NFCRFIDEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -79,13 +81,38 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         Object response = null;
         switch (function) {
                 
+            case "requestTagId":
+                device.requestTagID(
+                        getValue(short.class, "tagType", m, getTagType())
+                    );
+                break;
+
+            case "getTagId":
+                response = device.getTagID();
+                break;
+
             case "getState":
                 response = device.getState();
                 break;
 
+            case "authenticateMifareClassicPage":
+                device.authenticateMifareClassicPage(
+                        getValue(int.class, "page", m, getPage()),
+                        getValue(short.class, "keyNumber", m, getKeyNumber()),
+                        getValue(short[].class, "key", m, getKey())
+                    );
+                break;
+
+            case "writePage":
+                device.writePage(
+                        getValue(int.class, "page2", m, getPage2()),
+                        getValue(short[].class, "data", m, getData())
+                    );
+                break;
+
             case "requestPage":
                 device.requestPage(
-                        (int) getValue("page", m, e)
+                        getValue(int.class, "page3", m, getPage3())
                     );
                 break;
 
@@ -130,20 +157,36 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.keyNumber = keyNumber;
     }
 
-    public Short getKey(){
+    public short[] getKey(){
         return key;
     }
 
-    public void setKey(Short key){
+    public void setKey(short[] key){
         this.key = key;
     }
 
-    public Short getData(){
+    public Integer getPage2(){
+        return page2;
+    }
+
+    public void setPage2(Integer page2){
+        this.page2 = page2;
+    }
+
+    public short[] getData(){
         return data;
     }
 
-    public void setData(Short data){
+    public void setData(short[] data){
         this.data = data;
+    }
+
+    public Integer getPage3(){
+        return page3;
+    }
+
+    public void setPage3(Integer page3){
+        this.page3 = page3;
     }
 
 

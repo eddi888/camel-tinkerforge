@@ -67,7 +67,7 @@ public class PTCConsumer extends TinkerforgeConsumer<PTCEndpoint, BrickletPTC> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPTC.CALLBACK_TEMPERATURE);
+            exchange.getIn().setHeader("fireBy", BrickletPTC.CALLBACK_TEMPERATURE);
             exchange.getIn().setHeader("temperature", temperature);
             
             
@@ -93,7 +93,7 @@ public class PTCConsumer extends TinkerforgeConsumer<PTCEndpoint, BrickletPTC> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPTC.CALLBACK_TEMPERATURE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletPTC.CALLBACK_TEMPERATURE_REACHED);
             exchange.getIn().setHeader("temperature", temperature);
             
             
@@ -119,7 +119,7 @@ public class PTCConsumer extends TinkerforgeConsumer<PTCEndpoint, BrickletPTC> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPTC.CALLBACK_RESISTANCE);
+            exchange.getIn().setHeader("fireBy", BrickletPTC.CALLBACK_RESISTANCE);
             exchange.getIn().setHeader("resistance", resistance);
             
             
@@ -145,7 +145,7 @@ public class PTCConsumer extends TinkerforgeConsumer<PTCEndpoint, BrickletPTC> i
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPTC.CALLBACK_RESISTANCE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletPTC.CALLBACK_RESISTANCE_REACHED);
             exchange.getIn().setHeader("resistance", resistance);
             
             

@@ -61,7 +61,7 @@ public class LCD20x4Consumer extends TinkerforgeConsumer<LCD20x4Endpoint, Brickl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLCD20x4.CALLBACK_BUTTON_PRESSED);
+            exchange.getIn().setHeader("fireBy", BrickletLCD20x4.CALLBACK_BUTTON_PRESSED);
             exchange.getIn().setHeader("button", button);
             
             
@@ -87,7 +87,7 @@ public class LCD20x4Consumer extends TinkerforgeConsumer<LCD20x4Endpoint, Brickl
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLCD20x4.CALLBACK_BUTTON_RELEASED);
+            exchange.getIn().setHeader("fireBy", BrickletLCD20x4.CALLBACK_BUTTON_RELEASED);
             exchange.getIn().setHeader("button", button);
             
             

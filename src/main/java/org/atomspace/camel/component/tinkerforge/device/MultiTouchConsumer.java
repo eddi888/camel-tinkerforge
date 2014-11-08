@@ -58,7 +58,7 @@ public class MultiTouchConsumer extends TinkerforgeConsumer<MultiTouchEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletMultiTouch.CALLBACK_TOUCH_STATE);
+            exchange.getIn().setHeader("fireBy", BrickletMultiTouch.CALLBACK_TOUCH_STATE);
             exchange.getIn().setHeader("state", state);
             
             

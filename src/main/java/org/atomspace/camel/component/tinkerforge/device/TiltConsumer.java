@@ -58,7 +58,7 @@ public class TiltConsumer extends TinkerforgeConsumer<TiltEndpoint, BrickletTilt
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletTilt.CALLBACK_TILT_STATE);
+            exchange.getIn().setHeader("fireBy", BrickletTilt.CALLBACK_TILT_STATE);
             exchange.getIn().setHeader("state", state);
             
             

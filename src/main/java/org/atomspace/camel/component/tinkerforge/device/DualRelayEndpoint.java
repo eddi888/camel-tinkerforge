@@ -37,6 +37,9 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
     private Short relay;
     private Boolean state;
     private Long time;
+    private Short relay3;
+    private Short relay4;
+    private Boolean state2;
 
         
     public DualRelayEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -81,8 +84,8 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
                 
             case "setState":
                 device.setState(
-                        (boolean) getValue("relay1", m, e),
-                        (boolean) getValue("relay2", m, e)
+                        getValue(boolean.class, "relay1", m, getRelay1()),
+                        getValue(boolean.class, "relay2", m, getRelay2())
                     );
                 break;
 
@@ -92,22 +95,22 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
 
             case "setMonoflop":
                 device.setMonoflop(
-                        (short) getValue("relay", m, e),
-                        (boolean) getValue("state", m, e),
-                        (long) getValue("time", m, e)
+                        getValue(short.class, "relay", m, getRelay()),
+                        getValue(boolean.class, "state", m, getState()),
+                        getValue(long.class, "time", m, getTime())
                     );
                 break;
 
             case "getMonoflop":
                 response = device.getMonoflop(
-                        (short) getValue("relay", m, e)
+                        getValue(short.class, "relay3", m, getRelay3())
                     );
                 break;
 
             case "setSelectedState":
                 device.setSelectedState(
-                        (short) getValue("relay", m, e),
-                        (boolean) getValue("state", m, e)
+                        getValue(short.class, "relay4", m, getRelay4()),
+                        getValue(boolean.class, "state2", m, getState2())
                     );
                 break;
 
@@ -162,6 +165,30 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
 
     public void setTime(Long time){
         this.time = time;
+    }
+
+    public Short getRelay3(){
+        return relay3;
+    }
+
+    public void setRelay3(Short relay3){
+        this.relay3 = relay3;
+    }
+
+    public Short getRelay4(){
+        return relay4;
+    }
+
+    public void setRelay4(Short relay4){
+        this.relay4 = relay4;
+    }
+
+    public Boolean getState2(){
+        return state2;
+    }
+
+    public void setState2(Boolean state2){
+        this.state2 = state2;
     }
 
 

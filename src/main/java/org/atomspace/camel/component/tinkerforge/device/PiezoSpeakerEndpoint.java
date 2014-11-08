@@ -35,6 +35,7 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
     private Long duration;
     private Integer frequency;
     private String morse;
+    private Integer frequency2;
 
         
     public PiezoSpeakerEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -79,15 +80,15 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
                 
             case "beep":
                 device.beep(
-                        (long) getValue("duration", m, e),
-                        (int) getValue("frequency", m, e)
+                        getValue(long.class, "duration", m, getDuration()),
+                        getValue(int.class, "frequency", m, getFrequency())
                     );
                 break;
 
             case "morseCode":
                 device.morseCode(
-                        (String) getValue("morse", m, e),
-                        (int) getValue("frequency", m, e)
+                        getValue(String.class, "morse", m, getMorse()),
+                        getValue(int.class, "frequency2", m, getFrequency2())
                     );
                 break;
 
@@ -130,6 +131,14 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
 
     public void setMorse(String morse){
         this.morse = morse;
+    }
+
+    public Integer getFrequency2(){
+        return frequency2;
+    }
+
+    public void setFrequency2(Integer frequency2){
+        this.frequency2 = frequency2;
     }
 
 

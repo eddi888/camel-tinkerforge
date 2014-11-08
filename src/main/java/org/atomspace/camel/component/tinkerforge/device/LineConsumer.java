@@ -61,7 +61,7 @@ public class LineConsumer extends TinkerforgeConsumer<LineEndpoint, BrickletLine
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLine.CALLBACK_REFLECTIVITY);
+            exchange.getIn().setHeader("fireBy", BrickletLine.CALLBACK_REFLECTIVITY);
             exchange.getIn().setHeader("reflectivity", reflectivity);
             
             
@@ -87,7 +87,7 @@ public class LineConsumer extends TinkerforgeConsumer<LineEndpoint, BrickletLine
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletLine.CALLBACK_REFLECTIVITY_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletLine.CALLBACK_REFLECTIVITY_REACHED);
             exchange.getIn().setHeader("reflectivity", reflectivity);
             
             

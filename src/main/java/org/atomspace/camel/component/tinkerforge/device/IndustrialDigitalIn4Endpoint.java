@@ -32,13 +32,15 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDigitalIn4Endpoint.class);
     
-    private Character group;
+    private char[] group;
     private Long debounce;
     private Integer interruptMask;
     private Short pin;
     private Boolean resetCounter;
     private Integer selectionMask;
     private Short edgeType;
+    private Short debounce2;
+    private Short pin2;
 
         
     public IndustrialDigitalIn4Endpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -85,6 +87,12 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
                 response = device.getValue();
                 break;
 
+            case "setGroup":
+                device.setGroup(
+                        getValue(char[].class, "group", m, getGroup())
+                    );
+                break;
+
             case "getGroup":
                 response = device.getGroup();
                 break;
@@ -95,7 +103,7 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -105,7 +113,7 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
 
             case "setInterrupt":
                 device.setInterrupt(
-                        (int) getValue("interruptMask", m, e)
+                        getValue(int.class, "interruptMask", m, getInterruptMask())
                     );
                 break;
 
@@ -115,22 +123,22 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
 
             case "getEdgeCount":
                 response = device.getEdgeCount(
-                        (short) getValue("pin", m, e),
-                        (boolean) getValue("resetCounter", m, e)
+                        getValue(short.class, "pin", m, getPin()),
+                        getValue(boolean.class, "resetCounter", m, getResetCounter())
                     );
                 break;
 
             case "setEdgeCountConfig":
                 device.setEdgeCountConfig(
-                        (int) getValue("selectionMask", m, e),
-                        (short) getValue("edgeType", m, e),
-                        (short) getValue("debounce", m, e)
+                        getValue(int.class, "selectionMask", m, getSelectionMask()),
+                        getValue(short.class, "edgeType", m, getEdgeType()),
+                        getValue(short.class, "debounce2", m, getDebounce2())
                     );
                 break;
 
             case "getEdgeCountConfig":
                 response = device.getEdgeCountConfig(
-                        (short) getValue("pin", m, e)
+                        getValue(short.class, "pin2", m, getPin2())
                     );
                 break;
 
@@ -147,11 +155,11 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
     }
     
     
-    public Character getGroup(){
+    public char[] getGroup(){
         return group;
     }
 
-    public void setGroup(Character group){
+    public void setGroup(char[] group){
         this.group = group;
     }
 
@@ -201,6 +209,22 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
 
     public void setEdgeType(Short edgeType){
         this.edgeType = edgeType;
+    }
+
+    public Short getDebounce2(){
+        return debounce2;
+    }
+
+    public void setDebounce2(Short debounce2){
+        this.debounce2 = debounce2;
+    }
+
+    public Short getPin2(){
+        return pin2;
+    }
+
+    public void setPin2(Short pin2){
+        this.pin2 = pin2;
     }
 
 

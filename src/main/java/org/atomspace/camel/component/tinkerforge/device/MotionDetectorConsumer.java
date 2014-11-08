@@ -61,7 +61,7 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletMotionDetector.CALLBACK_MOTION_DETECTED);
+            exchange.getIn().setHeader("fireBy", BrickletMotionDetector.CALLBACK_MOTION_DETECTED);
             
             
             // ADD BODY
@@ -86,7 +86,7 @@ public class MotionDetectorConsumer extends TinkerforgeConsumer<MotionDetectorEn
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED);
+            exchange.getIn().setHeader("fireBy", BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED);
             
             
             // ADD BODY

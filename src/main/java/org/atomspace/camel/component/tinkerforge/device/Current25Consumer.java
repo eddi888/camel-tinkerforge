@@ -70,7 +70,7 @@ public class Current25Consumer extends TinkerforgeConsumer<Current25Endpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletCurrent25.CALLBACK_CURRENT);
+            exchange.getIn().setHeader("fireBy", BrickletCurrent25.CALLBACK_CURRENT);
             exchange.getIn().setHeader("current", current);
             
             
@@ -96,7 +96,7 @@ public class Current25Consumer extends TinkerforgeConsumer<Current25Endpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletCurrent25.CALLBACK_ANALOG_VALUE);
+            exchange.getIn().setHeader("fireBy", BrickletCurrent25.CALLBACK_ANALOG_VALUE);
             exchange.getIn().setHeader("value", value);
             
             
@@ -122,7 +122,7 @@ public class Current25Consumer extends TinkerforgeConsumer<Current25Endpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletCurrent25.CALLBACK_CURRENT_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletCurrent25.CALLBACK_CURRENT_REACHED);
             exchange.getIn().setHeader("current", current);
             
             
@@ -148,7 +148,7 @@ public class Current25Consumer extends TinkerforgeConsumer<Current25Endpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletCurrent25.CALLBACK_ANALOG_VALUE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickletCurrent25.CALLBACK_ANALOG_VALUE_REACHED);
             exchange.getIn().setHeader("value", value);
             
             
@@ -174,7 +174,7 @@ public class Current25Consumer extends TinkerforgeConsumer<Current25Endpoint, Br
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletCurrent25.CALLBACK_OVER_CURRENT);
+            exchange.getIn().setHeader("fireBy", BrickletCurrent25.CALLBACK_OVER_CURRENT);
             
             
             // ADD BODY

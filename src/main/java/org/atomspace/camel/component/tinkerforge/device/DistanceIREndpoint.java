@@ -34,10 +34,15 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
     
     private Short position;
     private Integer distance;
+    private Short position2;
     private Long period;
+    private Long period2;
     private Character option;
     private Short min;
     private Short max;
+    private Character option2;
+    private Integer min2;
+    private Integer max2;
     private Long debounce;
 
         
@@ -91,20 +96,20 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
 
             case "setSamplingPoint":
                 device.setSamplingPoint(
-                        (short) getValue("position", m, e),
-                        (int) getValue("distance", m, e)
+                        getValue(short.class, "position", m, getPosition()),
+                        getValue(int.class, "distance", m, getDistance())
                     );
                 break;
 
             case "getSamplingPoint":
                 response = device.getSamplingPoint(
-                        (short) getValue("position", m, e)
+                        getValue(short.class, "position2", m, getPosition2())
                     );
                 break;
 
             case "setDistanceCallbackPeriod":
                 device.setDistanceCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -114,7 +119,7 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
 
             case "setAnalogValueCallbackPeriod":
                 device.setAnalogValueCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -124,9 +129,9 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
 
             case "setDistanceCallbackThreshold":
                 device.setDistanceCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (short) getValue("min", m, e),
-                        (short) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(short.class, "min", m, getMin()),
+                        getValue(short.class, "max", m, getMax())
                     );
                 break;
 
@@ -136,9 +141,9 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
 
             case "setAnalogValueCallbackThreshold":
                 device.setAnalogValueCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option2", m, getOption2()),
+                        getValue(int.class, "min2", m, getMin2()),
+                        getValue(int.class, "max2", m, getMax2())
                     );
                 break;
 
@@ -148,7 +153,7 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -185,12 +190,28 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.distance = distance;
     }
 
+    public Short getPosition2(){
+        return position2;
+    }
+
+    public void setPosition2(Short position2){
+        this.position2 = position2;
+    }
+
     public Long getPeriod(){
         return period;
     }
 
     public void setPeriod(Long period){
         this.period = period;
+    }
+
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
     }
 
     public Character getOption(){
@@ -215,6 +236,30 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
 
     public void setMax(Short max){
         this.max = max;
+    }
+
+    public Character getOption2(){
+        return option2;
+    }
+
+    public void setOption2(Character option2){
+        this.option2 = option2;
+    }
+
+    public Integer getMin2(){
+        return min2;
+    }
+
+    public void setMin2(Integer min2){
+        this.min2 = min2;
+    }
+
+    public Integer getMax2(){
+        return max2;
+    }
+
+    public void setMax2(Integer max2){
+        this.max2 = max2;
     }
 
     public Long getDebounce(){

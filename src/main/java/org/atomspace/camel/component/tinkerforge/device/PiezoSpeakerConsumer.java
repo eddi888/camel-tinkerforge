@@ -61,7 +61,7 @@ public class PiezoSpeakerConsumer extends TinkerforgeConsumer<PiezoSpeakerEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPiezoSpeaker.CALLBACK_BEEP_FINISHED);
+            exchange.getIn().setHeader("fireBy", BrickletPiezoSpeaker.CALLBACK_BEEP_FINISHED);
             
             
             // ADD BODY
@@ -86,7 +86,7 @@ public class PiezoSpeakerConsumer extends TinkerforgeConsumer<PiezoSpeakerEndpoi
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletPiezoSpeaker.CALLBACK_MORSE_CODE_FINISHED);
+            exchange.getIn().setHeader("fireBy", BrickletPiezoSpeaker.CALLBACK_MORSE_CODE_FINISHED);
             
             
             // ADD BODY

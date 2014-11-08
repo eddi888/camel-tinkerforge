@@ -33,9 +33,13 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
     private static final Logger LOG = LoggerFactory.getLogger(BarometerEndpoint.class);
     
     private Long period;
+    private Long period2;
     private Character option;
     private Integer min;
     private Integer max;
+    private Character option2;
+    private Integer min2;
+    private Integer max2;
     private Long debounce;
     private Integer airPressure;
     private Short movingAveragePressure;
@@ -93,7 +97,7 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setAirPressureCallbackPeriod":
                 device.setAirPressureCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period", m, getPeriod())
                     );
                 break;
 
@@ -103,7 +107,7 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setAltitudeCallbackPeriod":
                 device.setAltitudeCallbackPeriod(
-                        (long) getValue("period", m, e)
+                        getValue(long.class, "period2", m, getPeriod2())
                     );
                 break;
 
@@ -113,9 +117,9 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setAirPressureCallbackThreshold":
                 device.setAirPressureCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option", m, getOption()),
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -125,9 +129,9 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setAltitudeCallbackThreshold":
                 device.setAltitudeCallbackThreshold(
-                        (char) getValue("option", m, e),
-                        (int) getValue("min", m, e),
-                        (int) getValue("max", m, e)
+                        getValue(char.class, "option2", m, getOption2()),
+                        getValue(int.class, "min2", m, getMin2()),
+                        getValue(int.class, "max2", m, getMax2())
                     );
                 break;
 
@@ -137,7 +141,7 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -147,7 +151,7 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setReferenceAirPressure":
                 device.setReferenceAirPressure(
-                        (int) getValue("airPressure", m, e)
+                        getValue(int.class, "airPressure", m, getAirPressure())
                     );
                 break;
 
@@ -161,9 +165,9 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
             case "setAveraging":
                 device.setAveraging(
-                        (short) getValue("movingAveragePressure", m, e),
-                        (short) getValue("averagePressure", m, e),
-                        (short) getValue("averageTemperature", m, e)
+                        getValue(short.class, "movingAveragePressure", m, getMovingAveragePressure()),
+                        getValue(short.class, "averagePressure", m, getAveragePressure()),
+                        getValue(short.class, "averageTemperature", m, getAverageTemperature())
                     );
                 break;
 
@@ -192,6 +196,14 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.period = period;
     }
 
+    public Long getPeriod2(){
+        return period2;
+    }
+
+    public void setPeriod2(Long period2){
+        this.period2 = period2;
+    }
+
     public Character getOption(){
         return option;
     }
@@ -214,6 +226,30 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
 
     public void setMax(Integer max){
         this.max = max;
+    }
+
+    public Character getOption2(){
+        return option2;
+    }
+
+    public void setOption2(Character option2){
+        this.option2 = option2;
+    }
+
+    public Integer getMin2(){
+        return min2;
+    }
+
+    public void setMin2(Integer min2){
+        this.min2 = min2;
+    }
+
+    public Integer getMax2(){
+        return max2;
+    }
+
+    public void setMax2(Integer max2){
+        this.max2 = max2;
     }
 
     public Long getDebounce(){

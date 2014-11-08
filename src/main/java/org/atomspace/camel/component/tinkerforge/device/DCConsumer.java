@@ -67,7 +67,7 @@ public class DCConsumer extends TinkerforgeConsumer<DCEndpoint, BrickDC> impleme
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickDC.CALLBACK_UNDER_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickDC.CALLBACK_UNDER_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -93,7 +93,7 @@ public class DCConsumer extends TinkerforgeConsumer<DCEndpoint, BrickDC> impleme
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickDC.CALLBACK_EMERGENCY_SHUTDOWN);
+            exchange.getIn().setHeader("fireBy", BrickDC.CALLBACK_EMERGENCY_SHUTDOWN);
             
             
             // ADD BODY
@@ -118,7 +118,7 @@ public class DCConsumer extends TinkerforgeConsumer<DCEndpoint, BrickDC> impleme
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickDC.CALLBACK_VELOCITY_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickDC.CALLBACK_VELOCITY_REACHED);
             exchange.getIn().setHeader("velocity", velocity);
             
             
@@ -144,7 +144,7 @@ public class DCConsumer extends TinkerforgeConsumer<DCEndpoint, BrickDC> impleme
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickDC.CALLBACK_CURRENT_VELOCITY);
+            exchange.getIn().setHeader("fireBy", BrickDC.CALLBACK_CURRENT_VELOCITY);
             exchange.getIn().setHeader("velocity", velocity);
             
             

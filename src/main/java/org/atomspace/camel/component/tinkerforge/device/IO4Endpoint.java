@@ -38,10 +38,18 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
     private Boolean value;
     private Long debounce;
     private Short interruptMask;
+    private Short selectionMask2;
+    private Short valueMask2;
     private Long time;
     private Short pin;
+    private Short selectionMask3;
+    private Short valueMask3;
+    private Short pin2;
     private Boolean resetCounter;
+    private Short selectionMask4;
     private Short edgeType;
+    private Short debounce2;
+    private Short pin3;
 
         
     public IO4Endpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -86,7 +94,7 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
                 
             case "setValue":
                 device.setValue(
-                        (short) getValue("valueMask", m, e)
+                        getValue(short.class, "valueMask", m, getValueMask())
                     );
                 break;
 
@@ -96,9 +104,9 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
 
             case "setConfiguration":
                 device.setConfiguration(
-                        (short) getValue("selectionMask", m, e),
-                        (char) getValue("direction", m, e),
-                        (boolean) getValue("value", m, e)
+                        getValue(short.class, "selectionMask", m, getSelectionMask()),
+                        getValue(char.class, "direction", m, getDirection()),
+                        getValue(boolean.class, "value", m, getValue())
                     );
                 break;
 
@@ -108,7 +116,7 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
 
             case "setDebouncePeriod":
                 device.setDebouncePeriod(
-                        (long) getValue("debounce", m, e)
+                        getValue(long.class, "debounce", m, getDebounce())
                     );
                 break;
 
@@ -118,7 +126,7 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
 
             case "setInterrupt":
                 device.setInterrupt(
-                        (short) getValue("interruptMask", m, e)
+                        getValue(short.class, "interruptMask", m, getInterruptMask())
                     );
                 break;
 
@@ -128,43 +136,43 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
 
             case "setMonoflop":
                 device.setMonoflop(
-                        (short) getValue("selectionMask", m, e),
-                        (short) getValue("valueMask", m, e),
-                        (long) getValue("time", m, e)
+                        getValue(short.class, "selectionMask2", m, getSelectionMask2()),
+                        getValue(short.class, "valueMask2", m, getValueMask2()),
+                        getValue(long.class, "time", m, getTime())
                     );
                 break;
 
             case "getMonoflop":
                 response = device.getMonoflop(
-                        (short) getValue("pin", m, e)
+                        getValue(short.class, "pin", m, getPin())
                     );
                 break;
 
             case "setSelectedValues":
                 device.setSelectedValues(
-                        (short) getValue("selectionMask", m, e),
-                        (short) getValue("valueMask", m, e)
+                        getValue(short.class, "selectionMask3", m, getSelectionMask3()),
+                        getValue(short.class, "valueMask3", m, getValueMask3())
                     );
                 break;
 
             case "getEdgeCount":
                 response = device.getEdgeCount(
-                        (short) getValue("pin", m, e),
-                        (boolean) getValue("resetCounter", m, e)
+                        getValue(short.class, "pin2", m, getPin2()),
+                        getValue(boolean.class, "resetCounter", m, getResetCounter())
                     );
                 break;
 
             case "setEdgeCountConfig":
                 device.setEdgeCountConfig(
-                        (short) getValue("selectionMask", m, e),
-                        (short) getValue("edgeType", m, e),
-                        (short) getValue("debounce", m, e)
+                        getValue(short.class, "selectionMask4", m, getSelectionMask4()),
+                        getValue(short.class, "edgeType", m, getEdgeType()),
+                        getValue(short.class, "debounce2", m, getDebounce2())
                     );
                 break;
 
             case "getEdgeCountConfig":
                 response = device.getEdgeCountConfig(
-                        (short) getValue("pin", m, e)
+                        getValue(short.class, "pin3", m, getPin3())
                     );
                 break;
 
@@ -229,6 +237,22 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
         this.interruptMask = interruptMask;
     }
 
+    public Short getSelectionMask2(){
+        return selectionMask2;
+    }
+
+    public void setSelectionMask2(Short selectionMask2){
+        this.selectionMask2 = selectionMask2;
+    }
+
+    public Short getValueMask2(){
+        return valueMask2;
+    }
+
+    public void setValueMask2(Short valueMask2){
+        this.valueMask2 = valueMask2;
+    }
+
     public Long getTime(){
         return time;
     }
@@ -245,6 +269,30 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
         this.pin = pin;
     }
 
+    public Short getSelectionMask3(){
+        return selectionMask3;
+    }
+
+    public void setSelectionMask3(Short selectionMask3){
+        this.selectionMask3 = selectionMask3;
+    }
+
+    public Short getValueMask3(){
+        return valueMask3;
+    }
+
+    public void setValueMask3(Short valueMask3){
+        this.valueMask3 = valueMask3;
+    }
+
+    public Short getPin2(){
+        return pin2;
+    }
+
+    public void setPin2(Short pin2){
+        this.pin2 = pin2;
+    }
+
     public Boolean getResetCounter(){
         return resetCounter;
     }
@@ -253,12 +301,36 @@ public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
         this.resetCounter = resetCounter;
     }
 
+    public Short getSelectionMask4(){
+        return selectionMask4;
+    }
+
+    public void setSelectionMask4(Short selectionMask4){
+        this.selectionMask4 = selectionMask4;
+    }
+
     public Short getEdgeType(){
         return edgeType;
     }
 
     public void setEdgeType(Short edgeType){
         this.edgeType = edgeType;
+    }
+
+    public Short getDebounce2(){
+        return debounce2;
+    }
+
+    public void setDebounce2(Short debounce2){
+        this.debounce2 = debounce2;
+    }
+
+    public Short getPin3(){
+        return pin3;
+    }
+
+    public void setPin3(Short pin3){
+        this.pin3 = pin3;
     }
 
 

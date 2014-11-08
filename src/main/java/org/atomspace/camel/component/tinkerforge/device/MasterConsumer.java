@@ -73,7 +73,7 @@ public class MasterConsumer extends TinkerforgeConsumer<MasterEndpoint, BrickMas
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickMaster.CALLBACK_STACK_CURRENT);
+            exchange.getIn().setHeader("fireBy", BrickMaster.CALLBACK_STACK_CURRENT);
             exchange.getIn().setHeader("current", current);
             
             
@@ -99,7 +99,7 @@ public class MasterConsumer extends TinkerforgeConsumer<MasterEndpoint, BrickMas
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickMaster.CALLBACK_STACK_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickMaster.CALLBACK_STACK_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -118,14 +118,14 @@ public class MasterConsumer extends TinkerforgeConsumer<MasterEndpoint, BrickMas
     
     @Override
     public void usbVoltage(int voltage) {
-        LOG.trace("USBVoltage()");
+        LOG.trace("usbVoltage()");
         
         Exchange exchange = null;
         try {
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickMaster.CALLBACK_USB_VOLTAGE);
+            exchange.getIn().setHeader("fireBy", BrickMaster.CALLBACK_USB_VOLTAGE);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -151,7 +151,7 @@ public class MasterConsumer extends TinkerforgeConsumer<MasterEndpoint, BrickMas
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickMaster.CALLBACK_STACK_CURRENT_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickMaster.CALLBACK_STACK_CURRENT_REACHED);
             exchange.getIn().setHeader("current", current);
             
             
@@ -177,7 +177,7 @@ public class MasterConsumer extends TinkerforgeConsumer<MasterEndpoint, BrickMas
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickMaster.CALLBACK_STACK_VOLTAGE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickMaster.CALLBACK_STACK_VOLTAGE_REACHED);
             exchange.getIn().setHeader("voltage", voltage);
             
             
@@ -196,14 +196,14 @@ public class MasterConsumer extends TinkerforgeConsumer<MasterEndpoint, BrickMas
     
     @Override
     public void usbVoltageReached(int voltage) {
-        LOG.trace("USBVoltageReached()");
+        LOG.trace("usbVoltageReached()");
         
         Exchange exchange = null;
         try {
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickMaster.CALLBACK_USB_VOLTAGE_REACHED);
+            exchange.getIn().setHeader("fireBy", BrickMaster.CALLBACK_USB_VOLTAGE_REACHED);
             exchange.getIn().setHeader("voltage", voltage);
             
             

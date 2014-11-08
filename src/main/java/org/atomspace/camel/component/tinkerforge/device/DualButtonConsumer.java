@@ -58,7 +58,7 @@ public class DualButtonConsumer extends TinkerforgeConsumer<DualButtonEndpoint, 
             exchange = createExchange();
             
             // ADD HEADER
-            exchange.getIn().setHeader("listener", BrickletDualButton.CALLBACK_STATE_CHANGED);
+            exchange.getIn().setHeader("fireBy", BrickletDualButton.CALLBACK_STATE_CHANGED);
             exchange.getIn().setHeader("button_l", button_l);
             exchange.getIn().setHeader("button_r", button_r);
             exchange.getIn().setHeader("led_l", led_l);

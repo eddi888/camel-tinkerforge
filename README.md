@@ -18,7 +18,7 @@ The **Tinkerforge** Apache Camel Component for a simple access for use the Tinke
 tinkerforge:[host[:port]/]deviceType?[uid=uid&options...]
 ```
 
-## Options
+## General Options
 ------------------------------------------------
 
 

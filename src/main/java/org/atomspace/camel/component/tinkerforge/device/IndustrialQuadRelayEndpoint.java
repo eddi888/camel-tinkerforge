@@ -34,9 +34,12 @@ public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQ
     
     private Integer valueMask;
     private Integer selectionMask;
+    private Integer valueMask2;
     private Long time;
     private Short pin;
-    private Character group;
+    private char[] group;
+    private Integer selectionMask2;
+    private Integer valueMask3;
 
         
     public IndustrialQuadRelayEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -81,7 +84,7 @@ public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQ
                 
             case "setValue":
                 device.setValue(
-                        (int) getValue("valueMask", m, e)
+                        getValue(int.class, "valueMask", m, getValueMask())
                     );
                 break;
 
@@ -91,15 +94,21 @@ public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQ
 
             case "setMonoflop":
                 device.setMonoflop(
-                        (int) getValue("selectionMask", m, e),
-                        (int) getValue("valueMask", m, e),
-                        (long) getValue("time", m, e)
+                        getValue(int.class, "selectionMask", m, getSelectionMask()),
+                        getValue(int.class, "valueMask2", m, getValueMask2()),
+                        getValue(long.class, "time", m, getTime())
                     );
                 break;
 
             case "getMonoflop":
                 response = device.getMonoflop(
-                        (short) getValue("pin", m, e)
+                        getValue(short.class, "pin", m, getPin())
+                    );
+                break;
+
+            case "setGroup":
+                device.setGroup(
+                        getValue(char[].class, "group", m, getGroup())
                     );
                 break;
 
@@ -113,8 +122,8 @@ public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQ
 
             case "setSelectedValues":
                 device.setSelectedValues(
-                        (int) getValue("selectionMask", m, e),
-                        (int) getValue("valueMask", m, e)
+                        getValue(int.class, "selectionMask2", m, getSelectionMask2()),
+                        getValue(int.class, "valueMask3", m, getValueMask3())
                     );
                 break;
 
@@ -147,6 +156,14 @@ public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQ
         this.selectionMask = selectionMask;
     }
 
+    public Integer getValueMask2(){
+        return valueMask2;
+    }
+
+    public void setValueMask2(Integer valueMask2){
+        this.valueMask2 = valueMask2;
+    }
+
     public Long getTime(){
         return time;
     }
@@ -163,12 +180,28 @@ public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQ
         this.pin = pin;
     }
 
-    public Character getGroup(){
+    public char[] getGroup(){
         return group;
     }
 
-    public void setGroup(Character group){
+    public void setGroup(char[] group){
         this.group = group;
+    }
+
+    public Integer getSelectionMask2(){
+        return selectionMask2;
+    }
+
+    public void setSelectionMask2(Integer selectionMask2){
+        this.selectionMask2 = selectionMask2;
+    }
+
+    public Integer getValueMask3(){
+        return valueMask3;
+    }
+
+    public void setValueMask3(Integer valueMask3){
+        this.valueMask3 = valueMask3;
     }
 
 
