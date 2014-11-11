@@ -23,19 +23,33 @@ limitations under the License.
     <version>2.14.0-SNAPSHOT</version>
 
     <name>Camel Tinkerforge Component</name>
-    <url>http://www.myorganization.org</url>
+    <url>https://github.com/eddi888/camel-tinkerforge/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <camel-version>2.14.0</camel-version>
     </properties>
-    
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
     <scm>
         <url>http://github.com/eddi888/camel-tinkerforge</url>
         <connection>scm:git:http://github.com/eddi888/camel-tinkerforge.git</connection>
         <developerConnection>scm:git:git@github.com:eddi888/camel-tinkerforge.git</developerConnection>
     </scm>
+    
+    <developers>
+        <developer>
+            <name>Edgar Wentzlaff</name>
+            <email>eddi888@atomspace.org</email>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -96,6 +110,17 @@ limitations under the License.
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <defaultGoal>install</defaultGoal>
 
@@ -120,7 +145,7 @@ limitations under the License.
                 </configuration>
             </plugin>
 
-            <!-- to generate the MANIFEST-FILE of the bundle -->
+            <!-- to generate the MANIFEST-FILE of the bundle for Karaf -->
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -134,6 +159,7 @@ limitations under the License.
                 </configuration>
             </plugin>
 
+            <!-- eclipse:eclipse Plugin Download Sources and Docs -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -144,6 +170,7 @@ limitations under the License.
                 </configuration>
             </plugin>
 
+            <!-- Test Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -155,6 +182,53 @@ limitations under the License.
                 </configuration>
             </plugin>
 
+            <!-- Sources Attachments -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- JavaDoc Attachments -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- GPG Signature Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            
         </plugins>
     </build>
 
