@@ -29,6 +29,7 @@ limitations under the License.
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <camel-version>2.14.0</camel-version>
+        <tinkerforge-version>2.1.2</tinkerforge-version>
     </properties>
 
     <licenses>
@@ -41,7 +42,8 @@ limitations under the License.
     <scm>
         <url>http://github.com/eddi888/camel-tinkerforge</url>
         <connection>scm:git:http://github.com/eddi888/camel-tinkerforge.git</connection>
-        <developerConnection>scm:git:git@github.com:eddi888/camel-tinkerforge.git</developerConnection>
+        <developerConnection>scm:git:http://github.com/eddi888/camel-tinkerforge.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
     
     <developers>
@@ -61,7 +63,7 @@ limitations under the License.
         <dependency>
             <groupId>com.tinkerforge</groupId>
             <artifactId>tinkerforge</artifactId>
-            <version>2.1.2</version>
+            <version>${tinkerforge-version}</version>
         </dependency>
 
         <!-- logging -->
@@ -69,6 +71,7 @@ limitations under the License.
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.7</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -127,7 +130,7 @@ limitations under the License.
         <extensions>
             <!-- extention for upload snapshots and releases to webdav server -->
             <extension>
-                <groupId>org.jvnet.wagon-svn</groupId>
+                <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-webdav-jackrabbit</artifactId>
                 <version>2.7</version>
             </extension>
@@ -184,7 +187,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
+                <version>2.18</version>
                 <configuration>
                     <excludes>
                         <exclude>**/TinkerforgeIntegrationTest.java</exclude>
@@ -196,7 +199,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>2.4</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -211,7 +214,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>2.10.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
