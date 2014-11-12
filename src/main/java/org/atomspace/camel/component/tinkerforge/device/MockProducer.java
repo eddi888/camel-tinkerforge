@@ -30,7 +30,7 @@ public class MockProducer extends TinkerforgeProducer<MockEndpoint, Device> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MockProducer.class);
     
-    public MockProducer(MockEndpoint endpoint) {
+    public MockProducer(final MockEndpoint endpoint) {
         super(endpoint);
         device = new Device(endpoint.getUid(), new IPConnection()) {
             

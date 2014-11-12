@@ -30,7 +30,7 @@ public class MockConsumer extends TinkerforgeConsumer<MockEndpoint, Device> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MockConsumer.class);
     
-    public MockConsumer(MockEndpoint endpoint, Processor processor) {
+    public MockConsumer(final MockEndpoint endpoint, Processor processor) {
         super(endpoint, processor);
 
         // init Bricklet

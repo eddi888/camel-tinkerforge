@@ -77,36 +77,63 @@ public class MockDevice {
      * @throws TimeoutException
      * @throws NotConnectedException
      */
-    public <Bricklet extends Device> void startCallbackListenerThread(IPConnection ipcon, Device bricklet, byte startValue, int interval, int scattering) throws NoSuchMethodException, IllegalArgumentException, IllegalAccessException, TimeoutException, NotConnectedException {
+    public <Bricklet extends Device> void startCallbackListenerThread(final IPConnection ipcon, final Device bricklet, final byte startValue, final int interval, final int scattering) throws NoSuchMethodException, IllegalArgumentException, IllegalAccessException, TimeoutException, NotConnectedException {
         List<Integer> callbackIndizes = getCallbackIndex(bricklet);
         
         Class<IPConnection> ipConnectionClass = IPConnection.class;
-        Method callDeviceListener = ipConnectionClass.getDeclaredMethod("callDeviceListener", Device.class, byte.class, byte[].class);
+        final Method callDeviceListener = ipConnectionClass.getDeclaredMethod("callDeviceListener", Device.class, byte.class, byte[].class);
         callDeviceListener.setAccessible(true);
 
         //start thread for each callback event
-        for (int callbackIndex : callbackIndizes) {
+        for (final int callbackIndex : callbackIndizes) {
             
-            Thread thread = new Thread(() -> {
-                try {
-                    Random random = new Random();
-                    while (true) {
+            Thread thread = new Thread(new Runnable() {
                         
-                        //Generates values from scattering
-                        int randomDiff = 0;
-                        if(scattering>0) randomDiff = random.nextInt(scattering) - 1;
-                        
-                        //Invoke on device
-                        callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
-                        
-                        //wait interval
-                        Thread.sleep(interval);
-                        
-                    }
-                } catch (IllegalAccessException | InvocationTargetException  e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e){ }
-            });
+                        @Override
+                        public void run() {
+                            try {
+                                Random random = new Random();
+                                while (true) {
+                                    
+                                    //Generates values from scattering
+                                    int randomDiff = 0;
+                                    if(scattering>0) randomDiff = random.nextInt(scattering) - 1;
+                                    
+                                    //Invoke on device
+                                    callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
+                                    
+                                    //wait interval
+                                    Thread.sleep(interval);
+                                    
+                                }
+                            } catch (IllegalAccessException | InvocationTargetException  e) {
+                                e.printStackTrace();
+                            } catch (InterruptedException e){ }
+                        }
+                    }              
+                    
+                    /* JDK8
+                    () -> {
+                    try {
+                        Random random = new Random();
+                        while (true) {
+                            
+                            //Generates values from scattering
+                            int randomDiff = 0;
+                            if(scattering>0) randomDiff = random.nextInt(scattering) - 1;
+                            
+                            //Invoke on device
+                            callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
+                            
+                            //wait interval
+                            Thread.sleep(interval);
+                            
+                        }
+                    } catch (IllegalAccessException | InvocationTargetException  e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e){ }
+                }*/
+            );
             
             threads.put(bricklet.toString()+"-"+callbackIndex,thread);
             log.debug("start callback thread for "+bricklet.toString()+"-"+callbackIndex);
