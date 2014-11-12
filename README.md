@@ -7,7 +7,7 @@ The **Tinkerforge** Apache Camel Component for a simple access for use the Tinke
 <dependency>
     <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
-    <version>x.x.x</version>
+    <version>2.14.0</version>
 </dependency>
 ```
 
@@ -35,16 +35,104 @@ function       |               | execute Device Function, can use for configure 
 
 
 ### Components
+
 [AmbientLight](src/main/java/org/atomspace/camel/component/tinkerforge/device/AmbientLight.md)
+
+[AnalogIn](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogIn.md)
+
+[AnalogOut](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogOut.md)
+
+[Barometer](src/main/java/org/atomspace/camel/component/tinkerforge/device/Barometer.md)
+
+[Color](src/main/java/org/atomspace/camel/component/tinkerforge/device/Color.md)
+
+[Current12](src/main/java/org/atomspace/camel/component/tinkerforge/device/Current12.md)
+
+[Current25](src/main/java/org/atomspace/camel/component/tinkerforge/device/Current25.md)
+
+[DC](src/main/java/org/atomspace/camel/component/tinkerforge/device/DC.md)
+
+[DistanceIR](src/main/java/org/atomspace/camel/component/tinkerforge/device/DistanceIR.md)
+
+[DistanceUS](src/main/java/org/atomspace/camel/component/tinkerforge/device/DistanceUS.md)
+
+[DualButton](src/main/java/org/atomspace/camel/component/tinkerforge/device/DualButton.md)
 
 [DualRelay](src/main/java/org/atomspace/camel/component/tinkerforge/device/DualRelay.md)
 
+[GPS](src/main/java/org/atomspace/camel/component/tinkerforge/device/GPS.md)
+
+[HallEffect](src/main/java/org/atomspace/camel/component/tinkerforge/device/HallEffect.md)
+
+[Humidity](src/main/java/org/atomspace/camel/component/tinkerforge/device/Humidity.md)
+
+[IMU](src/main/java/org/atomspace/camel/component/tinkerforge/device/IMU.md)
+
+[IndustrialDigitalIn4](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDigitalIn4.md)
+
+[IndustrialDigitalOut4](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDigitalOut4.md)
+
+[IndustrialDual020mA](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDual020mA.md)
+
+[IndustrialQuadRelay](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialQuadRelay.md)
+
+[IO16](src/main/java/org/atomspace/camel/component/tinkerforge/device/IO16.md)
+
+[IO4](src/main/java/org/atomspace/camel/component/tinkerforge/device/IO4.md)
+
+[Joystick](src/main/java/org/atomspace/camel/component/tinkerforge/device/Joystick.md)
+
+[LCD16x2](src/main/java/org/atomspace/camel/component/tinkerforge/device/LCD16x2.md)
+
+[LCD20x4](src/main/java/org/atomspace/camel/component/tinkerforge/device/LCD20x4.md)
+
+[LEDStrip](src/main/java/org/atomspace/camel/component/tinkerforge/device/LEDStrip.md)
+
+[Line](src/main/java/org/atomspace/camel/component/tinkerforge/device/Line.md)
+
+[LinearPoti](src/main/java/org/atomspace/camel/component/tinkerforge/device/LinearPoti.md)
+
+[Master](src/main/java/org/atomspace/camel/component/tinkerforge/device/Master.md)
+
+[Moisture](src/main/java/org/atomspace/camel/component/tinkerforge/device/Moisture.md)
+
 [MotionDetector](src/main/java/org/atomspace/camel/component/tinkerforge/device/MotionDetector.md)
+
+[MultiTouch](src/main/java/org/atomspace/camel/component/tinkerforge/device/MultiTouch.md)
+
+[NFCRFID](src/main/java/org/atomspace/camel/component/tinkerforge/device/NFCRFID.md)
+
+[PiezoBuzzer](src/main/java/org/atomspace/camel/component/tinkerforge/device/PiezoBuzzer.md)
+
+[PiezoSpeaker](src/main/java/org/atomspace/camel/component/tinkerforge/device/PiezoSpeaker.md)
+
+[PTC](src/main/java/org/atomspace/camel/component/tinkerforge/device/PTC.md)
 
 [RemoteSwitch](src/main/java/org/atomspace/camel/component/tinkerforge/device/RemoteSwitch.md)
 
+[RotaryEncoder](src/main/java/org/atomspace/camel/component/tinkerforge/device/RotaryEncoder.md)
+
+[RotaryPoti](src/main/java/org/atomspace/camel/component/tinkerforge/device/RotaryPoti.md)
+
+[SegmentDisplay4x7](src/main/java/org/atomspace/camel/component/tinkerforge/device/SegmentDisplay4x7.md)
+
+[Servo](src/main/java/org/atomspace/camel/component/tinkerforge/device/Servo.md)
+
+[SolidStateRelay](src/main/java/org/atomspace/camel/component/tinkerforge/device/SolidStateRelay.md)
+
+[SoundIntensity](src/main/java/org/atomspace/camel/component/tinkerforge/device/SoundIntensity.md)
+
+[Stepper](src/main/java/org/atomspace/camel/component/tinkerforge/device/Stepper.md)
+
 [Temperature](src/main/java/org/atomspace/camel/component/tinkerforge/device/Temperature.md)
 
+[TemperatureIR](src/main/java/org/atomspace/camel/component/tinkerforge/device/TemperatureIR.md)
+
+[Tilt](src/main/java/org/atomspace/camel/component/tinkerforge/device/Tilt.md)
+
+[Voltage](src/main/java/org/atomspace/camel/component/tinkerforge/device/Voltage.md)
+
+[VoltageCurrent](src/main/java/org/atomspace/camel/component/tinkerforge/device/VoltageCurrent.md)
 
 
 
