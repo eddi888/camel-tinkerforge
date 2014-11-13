@@ -20,7 +20,7 @@ limitations under the License.
     <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
     <packaging>bundle</packaging>
-    <version>2.14.0-SNAPSHOT</version>
+    <version>2.14.0</version>
 
     <name>Camel Tinkerforge Component</name>
     <url>https://github.com/eddi888/camel-tinkerforge/</url>
@@ -45,7 +45,7 @@ limitations under the License.
         <url>http://github.com/eddi888/camel-tinkerforge</url>
         <connection>scm:git:http://github.com/eddi888/camel-tinkerforge.git</connection>
         <developerConnection>scm:git:http://github.com/eddi888/camel-tinkerforge.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>camel-tinkerforge-2.14.0</tag>
     </scm>
     
     <developers>
