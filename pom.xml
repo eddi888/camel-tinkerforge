@@ -30,10 +30,24 @@ limitations under the License.
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <camel-version>2.14.0</camel-version>
+        <camel-version>2.15-SNAPSHOT</camel-version>
         <tinkerforge-version>2.1.2</tinkerforge-version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>apache.snapshots</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>

@@ -39,10 +39,10 @@ public class TinkerforgeIntegrationTest extends CamelTestSupport {
                 from("tinkerforge://MotionDetector?uid=oTu")
                     .choice()
                         .when(header("CALLBACK").isEqualTo(BrickletMotionDetector.CALLBACK_MOTION_DETECTED))
-                            .to("tinkerforge://DualRelay?uid=kPu&method=setMonoflop(2, true, 500)")
+                            .to("tinkerforge://DualRelay?uid=kPu&function=setMonoflop(2, true, 500)")
                             
                         .when(header("CALLBACK").isEqualTo(BrickletMotionDetector.CALLBACK_DETECTION_CYCLE_ENDED))
-                            .to("tinkerforge://DualRelay?uid=kPu&method=setSelectedState(2, false)")
+                            .to("tinkerforge://DualRelay?uid=kPu&function=setSelectedState(2, false)")
                             
                         .endChoice()
                     .to("mock:result");
@@ -57,7 +57,6 @@ public class TinkerforgeIntegrationTest extends CamelTestSupport {
     public void testTinkerforge() throws Exception {
         MockEndpoint mock = getMockEndpoint("mock:result");
         mock.expectedMinimumMessageCount(2);       
-        Thread.sleep(60000);
         assertMockEndpointsSatisfied();
     }
     
