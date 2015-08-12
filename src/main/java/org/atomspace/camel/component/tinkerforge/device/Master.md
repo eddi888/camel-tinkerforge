@@ -146,6 +146,9 @@
 | getEthernetAuthenticationSecret |                                          |
 | setWifiAuthenticationSecret |                                  secret2 |
 | getWifiAuthenticationSecret |                                          |
+|      enableStatusLED |                                          |
+|     disableStatusLED |                                          |
+|   isStatusLEDEnabled |                                          |
 | getProtocol1BrickletName |                                    port4 |
 |   getChipTemperature |                                          |
 |                reset |                                          |

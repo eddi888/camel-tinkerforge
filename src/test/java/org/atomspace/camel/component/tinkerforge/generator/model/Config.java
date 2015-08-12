@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Config {
     public String category;
-    public String description;
+    public Description description;
     public String[] name;
     public List<Packet> packets = new ArrayList<Packet>();
     

@@ -31,8 +31,8 @@ limitations under the License.
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <camel-version>2.15-SNAPSHOT</camel-version>
-        <tinkerforge-version>2.1.2</tinkerforge-version>
+        <camel-version>2.15.0</camel-version>
+        <tinkerforge-version>2.1.5</tinkerforge-version>
     </properties>
 
     <repositories>

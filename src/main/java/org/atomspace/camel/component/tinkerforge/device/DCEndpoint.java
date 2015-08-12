@@ -173,6 +173,18 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
                 response = device.getCurrentVelocityPeriod();
                 break;
 
+            case "enableStatusLed":
+                device.enableStatusLED();
+                break;
+
+            case "disableStatusLed":
+                device.disableStatusLED();
+                break;
+
+            case "isStatusLedEnabled":
+                response = device.isStatusLEDEnabled();
+                break;
+
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
                         getValue(char.class, "port", m, getPort())

@@ -1,6 +1,9 @@
 {
     "category": "Bricklet",
-    "description": "Device for non-contact temperature sensing",
+    "description": {
+        "de": "Kontaktlose Objekttemperaturmessung zwischen -70\u00b0C und +380\u00b0C",
+        "en": "Measures contactless object temperature between -70\u00b0C and +380\u00b0C"
+    },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
@@ -47,8 +50,8 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die Objekttemperatur des Sensors zur\u00fcck, z.B. die Temperatur\nder Oberfl\u00e4che auf welche der Sensor zielt. Der Wertebereich ist von\n-700 bis 3800 und wird in \u00b0C/10 angegeben, z.B. bedeutet \nein Wert von 3001 eine gemessene Temperatur von 300,1 \u00b0C auf der Oberfl\u00e4che\ndes Objektes.\n\nDie Temperatur von unterschiedlichen Materialien ist abh\u00e4ngig von ihrem `Emissionsgrad\n<http://de.wikipedia.org/wiki/Emissionsgrad>`__. Der Emissionsgrad des Materials kann mit\n:func:`SetEmissivity` gesetzt werden.\n\nWenn die Objekttemperatur periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`ObjectTemperature` zu nutzen und die Periode mit \n:func:`SetObjectTemperatureCallbackPeriod` vorzugeben.\n",
-                    "en": "\nReturns the object temperature of the sensor, i.e. the temperature\nof the surface of the object the sensor is aimed at. The value\nhas a range of -700 to 3800 and is given in \u00b0C/10,\ne.g. a value of 3001 means that a temperature of 300.1 \u00b0C is measured\non the surface of the object.\n\nThe temperature of different materials is dependent on their `emissivity \n<http://en.wikipedia.org/wiki/Emissivity>`__. The emissivity of the material\ncan be set with :func:`SetEmissivity`.\n\nIf you want to get the object temperature periodically, it is recommended \nto use the callback :func:`ObjectTemperature` and set the period with \n:func:`SetObjectTemperatureCallbackPeriod`.\n"
+                    "de": "\nGibt die Objekttemperatur des Sensors zur\u00fcck, z.B. die Temperatur\nder Oberfl\u00e4che auf welche der Sensor zielt. Der Wertebereich ist von\n-700 bis 3800 und wird in \u00b0C/10 angegeben, z.B. bedeutet \nein Wert von 3001 eine gemessene Temperatur von 300,1 \u00b0C auf der Oberfl\u00e4che\ndes Objektes.\n\nDie Temperatur von unterschiedlichen Materialien ist abh\u00e4ngig von ihrem `Emissionsgrad\n<https://de.wikipedia.org/wiki/Emissionsgrad>`__. Der Emissionsgrad des Materials kann mit\n:func:`SetEmissivity` gesetzt werden.\n\nWenn die Objekttemperatur periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`ObjectTemperature` zu nutzen und die Periode mit \n:func:`SetObjectTemperatureCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the object temperature of the sensor, i.e. the temperature\nof the surface of the object the sensor is aimed at. The value\nhas a range of -700 to 3800 and is given in \u00b0C/10,\ne.g. a value of 3001 means that a temperature of 300.1 \u00b0C is measured\non the surface of the object.\n\nThe temperature of different materials is dependent on their `emissivity \n<https://en.wikipedia.org/wiki/Emissivity>`__. The emissivity of the material\ncan be set with :func:`SetEmissivity`.\n\nIf you want to get the object temperature periodically, it is recommended \nto use the callback :func:`ObjectTemperature` and set the period with \n:func:`SetObjectTemperatureCallbackPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -75,8 +78,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt den `Emissionsgrad <http://de.wikipedia.org/wiki/Emissionsgrad>`__,\nwelcher zur Berechnung der Oberfl\u00e4chentemperatur benutzt wird, wie von\n:func:`GetObjectTemperature` zur\u00fcckgegeben.\n\nDer Emissionsgrad wird normalerweise als Wert zwischen 0,0 und 1,0 angegeben.\nEine Liste von Emissionsgraden unterschiedlicher Materialien ist\n`hier <http://www.infrared-thermography.com/material.htm>`__ zu finden.\n\nDer Parameter von :func:`SetEmissivity` muss mit eine Faktor von 65535 (16-Bit)\nvorgegeben werden. Beispiel: Ein Emissionsgrad von 0,1 kann mit dem Wert\n6553 gesetzt werden, ein Emissionsgrad von 0,5 mit dem Wert 32767 und so weiter.\n\n.. note::\n Wenn eine exakte Messung der Objekttemperatur notwendig ist, ist es entscheidend\n eine exakten Emissionsgrad anzugeben.\n \nDer Standard Emissionsgrad ist 1,0 (Wert von 65535) und der minimale\nEmissionsgrad welcher der Sensor verarbeiten kann ist 0,1 (Wert von 6553).\n",
-                    "en": "\nSets the `emissivity <http://en.wikipedia.org/wiki/Emissivity>`__ that is\nused to calculate the surface temperature as returned by \n:func:`GetObjectTemperature`. \n\nThe emissivity is usually given as a value between 0.0 and 1.0. A list of\nemissivities of different materials can be found \n`here <http://www.infrared-thermography.com/material.htm>`__.\n\nThe parameter of :func:`SetEmissivity` has to be given with a factor of\n65535 (16-bit). For example: An emissivity of 0.1 can be set with the\nvalue 6553, an emissivity of 0.5 with the value 32767 and so on.\n\n.. note::\n If you need a precise measurement for the object temperature, it is\n absolutely crucial that you also provide a precise emissivity.\n\nThe default emissivity is 1.0 (value of 65535) and the minimum emissivity the\nsensor can handle is 0.1 (value of 6553).\n"
+                    "de": "\nSetzt den `Emissionsgrad <https://de.wikipedia.org/wiki/Emissionsgrad>`__,\nwelcher zur Berechnung der Oberfl\u00e4chentemperatur benutzt wird, wie von\n:func:`GetObjectTemperature` zur\u00fcckgegeben.\n\nDer Emissionsgrad wird normalerweise als Wert zwischen 0,0 und 1,0 angegeben.\nEine Liste von Emissionsgraden unterschiedlicher Materialien ist\n`hier <http://www.infrared-thermography.com/material.htm>`__ zu finden.\n\nDer Parameter von :func:`SetEmissivity` muss mit eine Faktor von 65535 (16-Bit)\nvorgegeben werden. Beispiel: Ein Emissionsgrad von 0,1 kann mit dem Wert\n6553 gesetzt werden, ein Emissionsgrad von 0,5 mit dem Wert 32767 und so weiter.\n\n.. note::\n Wenn eine exakte Messung der Objekttemperatur notwendig ist, ist es entscheidend\n eine exakten Emissionsgrad anzugeben.\n \nDer Standard Emissionsgrad ist 1,0 (Wert von 65535) und der minimale\nEmissionsgrad welcher der Sensor verarbeiten kann ist 0,1 (Wert von 6553).\n",
+                    "en": "\nSets the `emissivity <https://en.wikipedia.org/wiki/Emissivity>`__ that is\nused to calculate the surface temperature as returned by \n:func:`GetObjectTemperature`. \n\nThe emissivity is usually given as a value between 0.0 and 1.0. A list of\nemissivities of different materials can be found \n`here <http://www.infrared-thermography.com/material.htm>`__.\n\nThe parameter of :func:`SetEmissivity` has to be given with a factor of\n65535 (16-bit). For example: An emissivity of 0.1 can be set with the\nvalue 6553, an emissivity of 0.5 with the value 32767 and so on.\n\n.. note::\n If you need a precise measurement for the object temperature, it is\n absolutely crucial that you also provide a precise emissivity.\n\nThe default emissivity is 1.0 (value of 65535) and the minimum emissivity the\nsensor can handle is 0.1 (value of 6553).\n"
                 }
             ],
             "since_firmware": [
@@ -695,7 +698,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -863,6 +866,7 @@
     "name": [
         "TemperatureIR",
         "temperature_ir",
-        "Temperature IR"
+        "Temperature IR",
+        "Temperature IR Bricklet"
     ]
 }

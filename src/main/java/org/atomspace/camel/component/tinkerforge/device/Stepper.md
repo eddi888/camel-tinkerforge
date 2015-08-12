@@ -64,6 +64,9 @@
 |           getAllData |                                          |
 |     setAllDataPeriod |                                   period |
 |     getAllDataPeriod |                                          |
+|      enableStatusLED |                                          |
+|     disableStatusLED |                                          |
+|   isStatusLEDEnabled |                                          |
 | getProtocol1BrickletName |                                     port |
 |   getChipTemperature |                                          |
 |                reset |                                          |

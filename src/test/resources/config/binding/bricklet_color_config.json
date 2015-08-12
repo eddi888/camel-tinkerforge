@@ -1,6 +1,9 @@
 {
     "category": "Bricklet",
-    "description": "Device for measuring color (RGB value), illuminance and color temperature",
+    "description": {
+        "de": "Misst Farbe (RGB Wert), Beleuchtungsst\u00e4rke und Farbtemperatur",
+        "en": "Measures color (RGB value), illuminance and color temperature"
+    },
     "author": "Ishraq Ibne Ashraf <ishraq@tinkerforge.com>",
     "packets": [
         {
@@ -37,7 +40,7 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die gemessene Farbe des Sensors zur\u00fcck. Der Wertebereich ist von\n0 bis 65535.\n\nDie rot (r), gr\u00fcn (g), blau (b) and clear (c) werden mit vier\nunterschiedlichen Fotodioden gemessen. Diese sind Empfindlich\nin unterschiedlichen Wellenl\u00e4ngen:\n\n.. image:: /Images/Bricklets/bricklet_color_wavelength_chart_600.jpg\n   :scale: 100 %\n   :alt: Chart Responsivity / Wavelength\n   :align: center\n   :target: ../../_images/Bricklets/bricklet_color_wavelength_chart_600.jpg\n\nWenn die Farbe periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Color` zu nutzen und die Periode mit \n:func:`SetColorCallbackPeriod` vorzugeben.\n",
+                    "de": "\nGibt die gemessene Farbe des Sensors zur\u00fcck. Der Wertebereich ist von\n0 bis 65535.\n\nDie rot (r), gr\u00fcn (g), blau (b) und clear (c) werden mit vier\nunterschiedlichen Fotodioden gemessen. Diese sind Empfindlich\nin unterschiedlichen Wellenl\u00e4ngen:\n\n.. image:: /Images/Bricklets/bricklet_color_wavelength_chart_600.jpg\n   :scale: 100 %\n   :alt: Chart Responsivity / Wavelength\n   :align: center\n   :target: ../../_images/Bricklets/bricklet_color_wavelength_chart_600.jpg\n\nWenn die Farbe periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Color` zu nutzen und die Periode mit \n:func:`SetColorCallbackPeriod` vorzugeben.\n",
                     "en": "\nReturns the measured color of the sensor. The values\nhave a range of 0 to 65535.\n\nThe red (r), green (g), blue (b) and clear (c) colors are measured\nwith four different photodiodes that are responsive at different\nwavelengths:\n\n.. image:: /Images/Bricklets/bricklet_color_wavelength_chart_600.jpg\n   :scale: 100 %\n   :alt: Chart Responsivity / Wavelength\n   :align: center\n   :target: ../../_images/Bricklets/bricklet_color_wavelength_chart_600.jpg\n\nIf you want to get the color periodically, it is recommended \nto use the callback :func:`Color` and set the period with \n:func:`SetColorCallbackPeriod`.\n"
                 }
             ],
@@ -409,7 +412,7 @@
             "doc": [
                 "c",
                 {
-                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetColorCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Farbe des Sensors als RGBC\n\n:func:`Color` wird nur ausgel\u00f6st wenn sich die Farbe seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetColorCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Farbe des Sensors als RGBC.\n\n:func:`Color` wird nur ausgel\u00f6st wenn sich die Farbe seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
                     "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetColorCallbackPeriod`. The :word:`parameter` is the color\nof the sensor as RGBC.\n\n:func:`Color` is only triggered if the color has changed since the\nlast triggering.\n"
                 }
             ],
@@ -455,8 +458,8 @@
             "doc": [
                 "c",
                 {
-                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetColorCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Farbe des Sensors als RGBC.\n\n:func:`Color` wird nur ausgel\u00f6st wenn sich die Farbe seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
-                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetColorCallbackPeriod`. The :word:`parameter` is the color\nof the sensor as RGBC.\n\n:func:`Color` is only triggered if the color has changed since the\nlast triggering.\n"
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetColorCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist die Farbe des Sensors als RGBC.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetColorCallbackThreshold` is reached.\nThe :word:`parameter` is the color\nof the sensor as RGBC.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -920,7 +923,7 @@
                 "c",
                 {
                     "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetIlluminanceCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Beleuchtungsst\u00e4rke des Sensors.\nSiehe :func:`GetIlluminance` f\u00fcr eine Erkl\u00e4rung wie dieser zu interpretieren ist.\n\n:func:`Illuminance` wird nur ausgel\u00f6st wenn sich die Beleuchtungsst\u00e4rke seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
-                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetIlluminanceCallbackPeriod`. The :word:`parameter` is the illuminance.\nSee :func:`GetIlluminance` for how to interrept this value.\n\n:func:`Illuminance` is only triggered if the illuminance has changed since the\nlast triggering.\n"
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetIlluminanceCallbackPeriod`. The :word:`parameter` is the illuminance.\nSee :func:`GetIlluminance` for how to interpret this value.\n\n:func:`Illuminance` is only triggered if the illuminance has changed since the\nlast triggering.\n"
                 }
             ],
             "since_firmware": [
@@ -975,7 +978,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -1143,6 +1146,7 @@
     "name": [
         "Color",
         "color",
-        "Color"
+        "Color",
+        "Color Bricklet"
     ]
 }

@@ -1,6 +1,9 @@
 {
     "category": "Bricklet",
-    "description": "Device for sensing air pressure and altitude changes",
+    "description": {
+        "de": "Misst Luftdruck und H\u00f6hen\u00e4nderungen",
+        "en": "Measures air pressure and altitude changes"
+    },
     "author": "Matthias Bolte <matthias@tinkerforge.com>",
     "packets": [
         {
@@ -527,8 +530,8 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nSetzt den Referenzluftdruck in mbar/1000 f\u00fcr die H\u00f6henberechnung. Wenn der\naktuelle Luftdruckwert als Referenz \u00fcbergeben wird dann gibt die H\u00f6henberechnung\n0cm aus. Als Abk\u00fcrzung kann auch 0 \u00fcbergeben werden, dadurch wird der\nReferenzluftdruck intern auf den aktuellen Luftdruckwert gesetzt.\n\nWohl bekannte Referenzluftdruckwerte, die in der Luftfahrt verwendet werden, sind\n`QNH <http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QNH>`__ und\n`QFE <http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QFE>`__\naus dem Q-Schl\u00fcssel.\n\nDer Standardwert ist 1013,25mbar.\n",
-                    "en": "\nSets the reference air pressure in mbar/1000 for the altitude calculation.\nSetting the reference to the current air pressure results in a calculated\naltitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as\nreference.\n\nWell known reference values are the Q codes\n`QNH <http://en.wikipedia.org/wiki/QNH>`__ and\n`QFE <http://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__\nused in aviation.\n\nThe default value is 1013.25mbar.\n"
+                    "de": "\nSetzt den Referenzluftdruck in mbar/1000 f\u00fcr die H\u00f6henberechnung. Wenn der\naktuelle Luftdruckwert als Referenz \u00fcbergeben wird dann gibt die H\u00f6henberechnung\n0cm aus. Als Abk\u00fcrzung kann auch 0 \u00fcbergeben werden, dadurch wird der\nReferenzluftdruck intern auf den aktuellen Luftdruckwert gesetzt.\n\nWohl bekannte Referenzluftdruckwerte, die in der Luftfahrt verwendet werden, sind\n`QNH <https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QNH>`__ und\n`QFE <https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QFE>`__\naus dem Q-Schl\u00fcssel.\n\nDer Standardwert ist 1013,25mbar.\n",
+                    "en": "\nSets the reference air pressure in mbar/1000 for the altitude calculation.\nSetting the reference to the current air pressure results in a calculated\naltitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as\nreference.\n\nWell known reference values are the Q codes\n`QNH <https://en.wikipedia.org/wiki/QNH>`__ and\n`QFE <https://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__\nused in aviation.\n\nThe default value is 1013.25mbar.\n"
                 }
             ],
             "since_firmware": [
@@ -735,8 +738,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt die unterschiedlichen Averaging-Parameter (Mittelwertbildung).\nEs ist m\u00f6glich die L\u00e4nge des Mittelwerts f\u00fcr Temperatur und\nLuftdruck anzugeben. Zus\u00e4tzlich gibt kann die L\u00e4nge f\u00fcr\neinen \n`gleitenden Mittelwert <http://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__ \nf\u00fcr den Luftdruck angegeben werden. Der gleitende Mittelwert wird\nmit den Werten des normalen Mittelwerts berechnet. Es gibt keinen\ngleitenden Mittelwert f\u00fcr die Temperatur.\n\nDie maximale L\u00e4nge des Luftdruckmittelwerts ist 10, des\nTemperaturmittelwerts 255 und des gleitenden Mittelwertes 25.\n\nWenn alle drei Parameter auf 0 gesetzt werden, ist das Averaging\nkomplett aus. In diesem Fall gibt es viel Rauschen auf den Daten,\nallerdings sind die Daten dann ohne Verz\u00f6gerung. Wir empfehlen\ndas Averaging auszustellen wenn die Daten des Barometer Bricklets\nzusammen mit anderen Sensordaten fusioniert werden sollen.\n\nDer Standardwert ist 10 f\u00fcr die normalen Mittelwerte und 25 f\u00fcr\nden gleitenden Mittelwert\n",
-                    "en": "\nSets the different averaging parameters. It is possible to set\nthe length of a normal averaging for the temperature and pressure,\nas well as an additional length of a \n`moving average <http://en.wikipedia.org/wiki/Moving_average>`__ \nfor the pressure. The moving average is calculated from the normal \naverages.  There is no moving average for the temperature.\n\nThe maximum length for the pressure average is 10, for the\ntemperature average is 255 and for the moving average is 25.\n\nSetting the all three parameters to 0 will turn the averaging\ncompletely off. If the averaging is off, there is lots of noise\non the data, but the data is without delay. Thus we recommend\nto turn the averaging off if the Barometer Bricklet data is\nto be used for sensor fusion with other sensors.\n\nThe default values are 10 for the normal averages and 25 for the\nmoving average.\n"
+                    "de": "\nSetzt die unterschiedlichen Averaging-Parameter (Mittelwertbildung).\nEs ist m\u00f6glich die L\u00e4nge des Mittelwerts f\u00fcr Temperatur und\nLuftdruck anzugeben. Zus\u00e4tzlich gibt kann die L\u00e4nge f\u00fcr\neinen \n`gleitenden Mittelwert <https://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__\nf\u00fcr den Luftdruck angegeben werden. Der gleitende Mittelwert wird\nmit den Werten des normalen Mittelwerts berechnet. Es gibt keinen\ngleitenden Mittelwert f\u00fcr die Temperatur.\n\nDie maximale L\u00e4nge des Luftdruckmittelwerts ist 10, des\nTemperaturmittelwerts 255 und des gleitenden Mittelwertes 25.\n\nWenn alle drei Parameter auf 0 gesetzt werden, ist das Averaging\nkomplett aus. In diesem Fall gibt es viel Rauschen auf den Daten,\nallerdings sind die Daten dann ohne Verz\u00f6gerung. Wir empfehlen\ndas Averaging auszustellen wenn die Daten des Barometer Bricklets\nzusammen mit anderen Sensordaten fusioniert werden sollen.\n\nDer Standardwert ist 10 f\u00fcr die normalen Mittelwerte und 25 f\u00fcr\nden gleitenden Mittelwert\n",
+                    "en": "\nSets the different averaging parameters. It is possible to set\nthe length of a normal averaging for the temperature and pressure,\nas well as an additional length of a \n`moving average <https://en.wikipedia.org/wiki/Moving_average>`__\nfor the pressure. The moving average is calculated from the normal \naverages.  There is no moving average for the temperature.\n\nThe maximum length for the pressure average is 10, for the\ntemperature average is 255 and for the moving average is 25.\n\nSetting the all three parameters to 0 will turn the averaging\ncompletely off. If the averaging is off, there is lots of noise\non the data, but the data is without delay. Thus we recommend\nto turn the averaging off if the Barometer Bricklet data is\nto be used for sensor fusion with other sensors.\n\nThe default values are 10 for the normal averages and 25 for the\nmoving average.\n"
                 }
             ],
             "since_firmware": [
@@ -803,7 +806,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -971,6 +974,7 @@
     "name": [
         "Barometer",
         "barometer",
-        "Barometer"
+        "Barometer",
+        "Barometer Bricklet"
     ]
 }

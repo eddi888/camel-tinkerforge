@@ -75,10 +75,19 @@ public class Generate {
         //createClassBundle("device2", new File("src/test/resources/config/binding/bricklet_io4_config.js"), endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate) ;
         File[] configFiles = new File("src/test/resources/config/binding").listFiles();
         for (File file : configFiles) {
-            if(file.toString().endsWith("brick_red_config.json") || file.toString().endsWith("bricklet_heart_rate_config.json") ){
+            if(file.toString().endsWith("bricklet_ac_current_config.json") 
+                    || file.toString().endsWith("bricklet_co2_config.json")
+                    || file.toString().endsWith("bricklet_gas_detector_config.json")
+                    || file.toString().endsWith("bricklet_heart_rate_config.json")
+                    || file.toString().endsWith("bricklet_oled_128x64_config.json")
+                    || file.toString().endsWith("bricklet_oled_64x48_config.json")
+                    || file.toString().endsWith("bricklet_ozone_config.json")
+                    || file.toString().endsWith("brick_red_config.json")
+                ){
                 
-            }else if(file.toString().endsWith("js")){
+            }else if(file.toString().endsWith("json")){
                 createClassBundle("org.atomspace.camel.component.tinkerforge", file, endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate, cameldocTemplate) ;
+                System.out.println("GENERATE SOURCES for "+file.getAbsolutePath());
             }
         }
         

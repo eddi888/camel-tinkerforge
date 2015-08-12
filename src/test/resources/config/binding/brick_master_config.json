@@ -1,6 +1,9 @@
 {
     "category": "Brick",
-    "description": "Device for controlling Stacks and four Bricklets",
+    "description": {
+        "de": "Grundlage um Stapel zu bauen und bietet 4 Bricklet Anschl\u00fcsse",
+        "en": "Basis to build stacks and has 4 Bricklet ports"
+    },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
@@ -1272,8 +1275,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt die Verschl\u00fcsselung der WIFI Extension. Der erste Parameter ist der\nTyp der Verschl\u00fcsselung. M\u00f6gliche Werte sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"WPA/WPA2\"\n \"1\", \"WPA Enterprise (EAP-FAST, EAP-TLS, EAP-TTLS, PEAP)\"\n \"2\", \"WEP\"\n \"3\", \"Keine Verschl\u00fcsselung\"\n\nDer ``key`` hat eine maximale L\u00e4nge von 50 Zeichen und wird benutzt\nfalls ``encryption`` auf 0 oder 2 (WPA/WPA2 oder WEP) gesetzt ist. Andernfalls\nwird dieser Parameter ignoriert.\n\nF\u00fcr WPA/WPA2 muss der Schl\u00fcssel mindestens 8 Zeichen lang sein. Wenn ein\nSchl\u00fcssel mit mehr als 50 Zeichen gesetzt werden soll, kann\n:func:`SetLongWifiKey` genutzt werden.\n\nF\u00fcr WEP muss der Schl\u00fcssel entweder 10 oder 26 hexadezimale Zeichen lang sein.\nEs ist m\u00f6glich den ``key_index`` zu setzen (1-4). Fall der ``key_index``\nunbekannt ist, ist er wahrscheinlich 1.\n\nWenn WPA Enterprise als ``encryption`` gew\u00e4hlt wird, m\u00fcssen ``eap_options`` und\ndie L\u00e4nge der Zertifikate gesetzt werden. Die L\u00e4nge wird in Byte angegeben\nund die Zertifikate selbst k\u00f6nnen mit :func:`SetWifiCertificate` \u00fcbertragen\nwerden. Die ``eap_options`` bestehen aus Outer Authentication (Bits 1-2),\nInner Authentication (Bit 3) und Certificate Type (Bits 4-5):\n\n.. csv-table::\n :header: \"Option\", \"Bits\", \"Beschreibung\"\n :widths: 10, 10, 80\n\n \"Outer Authentication\", \"1-2\", \"0=EAP-FAST, 1=EAP-TLS, 2=EAP-TTLS, 3=EAP-PEAP\"\n \"Inner Authentication\", \"3\", \"0=EAP-MSCHAP, 1=EAP-GTC\"\n \"Certificate Type\", \"4-5\", \"0=CA Certificate, 1=Client Certificate, 2=Private Key\"\n\nBeispiel f\u00fcr EAP-TTLS + EAP-GTC + Private Key: ``option = 2 | (1 << 2) | (2 << 3)``.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet werden.\n\nWir empfehlen den Brick Viewer zu nutzen um die WIFI Extension Verschl\u00fcsselung\nzu konfigurieren.\n",
-                    "en": "\nSets the encryption of the WIFI Extension. The first parameter is the\ntype of the encryption. Possible values are:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"WPA/WPA2\"\n \"1\", \"WPA Enterprise (EAP-FAST, EAP-TLS, EAP-TTLS, PEAP)\"\n \"2\", \"WEP\"\n \"3\", \"No Encryption\"\n\nThe ``key`` has a max length of 50 characters and is used if ``encryption``\nis set to 0 or 2 (WPA/WPA2 or WEP). Otherwise the value is ignored.\n\nFor WPA/WPA2 the key has to be at least 8 characters long. If you want to set\na key with more than 50 characters, see :func:`SetLongWifiKey`.\n\nFor WEP the key has to be either 10 or 26 hexadecimal digits long. It is\npossible to set the WEP ``key_index`` (1-4). If you don't know your\n``key_index``, it is likely 1.\n\nIf you choose WPA Enterprise as encryption, you have to set ``eap_options`` and\nthe length of the certificates (for other encryption types these parameters\nare ignored). The certificate length are given in byte and the certificates\nthemselves can be set with :func:`SetWifiCertificate`. ``eap_options`` consist\nof the outer authentication (bits 1-2), inner authentication (bit 3) and\ncertificate type (bits 4-5):\n\n.. csv-table::\n :header: \"Option\", \"Bits\", \"Description\"\n :widths: 20, 10, 70\n\n \"outer authentication\", \"1-2\", \"0=EAP-FAST, 1=EAP-TLS, 2=EAP-TTLS, 3=EAP-PEAP\"\n \"inner authentication\", \"3\", \"0=EAP-MSCHAP, 1=EAP-GTC\"\n \"certificate type\", \"4-5\", \"0=CA Certificate, 1=Client Certificate, 2=Private Key\"\n\nExample for EAP-TTLS + EAP-GTC + Private Key: ``option = 2 | (1 << 2) | (2 << 3)``.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the WIFI encryption.\n"
+                    "de": "\nSetzt die Verschl\u00fcsselung der WIFI Extension. Der erste Parameter ist der\nTyp der Verschl\u00fcsselung. M\u00f6gliche Werte sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 90\n\n \"0\", \"WPA/WPA2\"\n \"1\", \"WPA Enterprise (EAP-FAST, EAP-TLS, EAP-TTLS, PEAP)\"\n \"2\", \"WEP\"\n \"3\", \"Keine Verschl\u00fcsselung\"\n\nDer ``key`` hat eine maximale L\u00e4nge von 50 Zeichen und wird benutzt\nfalls ``encryption`` auf 0 oder 2 (WPA/WPA2 oder WEP) gesetzt ist. Andernfalls\nwird dieser Parameter ignoriert.\n\nF\u00fcr WPA/WPA2 muss der Schl\u00fcssel mindestens 8 Zeichen lang sein. Wenn ein\nSchl\u00fcssel mit mehr als 50 Zeichen gesetzt werden soll, kann\n:func:`SetLongWifiKey` genutzt werden.\n\nF\u00fcr WEP muss der Schl\u00fcssel entweder 10 oder 26 hexadezimale Zeichen lang sein.\nEs ist m\u00f6glich den ``key_index`` zu setzen (1-4). Fall der ``key_index``\nunbekannt ist, ist er wahrscheinlich 1.\n\nWenn WPA Enterprise als ``encryption`` gew\u00e4hlt wird, m\u00fcssen ``eap_options`` und\ndie L\u00e4nge der Zertifikate gesetzt werden. Die L\u00e4nge wird in Byte angegeben\nund die Zertifikate selbst k\u00f6nnen mit :func:`SetWifiCertificate` \u00fcbertragen\nwerden. Die ``eap_options`` bestehen aus Outer Authentication (Bits 1-2),\nInner Authentication (Bit 3) und Certificate Type (Bits 4-5):\n\n.. csv-table::\n :header: \"Option\", \"Bits\", \"Beschreibung\"\n :widths: 10, 10, 80\n\n \"Outer Authentication\", \"1-2\", \"0=EAP-FAST, 1=EAP-TLS, 2=EAP-TTLS, 3=EAP-PEAP\"\n \"Inner Authentication\", \"3\", \"0=EAP-MSCHAP, 1=EAP-GTC\"\n \"Certificate Type\", \"4-5\", \"0=CA Certificate, 1=Client Certificate, 2=Private Key\"\n\nBeispiel f\u00fcr EAP-TTLS + EAP-GTC + Private Key: ``option = 2 | (1 << 2) | (2 << 3)``.\n\nDie Werte sind im EEPROM gespeichert und werden nur beim Start angewandt.\nDas bedeutet der Master Brick muss nach einer Konfiguration neu gestartet werden.\n\nWir empfehlen den Brick Viewer zu nutzen um die WLAN Verschl\u00fcsselung\nzu konfigurieren.\n",
+                    "en": "\nSets the encryption of the WIFI Extension. The first parameter is the\ntype of the encryption. Possible values are:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 90\n\n \"0\", \"WPA/WPA2\"\n \"1\", \"WPA Enterprise (EAP-FAST, EAP-TLS, EAP-TTLS, PEAP)\"\n \"2\", \"WEP\"\n \"3\", \"No Encryption\"\n\nThe ``key`` has a max length of 50 characters and is used if ``encryption``\nis set to 0 or 2 (WPA/WPA2 or WEP). Otherwise the value is ignored.\n\nFor WPA/WPA2 the key has to be at least 8 characters long. If you want to set\na key with more than 50 characters, see :func:`SetLongWifiKey`.\n\nFor WEP the key has to be either 10 or 26 hexadecimal digits long. It is\npossible to set the WEP ``key_index`` (1-4). If you don't know your\n``key_index``, it is likely 1.\n\nIf you choose WPA Enterprise as encryption, you have to set ``eap_options`` and\nthe length of the certificates (for other encryption types these parameters\nare ignored). The certificate length are given in byte and the certificates\nthemselves can be set with :func:`SetWifiCertificate`. ``eap_options`` consist\nof the outer authentication (bits 1-2), inner authentication (bit 3) and\ncertificate type (bits 4-5):\n\n.. csv-table::\n :header: \"Option\", \"Bits\", \"Description\"\n :widths: 20, 10, 70\n\n \"outer authentication\", \"1-2\", \"0=EAP-FAST, 1=EAP-TLS, 2=EAP-TTLS, 3=EAP-PEAP\"\n \"inner authentication\", \"3\", \"0=EAP-MSCHAP, 1=EAP-GTC\"\n \"certificate type\", \"4-5\", \"0=CA Certificate, 1=Client Certificate, 2=Private Key\"\n\nExample for EAP-TTLS + EAP-GTC + Private Key: ``option = 2 | (1 << 2) | (2 << 3)``.\n\nThe values are stored in the EEPROM and only applied on startup. That means\nyou have to restart the Master Brick after configuration.\n\nIt is recommended to use the Brick Viewer to set the Wi-Fi encryption.\n"
                 }
             ],
             "since_firmware": [
@@ -1547,8 +1550,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nAktualisiert den WIFI Status (siehe :func:`GetWifiStatus`). Um den Status\nvom WIFI Modul zu lesen, muss der Master Brick vom Datenmodus in den\nKommandomodus und wieder zur\u00fcck wechseln. Dieser Wechsel und das eigentliche\nAuslesen ist leider zeitaufw\u00e4ndig. Dass hei\u00dft, es dauert ein paar ms bis der\nStapel mit aufgesteckter WIFI Extension wieder reagiert nachdem die\nFunktion aufgerufen wurde.\n",
-                    "en": "\nRefreshes the WIFI status (see :func:`GetWifiStatus`). To read the status\nof the WIFI module, the Master Brick has to change from data mode to\ncommand mode and back. This transaction and the readout itself is\nunfortunately time consuming. This means, that it might take some ms\nuntil the stack with attached WIFI Extension reacts again after this\nfunction is called.\n"
+                    "de": "\nAktualisiert den WLAN Status (siehe :func:`GetWifiStatus`). Um den Status\nvom WLAN Modul zu lesen, muss der Master Brick vom Datenmodus in den\nKommandomodus und wieder zur\u00fcck wechseln. Dieser Wechsel und das eigentliche\nAuslesen ist leider zeitaufw\u00e4ndig. Dass hei\u00dft, es dauert ein paar ms bis der\nStapel mit aufgesteckter WIFI Extension wieder reagiert nachdem die\nFunktion aufgerufen wurde.\n",
+                    "en": "\nRefreshes the Wi-Fi status (see :func:`GetWifiStatus`). To read the status\nof the Wi-Fi module, the Master Brick has to change from data mode to\ncommand mode and back. This transaction and the readout itself is\nunfortunately time consuming. This means, that it might take some ms\nuntil the stack with attached WIFI Extension reacts again after this\nfunction is called.\n"
                 }
             ],
             "since_firmware": [
@@ -1755,8 +1758,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt Informationen \u00fcber denn WIFI Empfangsbuffer zur\u00fcck. Der WIFI\nEmpfangsbuffer hat eine maximale Gr\u00f6\u00dfe von 1500 Byte und falls zu viele\nDaten \u00fcbertragen werden, kann er \u00fcberlaufen.\n\nDie R\u00fcckgabewerte sind die Anzahl der Overflows, die Low-Watermark\n(d.h. die kleinste Anzahl an Byte die je noch frei waren im Buffer) und\ndie Anzahl der im Moment verwendeten Bytes im Buffer.\n\nEs sollte immer versucht werden den Buffer leer zu halten, andernfalls\nist mit einer permanenten Latenz zu rechnen. Eine gute Daumenregel ist,\nnicht mehr als 1000 Nachrichten pro Sekunde zu verschicken.\n\nDabei sollten am besten nie mehr als 50 Nachrichten auf einmal ohne \nPausen gesendet werden.\n",
-                    "en": "\nReturns informations about the WIFI receive buffer. The WIFI\nreceive buffer has a max size of 1500 byte and if data is transfered\ntoo fast, it might overflow.\n\nThe return values are the number of overflows, the low watermark \n(i.e. the smallest number of bytes that were free in the buffer) and\nthe bytes that are currently used.\n\nYou should always try to keep the buffer empty, otherwise you will\nhave a permanent latency. A good rule of thumb is, that you can transfer\n1000 messages per second without problems.\n\nTry to not send more then 50 messages at a time without any kind of\nbreak between them.\n"
+                    "de": "\nGibt Informationen \u00fcber denn WLAN Empfangsbuffer zur\u00fcck. Der WLAN\nEmpfangsbuffer hat eine maximale Gr\u00f6\u00dfe von 1500 Byte und falls zu viele\nDaten \u00fcbertragen werden, kann er \u00fcberlaufen.\n\nDie R\u00fcckgabewerte sind die Anzahl der Overflows, die Low-Watermark\n(d.h. die kleinste Anzahl an Byte die je noch frei waren im Buffer) und\ndie Anzahl der im Moment verwendeten Bytes im Buffer.\n\nEs sollte immer versucht werden den Buffer leer zu halten, andernfalls\nist mit einer permanenten Latenz zu rechnen. Eine gute Daumenregel ist,\nnicht mehr als 1000 Nachrichten pro Sekunde zu verschicken.\n\nDabei sollten am besten nie mehr als 50 Nachrichten auf einmal ohne \nPausen gesendet werden.\n",
+                    "en": "\nReturns informations about the Wi-Fi receive buffer. The Wi-Fi\nreceive buffer has a max size of 1500 byte and if data is transfered\ntoo fast, it might overflow.\n\nThe return values are the number of overflows, the low watermark \n(i.e. the smallest number of bytes that were free in the buffer) and\nthe bytes that are currently used.\n\nYou should always try to keep the buffer empty, otherwise you will\nhave a permanent latency. A good rule of thumb is, that you can transfer\n1000 messages per second without problems.\n\nTry to not send more then 50 messages at a time without any kind of\nbreak between them.\n"
                 }
             ],
             "since_firmware": [
@@ -1881,8 +1884,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die USB Spannung in mV zur\u00fcck.\n",
-                    "en": "\nReturns the USB voltage in mV.\n"
+                    "de": "\nGibt die USB Spannung in mV zur\u00fcck. Funktioniert nicht mit Hardware Version 2.1.\n",
+                    "en": "\nReturns the USB voltage in mV. Does not work with hardware version 2.1.\n"
                 }
             ],
             "since_firmware": [
@@ -1909,8 +1912,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt einen langen WIFI Schl\u00fcssel (bis zu 63 Zeichen, mindestens 8 Zeichen) f\u00fcr\nWPA Verschl\u00fcsselung. Dieser Schl\u00fcssel wird genutzt, wenn der Schl\u00fcssel in\n:func:`SetWifiEncryption` auf \"-\" gesetzt wird. Im alten Protokoll war\nein Payload der Gr\u00f6\u00dfe 63 nicht m\u00f6glich, dadurch wurde die maximale\nSchl\u00fcssell\u00e4nge auf 50 gesetzt. \n\nMit dem neuen Protokoll ist die volle\nSchl\u00fcssell\u00e4nge m\u00f6glich. Da wir keine API brechen wollten, wurde diese\nFunktion zus\u00e4tzlich hinzugef\u00fcgt.\n",
-                    "en": "\nSets a long WIFI key (up to 63 chars, at least 8 chars) for WPA encryption.\nThis key will be used\nif the key in :func:`SetWifiEncryption` is set to \"-\". In the old protocol,\na payload of size 63 was not possible, so the maximum key length was 50 chars.\n\nWith the new protocol this is possible, since we didn't want to break API,\nthis function was added additionally.\n"
+                    "de": "\nSetzt einen langen WLAN Schl\u00fcssel (bis zu 63 Zeichen, mindestens 8 Zeichen) f\u00fcr\nWPA Verschl\u00fcsselung. Dieser Schl\u00fcssel wird genutzt, wenn der Schl\u00fcssel in\n:func:`SetWifiEncryption` auf \"-\" gesetzt wird. Im alten Protokoll war\nein Payload der Gr\u00f6\u00dfe 63 nicht m\u00f6glich, dadurch wurde die maximale\nSchl\u00fcssell\u00e4nge auf 50 gesetzt. \n\nMit dem neuen Protokoll ist die volle\nSchl\u00fcssell\u00e4nge m\u00f6glich. Da wir keine API brechen wollten, wurde diese\nFunktion zus\u00e4tzlich hinzugef\u00fcgt.\n",
+                    "en": "\nSets a long Wi-Fi key (up to 63 chars, at least 8 chars) for WPA encryption.\nThis key will be used\nif the key in :func:`SetWifiEncryption` is set to \"-\". In the old protocol,\na payload of size 63 was not possible, so the maximum key length was 50 chars.\n\nWith the new protocol this is possible, since we didn't want to break API,\nthis function was added additionally.\n"
                 }
             ],
             "since_firmware": [
@@ -2727,8 +2730,8 @@
             "doc": [
                 "c",
                 {
-                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetUSBVoltageCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die USB Spannung in mV.\n\n:func:`USBVoltage` wird nur ausgel\u00f6st wenn sich die USB Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
-                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetUSBVoltageCallbackPeriod`. The :word:`parameter` is the USB voltage\nin mV.\n\n:func:`USBVoltage` is only triggered if the USB voltage has changed since the\nlast triggering.\n"
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetUSBVoltageCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die USB Spannung in mV.\n\n:func:`USBVoltage` wird nur ausgel\u00f6st wenn sich die USB Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nFunktioniert nicht mit Hardware Version 2.1.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetUSBVoltageCallbackPeriod`. The :word:`parameter` is the USB voltage\nin mV.\n\n:func:`USBVoltage` is only triggered if the USB voltage has changed since the\nlast triggering.\n\nDoes not work with hardware version 2.1.\n"
                 }
             ],
             "since_firmware": [
@@ -3303,7 +3306,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -3397,6 +3400,76 @@
             "is_virtual": true,
             "since_firmware": null,
             "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EnableStatusLED",
+                "enable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nEnables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                2
+            ],
+            "function_id": 238,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "DisableStatusLED",
+                "disable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDeaktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nDisables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                2
+            ],
+            "function_id": 239,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsStatusLEDEnabled",
+                "is_status_led_enabled"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Status LED aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if the status LED is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                2
+            ],
+            "function_id": 240,
             "type": "function"
         },
         {
@@ -3566,6 +3639,7 @@
     "name": [
         "Master",
         "master",
-        "Master"
+        "Master",
+        "Master Brick"
     ]
 }

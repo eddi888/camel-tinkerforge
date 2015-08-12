@@ -1,6 +1,9 @@
 {
     "category": "Brick",
-    "description": "Device for sensing acceleration, magnetic field and angular velocity",
+    "description": {
+        "de": "Voll ausgestattetes AHRS mit 9 Freiheitsgraden",
+        "en": "Full fledged AHRS with 9 degrees of freedom"
+    },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
@@ -71,7 +74,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt das kalibrierte magnetische Feld des Magnetometers mit den X, Y und\nZ Komponenten in mG zur\u00fcck (Milligauss oder Nanotesla).\n\nWenn das magnetische Feld periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`MagneticField` zu nutzen und die Periode mit :func:`SetMagneticFieldPeriod`\nvorzugeben.\n",
+                    "de": "\nGibt das kalibrierte magnetische Feld des Magnetometers mit den X-, Y- und\nZ-Komponenten in mG zur\u00fcck (Milligauss oder Nanotesla).\n\nWenn das magnetische Feld periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`MagneticField` zu nutzen und die Periode mit :func:`SetMagneticFieldPeriod`\nvorzugeben.\n",
                     "en": "\nReturns the calibrated magnetic field from the magnetometer for the \nx, y and z axis in mG (Milligauss or Nanotesla).\n\nIf you want to get the magnetic field periodically, it is recommended \nto use the callback :func:`MagneticField` and set the period with \n:func:`SetMagneticFieldPeriod`.\n"
                 }
             ],
@@ -111,7 +114,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die kalibrierten Winkelgeschwindigkeiten des Gyroskops f\u00fcr die X, Y und\nZ-Achse in \u00b0/14,375s zur\u00fcck. (Um den Wert in \u00b0/s zu erhalten ist es notwendig\ndurch 14,375 zu teilen)\n\nWenn die Winkelgeschwindigkeiten periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`AngularVelocity` zu nutzen und die Periode mit\n:func:`SetAngularVelocityPeriod` vorzugeben.\n",
+                    "de": "\nGibt die kalibrierten Winkelgeschwindigkeiten des Gyroskops f\u00fcr die X-, Y- und\nZ-Achse in \u00b0/14,375s zur\u00fcck. (Um den Wert in \u00b0/s zu erhalten ist es notwendig\ndurch 14,375 zu teilen)\n\nWenn die Winkelgeschwindigkeiten periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`AngularVelocity` zu nutzen und die Periode mit\n:func:`SetAngularVelocityPeriod` vorzugeben.\n",
                     "en": "\nReturns the calibrated angular velocity from the gyroscope for the \nx, y and z axis in \u00b0/14.375s (you have to divide by 14.375 to\nget the value in \u00b0/s).\n\nIf you want to get the angular velocity periodically, it is recommended \nto use the callback :func:`AngularVelocity` and set the period with \n:func:`SetAngularVelocityPeriod`.\n"
                 }
             ],
@@ -233,8 +236,8 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die aktuelle Orientierung (Roll-, Nick-, Gierwinkel) des IMU Brick in Eulerwinkeln\n(in 1/100 \u00b0) zur\u00fcck. Zu beachten ist, dass Eulerwinkel immer eine \n`kardanische Blockade <http://de.wikipedia.org/wiki/Gimbal_Lock>`__ erfahren.\n\nWir empfehlen die Verwendung von Quaternionen stattdessen.\n\nDie Reihenfolge in denen die Orientierungswerte angewandt werden sollten,\nist Roll-, Nick-, Gierwinkel.\n\nWenn die Orientierung periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Orientation` zu nutzen und die Periode mit :func:`SetOrientationPeriod`\nvorzugeben.\n",
-                    "en": "\nReturns the current orientation (roll, pitch, yaw) of the IMU Brick as Euler\nangles in one-hundredth degree. Note that Euler angles always experience a\n`gimbal lock <http://en.wikipedia.org/wiki/Gimbal_lock>`__.\n\nWe recommend that you use quaternions instead.\n\nThe order to sequence in which the orientation values should be applied is \nroll, yaw, pitch. \n\nIf you want to get the orientation periodically, it is recommended \nto use the callback :func:`Orientation` and set the period with \n:func:`SetOrientationPeriod`.\n"
+                    "de": "\nGibt die aktuelle Orientierung (Roll-, Nick-, Gierwinkel) des IMU Brick in Eulerwinkeln\n(in 1/100 \u00b0) zur\u00fcck. Zu beachten ist, dass Eulerwinkel immer eine \n`kardanische Blockade <https://de.wikipedia.org/wiki/Gimbal_Lock>`__ erfahren.\n\nWir empfehlen die Verwendung von Quaternionen stattdessen.\n\nDie Reihenfolge in denen die Orientierungswerte angewandt werden sollten,\nist Roll-, Nick-, Gierwinkel.\n\nWenn die Orientierung periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Orientation` zu nutzen und die Periode mit :func:`SetOrientationPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the current orientation (roll, pitch, yaw) of the IMU Brick as Euler\nangles in one-hundredth degree. Note that Euler angles always experience a\n`gimbal lock <https://en.wikipedia.org/wiki/Gimbal_lock>`__.\n\nWe recommend that you use quaternions instead.\n\nThe order to sequence in which the orientation values should be applied is \nroll, yaw, pitch. \n\nIf you want to get the orientation periodically, it is recommended \nto use the callback :func:`Orientation` and set the period with \n:func:`SetOrientationPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -279,8 +282,8 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die aktuelle Orientierung (x, y, z, w) des IMU Brick als\n`Quaterinonen <http://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`__ zur\u00fcck.\n\nDie Umrechnung von Quaternionen in Eulerwinkel ist mit folgender Formel m\u00f6glich::\n\n xAngle = atan2(2*y*w - 2*x*z, 1 - 2*y*y - 2*z*z)\n yAngle = atan2(2*x*w - 2*y*z, 1 - 2*x*x - 2*z*z)\n zAngle =  asin(2*x*y + 2*z*w)\n\nEs ist auch m\u00f6glich unabh\u00e4ngige Winkel zu berechen. Yaw, Pitch und Roll\nin einem rechtsh\u00e4ndigen Fahrzeugkoordinatensystem nach DIN70000 k\u00f6nnen\nwie folgt berechnet werden::\n\n yaw   =  atan2(2*x*y + 2*w*z, w*w + x*x - y*y - z*z)\n pitch = -asin(2*w*y - 2*x*z)\n roll  = -atan2(2*y*z + 2*w*x, -w*w + x*x + y*y - z*z))\n \nDiese Umrechnung ist irreversibel aufgrund der \n`kardanischen Blockade <http://de.wikipedia.org/wiki/Gimbal_lock>`__.\n\nDie Umrechnung von Quaternionen in eine OpenGL Transformationsmatrix ist\nmit folgender Formel m\u00f6glich::\n\n matrix = [[1 - 2*(y*y + z*z),     2*(x*y - w*z),     2*(x*z + w*y), 0],\n           [    2*(x*y + w*z), 1 - 2*(x*x + z*z),     2*(y*z - w*x), 0],\n           [    2*(x*z - w*y),     2*(y*z + w*x), 1 - 2*(x*x + y*y), 0],\n           [                0,                 0,                 0, 1]]\n\nWenn die Quaternionen periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Quaternion` zu nutzen und die Periode mit :func:`SetQuaternionPeriod`\nvorzugeben.\n",
-                    "en": "\nReturns the current orientation (x, y, z, w) of the IMU as \n`quaternions <http://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`__.\n\nYou can go from quaternions to Euler angles with the following formula::\n\n xAngle = atan2(2*y*w - 2*x*z, 1 - 2*y*y - 2*z*z)\n yAngle = atan2(2*x*w - 2*y*z, 1 - 2*x*x - 2*z*z)\n zAngle =  asin(2*x*y + 2*z*w)\n\nThis process is not reversible, because of the \n`gimbal lock <http://en.wikipedia.org/wiki/Gimbal_lock>`__.\n\nIt is also possible to calculate independent angles. You can calculate \nyaw, pitch and roll in a right-handed vehicle coordinate system according to DIN70000\nwith::\n\n yaw   =  atan2(2*x*y + 2*w*z, w*w + x*x - y*y - z*z)\n pitch = -asin(2*w*y - 2*x*z)\n roll  = -atan2(2*y*z + 2*w*x, -w*w + x*x + y*y - z*z))\n\nConverting the quaternions to an OpenGL transformation matrix is\npossible with the following formula::\n\n matrix = [[1 - 2*(y*y + z*z),     2*(x*y - w*z),     2*(x*z + w*y), 0],\n           [    2*(x*y + w*z), 1 - 2*(x*x + z*z),     2*(y*z - w*x), 0],\n           [    2*(x*z - w*y),     2*(y*z + w*x), 1 - 2*(x*x + y*y), 0],\n           [                0,                 0,                 0, 1]]\n\nIf you want to get the quaternions periodically, it is recommended \nto use the callback :func:`Quaternion` and set the period with \n:func:`SetQuaternionPeriod`.\n"
+                    "de": "\nGibt die aktuelle Orientierung (x, y, z, w) des IMU Brick als\n`Quaterinonen <https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`__ zur\u00fcck.\n\nDie Umrechnung von Quaternionen in Eulerwinkel ist mit folgender Formel m\u00f6glich::\n\n xAngle = atan2(2*y*w - 2*x*z, 1 - 2*y*y - 2*z*z)\n yAngle = atan2(2*x*w - 2*y*z, 1 - 2*x*x - 2*z*z)\n zAngle =  asin(2*x*y + 2*z*w)\n\nEs ist auch m\u00f6glich unabh\u00e4ngige Winkel zu berechen. Yaw, Pitch und Roll\nin einem rechtsh\u00e4ndigen Fahrzeugkoordinatensystem nach DIN70000 k\u00f6nnen\nwie folgt berechnet werden::\n\n yaw   =  atan2(2*x*y + 2*w*z, w*w + x*x - y*y - z*z)\n pitch = -asin(2*w*y - 2*x*z)\n roll  = -atan2(2*y*z + 2*w*x, -w*w + x*x + y*y - z*z))\n \nDiese Umrechnung ist irreversibel aufgrund der \n`kardanischen Blockade <https://de.wikipedia.org/wiki/Gimbal_lock>`__.\n\nDie Umrechnung von Quaternionen in eine OpenGL Transformationsmatrix ist\nmit folgender Formel m\u00f6glich::\n\n matrix = [[1 - 2*(y*y + z*z),     2*(x*y - w*z),     2*(x*z + w*y), 0],\n           [    2*(x*y + w*z), 1 - 2*(x*x + z*z),     2*(y*z - w*x), 0],\n           [    2*(x*z - w*y),     2*(y*z + w*x), 1 - 2*(x*x + y*y), 0],\n           [                0,                 0,                 0, 1]]\n\nWenn die Quaternionen periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Quaternion` zu nutzen und die Periode mit :func:`SetQuaternionPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the current orientation (x, y, z, w) of the IMU as \n`quaternions <https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`__.\n\nYou can go from quaternions to Euler angles with the following formula::\n\n xAngle = atan2(2*y*w - 2*x*z, 1 - 2*y*y - 2*z*z)\n yAngle = atan2(2*x*w - 2*y*z, 1 - 2*x*x - 2*z*z)\n zAngle =  asin(2*x*y + 2*z*w)\n\nThis process is not reversible, because of the \n`gimbal lock <https://en.wikipedia.org/wiki/Gimbal_lock>`__.\n\nIt is also possible to calculate independent angles. You can calculate \nyaw, pitch and roll in a right-handed vehicle coordinate system according to DIN70000\nwith::\n\n yaw   =  atan2(2*x*y + 2*w*z, w*w + x*x - y*y - z*z)\n pitch = -asin(2*w*y - 2*x*z)\n roll  = -atan2(2*y*z + 2*w*x, -w*w + x*x + y*y - z*z))\n\nConverting the quaternions to an OpenGL transformation matrix is\npossible with the following formula::\n\n matrix = [[1 - 2*(y*y + z*z),     2*(x*y - w*z),     2*(x*z + w*y), 0],\n           [    2*(x*y + w*z), 1 - 2*(x*x + z*z),     2*(y*z - w*x), 0],\n           [    2*(x*z - w*y),     2*(y*z + w*x), 1 - 2*(x*x + y*y), 0],\n           [                0,                 0,                 0, 1]]\n\nIf you want to get the quaternions periodically, it is recommended \nto use the callback :func:`Quaternion` and set the period with \n:func:`SetQuaternionPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -1407,7 +1410,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -1501,6 +1504,76 @@
             "is_virtual": true,
             "since_firmware": null,
             "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EnableStatusLED",
+                "enable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nEnables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                1
+            ],
+            "function_id": 238,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "DisableStatusLED",
+                "disable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDeaktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nDisables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                1
+            ],
+            "function_id": 239,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsStatusLEDEnabled",
+                "is_status_led_enabled"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Status LED aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if the status LED is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                1
+            ],
+            "function_id": 240,
             "type": "function"
         },
         {
@@ -1670,6 +1743,7 @@
     "name": [
         "IMU",
         "imu",
-        "IMU"
+        "IMU",
+        "IMU Brick"
     ]
 }

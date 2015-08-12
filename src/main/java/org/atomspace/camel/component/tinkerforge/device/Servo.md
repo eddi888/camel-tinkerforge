@@ -73,6 +73,9 @@
 | enableVelocityReachedCallback |                                          |
 | disableVelocityReachedCallback |                                          |
 | isVelocityReachedCallbackEnabled |                                          |
+|      enableStatusLED |                                          |
+|     disableStatusLED |                                          |
+|   isStatusLEDEnabled |                                          |
 | getProtocol1BrickletName |                                     port |
 |   getChipTemperature |                                          |
 |                reset |                                          |

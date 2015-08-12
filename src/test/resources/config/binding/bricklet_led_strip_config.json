@@ -1,6 +1,9 @@
 {
     "category": "Bricklet",
-    "description": "Device to control up to 320 RGB LEDs",
+    "description": {
+        "de": "Steuert bis zu 320 RGB LEDs",
+        "en": "Controls up to 320 RGB LEDs"
+    },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
@@ -405,7 +408,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -573,6 +576,7 @@
     "name": [
         "LEDStrip",
         "led_strip",
-        "LED Strip"
+        "LED Strip",
+        "LED Strip Bricklet"
     ]
 }

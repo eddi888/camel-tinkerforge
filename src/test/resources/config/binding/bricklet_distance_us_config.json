@@ -1,6 +1,9 @@
 {
     "category": "Bricklet",
-    "description": "Device for sensing distance via ultrasound",
+    "description": {
+        "de": "Misst Entfernung zwischen 2cm und 400cm mit Ultraschall",
+        "en": "Measures distance between 2cm and 400cm with ultrasound"
+    },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
@@ -357,8 +360,8 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt die L\u00e4nge eines gleitenden Mittelwerts f\u00fcr den Entfernungswert.\n\nWenn die L\u00e4nge auf 0 gesetzt wird, ist das Averaging komplett aus. Desto kleiner\ndie L\u00e4nge des Mittelwerts ist, desto mehr Rauschen ist auf den Daten.\n\nDer Wertebereich liegt bei 0-100.\n\nDer Standardwert ist 20.\n",
-                    "en": "\nSets the length of a `moving averaging <http://en.wikipedia.org/wiki/Moving_average>`__ \nfor the distance value.\n\nSetting the length to 0 will turn the averaging completely off. With less\naveraging, there is more noise on the data.\n\nThe range for the averaging is 0-100.\n\nThe default value is 20.\n"
+                    "de": "\nSetzt die L\u00e4nge eines `gleitenden Mittelwerts <https://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__\nf\u00fcr den Entfernungswert.\n\nWenn die L\u00e4nge auf 0 gesetzt wird, ist das Averaging komplett aus. Desto kleiner\ndie L\u00e4nge des Mittelwerts ist, desto mehr Rauschen ist auf den Daten.\n\nDer Wertebereich liegt bei 0-100.\n\nDer Standardwert ist 20.\n",
+                    "en": "\nSets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__\nfor the distance value.\n\nSetting the length to 0 will turn the averaging completely off. With less\naveraging, there is more noise on the data.\n\nThe range for the averaging is 0-100.\n\nThe default value is 20.\n"
                 }
             ],
             "since_firmware": [
@@ -413,7 +416,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -581,6 +584,7 @@
     "name": [
         "DistanceUS",
         "distance_us",
-        "Distance US"
+        "Distance US",
+        "Distance US Bricklet"
     ]
 }

@@ -1,6 +1,9 @@
 {
     "category": "Brick",
-    "description": "Device for controlling up to seven servos",
+    "description": {
+        "de": "Steuert bis zu 7 RC Servos mit bis zu 3A",
+        "en": "Drives up to 7 RC Servos with up to 3A"
+    },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
@@ -449,8 +452,8 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nSetzt die minimale und maximale Pulsweite des angegebenen Servos in \u00b5s.\n\nNormalerweise werden Servos mit einer\n`PWM <http://de.wikipedia.org/wiki/Pulsweitenmodulation>`__ angesteuert,\nwobei die L\u00e4nge des Pulses die Position des Servos steuert. Jeder Servo\nhat unterschiedliche minimale und maximale Pulsweiten, diese k\u00f6nnen mit\ndieser Funktion spezifiziert werden.\n\nWenn im Datenblatt des Servos die minimale und maximale Pulsweite \nspezifiziert ist, sollten diese Werte entsprechend gesetzt werden. Sollte\nder Servo ohne ein Datenblatt vorliegen, m\u00fcssen die Werte durch Ausprobieren\ngefunden werden.\n\nBeide Werte haben einen Wertebereich von 1 bis 65535 (unsigned 16-bit integer).\nDer minimale Wert muss kleiner als der maximale sein.\n\nDie Standardwerte sind 1000\u00b5s (1ms) und 2000\u00b5s (2ms) f\u00fcr minimale und maximale\nPulsweite.\n",
-                    "en": "\nSets the minimum and maximum pulse width of the specified servo in \u00b5s.\n\nUsually, servos are controlled with a \n`PWM <http://en.wikipedia.org/wiki/Pulse-width_modulation>`__, whereby the\nlength of the pulse controls the position of the servo. Every servo has\ndifferent minimum and maximum pulse widths, these can be specified with\nthis function.\n\nIf you have a datasheet for your servo that specifies the minimum and\nmaximum pulse width, you should set the values accordingly. If your servo\ncomes without any datasheet you have to find the values via trial and error.\n\nBoth values have a range from 1 to 65535 (unsigned 16-bit integer). The\nminimum must be smaller than the maximum.\n\nThe default values are 1000\u00b5s (1ms) and 2000\u00b5s (2ms) for minimum and \nmaximum pulse width.\n"
+                    "de": "\nSetzt die minimale und maximale Pulsweite des angegebenen Servos in \u00b5s.\n\nNormalerweise werden Servos mit einer\n`PWM <https://de.wikipedia.org/wiki/Pulsweitenmodulation>`__ angesteuert,\nwobei die L\u00e4nge des Pulses die Position des Servos steuert. Jeder Servo\nhat unterschiedliche minimale und maximale Pulsweiten, diese k\u00f6nnen mit\ndieser Funktion spezifiziert werden.\n\nWenn im Datenblatt des Servos die minimale und maximale Pulsweite \nspezifiziert ist, sollten diese Werte entsprechend gesetzt werden. Sollte\nder Servo ohne ein Datenblatt vorliegen, m\u00fcssen die Werte durch Ausprobieren\ngefunden werden.\n\nBeide Werte haben einen Wertebereich von 1 bis 65535 (unsigned 16-bit integer).\nDer minimale Wert muss kleiner als der maximale sein.\n\nDie Standardwerte sind 1000\u00b5s (1ms) und 2000\u00b5s (2ms) f\u00fcr minimale und maximale\nPulsweite.\n",
+                    "en": "\nSets the minimum and maximum pulse width of the specified servo in \u00b5s.\n\nUsually, servos are controlled with a \n`PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__, whereby the\nlength of the pulse controls the position of the servo. Every servo has\ndifferent minimum and maximum pulse widths, these can be specified with\nthis function.\n\nIf you have a datasheet for your servo that specifies the minimum and\nmaximum pulse width, you should set the values accordingly. If your servo\ncomes without any datasheet you have to find the values via trial and error.\n\nBoth values have a range from 1 to 65535 (unsigned 16-bit integer). The\nminimum must be smaller than the maximum.\n\nThe default values are 1000\u00b5s (1ms) and 2000\u00b5s (2ms) for minimum and \nmaximum pulse width.\n"
                 }
             ],
             "since_firmware": [
@@ -603,8 +606,8 @@
             "doc": [
                 "bf",
                 {
-                    "de": "\nSetzt die Periode des angegebenen Servos in \u00b5s.\n\nNormalerweise werden Servos mit einer\n`PWM <http://de.wikipedia.org/wiki/Pulsweitenmodulation>`__ angesteuert.\nUnterschiedliche Servos erwarten PWMs mit unterschiedlichen Perioden.\nDie meisten Servos werden mit einer Periode von 20ms betrieben.\n\nWenn im Datenblatt des Servos die Periode spezifiziert ist, sollte dieser\nWert entsprechend gesetzt werden. Sollte der Servo ohne ein Datenblatt\nvorliegen und die korrekte Periode unbekannt sein, wird der Standardwert\n(19,5ms) meinst funktionieren.\n\nDie minimal m\u00f6gliche Periode ist 1\u00b5s und die maximale 65535\u00b5s.\n\nDer Standardwert ist 19,5ms (19500\u00b5s).\n",
-                    "en": "\nSets the period of the specified servo in \u00b5s.\n\nUsually, servos are controlled with a \n`PWM <http://en.wikipedia.org/wiki/Pulse-width_modulation>`__. Different\nservos expect PWMs with different periods. Most servos run well with a \nperiod of about 20ms.\n\nIf your servo comes with a datasheet that specifies a period, you should\nset it accordingly. If you don't have a datasheet and you have no idea\nwhat the correct period is, the default value (19.5ms) will most likely\nwork fine. \n\nThe minimum possible period is 1\u00b5s and the maximum is 65535\u00b5s.\n\nThe default value is 19.5ms (19500\u00b5s).\n"
+                    "de": "\nSetzt die Periode des angegebenen Servos in \u00b5s.\n\nNormalerweise werden Servos mit einer\n`PWM <https://de.wikipedia.org/wiki/Pulsweitenmodulation>`__ angesteuert.\nUnterschiedliche Servos erwarten PWMs mit unterschiedlichen Perioden.\nDie meisten Servos werden mit einer Periode von 20ms betrieben.\n\nWenn im Datenblatt des Servos die Periode spezifiziert ist, sollte dieser\nWert entsprechend gesetzt werden. Sollte der Servo ohne ein Datenblatt\nvorliegen und die korrekte Periode unbekannt sein, wird der Standardwert\n(19,5ms) meinst funktionieren.\n\nDie minimal m\u00f6gliche Periode ist 1\u00b5s und die maximale 65535\u00b5s.\n\nDer Standardwert ist 19,5ms (19500\u00b5s).\n",
+                    "en": "\nSets the period of the specified servo in \u00b5s.\n\nUsually, servos are controlled with a \n`PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__. Different\nservos expect PWMs with different periods. Most servos run well with a \nperiod of about 20ms.\n\nIf your servo comes with a datasheet that specifies a period, you should\nset it accordingly. If you don't have a datasheet and you have no idea\nwhat the correct period is, the default value (19.5ms) will most likely\nwork fine. \n\nThe minimum possible period is 1\u00b5s and the maximum is 65535\u00b5s.\n\nThe default value is 19.5ms (19500\u00b5s).\n"
                 }
             ],
             "since_firmware": [
@@ -1075,7 +1078,7 @@
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist werder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
                     "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
                 }
             ],
@@ -1169,6 +1172,76 @@
             "is_virtual": true,
             "since_firmware": null,
             "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EnableStatusLED",
+                "enable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nEnables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                1
+            ],
+            "function_id": 238,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "DisableStatusLED",
+                "disable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDeaktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nDisables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                1
+            ],
+            "function_id": 239,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsStatusLEDEnabled",
+                "is_status_led_enabled"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Status LED aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if the status LED is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                3,
+                1
+            ],
+            "function_id": 240,
             "type": "function"
         },
         {
@@ -1342,6 +1415,7 @@
     "name": [
         "Servo",
         "servo",
-        "Servo"
+        "Servo",
+        "Servo Brick"
     ]
 }

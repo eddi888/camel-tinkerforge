@@ -40,6 +40,9 @@
 |         getDriveMode |                                          |
 | setCurrentVelocityPeriod |                                   period |
 | getCurrentVelocityPeriod |                                          |
+|      enableStatusLED |                                          |
+|     disableStatusLED |                                          |
+|   isStatusLEDEnabled |                                          |
 | getProtocol1BrickletName |                                     port |
 |   getChipTemperature |                                          |
 |                reset |                                          |

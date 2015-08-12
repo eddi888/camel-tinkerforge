@@ -1,0 +1,1743 @@
+{
+    "category": "Brick",
+    "description": {
+        "de": "Voll ausgestattetes AHRS mit 9 Freiheitsgraden",
+        "en": "Full fledged AHRS with 9 degrees of freedom"
+    },
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAcceleration",
+                "get_acceleration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die kalibrierten Beschleunigungen des Beschleunigungsmessers f\u00fcr die \nX-, Y- und Z-Achse in 1/100 m/s\u00b2.\n\nWenn die Beschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Acceleration` zu nutzen und die Periode mit :func:`SetAccelerationPeriod`\nvorzugeben.\n",
+                    "en": " \nReturns the calibrated acceleration from the accelerometer for the \nx, y and z axis in 1/100 m/s\u00b2.\n\nIf you want to get the acceleration periodically, it is recommended \nto use the callback :func:`Acceleration` and set the period with \n:func:`SetAccelerationPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMagneticField",
+                "get_magnetic_field"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das kalibrierte magnetische Feld des Magnetometers mit den X-, Y- und\nZ-Komponenten in 1/16 \u00b5T zur\u00fcck (Microtesla).\n\nWenn das magnetische Feld periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`MagneticField` zu nutzen und die Periode mit :func:`SetMagneticFieldPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the calibrated magnetic field from the magnetometer for the \nx, y and z axis in 1/16 \u00b5T (Microtesla).\n\nIf you want to get the magnetic field periodically, it is recommended \nto use the callback :func:`MagneticField` and set the period with \n:func:`SetMagneticFieldPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAngularVelocity",
+                "get_angular_velocity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die kalibrierte Winkelgeschwindigkeiten des Gyroskops f\u00fcr die X-, Y- und\nZ-Achse in 1/16 \u00b0/s zur\u00fcck.\n\nWenn die Winkelgeschwindigkeiten periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`AngularVelocity` zu nutzen und die Periode mit\n:func:`SetAngularVelocityPeriod` vorzugeben.\n",
+                    "en": "\nReturns the calibrated angular velocity from the gyroscope for the \nx, y and z axis in 1/16 \u00b0/s.\n\nIf you want to get the angular velocity periodically, it is recommended \nto use the callback :func:`AngularVelocity` and set the period with \n:func:`SetAngularVelocityPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetTemperature",
+                "get_temperature"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur (in \u00b0C) des IMU Brick zur\u00fcck. Die Temperatur wird im Kern\ndes BNO055 ICs gemessen, es handelt sich nicht um die Umgebungstemperatur.\n",
+                    "en": "\nReturns the temperature of the IMU Brick. The temperature is given in \n\u00b0C. The temperature is measured in the core of the BNO055 IC, it is not the\nambient temperature\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "heading",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "roll",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "pitch",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetOrientation",
+                "get_orientation"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuelle Orientierung (Gier-, Roll-, Nickwinkel) des IMU Brick in Eulerwinkeln\n(in 1/16 \u00b0) zur\u00fcck. Zu beachten ist, dass Eulerwinkel immer eine \n`kardanische Blockade <https://de.wikipedia.org/wiki/Gimbal_Lock>`__ erfahren.\n\nWir empfehlen die Verwendung von Quaternionen stattdessen.\n\nDie Rotationswinkel haben den folgenden Wertebereich:\n\n* Gierwinkel: 0\u00b0 bis 360\u00b0\n* Rollwinkel: -90\u00b0 bis +90\u00b0\n* Nickwinkel: -180\u00b0 bis +180\u00b0\n\nWenn die Orientierung periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Orientation` zu nutzen und die Periode mit :func:`SetOrientationPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the current orientation (heading, roll, pitch) of the IMU Brick as Euler\nangles in 1/16 degree. Note that Euler angles always experience a\n`gimbal lock <https://en.wikipedia.org/wiki/Gimbal_lock>`__.\n\nWe recommend that you use quaternions instead.\n\nThe rotation angle has the following ranges:\n\n* heading: 0\u00b0 to 360\u00b0\n* roll: -90\u00b0 to +90\u00b0\n* pitch: -180\u00b0 to +180\u00b0\n\nIf you want to get the orientation periodically, it is recommended \nto use the callback :func:`Orientation` and set the period with \n:func:`SetOrientationPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetLinearAcceleration",
+                "get_linear_acceleration"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die lineare Beschleunigungen des IMU Brick f\u00fcr die \nX-, Y- und Z-Achse in 1/100 m/s\u00b2 zur\u00fcck.\n\nDie lineare Beschleunigung ist die Beschleunigung in jede der drei\nAchsen. Der Einfluss von Erdbeschleunigung ist entfernt.\n\nEs ist auch m\u00f6glich einen Vektor der Erdbeschleunigung zu bekommen, siehe\n:func:GetGravityVector`\n\nWenn die Beschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`LinearAcceleration` zu nutzen und die Periode mit \n:func:`SetLinearAccelerationPeriod` vorzugeben.\n",
+                    "en": "\nReturns the linear acceleration of the IMU Brick for the\nx, y and z axis in 1/100 m/s\u00b2.\n\nThe linear acceleration is the acceleration in each of the three\naxis of the IMU Brick with the influences of gravity removed.\n\nIt is also possible to get the gravity vector with the influence of linear\nacceleration removed, see :func:`GetGravityVector`.\n\nIf you want to get the linear acceleration periodically, it is recommended \nto use the callback :func:`LinearAcceleration` and set the period with \n:func:`SetLinearAccelerationPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetGravityVector",
+                "get_gravity_vector"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Vektor der Erdbeschleunigung des IMU Brick f\u00fcr die \nX-, Y- und Z-Achse in 1/100 m/s\u00b2 zur\u00fcck.\n\nDie Erdbeschleunigung ist die Beschleunigung die auf Grund von Schwerkraft\nentsteht. Einfl\u00fcsse von linearen Beschleunigungen sind entfernt.\n\nEs ist auch m\u00f6glich die lineare Beschleunigung zu bekommen, siehe\n:func:GetLinearAcceleration`\n\nWenn die Erdbeschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`GravityVector` zu nutzen und die Periode mit \n:func:`SetGravityVectorPeriod` vorzugeben.\n",
+                    "en": "\nReturns the current gravity vector of the IMU Brick for the\nx, y and z axis in 1/100 m/s\u00b2.\n\nThe gravity vector is the acceleration that occurs due to gravity.\nInfluences of additional linear acceleration are removed.\n\nIt is also possible to get the linear acceleration with the influence \nof gravity removed, see :func:`GetLinearAcceleration`.\n\nIf you want to get the gravity vector periodically, it is recommended \nto use the callback :func:`GravityVector` and set the period with \n:func:`SetGravityVectorPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "w",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetQuaternion",
+                "get_quaternion"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die aktuelle Orientierung (w, x, y, z) des IMU Brick als\n`Quaterinonen <https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`__ zur\u00fcck.\n\nDie zur\u00fcckgegebenen Werte m\u00fcssen mit 16383 (14 Bit) dividiert werden um\nin den \u00fcblichen Wertebereich f\u00fcr Quaternionen (-1,0 bis +1,0) gebracht zu werden.\n\nWenn die Quaternionen periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Quaternion` zu nutzen und die Periode mit :func:`SetQuaternionPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the current orientation (w, x, y, z) of the IMU Brick as\n`quaternions <https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`__.\n\nYou have to divide the returns values by 16383 (14 bit) to get\nthe usual range of -1.0 to +1.0 for quaternions.\n\nIf you want to get the quaternions periodically, it is recommended \nto use the callback :func:`Quaternion` and set the period with \n:func:`SetQuaternionPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "acceleration",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "magnetic_field",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "angular_velocity",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "euler_angle",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "quaternion",
+                    "int16",
+                    4,
+                    "out"
+                ],
+                [
+                    "linear_acceleration",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "gravity_vector",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "temperature",
+                    "int8",
+                    1,
+                    "out"
+                ],
+                [
+                    "calibration_status",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAllData",
+                "get_all_data"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt alle Daten zur\u00fcck die dem IMU Brick zur Verf\u00fcgung stehen.\n\n* Beschleunigung in 1/100 m/s\u00b2 (see :func:`GetAcceleration`)\n* Magnetfeld in 1/16 \u00b5T (see :func:`GetMagneticField`)\n* Winkelgeschwindigkeit in 1/16 \u00b0/s (see :func:`GetAngularVelocity`)\n* Eulerwinkel in 1/16 \u00b0 (see :func:`GetOrientation`)\n* Quaternion 1/16383 (see :func:`GetQuaternion`)\n* Lineare Beschleunigung 1/100 m/s\u00b2 (see :func:`GetLinearAcceleration`)\n* Erdbeschleunigungsvektor 1/100 m/s\u00b2 (see :func:`GetGravityVector`)\n* Temperatur in 1 \u00b0C (see :func:`GetTemperature`)\n* Kalibrierungsstatus (siehe unten)\n\nDer Kalibrierungsstatus besteht aus vier paaren von je zwei Bits. Jedes\nPaar von Bits repr\u00e4sentiert den Status der aktuellen Kalibrierung.\n\n* Bit 0-1: Magnetometer\n* Bit 2-3: Beschleunigungsmesser\n* Bit 4-5: Gyroskop\n* Bit 6-7: System\n\nEin Wert von 0 bedeutet \"nicht kalibriert\" und ein Wert von 3\nbedeutet \"vollst\u00e4ndig kalibriert\". Normalerweise kann der \nKalibrierungsstatus vollst\u00e4ndig ignoriert werden. Er wird vom\nBrick Viewer im Kalibrierungsfenster benutzt und nur f\u00fcr die\ninitiale Kalibrierung ben\u00f6tigt. Mehr Information zur Kalibrierung\ndes IMU Bricks gibt es im Kalibrierungsfenster.\n\nWenn die Daten periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`AllData` zu nutzen und die Periode mit :func:`SetAllDataPeriod`\nvorzugeben.\n",
+                    "en": "\nReturn all of the available data of the IMU Brick.\n\n* acceleration in 1/100 m/s\u00b2 (see :func:`GetAcceleration`)\n* magnetic field in 1/16 \u00b5T (see :func:`GetMagneticField`)\n* angular velocity in 1/16 \u00b0/s (see :func:`GetAngularVelocity`)\n* Euler angles in 1/16 \u00b0 (see :func:`GetOrientation`)\n* quaternion 1/16383 (see :func:`GetQuaternion`)\n* linear acceleration 1/100 m/s\u00b2 (see :func:`GetLinearAcceleration`)\n* gravity vector 1/100 m/s\u00b2 (see :func:`GetGravityVector`)\n* temperature in 1 \u00b0C (see :func:`GetTemperature`)\n* calibration status (see below)\n\nThe calibration status consists of four pairs of two bits. Each pair\nof bits represents the status of the current calibration.\n\n* bit 0-1: Magnetometer\n* bit 2-3: Accelerometer\n* bit 4-5: Gyroscope\n* bit 6-7: System\n\nA value of 0 means for \"not calibrated\" and a value of 3 means\n\"fully calibrated\". In your program you should always be able to\nignore the calibration status, it is used by the calibration\nwindow of the Brick Viewer and it can be ignored after the first\ncalibration. See the documentation in the calibration window for\nmore information regarding the calibration of the IMU Brick.\n\nIf you want to get the data periodically, it is recommended \nto use the callback :func:`AllData` and set the period with \n:func:`SetAllDataPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "LedsOn",
+                "leds_on"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nAktiviert die Orientierungs- und Richtungs-LEDs des IMU Brick.\n",
+                    "en": "\nTurns the orientation and direction LEDs of the IMU Brick on.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "LedsOff",
+                "leds_off"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nDeaktiviert die Orientierungs- und Richtungs-LEDs des IMU Brick.\n",
+                    "en": "\nTurns the orientation and direction LEDs of the IMU Brick off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "leds",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AreLedsOn",
+                "are_leds_on"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt zur\u00fcck ob die Orientierungs- und Richtungs-LEDs des IMU Brick aktiv sind. \n",
+                    "en": "\nReturns *true* if the orientation and direction LEDs of the IMU Brick\nare on, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "calibration_done",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "SaveCalibration",
+                "save_calibration"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nEin Aufruf dieser Funktion speichert die aktuelle Kalibrierung damit\nsie beim n\u00e4chsten Neustart des IMU Brick als Startpunkt f\u00fcr die\nkontinuierliche Kalibrierung genutzt werden kann.\n\nEin R\u00fcckgabewert von *true* bedeutet das die Kalibrierung genutzt werden\nkonnte und *false* bedeutet das die Kalibrierung nicht genutzt werden\nkonnte (dies passiert wenn der Kalibrierungsstatus nicht \"fully calibrated\"\nist).\n\nDiese Funktion wird vom Kalibrierungsfenster des Brick Viewer benutzt. Sie\nsollte in einem normalen Benutzerprogramm nicht aufgerufen werden m\u00fcssen.\n",
+                    "en": "\nA call of this function saves the current calibration to be used\nas a starting point for the next restart of continuous calibration\nof the IMU Brick.\n\nA return value of *true* means that the calibration could be used and\n*false* means that it could not be used (this happens if the calibration \nstatus is not \"fully calibrated\").\n\nThis function is used by the calibration window of the Brick Viewer, you\nshould not need to call it in your program.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAccelerationPeriod",
+                "set_acceleration_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Acceleration` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Acceleration` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAccelerationPeriod",
+                "get_acceleration_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAccelerationPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAccelerationPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetMagneticFieldPeriod",
+                "set_magnetic_field_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`MagneticField` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`MagneticField` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMagneticFieldPeriod",
+                "get_magnetic_field_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetMagneticFieldPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetMagneticFieldPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAngularVelocityPeriod",
+                "set_angular_velocity_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`AngularVelocity` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`AngularVelocity` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAngularVelocityPeriod",
+                "get_angular_velocity_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAngularVelocityPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAngularVelocityPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetTemperaturePeriod",
+                "set_temperature_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Temperature` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`Temperature` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetTemperaturePeriod",
+                "get_temperature_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetTemperaturePeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetTemperaturePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 21,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetOrientationPeriod",
+                "set_orientation_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Orientation` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`Orientation` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 22,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetOrientationPeriod",
+                "get_orientation_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetOrientationPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetOrientationPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 23,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetLinearAccelerationPeriod",
+                "set_linear_acceleration_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`LinearAcceleration` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`LinearAcceleration` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 24,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetLinearAccelerationPeriod",
+                "get_linear_acceleration_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetLinearAccelerationPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetLinearAccelerationPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 25,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetGravityVectorPeriod",
+                "set_gravity_vector_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`GravityVector` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`GravityVector` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 26,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetGravityVectorPeriod",
+                "get_gravity_vector_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetGravityVectorPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetGravityVectorPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 27,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetQuaternionPeriod",
+                "set_quaternion_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Quaternion` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`Quaternion` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 28,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetQuaternionPeriod",
+                "get_quaternion_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetQuaternionPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetQuaternionPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 29,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetAllDataPeriod",
+                "set_all_data_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`AllData` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`AllData` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 30,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAllDataPeriod",
+                "get_all_data_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAllDataPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAllDataPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 31,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Acceleration",
+                "acceleration"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAccelerationPeriod`,\nausgel\u00f6st. Die :word:`parameters` sind die Beschleunigungen der X, Y und Z-Achse.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAccelerationPeriod`. The :word:`parameters` are the acceleration\nfor the x, y and z axis.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 32,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "MagneticField",
+                "magnetic_field"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetMagneticFieldPeriod`,\nausgel\u00f6st. Die :word:`parameters` sind die Magnetfeldkomponenten der X, Y und Z-Achse.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetMagneticFieldPeriod`. The :word:`parameters` are the magnetic field\nfor the x, y and z axis.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 33,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AngularVelocity",
+                "angular_velocity"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAngularVelocityPeriod`,\nausgel\u00f6st. Die :word:`parameters` sind die Winkelgeschwindigkeiten der X, Y und Z-Achse.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAngularVelocityPeriod`. The :word:`parameters` are the angular velocity\nfor the x, y and z axis.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 34,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Temperature",
+                "temperature"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetTemperaturePeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die Temperatur.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetTemperaturePeriod`. The :word:`parameter` is the temperature.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 35,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "LinearAcceleration",
+                "linear_acceleration"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetLinearAccelerationPeriod`,\nausgel\u00f6st. Die :word:`parameter` sind die linearen Beschleunigungen der X, Y und Z-Achse.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetLinearAccelerationPeriod`. The :word:`parameters` are the \nlinear acceleration for the x, y and z axis.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 36,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GravityVector",
+                "gravity_vector"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetGravityVectorPeriod`,\nausgel\u00f6st. Die :word:`parameter` sind die Erdbeschleunigungsvektor-Werte \nder X, Y und Z-Achse.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetGravityVectorPeriod`. The :word:`parameters` gravity vector\nfor the x, y and z axis.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 37,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "heading",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "roll",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "pitch",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Orientation",
+                "orientation"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetOrientationPeriod`,\nausgel\u00f6st. Die :word:`parameters` sind die Orientierung (Gier-, Roll-, Nickwinkel) des\nIMU Brick in Eulerwinkeln. Siehe :func:`GetOrientation` f\u00fcr Details.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetOrientationPeriod`. The :word:`parameters` are the orientation\n(heading (yaw), roll, pitch) of the IMU Brick in Euler angles. See\n:func:`GetOrientation` for details.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 38,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "w",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "x",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "y",
+                    "int16",
+                    1,
+                    "out"
+                ],
+                [
+                    "z",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Quaternion",
+                "quaternion"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetQuaternionPeriod`,\nausgel\u00f6st. Die :word:`parameters` sind die Orientierung (x, y, z, w) des\nIMU Brick in Quaternionen. Siehe :func:`GetQuaternion` f\u00fcr Details.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetQuaternionPeriod`. The :word:`parameters` are the orientation\n(x, y, z, w) of the IMU Brick in quaternions. See :func:`GetQuaternion`\nfor details.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 39,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "acceleration",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "magnetic_field",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "angular_velocity",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "euler_angle",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "quaternion",
+                    "int16",
+                    4,
+                    "out"
+                ],
+                [
+                    "linear_acceleration",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "gravity_vector",
+                    "int16",
+                    3,
+                    "out"
+                ],
+                [
+                    "temperature",
+                    "int8",
+                    1,
+                    "out"
+                ],
+                [
+                    "calibration_status",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "AllData",
+                "all_data"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAllDataPeriod`,\nausgel\u00f6st. Die :word:`parameter` sind die gleichen wie bei :func:`GetAllData`.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAllDataPeriod`. The :word:`parameters` are as for :func:`GetAllData`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 40,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "EnableStatusLED",
+                "enable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nEnables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 238,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "DisableStatusLED",
+                "disable_status_led"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDeaktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nDisables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 239,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsStatusLEDEnabled",
+                "is_status_led_enabled"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Status LED aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if the status LED is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 240,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "port",
+                    "char",
+                    1,
+                    "in"
+                ],
+                [
+                    "protocol_version",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "name",
+                    "string",
+                    40,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetProtocol1BrickletName",
+                "get_protocol1_bricklet_name"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Firmware und Protokoll Version und den Namen des Bricklets f\u00fcr einen\ngegebenen Port zur\u00fcck.\n\nDer einzige Zweck dieser Funktion ist es, automatischen Flashen von Bricklet\nv1.x.y Plugins zu erm\u00f6glichen.\n",
+                    "en": "\nReturns the firmware and protocol version and the name of the Bricklet for a\ngiven port.\n\nThis functions sole purpose is to allow automatic flashing of v1.x.y Bricklet\nplugins.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 241,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "temperature",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetChipTemperature",
+                "get_chip_temperature"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur in \u00b0C/10, gemessen im Mikrocontroller, aus. Der\nR\u00fcckgabewert ist nicht die Umgebungstemperatur.\n\nDie Temperatur ist lediglich proportional zur echten Temperatur und hat eine\nGenauigkeit von +-15%. Daher beschr\u00e4nkt sich der praktische Nutzen auf die\nIndikation von Temperaturver\u00e4nderungen.\n",
+                    "en": "\nReturns the temperature in \u00b0C/10 as measured inside the microcontroller. The\nvalue returned is not the ambient temperature!\n\nThe temperature is only proportional to the real temperature and it has an\naccuracy of +-15%. Practically it is only useful as an indicator for\ntemperature changes.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 242,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "Reset",
+                "reset"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nEin Aufruf dieser Funktion setzt den Brick zur\u00fcck. Befindet sich der Brick\ninnerhalb eines Stapels wird der gesamte Stapel zur\u00fcck gesetzt.\n\nNach dem Zur\u00fccksetzen ist es notwendig neue Ger\u00e4teobjekte zu erzeugen,\nFunktionsaufrufe auf bestehende f\u00fchrt zu undefiniertem Verhalten.\n",
+                    "en": "\nCalling this function will reset the Brick. Calling this function\non a Brick inside of a stack will reset the whole stack.\n\nAfter a reset you have to create new device objects,\ncalling functions on the existing ones will result in\nundefined behavior!\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 243,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der der Brick verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann '0'-'8' (Stack Position) sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Brick is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be '0'-'8' (stack position).\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 18,
+    "released": true,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "IMUV2",
+        "imu_v2",
+        "IMU 2.0",
+        "IMU Brick 2.0"
+    ]
+}

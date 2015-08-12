@@ -512,6 +512,18 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
                 response = device.getWifiAuthenticationSecret();
                 break;
 
+            case "enableStatusLed":
+                device.enableStatusLED();
+                break;
+
+            case "disableStatusLed":
+                device.disableStatusLED();
+                break;
+
+            case "isStatusLedEnabled":
+                response = device.isStatusLEDEnabled();
+                break;
+
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
                         getValue(char.class, "port4", m, getPort4())

@@ -1,0 +1,748 @@
+{
+    "category": "Bricklet",
+    "description": {
+        "de": "Misst Konzentration verschiedener Gase",
+        "en": "Measures concentration of different gases"
+    },
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetValue",
+                "get_value"
+            ],
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt einen Wert zwischen 0 und 4095 zur\u00fcck.\n\nSiehe `hier <TODO>`__ f\u00fcr mehr Informationen zu den Messwerten.\n\nWenn der Wert periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Value` zu nutzen und die Periode mit \n:func:`SetValueCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns a value between 0 and 4095. \n\nSee `here <TODO>`__ for more information about the measurements.\n\nIf you want to get the value periodically, it is recommended \nto use the callback :func:`Value` and set the period with \n:func:`SetValueCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetValueCallbackPeriod",
+                "set_value_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`Value` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`Value` wird nur ausgel\u00f6st wenn sich der Wert seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`Value` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`Value` is only triggered if the value value has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetValueCallbackPeriod",
+                "get_value_callback_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetValueCallbackPeriod`\ngesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetValueCallbackPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "in",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetValueCallbackThreshold",
+                "set_value_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`ValueReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn der Wert *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn der Wert *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn der Wert kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn der Wert gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`ValueReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the value value is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the value value is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the value value is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the value value is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "option",
+                    "char",
+                    1,
+                    "out",
+                    [
+                        "ThresholdOption",
+                        "threshold_option",
+                        [
+                            [
+                                "Off",
+                                "off",
+                                "x"
+                            ],
+                            [
+                                "Outside",
+                                "outside",
+                                "o"
+                            ],
+                            [
+                                "Inside",
+                                "inside",
+                                "i"
+                            ],
+                            [
+                                "Smaller",
+                                "smaller",
+                                "<"
+                            ],
+                            [
+                                "Greater",
+                                "greater",
+                                ">"
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "min",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "max",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetValueCallbackThreshold",
+                "get_value_callback_threshold"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt den Schwellwert zur\u00fcck, wie von :func:`SetValueCallbackThreshold`\ngesetzt.\n",
+                    "en": "\nReturns the threshold as set by :func:`SetValueCallbackThreshold`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetDebouncePeriod",
+                "set_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher die Schwellwert Callback\n\n* :func:`ValueReached`\n \nausgel\u00f6st wird, wenn der Schwellwert \n\n* :func:`SetValueCallbackThreshold`\n \nweiterhin erreicht bleibt.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the period in ms with which the threshold callback\n\n* :func:`ValueReached`\n\nis triggered, if the threshold\n\n* :func:`SetValueCallbackThreshold`\n\nkeeps being reached.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "debounce",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetDebouncePeriod",
+                "get_debounce_period"
+            ],
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Entprellperiode zur\u00fcck, wie von :func:`SetDebouncePeriod`\ngesetzt.\n",
+                    "en": "\nReturns the debounce period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "average",
+                    "uint8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetMovingAverage",
+                "set_moving_average"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die L\u00e4nge eines `gleitenden Mittelwerts <https://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__\nf\u00fcr den gemessenen Wert.\n\nWenn die L\u00e4nge auf 1 gesetzt wird, ist das Averaging aus. Desto kleiner\ndie L\u00e4nge des Mittelwerts ist, desto mehr Rauschen ist auf den Daten.\n\nDer Wertebereich liegt bei 1-100.\n\nDer Standardwert ist 100.\n",
+                    "en": "\nSets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__\nfor the measured value.\n\nSetting the length to 1 will turn the averaging off. With less\naveraging, there is more noise on the data.\n\nThe range for the averaging is 1-100.\n\nThe default value is 100.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "average",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetMovingAverage",
+                "get_moving_average"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die L\u00e4nge des gleitenden Mittelwerts zur\u00fcck, wie von \n:func:`SetMovingAverage` gesetzt.\n",
+                    "en": "\nReturns the length moving average as set by :func:`SetMovingAverage`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "detector_type",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "DetectorType",
+                        "detector_type",
+                        [
+                            [
+                                "0",
+                                "0",
+                                0
+                            ],
+                            [
+                                "1",
+                                "1",
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "SetDetectorType",
+                "set_detector_type"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Detektortyp\n\nDie folgenden Typen werden aktuell unterst\u00fctzt:\n\n* Typ 0: MQ2 und MQ5\n* Typ 1: MQ3\n\nDer Detektortyp wird in das EEPROM des Bricklets geschrieben und muss\ndaher nur einmal gesetzt werden.\n\nWir empfehlen den Typ des Detektors im Brick Viewer zu setzen anstatt\ndiese Funktion zu nutzen.\n\nDer standard Detektortyp ist 0.\n",
+                    "en": "\nSets the detector type.\n\nThe following types are currently supported.\n\n* Type 0: MQ2 and MQ5\n* Type 1: MQ3\n\nThe detector type is written to the EEPROM of the Bricklet, so it only has\nto be set once.\n\nYou can use the Brick Viewer to set the detector type, so you likely\ndon't need to use this function in your source code.\n\nThe default detector type is 0.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "detector_type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "DetectorType",
+                        "detector_type",
+                        [
+                            [
+                                "0",
+                                "0",
+                                0
+                            ],
+                            [
+                                "1",
+                                "1",
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": [
+                "GetDetectorType",
+                "get_detector_type"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Detektortyp zur\u00fcck, wie von :func:`SetDetectorType` gesetzt.\n",
+                    "en": "\nReturns the detector type as set by :func:`SetDetectorType`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "HeaterOn",
+                "heater_on"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktiviert die interne Heizung.\n",
+                    "en": "\nTurns the internal heater on.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": [
+                "HeaterOff",
+                "heater_off"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nDeaktiviert die interne Heizung.\n",
+                    "en": "\nTurns the internal heater off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "heater",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "IsHeaterOn",
+                "is_heater_on"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die interne Heizung aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if the heater is on, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "Value",
+                "value"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetValueCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist der Wert.\n\n:func:`Value` wird nur ausgel\u00f6st wenn sich der Wert seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetValueCallbackPeriod`. The :word:`parameter` is the value value\nof the sensor.\n\n:func:`Value` is only triggered if the value has changed since the\nlast triggering.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "value",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "ValueReached",
+                "value_reached"
+            ],
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn der Schwellwert, wie von \n:func:`SetValueCallbackThreshold` gesetzt, erreicht wird.\nDer :word:`parameter` ist der Wert des Detektors.\n\nWenn der Schwellwert erreicht bleibt, wird der Callback mit der Periode, wie\nmit :func:`SetDebouncePeriod` gesetzt, ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when the threshold as set by\n:func:`SetValueCallbackThreshold` is reached.\nThe :word:`parameter` is the value of the detector.\n\nIf the threshold keeps being reached, the callback is triggered periodically\nwith the period as set by :func:`SetDebouncePeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "api_version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetAPIVersion",
+                "get_api_version"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetResponseExpected",
+                "get_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "function_id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpected",
+                "set_response_expected"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "response_expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": [
+                "SetResponseExpectedAll",
+                "set_response_expected_all"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "connected_uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "hardware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "firmware_version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "device_identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": [
+                "GetIdentity",
+                "get_identity"
+            ],
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 252,
+    "released": false,
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "GasDetector",
+        "gas_detector",
+        "Gas Detector",
+        "Gas Detector Bricklet"
+    ]
+}

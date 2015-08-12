@@ -59,6 +59,9 @@
 | orientationCalculationOn |                                          |
 | orientationCalculationOff |                                          |
 | isOrientationCalculationOn |                                          |
+|      enableStatusLED |                                          |
+|     disableStatusLED |                                          |
+|   isStatusLEDEnabled |                                          |
 | getProtocol1BrickletName |                                     port |
 |   getChipTemperature |                                          |
 |                reset |                                          |

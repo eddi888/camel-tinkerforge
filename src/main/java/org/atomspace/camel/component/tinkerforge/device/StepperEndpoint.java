@@ -261,6 +261,18 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
                 response = device.getAllDataPeriod();
                 break;
 
+            case "enableStatusLed":
+                device.enableStatusLED();
+                break;
+
+            case "disableStatusLed":
+                device.disableStatusLED();
+                break;
+
+            case "isStatusLedEnabled":
+                response = device.isStatusLEDEnabled();
+                break;
+
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
                         getValue(char.class, "port", m, getPort())

@@ -275,6 +275,18 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
                 response = device.isVelocityReachedCallbackEnabled();
                 break;
 
+            case "enableStatusLed":
+                device.enableStatusLED();
+                break;
+
+            case "disableStatusLed":
+                device.disableStatusLED();
+                break;
+
+            case "isStatusLedEnabled":
+                response = device.isStatusLEDEnabled();
+                break;
+
             case "getProtocol1BrickletName":
                 response = device.getProtocol1BrickletName(
                         getValue(char.class, "port", m, getPort())
