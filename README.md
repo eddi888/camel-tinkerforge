@@ -7,7 +7,7 @@ The **Tinkerforge** Apache Camel Component for a simple access for use the Tinke
 <dependency>
     <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
-    <version>2.14.0</version>
+    <version>2.15.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -36,11 +36,19 @@ function       |               | execute Device Function, can use for configure 
 
 ### Components
 
+[Accelerometer](src/main/java/org/atomspace/camel/component/tinkerforge/device/Accelerometer.md)
+
 [AmbientLight](src/main/java/org/atomspace/camel/component/tinkerforge/device/AmbientLight.md)
+
+[AmbientLightV2](src/main/java/org/atomspace/camel/component/tinkerforge/device/AmbientLightV2.md)
 
 [AnalogIn](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogIn.md)
 
+[AnalogInV2](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogInV2.md)
+
 [AnalogOut](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogOut.md)
+
+[AnalogOutV2](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogOutV2.md)
 
 [Barometer](src/main/java/org/atomspace/camel/component/tinkerforge/device/Barometer.md)
 
@@ -60,6 +68,8 @@ function       |               | execute Device Function, can use for configure 
 
 [DualRelay](src/main/java/org/atomspace/camel/component/tinkerforge/device/DualRelay.md)
 
+[DustDetector](src/main/java/org/atomspace/camel/component/tinkerforge/device/DustDetector.md)
+
 [GPS](src/main/java/org/atomspace/camel/component/tinkerforge/device/GPS.md)
 
 [HallEffect](src/main/java/org/atomspace/camel/component/tinkerforge/device/HallEffect.md)
@@ -68,11 +78,17 @@ function       |               | execute Device Function, can use for configure 
 
 [IMU](src/main/java/org/atomspace/camel/component/tinkerforge/device/IMU.md)
 
+[IMUv2](src/main/java/org/atomspace/camel/component/tinkerforge/device/IMUV2.md)
+
+[IndustrialAnalogOut](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialAnalogOut.md)
+
 [IndustrialDigitalIn4](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDigitalIn4.md)
 
 [IndustrialDigitalOut4](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDigitalOut4.md)
 
 [IndustrialDual020mA](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDual020mA.md)
+
+[IndustrialDualAnalogIn](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialDualAnalogIn.md)
 
 [IndustrialQuadRelay](src/main/java/org/atomspace/camel/component/tinkerforge/device/IndustrialQuadRelay.md)
 
@@ -88,9 +104,13 @@ function       |               | execute Device Function, can use for configure 
 
 [LEDStrip](src/main/java/org/atomspace/camel/component/tinkerforge/device/LEDStrip.md)
 
+[LaserRangeFinder](src/main/java/org/atomspace/camel/component/tinkerforge/device/LaserRangeFinder.md)
+
 [Line](src/main/java/org/atomspace/camel/component/tinkerforge/device/Line.md)
 
 [LinearPoti](src/main/java/org/atomspace/camel/component/tinkerforge/device/LinearPoti.md)
+
+[LoadCell](src/main/java/org/atomspace/camel/component/tinkerforge/device/LoadCell.md)
 
 [Master](src/main/java/org/atomspace/camel/component/tinkerforge/device/Master.md)
 
@@ -105,6 +125,8 @@ function       |               | execute Device Function, can use for configure 
 [PiezoBuzzer](src/main/java/org/atomspace/camel/component/tinkerforge/device/PiezoBuzzer.md)
 
 [PiezoSpeaker](src/main/java/org/atomspace/camel/component/tinkerforge/device/PiezoSpeaker.md)
+
+[RS232](src/main/java/org/atomspace/camel/component/tinkerforge/device/RS232.md)
 
 [PTC](src/main/java/org/atomspace/camel/component/tinkerforge/device/PTC.md)
 
