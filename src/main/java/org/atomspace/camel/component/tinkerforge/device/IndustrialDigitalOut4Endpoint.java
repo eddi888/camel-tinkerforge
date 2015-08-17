@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletIndustrialDigitalOut4;
 
+/**
+ * 4 galvanically isolated digital outputs
+ */
 public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<IndustrialDigitalOut4Consumer, IndustrialDigitalOut4Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDigitalOut4Endpoint.class);
@@ -140,6 +143,22 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
     }
     
     
+    /**
+     * 
+     * Sets the output value with a bitmask (16bit). A 1 in the bitmask means high
+     * and a 0 in the bitmask means low.
+     * 
+     * For example: The value 3 or 0b0011 will turn pins 0-1 high and the other pins
+     * low.
+     * 
+     * If no groups are used (see :func:`SetGroup`), the pins correspond to the
+     * markings on the Digital Out 4 Bricklet.
+     * 
+     * If groups are used, the pins correspond to the element in the group.
+     * Element 1 in the group will get pins 0-3, element 2 pins 4-7, element 3
+     * pins 8-11 and element 4 pins 12-15.
+     * 
+     */
     public Integer getValueMask(){
         return valueMask;
     }
@@ -148,6 +167,28 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.valueMask = valueMask;
     }
 
+    /**
+     * 
+     * Configures a monoflop of the pins specified by the first parameter
+     * bitmask.
+     * 
+     * The second parameter is a bitmask with the desired value of the specified
+     * pins. A 1 in the bitmask means high and a 0 in the bitmask means low.
+     * 
+     * The third parameter indicates the time (in ms) that the pins should hold
+     * the value.
+     * 
+     * If this function is called with the parameters (9, 1, 1500) or
+     * (0b1001, 0b0001, 1500): Pin 0 will get high and pin 3 will get low. In 1.5s
+     * pin 0 will get low and pin 3 will get high again.
+     * 
+     * A monoflop can be used as a fail-safe mechanism. For example: Lets assume you
+     * have a RS485 bus and a Digital Out 4 Bricklet connected to one of the slave
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds and pin 0 high. Pin 0 will be high all the time. If now
+     * the RS485 connection is lost, then pin 0 will turn low in at most two seconds.
+     * 
+     */
     public Integer getSelectionMask(){
         return selectionMask;
     }
@@ -156,6 +197,28 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.selectionMask = selectionMask;
     }
 
+    /**
+     * 
+     * Configures a monoflop of the pins specified by the first parameter
+     * bitmask.
+     * 
+     * The second parameter is a bitmask with the desired value of the specified
+     * pins. A 1 in the bitmask means high and a 0 in the bitmask means low.
+     * 
+     * The third parameter indicates the time (in ms) that the pins should hold
+     * the value.
+     * 
+     * If this function is called with the parameters (9, 1, 1500) or
+     * (0b1001, 0b0001, 1500): Pin 0 will get high and pin 3 will get low. In 1.5s
+     * pin 0 will get low and pin 3 will get high again.
+     * 
+     * A monoflop can be used as a fail-safe mechanism. For example: Lets assume you
+     * have a RS485 bus and a Digital Out 4 Bricklet connected to one of the slave
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds and pin 0 high. Pin 0 will be high all the time. If now
+     * the RS485 connection is lost, then pin 0 will turn low in at most two seconds.
+     * 
+     */
     public Integer getValueMask2(){
         return valueMask2;
     }
@@ -164,6 +227,28 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.valueMask2 = valueMask2;
     }
 
+    /**
+     * 
+     * Configures a monoflop of the pins specified by the first parameter
+     * bitmask.
+     * 
+     * The second parameter is a bitmask with the desired value of the specified
+     * pins. A 1 in the bitmask means high and a 0 in the bitmask means low.
+     * 
+     * The third parameter indicates the time (in ms) that the pins should hold
+     * the value.
+     * 
+     * If this function is called with the parameters (9, 1, 1500) or
+     * (0b1001, 0b0001, 1500): Pin 0 will get high and pin 3 will get low. In 1.5s
+     * pin 0 will get low and pin 3 will get high again.
+     * 
+     * A monoflop can be used as a fail-safe mechanism. For example: Lets assume you
+     * have a RS485 bus and a Digital Out 4 Bricklet connected to one of the slave
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds and pin 0 high. Pin 0 will be high all the time. If now
+     * the RS485 connection is lost, then pin 0 will turn low in at most two seconds.
+     * 
+     */
     public Long getTime(){
         return time;
     }
@@ -172,6 +257,15 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.time = time;
     }
 
+    /**
+     * 
+     * Returns (for the given pin) the current value and the time as set by
+     * :func:`SetMonoflop` as well as the remaining time until the value flips.
+     * 
+     * If the timer is not running currently, the remaining time will be returned
+     * as 0.
+     * 
+     */
     public Short getPin(){
         return pin;
     }
@@ -180,6 +274,25 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.pin = pin;
     }
 
+    /**
+     * 
+     * Sets a group of Digital Out 4 Bricklets that should work together. You can
+     * find Bricklets that can be grouped together with :func:`GetAvailableForGroup`.
+     * 
+     * The group consists of 4 elements. Element 1 in the group will get pins 0-3,
+     * element 2 pins 4-7, element 3 pins 8-11 and element 4 pins 12-15.
+     * 
+     * Each element can either be one of the ports ('a' to 'd') or 'n' if it should
+     * not be used.
+     * 
+     * For example: If you have two Digital Out 4 Bricklets connected to port A and
+     * port B respectively, you could call with |abnn|.
+     * 
+     * Now the pins on the Digital Out 4 on port A are assigned to 0-3 and the
+     * pins on the Digital Out 4 on port B are assigned to 4-7. It is now possible
+     * to call :func:`SetValue` and control two Bricklets at the same time.
+     * 
+     */
     public char[] getGroup(){
         return group;
     }
@@ -188,6 +301,23 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.group = group;
     }
 
+    /**
+     * 
+     * Sets the output value with a bitmask, according to the selection mask.
+     * The bitmask is 16 bit long, *true* refers to high and *false* refers to 
+     * low.
+     * 
+     * For example: The values (3, 1) or (0b0011, 0b0001) will turn pin 0 high, pin 1
+     * low the other pins remain untouched.
+     * 
+     * If no groups are used (see :func:`SetGroup`), the pins correspond to the
+     * markings on the Digital Out 4 Bricklet.
+     * 
+     * If groups are used, the pins correspond to the element in the group.
+     * Element 1 in the group will get pins 0-3, element 2 pins 4-7, element 3
+     * pins 8-11 and element 4 pins 12-15.
+     * 
+     */
     public Integer getSelectionMask2(){
         return selectionMask2;
     }
@@ -196,6 +326,23 @@ public class IndustrialDigitalOut4Endpoint extends TinkerforgeEndpoint<Industria
         this.selectionMask2 = selectionMask2;
     }
 
+    /**
+     * 
+     * Sets the output value with a bitmask, according to the selection mask.
+     * The bitmask is 16 bit long, *true* refers to high and *false* refers to 
+     * low.
+     * 
+     * For example: The values (3, 1) or (0b0011, 0b0001) will turn pin 0 high, pin 1
+     * low the other pins remain untouched.
+     * 
+     * If no groups are used (see :func:`SetGroup`), the pins correspond to the
+     * markings on the Digital Out 4 Bricklet.
+     * 
+     * If groups are used, the pins correspond to the element in the group.
+     * Element 1 in the group will get pins 0-3, element 2 pins 4-7, element 3
+     * pins 8-11 and element 4 pins 12-15.
+     * 
+     */
     public Integer getValueMask3(){
         return valueMask3;
     }

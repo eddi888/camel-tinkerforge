@@ -19,13 +19,21 @@ package org.atomspace.camel.component.tinkerforge.generator.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 public class Packet {
     public String[] name;
     public String type;
 
     public Elements  elements;
 
-    public Integer[] sinceFirmware;
+
+    public Integer[] since_firmware;
+    public Integer function_id;
+    public Boolean is_virtual;
+    public Boolean prototype_in_device;
+    
+    public Doc doc;
+    
+    
     
 }

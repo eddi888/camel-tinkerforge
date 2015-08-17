@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletMultiTouch;
 
+/**
+ * Capacitive touch sensor for 12 electrodes
+ */
 public class MultiTouchEndpoint extends TinkerforgeEndpoint<MultiTouchConsumer, MultiTouchProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MultiTouchEndpoint.class);
@@ -117,6 +120,24 @@ public class MultiTouchEndpoint extends TinkerforgeEndpoint<MultiTouchConsumer, 
     }
     
     
+    /**
+     * 
+     * Enables/disables electrodes with a bitfield (see :func:`GetTouchState`).
+     * 
+     * *True* enables the electrode, *false* disables the electrode. A
+     * disabled electrode will always return *false* as its state. If you
+     * don't need all electrodes you can disable the electrodes that are
+     * not needed.
+     * 
+     * It is recommended that you disable the proximity bit (bit 12) if
+     * the proximity feature is not needed. This will reduce the amount of
+     * traffic that is produced by the :func:`TouchState` callback.
+     * 
+     * Disabling electrodes will also reduce power consumption.
+     * 
+     * Default: 8191 = 0x1FFF = 0b1111111111111 (all electrodes enabled)
+     * 
+     */
     public Integer getEnabledElectrodes(){
         return enabledElectrodes;
     }
@@ -125,6 +146,23 @@ public class MultiTouchEndpoint extends TinkerforgeEndpoint<MultiTouchConsumer, 
         this.enabledElectrodes = enabledElectrodes;
     }
 
+    /**
+     * 
+     * Sets the sensitivity of the electrodes. An electrode with a high sensitivity
+     * will register a touch earlier then an electrode with a low sensitivity.
+     * 
+     * If you build a big electrode you might need to decrease the sensitivity, since
+     * the area that can be charged will get bigger. If you want to be able to
+     * activate an electrode from further away you need to increase the sensitivity.
+     * 
+     * After a new sensitivity is set, you likely want to call :func:`Recalibrate`
+     * to calibrate the electrodes with the newly defined sensitivity.
+     * 
+     * The valid sensitivity value range is 5-201.
+     * 
+     * The default sensitivity value is 181.
+     * 
+     */
     public Short getSensitivity(){
         return sensitivity;
     }

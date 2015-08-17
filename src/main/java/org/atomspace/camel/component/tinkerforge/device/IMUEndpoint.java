@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickIMU;
 
+/**
+ * Full fledged AHRS with 9 degrees of freedom
+ */
 public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IMUEndpoint.class);
@@ -281,6 +284,11 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
     }
     
     
+    /**
+     * 
+     * Not implemented yet.
+     * 
+     */
     public Short getRange(){
         return range;
     }
@@ -289,6 +297,11 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.range = range;
     }
 
+    /**
+     * 
+     * Not implemented yet.
+     * 
+     */
     public Short getRange2(){
         return range2;
     }
@@ -297,6 +310,37 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.range2 = range2;
     }
 
+    /**
+     * 
+     * Sets the convergence speed of the IMU Brick in °/s. The convergence speed 
+     * determines how the different sensor measurements are fused.
+     * 
+     * If the orientation of the IMU Brick is off by 10° and the convergence speed is 
+     * set to 20°/s, it will take 0.5s until the orientation is corrected. However,
+     * if the correct orientation is reached and the convergence speed is too high,
+     * the orientation will fluctuate with the fluctuations of the accelerometer and
+     * the magnetometer.
+     * 
+     * If you set the convergence speed to 0, practically only the gyroscope is used
+     * to calculate the orientation. This gives very smooth movements, but errors of the
+     * gyroscope will not be corrected. If you set the convergence speed to something
+     * above 500, practically only the magnetometer and the accelerometer are used to
+     * calculate the orientation. In this case the movements are abrupt and the values
+     * will fluctuate, but there won't be any errors that accumulate over time.
+     * 
+     * In an application with high angular velocities, we recommend a high convergence
+     * speed, so the errors of the gyroscope can be corrected fast. In applications with
+     * only slow movements we recommend a low convergence speed. You can change the
+     * convergence speed on the fly. So it is possible (and recommended) to increase 
+     * the convergence speed before an abrupt movement and decrease it afterwards 
+     * again.
+     * 
+     * You might want to play around with the convergence speed in the Brick Viewer to
+     * get a feeling for a good value for your application.
+     * 
+     * The default value is 30.
+     * 
+     */
     public Integer getSpeed(){
         return speed;
     }
@@ -305,6 +349,44 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.speed = speed;
     }
 
+    /**
+     * 
+     * There are several different types that can be calibrated:
+     * 
+     * .. csv-table::
+     *  :header: "Type", "Description", "Values"
+     *  :widths: 10, 30, 110
+     * 
+     *  "0",    "Accelerometer Gain", "``[mul x, mul y, mul z, div x, div y, div z, 0, 0, 0, 0]``"
+     *  "1",    "Accelerometer Bias", "``[bias x, bias y, bias z, 0, 0, 0, 0, 0, 0, 0]``"
+     *  "2",    "Magnetometer Gain",  "``[mul x, mul y, mul z, div x, div y, div z, 0, 0, 0, 0]``"
+     *  "3",    "Magnetometer Bias",  "``[bias x, bias y, bias z, 0, 0, 0, 0, 0, 0, 0]``"
+     *  "4",    "Gyroscope Gain",     "``[mul x, mul y, mul z, div x, div y, div z, 0, 0, 0, 0]``"
+     *  "5",    "Gyroscope Bias",     "``[bias xl, bias yl, bias zl, temp l, bias xh, bias yh, bias zh, temp h, 0, 0]``"
+     * 
+     * The calibration via gain and bias is done with the following formula::
+     * 
+     *  new_value = (bias + orig_value) * gain_mul / gain_div
+     * 
+     * If you really want to write your own calibration software, please keep
+     * in mind that you first have to undo the old calibration (set bias to 0 and
+     * gain to 1/1) and that you have to average over several thousand values
+     * to obtain a usable result in the end.
+     * 
+     * The gyroscope bias is highly dependent on the temperature, so you have to
+     * calibrate the bias two times with different temperatures. The values ``xl``,
+     * ``yl``, ``zl`` and ``temp l`` are the bias for ``x``, ``y``, ``z`` and the
+     * corresponding temperature for a low temperature. The values ``xh``, ``yh``,
+     * ``zh`` and ``temp h`` are the same for a high temperatures. The temperature
+     * difference should be at least 5°C. If you have a temperature where the
+     * IMU Brick is mostly used, you should use this temperature for one of the
+     * sampling points.
+     * 
+     * .. note::
+     *  We highly recommend that you use the Brick Viewer to calibrate your
+     *  IMU Brick.
+     * 
+     */
     public Short getTyp(){
         return typ;
     }
@@ -313,6 +395,44 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.typ = typ;
     }
 
+    /**
+     * 
+     * There are several different types that can be calibrated:
+     * 
+     * .. csv-table::
+     *  :header: "Type", "Description", "Values"
+     *  :widths: 10, 30, 110
+     * 
+     *  "0",    "Accelerometer Gain", "``[mul x, mul y, mul z, div x, div y, div z, 0, 0, 0, 0]``"
+     *  "1",    "Accelerometer Bias", "``[bias x, bias y, bias z, 0, 0, 0, 0, 0, 0, 0]``"
+     *  "2",    "Magnetometer Gain",  "``[mul x, mul y, mul z, div x, div y, div z, 0, 0, 0, 0]``"
+     *  "3",    "Magnetometer Bias",  "``[bias x, bias y, bias z, 0, 0, 0, 0, 0, 0, 0]``"
+     *  "4",    "Gyroscope Gain",     "``[mul x, mul y, mul z, div x, div y, div z, 0, 0, 0, 0]``"
+     *  "5",    "Gyroscope Bias",     "``[bias xl, bias yl, bias zl, temp l, bias xh, bias yh, bias zh, temp h, 0, 0]``"
+     * 
+     * The calibration via gain and bias is done with the following formula::
+     * 
+     *  new_value = (bias + orig_value) * gain_mul / gain_div
+     * 
+     * If you really want to write your own calibration software, please keep
+     * in mind that you first have to undo the old calibration (set bias to 0 and
+     * gain to 1/1) and that you have to average over several thousand values
+     * to obtain a usable result in the end.
+     * 
+     * The gyroscope bias is highly dependent on the temperature, so you have to
+     * calibrate the bias two times with different temperatures. The values ``xl``,
+     * ``yl``, ``zl`` and ``temp l`` are the bias for ``x``, ``y``, ``z`` and the
+     * corresponding temperature for a low temperature. The values ``xh``, ``yh``,
+     * ``zh`` and ``temp h`` are the same for a high temperatures. The temperature
+     * difference should be at least 5°C. If you have a temperature where the
+     * IMU Brick is mostly used, you should use this temperature for one of the
+     * sampling points.
+     * 
+     * .. note::
+     *  We highly recommend that you use the Brick Viewer to calibrate your
+     *  IMU Brick.
+     * 
+     */
     public short[] getData(){
         return data;
     }
@@ -321,6 +441,11 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.data = data;
     }
 
+    /**
+     * 
+     * Returns the calibration for a given type as set by :func:`SetCalibration`.
+     * 
+     */
     public Short getTyp2(){
         return typ2;
     }
@@ -329,6 +454,14 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.typ2 = typ2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Acceleration` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -337,6 +470,12 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`MagneticField` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -345,6 +484,12 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AngularVelocity` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod3(){
         return period3;
     }
@@ -353,6 +498,12 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.period3 = period3;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AllData` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod4(){
         return period4;
     }
@@ -361,6 +512,12 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.period4 = period4;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Orientation` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod5(){
         return period5;
     }
@@ -369,6 +526,12 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.period5 = period5;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Quaternion` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod6(){
         return period6;
     }
@@ -377,6 +540,15 @@ public class IMUEndpoint extends TinkerforgeEndpoint<IMUConsumer, IMUProducer> {
         this.period6 = period6;
     }
 
+    /**
+     * 
+     * Returns the firmware and protocol version and the name of the Bricklet for a
+     * given port.
+     * 
+     * This functions sole purpose is to allow automatic flashing of v1.x.y Bricklet
+     * plugins.
+     * 
+     */
     public Character getPort(){
         return port;
     }

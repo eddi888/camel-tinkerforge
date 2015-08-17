@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletMoisture;
 
+/**
+ * Measures soil moisture
+ */
 public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, MoistureProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MoistureEndpoint.class);
@@ -139,6 +142,17 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Moisture` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Moisture` is only triggered if the moisture value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -147,6 +161,25 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`MoistureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the moisture value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the moisture value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the moisture value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the moisture value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -155,6 +188,25 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`MoistureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the moisture value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the moisture value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the moisture value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the moisture value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -163,6 +215,25 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`MoistureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the moisture value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the moisture value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the moisture value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the moisture value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -171,6 +242,21 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`MoistureReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetMoistureCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -179,6 +265,19 @@ public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, Mois
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the moisture value.
+     * 
+     * Setting the length to 0 will turn the averaging completely off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 0-100.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Short getAverage(){
         return average;
     }

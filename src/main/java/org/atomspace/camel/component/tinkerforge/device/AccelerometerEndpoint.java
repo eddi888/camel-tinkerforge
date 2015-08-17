@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletAccelerometer;
 
+/**
+ * Measures acceleration in three axis
+ */
 public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerConsumer, AccelerometerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AccelerometerEndpoint.class);
@@ -167,6 +170,17 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Acceleration` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Acceleration` is only triggered if the acceleration has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -175,6 +189,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -183,6 +216,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Short getMinX(){
         return minX;
     }
@@ -191,6 +243,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.minX = minX;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Short getMaxX(){
         return maxX;
     }
@@ -199,6 +270,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.maxX = maxX;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Short getMinY(){
         return minY;
     }
@@ -207,6 +297,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.minY = minY;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Short getMaxY(){
         return maxY;
     }
@@ -215,6 +324,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.maxY = maxY;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Short getMinZ(){
         return minZ;
     }
@@ -223,6 +351,25 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.minZ = minZ;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AccelerationReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Short getMaxZ(){
         return maxZ;
     }
@@ -231,6 +378,21 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.maxZ = maxZ;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`AccelerationReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetAccelerationCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -239,6 +401,22 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Configures the data rate, full scale range and filter bandwidth.
+     * Possible values are:
+     * 
+     * * Data rate of 0Hz to 1600Hz.
+     * * Full scale range of -2G to +2G up to -16G to +16G.
+     * * Filter bandwidth between 50Hz and 800Hz.
+     * 
+     * Decreasing data rate or full scale range will also decrease the noise on 
+     * the data.
+     * 
+     * The default values are 100Hz data rate, -4G to +4G range and 200Hz
+     * filter bandwidth.
+     * 
+     */
     public Short getDataRate(){
         return dataRate;
     }
@@ -247,6 +425,22 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.dataRate = dataRate;
     }
 
+    /**
+     * 
+     * Configures the data rate, full scale range and filter bandwidth.
+     * Possible values are:
+     * 
+     * * Data rate of 0Hz to 1600Hz.
+     * * Full scale range of -2G to +2G up to -16G to +16G.
+     * * Filter bandwidth between 50Hz and 800Hz.
+     * 
+     * Decreasing data rate or full scale range will also decrease the noise on 
+     * the data.
+     * 
+     * The default values are 100Hz data rate, -4G to +4G range and 200Hz
+     * filter bandwidth.
+     * 
+     */
     public Short getFullScale(){
         return fullScale;
     }
@@ -255,6 +449,22 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
         this.fullScale = fullScale;
     }
 
+    /**
+     * 
+     * Configures the data rate, full scale range and filter bandwidth.
+     * Possible values are:
+     * 
+     * * Data rate of 0Hz to 1600Hz.
+     * * Full scale range of -2G to +2G up to -16G to +16G.
+     * * Filter bandwidth between 50Hz and 800Hz.
+     * 
+     * Decreasing data rate or full scale range will also decrease the noise on 
+     * the data.
+     * 
+     * The default values are 100Hz data rate, -4G to +4G range and 200Hz
+     * filter bandwidth.
+     * 
+     */
     public Short getFilterBandwidth(){
         return filterBandwidth;
     }

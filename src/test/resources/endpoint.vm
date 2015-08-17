@@ -45,6 +45,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.$!{config_category}$!{config_name_0};
 
+/**
+ * $!{config_description}
+ */
 public class $!{config_name_0}Endpoint extends TinkerforgeEndpoint<$!{config_name_0}Consumer, $!{config_name_0}Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger($!{config_name_0}Endpoint.class);

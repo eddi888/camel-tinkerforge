@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletAnalogOut;
 
+/**
+ * Generates configurable DC voltage between 0V and 5V
+ */
 public class AnalogOutEndpoint extends TinkerforgeEndpoint<AnalogOutConsumer, AnalogOutProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AnalogOutEndpoint.class);
@@ -109,6 +112,14 @@ public class AnalogOutEndpoint extends TinkerforgeEndpoint<AnalogOutConsumer, An
     }
     
     
+    /**
+     * 
+     * Sets the voltage in mV. The possible range is 0V to 5V (0-5000).
+     * Calling this function will set the mode to 0 (see :func:`SetMode`).
+     * 
+     * The default value is 0 (with mode 1).
+     * 
+     */
     public Integer getVoltage(){
         return voltage;
     }
@@ -117,6 +128,21 @@ public class AnalogOutEndpoint extends TinkerforgeEndpoint<AnalogOutConsumer, An
         this.voltage = voltage;
     }
 
+    /**
+     * 
+     * Sets the mode of the analog value. Possible modes:
+     * 
+     * * 0: Normal Mode (Analog value as set by :func:`SetVoltage` is applied)
+     * * 1: 1k Ohm resistor to ground
+     * * 2: 100k Ohm resistor to ground
+     * * 3: 500k Ohm resistor to ground
+     * 
+     * Setting the mode to 0 will result in an output voltage of 0. You can jump
+     * to a higher output voltage directly by calling :func:`SetVoltage`.
+     * 
+     * The default mode is 1.
+     * 
+     */
     public Short getMode(){
         return mode;
     }

@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickStepper;
 
+/**
+ * Drives one bipolar stepper motor with up to 38V and 2.5A per phase
+ */
 public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, StepperProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(StepperEndpoint.class);
@@ -300,6 +303,15 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
     }
     
     
+    /**
+     * 
+     * Sets the maximum velocity of the stepper motor in steps per second.
+     * This function does *not* start the motor, it merely sets the maximum
+     * velocity the stepper motor is accelerated to. To get the motor running use
+     * either :func:`SetTargetPosition`, :func:`SetSteps`, :func:`DriveForward` or
+     * :func:`DriveBackward`.
+     * 
+     */
     public Integer getVelocity(){
         return velocity;
     }
@@ -308,6 +320,22 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.velocity = velocity;
     }
 
+    /**
+     * 
+     * Sets the acceleration and deacceleration of the stepper motor. The values
+     * are given in *steps/s²*. An acceleration of 1000 means, that
+     * every second the velocity is increased by 1000 *steps/s*.
+     * 
+     * For example: If the current velocity is 0 and you want to accelerate to a
+     * velocity of 8000 *steps/s* in 10 seconds, you should set an acceleration
+     * of 800 *steps/s²*.
+     * 
+     * An acceleration/deacceleration of 0 means instantaneous
+     * acceleration/deacceleration (not recommended)
+     * 
+     * The default value is 1000 for both
+     * 
+     */
     public Integer getAcceleration(){
         return acceleration;
     }
@@ -316,6 +344,22 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.acceleration = acceleration;
     }
 
+    /**
+     * 
+     * Sets the acceleration and deacceleration of the stepper motor. The values
+     * are given in *steps/s²*. An acceleration of 1000 means, that
+     * every second the velocity is increased by 1000 *steps/s*.
+     * 
+     * For example: If the current velocity is 0 and you want to accelerate to a
+     * velocity of 8000 *steps/s* in 10 seconds, you should set an acceleration
+     * of 800 *steps/s²*.
+     * 
+     * An acceleration/deacceleration of 0 means instantaneous
+     * acceleration/deacceleration (not recommended)
+     * 
+     * The default value is 1000 for both
+     * 
+     */
     public Integer getDeacceleration(){
         return deacceleration;
     }
@@ -324,6 +368,13 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.deacceleration = deacceleration;
     }
 
+    /**
+     * 
+     * Sets the current steps of the internal step counter. This can be used to
+     * set the current position to 0 when some kind of starting position
+     * is reached (e.g. when a CNC machine reaches a corner).
+     * 
+     */
     public Integer getPosition(){
         return position;
     }
@@ -332,6 +383,19 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.position = position;
     }
 
+    /**
+     * 
+     * Sets the target position of the stepper motor in steps. For example,
+     * if the current position of the motor is 500 and :func:`SetTargetPosition` is
+     * called with 1000, the stepper motor will drive 500 steps forward. It will
+     * use the velocity, acceleration and deacceleration as set by
+     * :func:`SetMaxVelocity` and :func:`SetSpeedRamping`.
+     * 
+     * A call of :func:`SetTargetPosition` with the parameter *x* is equivalent to
+     * a call of :func:`SetSteps` with the parameter 
+     * (*x* - :func:`GetCurrentPosition`).
+     * 
+     */
     public Integer getPosition2(){
         return position2;
     }
@@ -340,6 +404,14 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.position2 = position2;
     }
 
+    /**
+     * 
+     * Sets the number of steps the stepper motor should run. Positive values
+     * will drive the motor forward and negative values backward. 
+     * The velocity, acceleration and deacceleration as set by
+     * :func:`SetMaxVelocity` and :func:`SetSpeedRamping` will be used.
+     * 
+     */
     public Integer getSteps(){
         return steps;
     }
@@ -348,6 +420,21 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.steps = steps;
     }
 
+    /**
+     * 
+     * Sets the step mode of the stepper motor. Possible values are:
+     * 
+     * * Full Step = 1
+     * * Half Step = 2
+     * * Quarter Step = 4
+     * * Eighth Step = 8
+     * 
+     * A higher value will increase the resolution and
+     * decrease the torque of the stepper motor.
+     * 
+     * The default value is 8 (Eighth Step).
+     * 
+     */
     public Short getMode(){
         return mode;
     }
@@ -356,6 +443,17 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.mode = mode;
     }
 
+    /**
+     * 
+     * Sets the current in mA with which the motor will be driven.
+     * The minimum value is 100mA, the maximum value 2291mA and the 
+     * default value is 800mA.
+     * 
+     * .. warning::
+     *  Do not set this value above the specifications of your stepper motor.
+     *  Otherwise it may damage your motor.
+     * 
+     */
     public Integer getCurrent(){
         return current;
     }
@@ -364,6 +462,37 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.current = current;
     }
 
+    /**
+     * 
+     * Sets the decay mode of the stepper motor. The possible value range is
+     * between 0 and 65535. A value of 0 sets the fast decay mode, a value of
+     * 65535 sets the slow decay mode and a value in between sets the mixed
+     * decay mode.
+     * 
+     * Changing the decay mode is only possible if synchronous rectification
+     * is enabled (see :func:`SetSyncRect`).
+     * 
+     * For a good explanation of the different decay modes see 
+     * `this <http://ebldc.com/?p=86/>`__ blog post by Avayan.
+     * 
+     * A good decay mode is unfortunately different for every motor. The best
+     * way to work out a good decay mode for your stepper motor, if you can't
+     * measure the current with an oscilloscope, is to listen to the sound of
+     * the motor. If the value is too low, you often hear a high pitched 
+     * sound and if it is too high you can often hear a humming sound.
+     * 
+     * Generally, fast decay mode (small value) will be noisier but also
+     * allow higher motor speeds.
+     * 
+     * The default value is 10000.
+     * 
+     * .. note::
+     *  There is unfortunately no formula to calculate a perfect decay
+     *  mode for a given stepper motor. If you have problems with loud noises
+     *  or the maximum motor speed is too slow, you should try to tinker with
+     *  the decay value
+     * 
+     */
     public Integer getDecay(){
         return decay;
     }
@@ -372,6 +501,17 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.decay = decay;
     }
 
+    /**
+     * 
+     * Sets the minimum voltage in mV, below which the :func:`UnderVoltage` callback
+     * is triggered. The minimum possible value that works with the Stepper Brick is 8V.
+     * You can use this function to detect the discharge of a battery that is used
+     * to drive the stepper motor. If you have a fixed power supply, you likely do 
+     * not need this functionality.
+     * 
+     * The default value is 8V.
+     * 
+     */
     public Integer getVoltage(){
         return voltage;
     }
@@ -380,6 +520,26 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.voltage = voltage;
     }
 
+    /**
+     * 
+     * Turns synchronous rectification on or off (*true* or *false*).
+     * 
+     * With synchronous rectification on, the decay can be changed
+     * (see :func:`SetDecay`). Without synchronous rectification fast
+     * decay is used.
+     * 
+     * For an explanation of synchronous rectification see 
+     * `here <https://en.wikipedia.org/wiki/Active_rectification>`__.
+     * 
+     * .. warning::
+     *  If you want to use high speeds (> 10000 steps/s) for a large 
+     *  stepper motor with a large inductivity we strongly
+     *  suggest that you disable synchronous rectification. Otherwise the
+     *  Brick may not be able to cope with the load and overheat.
+     * 
+     * The default value is *false*.
+     * 
+     */
     public Boolean getSyncRect(){
         return syncRect;
     }
@@ -388,6 +548,18 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.syncRect = syncRect;
     }
 
+    /**
+     * 
+     * Sets the time base of the velocity and the acceleration of the stepper brick
+     * (in seconds).
+     * 
+     * For example, if you want to make one step every 1.5 seconds, you can set 
+     * the time base to 15 and the velocity to 10. Now the velocity is 
+     * 10steps/15s = 1steps/1.5s.
+     * 
+     * The default value is 1.
+     * 
+     */
     public Long getTimeBase(){
         return timeBase;
     }
@@ -396,6 +568,12 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.timeBase = timeBase;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AllData` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -404,6 +582,15 @@ public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, Steppe
         this.period = period;
     }
 
+    /**
+     * 
+     * Returns the firmware and protocol version and the name of the Bricklet for a
+     * given port.
+     * 
+     * This functions sole purpose is to allow automatic flashing of v1.x.y Bricklet
+     * plugins.
+     * 
+     */
     public Character getPort(){
         return port;
     }

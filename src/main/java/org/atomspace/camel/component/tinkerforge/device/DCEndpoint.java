@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickDC;
 
+/**
+ * Drives one brushed DC motor with up to 28V and 5A (peak)
+ */
 public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DCEndpoint.class);
@@ -212,6 +215,21 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
     }
     
     
+    /**
+     * 
+     * Sets the velocity of the motor. Whereas -32767 is full speed backward,
+     * 0 is stop and 32767 is full speed forward. Depending on the
+     * acceleration (see :func:`SetAcceleration`), the motor is not immediately
+     * brought to the velocity but smoothly accelerated.
+     * 
+     * The velocity describes the duty cycle of the PWM with which the motor is
+     * controlled, e.g. a velocity of 3277 sets a PWM with a 10% duty cycle.
+     * You can not only control the duty cycle of the PWM but also the frequency,
+     * see :func:`SetPWMFrequency`.
+     * 
+     * The default velocity is 0.
+     * 
+     */
     public Short getVelocity(){
         return velocity;
     }
@@ -220,6 +238,22 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
         this.velocity = velocity;
     }
 
+    /**
+     * 
+     * Sets the acceleration of the motor. It is given in *velocity/s*. An
+     * acceleration of 10000 means, that every second the velocity is increased
+     * by 10000 (or about 30% duty cycle).
+     * 
+     * For example: If the current velocity is 0 and you want to accelerate to a
+     * velocity of 16000 (about 50% duty cycle) in 10 seconds, you should set
+     * an acceleration of 1600.
+     * 
+     * If acceleration is set to 0, there is no speed ramping, i.e. a new velocity
+     * is immediately given to the motor.
+     * 
+     * The default acceleration is 10000.
+     * 
+     */
     public Integer getAcceleration(){
         return acceleration;
     }
@@ -228,6 +262,20 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
         this.acceleration = acceleration;
     }
 
+    /**
+     * 
+     * Sets the frequency (in Hz) of the PWM with which the motor is driven.
+     * The possible range of the frequency is 1-20000Hz. Often a high frequency
+     * is less noisy and the motor runs smoother. However, with a low frequency
+     * there are less switches and therefore fewer switching losses. Also with
+     * most motors lower frequencies enable higher torque.
+     * 
+     * If you have no idea what all this means, just ignore this function and use
+     * the default frequency, it will very likely work fine.
+     * 
+     * The default frequency is 15 kHz.
+     * 
+     */
     public Integer getFrequency(){
         return frequency;
     }
@@ -236,6 +284,17 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
         this.frequency = frequency;
     }
 
+    /**
+     * 
+     * Sets the minimum voltage in mV, below which the :func:`UnderVoltage` callback
+     * is triggered. The minimum possible value that works with the DC Brick is 6V.
+     * You can use this function to detect the discharge of a battery that is used
+     * to drive the motor. If you have a fixed power supply, you likely do not need
+     * this functionality.
+     * 
+     * The default value is 6V.
+     * 
+     */
     public Integer getVoltage(){
         return voltage;
     }
@@ -244,6 +303,27 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
         this.voltage = voltage;
     }
 
+    /**
+     * 
+     * Sets the drive mode. Possible modes are:
+     * 
+     * * 0 = Drive/Brake
+     * * 1 = Drive/Coast
+     * 
+     * These modes are different kinds of motor controls.
+     * 
+     * In Drive/Brake mode, the motor is always either driving or braking. There
+     * is no freewheeling. Advantages are: A more linear correlation between
+     * PWM and velocity, more exact accelerations and the possibility to drive
+     * with slower velocities.
+     * 
+     * In Drive/Coast mode, the motor is always either driving or freewheeling.
+     * Advantages are: Less current consumption and less demands on the motor and
+     * driver chip.
+     * 
+     * The default value is 0 = Drive/Brake.
+     * 
+     */
     public Short getMode(){
         return mode;
     }
@@ -252,6 +332,14 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
         this.mode = mode;
     }
 
+    /**
+     * 
+     * Sets a period in ms with which the :func:`CurrentVelocity` callback is triggered.
+     * A period of 0 turns the callback off.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Integer getPeriod(){
         return period;
     }
@@ -260,6 +348,15 @@ public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
         this.period = period;
     }
 
+    /**
+     * 
+     * Returns the firmware and protocol version and the name of the Bricklet for a
+     * given port.
+     * 
+     * This functions sole purpose is to allow automatic flashing of v1.x.y Bricklet
+     * plugins.
+     * 
+     */
     public Character getPort(){
         return port;
     }

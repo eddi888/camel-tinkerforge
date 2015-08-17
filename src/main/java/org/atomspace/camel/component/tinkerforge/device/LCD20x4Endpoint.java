@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletLCD20x4;
 
+/**
+ * 20x4 character alphanumeric display with blue backlight
+ */
 public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x4Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LCD20x4Endpoint.class);
@@ -177,6 +180,21 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
     }
     
     
+    /**
+     * 
+     * Writes text to a specific line (0 to 3) with a specific position 
+     * (0 to 19). The text can have a maximum of 20 characters.
+     * 
+     * For example: (0, 7, "Hello") will write *Hello* in the middle of the
+     * first line of the display.
+     * 
+     * The display uses a special charset that includes all ASCII characters except
+     * backslash and tilde. The LCD charset also includes several other non-ASCII characters, see
+     * the `charset specification <https://github.com/Tinkerforge/lcd-20x4-bricklet/raw/master/datasheets/standard_charset.pdf>`__
+     * for details. The Unicode example above shows how to specify non-ASCII characters
+     * and how to translate from Unicode to the LCD charset.
+     * 
+     */
     public Short getLine(){
         return line;
     }
@@ -185,6 +203,21 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.line = line;
     }
 
+    /**
+     * 
+     * Writes text to a specific line (0 to 3) with a specific position 
+     * (0 to 19). The text can have a maximum of 20 characters.
+     * 
+     * For example: (0, 7, "Hello") will write *Hello* in the middle of the
+     * first line of the display.
+     * 
+     * The display uses a special charset that includes all ASCII characters except
+     * backslash and tilde. The LCD charset also includes several other non-ASCII characters, see
+     * the `charset specification <https://github.com/Tinkerforge/lcd-20x4-bricklet/raw/master/datasheets/standard_charset.pdf>`__
+     * for details. The Unicode example above shows how to specify non-ASCII characters
+     * and how to translate from Unicode to the LCD charset.
+     * 
+     */
     public Short getPosition(){
         return position;
     }
@@ -193,6 +226,21 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.position = position;
     }
 
+    /**
+     * 
+     * Writes text to a specific line (0 to 3) with a specific position 
+     * (0 to 19). The text can have a maximum of 20 characters.
+     * 
+     * For example: (0, 7, "Hello") will write *Hello* in the middle of the
+     * first line of the display.
+     * 
+     * The display uses a special charset that includes all ASCII characters except
+     * backslash and tilde. The LCD charset also includes several other non-ASCII characters, see
+     * the `charset specification <https://github.com/Tinkerforge/lcd-20x4-bricklet/raw/master/datasheets/standard_charset.pdf>`__
+     * for details. The Unicode example above shows how to specify non-ASCII characters
+     * and how to translate from Unicode to the LCD charset.
+     * 
+     */
     public String getText(){
         return text;
     }
@@ -201,6 +249,16 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.text = text;
     }
 
+    /**
+     * 
+     * Configures if the cursor (shown as "_") should be visible and if it
+     * should be blinking (shown as a blinking block). The cursor position
+     * is one character behind the the last text written with 
+     * :func:`WriteLine`.
+     * 
+     * The default is (*false*, *false*).
+     * 
+     */
     public Boolean getCursor(){
         return cursor;
     }
@@ -209,6 +267,16 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.cursor = cursor;
     }
 
+    /**
+     * 
+     * Configures if the cursor (shown as "_") should be visible and if it
+     * should be blinking (shown as a blinking block). The cursor position
+     * is one character behind the the last text written with 
+     * :func:`WriteLine`.
+     * 
+     * The default is (*false*, *false*).
+     * 
+     */
     public Boolean getBlinking(){
         return blinking;
     }
@@ -217,6 +285,14 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.blinking = blinking;
     }
 
+    /**
+     * 
+     * Returns *true* if the button (0 to 2 or 0 to 3 since hardware version 1.2)
+     * is pressed. If you want to react
+     * on button presses and releases it is recommended to use the
+     * :func:`ButtonPressed` and :func:`ButtonReleased` callbacks.
+     * 
+     */
     public Short getButton(){
         return button;
     }
@@ -225,6 +301,32 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.button = button;
     }
 
+    /**
+     * 
+     * The LCD 20x4 Bricklet can store up to 8 custom characters. The characters
+     * consist of 5x8 pixels and can be addressed with the index 0-7. To describe
+     * the pixels, the first 5 bits of 8 bytes are used. For example, to make
+     * a custom character "H", you should transfer the following:
+     * 
+     * * ``character[0] = 0b00010001`` (decimal value 17)
+     * * ``character[1] = 0b00010001`` (decimal value 17)
+     * * ``character[2] = 0b00010001`` (decimal value 17)
+     * * ``character[3] = 0b00011111`` (decimal value 31)
+     * * ``character[4] = 0b00010001`` (decimal value 17)
+     * * ``character[5] = 0b00010001`` (decimal value 17)
+     * * ``character[6] = 0b00010001`` (decimal value 17)
+     * * ``character[7] = 0b00000000`` (decimal value 0)
+     * 
+     * The characters can later be written with :func:`WriteLine` by using the
+     * characters with the byte representation 8 ("\x08") to 15 ("\x0F").
+     * 
+     * You can play around with the custom characters in Brick Viewer version
+     * since 2.0.1.
+     * 
+     * Custom characters are stored by the LCD in RAM, so they have to be set
+     * after each startup.
+     * 
+     */
     public Short getIndex(){
         return index;
     }
@@ -233,6 +335,32 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.index = index;
     }
 
+    /**
+     * 
+     * The LCD 20x4 Bricklet can store up to 8 custom characters. The characters
+     * consist of 5x8 pixels and can be addressed with the index 0-7. To describe
+     * the pixels, the first 5 bits of 8 bytes are used. For example, to make
+     * a custom character "H", you should transfer the following:
+     * 
+     * * ``character[0] = 0b00010001`` (decimal value 17)
+     * * ``character[1] = 0b00010001`` (decimal value 17)
+     * * ``character[2] = 0b00010001`` (decimal value 17)
+     * * ``character[3] = 0b00011111`` (decimal value 31)
+     * * ``character[4] = 0b00010001`` (decimal value 17)
+     * * ``character[5] = 0b00010001`` (decimal value 17)
+     * * ``character[6] = 0b00010001`` (decimal value 17)
+     * * ``character[7] = 0b00000000`` (decimal value 0)
+     * 
+     * The characters can later be written with :func:`WriteLine` by using the
+     * characters with the byte representation 8 ("\x08") to 15 ("\x0F").
+     * 
+     * You can play around with the custom characters in Brick Viewer version
+     * since 2.0.1.
+     * 
+     * Custom characters are stored by the LCD in RAM, so they have to be set
+     * after each startup.
+     * 
+     */
     public short[] getCharacter(){
         return character;
     }
@@ -241,6 +369,12 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.character = character;
     }
 
+    /**
+     * 
+     * Returns the custom character for a given index, as set with
+     * :func:`SetCustomCharacter`.
+     * 
+     */
     public Short getIndex2(){
         return index2;
     }
@@ -249,6 +383,15 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.index2 = index2;
     }
 
+    /**
+     * 
+     * Sets the default text for lines 0-3. The max number of characters
+     * per line is 20.
+     * 
+     * The default text is shown on the LCD, if the default text counter
+     * expires, see :func:`SetDefaultTextCounter`.
+     * 
+     */
     public Short getLine2(){
         return line2;
     }
@@ -257,6 +400,15 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.line2 = line2;
     }
 
+    /**
+     * 
+     * Sets the default text for lines 0-3. The max number of characters
+     * per line is 20.
+     * 
+     * The default text is shown on the LCD, if the default text counter
+     * expires, see :func:`SetDefaultTextCounter`.
+     * 
+     */
     public String getText2(){
         return text2;
     }
@@ -265,6 +417,12 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.text2 = text2;
     }
 
+    /**
+     * 
+     * Returns the default text for a given line (0-3) as set by
+     * :func:`SetDefaultText`.
+     * 
+     */
     public Short getLine3(){
         return line3;
     }
@@ -273,6 +431,25 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
         this.line3 = line3;
     }
 
+    /**
+     * 
+     * Sets the default text counter in ms. This counter is decremented each
+     * ms by the LCD firmware. If the counter reaches 0, the default text
+     * (see :func:`SetDefaultText`) is shown on the LCD.
+     * 
+     * This functionality can be used to show a default text if the controlling
+     * program crashes or the connection is interrupted.
+     * 
+     * A possible approach is to call :func:`SetDefaultTextCounter` every
+     * minute with the parameter 1000*60*2 (2 minutes). In this case the
+     * default text will be shown no later than 2 minutes after the
+     * controlling program crashes.
+     * 
+     * A negative counter turns the default text functionality off.
+     * 
+     * The default is -1.
+     * 
+     */
     public Integer getCounter(){
         return counter;
     }

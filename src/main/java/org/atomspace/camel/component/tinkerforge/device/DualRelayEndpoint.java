@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletDualRelay;
 
+/**
+ * Two relays to switch AC/DC devices
+ */
 public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, DualRelayProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DualRelayEndpoint.class);
@@ -127,6 +130,20 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
     }
     
     
+    /**
+     * 
+     * Sets the state of the relays, *true* means on and *false* means off. 
+     * For example: (true, false) turns relay 1 on and relay 2 off.
+     * 
+     * If you just want to set one of the relays and don't know the current state
+     * of the other relay, you can get the state with :func:`GetState` or you
+     * can use :func:`SetSelectedState`.
+     * 
+     * Running monoflop timers will be overwritten if this function is called.
+     * 
+     * The default value is (*false*, *false*).
+     * 
+     */
     public Boolean getRelay1(){
         return relay1;
     }
@@ -135,6 +152,20 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.relay1 = relay1;
     }
 
+    /**
+     * 
+     * Sets the state of the relays, *true* means on and *false* means off. 
+     * For example: (true, false) turns relay 1 on and relay 2 off.
+     * 
+     * If you just want to set one of the relays and don't know the current state
+     * of the other relay, you can get the state with :func:`GetState` or you
+     * can use :func:`SetSelectedState`.
+     * 
+     * Running monoflop timers will be overwritten if this function is called.
+     * 
+     * The default value is (*false*, *false*).
+     * 
+     */
     public Boolean getRelay2(){
         return relay2;
     }
@@ -143,6 +174,23 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.relay2 = relay2;
     }
 
+    /**
+     * 
+     * The first parameter can be 1 or 2 (relay 1 or relay 2). The second parameter 
+     * is the desired state of the relay (*true* means on and *false* means off).
+     * The third parameter indicates the time (in ms) that the relay should hold 
+     * the state.
+     * 
+     * If this function is called with the parameters (1, true, 1500):
+     * Relay 1 will turn on and in 1.5s it will turn off again.
+     * 
+     * A monoflop can be used as a failsafe mechanism. For example: Lets assume you 
+     * have a RS485 bus and a Dual Relay Bricklet connected to one of the slave 
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds. The relay will be on all the time. If now the RS485 
+     * connection is lost, the relay will turn off in at most two seconds.
+     * 
+     */
     public Short getRelay(){
         return relay;
     }
@@ -151,6 +199,23 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.relay = relay;
     }
 
+    /**
+     * 
+     * The first parameter can be 1 or 2 (relay 1 or relay 2). The second parameter 
+     * is the desired state of the relay (*true* means on and *false* means off).
+     * The third parameter indicates the time (in ms) that the relay should hold 
+     * the state.
+     * 
+     * If this function is called with the parameters (1, true, 1500):
+     * Relay 1 will turn on and in 1.5s it will turn off again.
+     * 
+     * A monoflop can be used as a failsafe mechanism. For example: Lets assume you 
+     * have a RS485 bus and a Dual Relay Bricklet connected to one of the slave 
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds. The relay will be on all the time. If now the RS485 
+     * connection is lost, the relay will turn off in at most two seconds.
+     * 
+     */
     public Boolean getState(){
         return state;
     }
@@ -159,6 +224,23 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.state = state;
     }
 
+    /**
+     * 
+     * The first parameter can be 1 or 2 (relay 1 or relay 2). The second parameter 
+     * is the desired state of the relay (*true* means on and *false* means off).
+     * The third parameter indicates the time (in ms) that the relay should hold 
+     * the state.
+     * 
+     * If this function is called with the parameters (1, true, 1500):
+     * Relay 1 will turn on and in 1.5s it will turn off again.
+     * 
+     * A monoflop can be used as a failsafe mechanism. For example: Lets assume you 
+     * have a RS485 bus and a Dual Relay Bricklet connected to one of the slave 
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds. The relay will be on all the time. If now the RS485 
+     * connection is lost, the relay will turn off in at most two seconds.
+     * 
+     */
     public Long getTime(){
         return time;
     }
@@ -167,6 +249,15 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.time = time;
     }
 
+    /**
+     * 
+     * Returns (for the given relay) the current state and the time as set by 
+     * :func:`SetMonoflop` as well as the remaining time until the state flips.
+     * 
+     * If the timer is not running currently, the remaining time will be returned
+     * as 0.
+     * 
+     */
     public Short getRelay3(){
         return relay3;
     }
@@ -175,6 +266,13 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.relay3 = relay3;
     }
 
+    /**
+     * 
+     * Sets the state of the selected relay (1 or 2), *true* means on and *false* means off. 
+     * 
+     * The other relay remains untouched.
+     * 
+     */
     public Short getRelay4(){
         return relay4;
     }
@@ -183,6 +281,13 @@ public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, Du
         this.relay4 = relay4;
     }
 
+    /**
+     * 
+     * Sets the state of the selected relay (1 or 2), *true* means on and *false* means off. 
+     * 
+     * The other relay remains untouched.
+     * 
+     */
     public Boolean getState2(){
         return state2;
     }

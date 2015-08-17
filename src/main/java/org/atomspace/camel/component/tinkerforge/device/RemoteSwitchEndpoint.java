@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletRemoteSwitch;
 
+/**
+ * Controls remote mains switches
+ */
 public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsumer, RemoteSwitchProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RemoteSwitchEndpoint.class);
@@ -157,6 +160,11 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
     }
     
     
+    /**
+     * 
+     * This function is deprecated, use :func:`SwitchSocketA` instead.
+     * 
+     */
     public Short getHouseCode(){
         return houseCode;
     }
@@ -165,6 +173,11 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.houseCode = houseCode;
     }
 
+    /**
+     * 
+     * This function is deprecated, use :func:`SwitchSocketA` instead.
+     * 
+     */
     public Short getReceiverCode(){
         return receiverCode;
     }
@@ -173,6 +186,11 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.receiverCode = receiverCode;
     }
 
+    /**
+     * 
+     * This function is deprecated, use :func:`SwitchSocketA` instead.
+     * 
+     */
     public Short getSwitchTo(){
         return switchTo;
     }
@@ -181,6 +199,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.switchTo = switchTo;
     }
 
+    /**
+     * 
+     * Sets the number of times the code is send when of the :func:`SwitchSocket`
+     * functions is called. The repeats basically correspond to the amount of time
+     * that a button of the remote is pressed.
+     * 
+     * Some dimmers are controlled by the length of a button pressed,
+     * this can be simulated by increasing the repeats.
+     * 
+     * The default value is 5.
+     * 
+     */
     public Short getRepeats(){
         return repeats;
     }
@@ -189,6 +219,17 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.repeats = repeats;
     }
 
+    /**
+     * 
+     * To switch a type A socket you have to give the house code, receiver code and the
+     * state (on or off) you want to switch to.
+     * 
+     * The house code and receiver code have a range of 0 to 31 (5bit).
+     * 
+     * A detailed description on how you can figure out the house and receiver code
+     * can be found :ref:`here <remote_switch_bricklet_type_a_house_and_receiver_code>`.
+     * 
+     */
     public Short getHouseCode2(){
         return houseCode2;
     }
@@ -197,6 +238,17 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.houseCode2 = houseCode2;
     }
 
+    /**
+     * 
+     * To switch a type A socket you have to give the house code, receiver code and the
+     * state (on or off) you want to switch to.
+     * 
+     * The house code and receiver code have a range of 0 to 31 (5bit).
+     * 
+     * A detailed description on how you can figure out the house and receiver code
+     * can be found :ref:`here <remote_switch_bricklet_type_a_house_and_receiver_code>`.
+     * 
+     */
     public Short getReceiverCode2(){
         return receiverCode2;
     }
@@ -205,6 +257,17 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.receiverCode2 = receiverCode2;
     }
 
+    /**
+     * 
+     * To switch a type A socket you have to give the house code, receiver code and the
+     * state (on or off) you want to switch to.
+     * 
+     * The house code and receiver code have a range of 0 to 31 (5bit).
+     * 
+     * A detailed description on how you can figure out the house and receiver code
+     * can be found :ref:`here <remote_switch_bricklet_type_a_house_and_receiver_code>`.
+     * 
+     */
     public Short getSwitchTo2(){
         return switchTo2;
     }
@@ -213,6 +276,19 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.switchTo2 = switchTo2;
     }
 
+    /**
+     * 
+     * To switch a type B socket you have to give the address, unit and the state
+     * (on or off) you want to switch to.
+     * 
+     * The address has a range of 0 to 67108863 (26bit) and the unit has a range
+     * of 0 to 15 (4bit). To switch all devices with the same address use 255 for
+     * the unit.
+     * 
+     * A detailed description on how you can teach a socket the address and unit can
+     * be found :ref:`here <remote_switch_bricklet_type_b_address_and_unit>`.
+     * 
+     */
     public Long getAddress(){
         return address;
     }
@@ -221,6 +297,19 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.address = address;
     }
 
+    /**
+     * 
+     * To switch a type B socket you have to give the address, unit and the state
+     * (on or off) you want to switch to.
+     * 
+     * The address has a range of 0 to 67108863 (26bit) and the unit has a range
+     * of 0 to 15 (4bit). To switch all devices with the same address use 255 for
+     * the unit.
+     * 
+     * A detailed description on how you can teach a socket the address and unit can
+     * be found :ref:`here <remote_switch_bricklet_type_b_address_and_unit>`.
+     * 
+     */
     public Short getUnit(){
         return unit;
     }
@@ -229,6 +318,19 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.unit = unit;
     }
 
+    /**
+     * 
+     * To switch a type B socket you have to give the address, unit and the state
+     * (on or off) you want to switch to.
+     * 
+     * The address has a range of 0 to 67108863 (26bit) and the unit has a range
+     * of 0 to 15 (4bit). To switch all devices with the same address use 255 for
+     * the unit.
+     * 
+     * A detailed description on how you can teach a socket the address and unit can
+     * be found :ref:`here <remote_switch_bricklet_type_b_address_and_unit>`.
+     * 
+     */
     public Short getSwitchTo3(){
         return switchTo3;
     }
@@ -237,6 +339,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.switchTo3 = switchTo3;
     }
 
+    /**
+     * 
+     * To control a type B dimmer you have to give the address, unit and the
+     * dim value you want to set the dimmer to.
+     * 
+     * The address has a range of 0 to 67108863 (26bit), the unit and the dim value
+     * has a range of 0 to 15 (4bit).
+     * 
+     * A detailed description on how you can teach a dimmer the address and unit can
+     * be found :ref:`here <remote_switch_bricklet_type_b_address_and_unit>`.
+     * 
+     */
     public Long getAddress2(){
         return address2;
     }
@@ -245,6 +359,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.address2 = address2;
     }
 
+    /**
+     * 
+     * To control a type B dimmer you have to give the address, unit and the
+     * dim value you want to set the dimmer to.
+     * 
+     * The address has a range of 0 to 67108863 (26bit), the unit and the dim value
+     * has a range of 0 to 15 (4bit).
+     * 
+     * A detailed description on how you can teach a dimmer the address and unit can
+     * be found :ref:`here <remote_switch_bricklet_type_b_address_and_unit>`.
+     * 
+     */
     public Short getUnit2(){
         return unit2;
     }
@@ -253,6 +379,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.unit2 = unit2;
     }
 
+    /**
+     * 
+     * To control a type B dimmer you have to give the address, unit and the
+     * dim value you want to set the dimmer to.
+     * 
+     * The address has a range of 0 to 67108863 (26bit), the unit and the dim value
+     * has a range of 0 to 15 (4bit).
+     * 
+     * A detailed description on how you can teach a dimmer the address and unit can
+     * be found :ref:`here <remote_switch_bricklet_type_b_address_and_unit>`.
+     * 
+     */
     public Short getDimValue(){
         return dimValue;
     }
@@ -261,6 +399,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.dimValue = dimValue;
     }
 
+    /**
+     * 
+     * To switch a type C socket you have to give the system code, device code and the
+     * state (on or off) you want to switch to.
+     * 
+     * The system code has a range of 'A' to 'P' (4bit) and the device code has a
+     * range of 1 to 16 (4bit).
+     * 
+     * A detailed description on how you can figure out the system and device code
+     * can be found :ref:`here <remote_switch_bricklet_type_c_system_and_device_code>`.
+     * 
+     */
     public Character getSystemCode(){
         return systemCode;
     }
@@ -269,6 +419,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.systemCode = systemCode;
     }
 
+    /**
+     * 
+     * To switch a type C socket you have to give the system code, device code and the
+     * state (on or off) you want to switch to.
+     * 
+     * The system code has a range of 'A' to 'P' (4bit) and the device code has a
+     * range of 1 to 16 (4bit).
+     * 
+     * A detailed description on how you can figure out the system and device code
+     * can be found :ref:`here <remote_switch_bricklet_type_c_system_and_device_code>`.
+     * 
+     */
     public Short getDeviceCode(){
         return deviceCode;
     }
@@ -277,6 +439,18 @@ public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsum
         this.deviceCode = deviceCode;
     }
 
+    /**
+     * 
+     * To switch a type C socket you have to give the system code, device code and the
+     * state (on or off) you want to switch to.
+     * 
+     * The system code has a range of 'A' to 'P' (4bit) and the device code has a
+     * range of 1 to 16 (4bit).
+     * 
+     * A detailed description on how you can figure out the system and device code
+     * can be found :ref:`here <remote_switch_bricklet_type_c_system_and_device_code>`.
+     * 
+     */
     public Short getSwitchTo4(){
         return switchTo4;
     }

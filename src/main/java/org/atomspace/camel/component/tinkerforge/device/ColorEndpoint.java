@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletColor;
 
+/**
+ * Measures color (RGB value), illuminance and color temperature
+ */
 public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(ColorEndpoint.class);
@@ -195,6 +198,17 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Color` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Color` is only triggered if the color has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -203,6 +217,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -211,6 +244,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMinR(){
         return minR;
     }
@@ -219,6 +271,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.minR = minR;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMaxR(){
         return maxR;
     }
@@ -227,6 +298,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.maxR = maxR;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMinG(){
         return minG;
     }
@@ -235,6 +325,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.minG = minG;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMaxG(){
         return maxG;
     }
@@ -243,6 +352,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.maxG = maxG;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMinB(){
         return minB;
     }
@@ -251,6 +379,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.minB = minB;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMaxB(){
         return maxB;
     }
@@ -259,6 +406,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.maxB = maxB;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMinC(){
         return minC;
     }
@@ -267,6 +433,25 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.minC = minC;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ColorReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0, 0, 0, 0, 0).
+     * 
+     */
     public Integer getMaxC(){
         return maxC;
     }
@@ -275,6 +460,21 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.maxC = maxC;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`ColorReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetColorCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -283,6 +483,37 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the configuration of the sensor. Gain and integration time
+     * can be configured in this way.
+     * 
+     * For configuring the gain:
+     * 
+     * * 0: 1x Gain
+     * * 1: 4x Gain
+     * * 2: 16x Gain
+     * * 3: 60x Gain
+     * 
+     * For configuring the integration time:
+     * 
+     * * 0: 2.4ms
+     * * 1: 24ms
+     * * 2: 101ms
+     * * 3: 154ms
+     * * 4: 700ms
+     * 
+     * Increasing the gain enables the sensor to detect a
+     * color from a higher distance.
+     * 
+     * The integration time provides a trade-off between conversion time
+     * and accuracy. With a longer integration time the values read will
+     * be more accurate but it will take longer time to get the conversion
+     * results.
+     * 
+     * The default values are 60x gain and 154ms integration time.
+     * 
+     */
     public Short getGain(){
         return gain;
     }
@@ -291,6 +522,37 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.gain = gain;
     }
 
+    /**
+     * 
+     * Sets the configuration of the sensor. Gain and integration time
+     * can be configured in this way.
+     * 
+     * For configuring the gain:
+     * 
+     * * 0: 1x Gain
+     * * 1: 4x Gain
+     * * 2: 16x Gain
+     * * 3: 60x Gain
+     * 
+     * For configuring the integration time:
+     * 
+     * * 0: 2.4ms
+     * * 1: 24ms
+     * * 2: 101ms
+     * * 3: 154ms
+     * * 4: 700ms
+     * 
+     * Increasing the gain enables the sensor to detect a
+     * color from a higher distance.
+     * 
+     * The integration time provides a trade-off between conversion time
+     * and accuracy. With a longer integration time the values read will
+     * be more accurate but it will take longer time to get the conversion
+     * results.
+     * 
+     * The default values are 60x gain and 154ms integration time.
+     * 
+     */
     public Short getIntegrationTime(){
         return integrationTime;
     }
@@ -299,6 +561,17 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.integrationTime = integrationTime;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Illuminance` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Illuminance` is only triggered if the illuminance has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -307,6 +580,17 @@ public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProdu
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`ColorTemperature` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`ColorTemperature` is only triggered if the color temperature has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod3(){
         return period3;
     }

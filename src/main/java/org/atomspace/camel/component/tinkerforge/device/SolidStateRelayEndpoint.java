@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletSolidStateRelay;
 
+/**
+ * Controls AC and DC Solid State Relays
+ */
 public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelayConsumer, SolidStateRelayProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(SolidStateRelayEndpoint.class);
@@ -111,6 +114,15 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
     }
     
     
+    /**
+     * 
+     * Sets the state of the relays *true* means on and *false* means off. 
+     * 
+     * Running monoflop timers will be overwritten if this function is called.
+     * 
+     * The default value is *false*.
+     * 
+     */
     public Boolean getState(){
         return state;
     }
@@ -119,6 +131,22 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
         this.state = state;
     }
 
+    /**
+     * 
+     * The first parameter  is the desired state of the relay (*true* means on 
+     * and *false* means off). The second parameter indicates the time (in ms) that 
+     * the relay should hold the state.
+     * 
+     * If this function is called with the parameters (true, 1500):
+     * The relay will turn on and in 1.5s it will turn off again.
+     * 
+     * A monoflop can be used as a failsafe mechanism. For example: Lets assume you 
+     * have a RS485 bus and a Solid State Relay Bricklet connected to one of the slave 
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds. The relay will be on all the time. If now the RS485 
+     * connection is lost, the relay will turn off in at most two seconds.
+     * 
+     */
     public Boolean getState2(){
         return state2;
     }
@@ -127,6 +155,22 @@ public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelay
         this.state2 = state2;
     }
 
+    /**
+     * 
+     * The first parameter  is the desired state of the relay (*true* means on 
+     * and *false* means off). The second parameter indicates the time (in ms) that 
+     * the relay should hold the state.
+     * 
+     * If this function is called with the parameters (true, 1500):
+     * The relay will turn on and in 1.5s it will turn off again.
+     * 
+     * A monoflop can be used as a failsafe mechanism. For example: Lets assume you 
+     * have a RS485 bus and a Solid State Relay Bricklet connected to one of the slave 
+     * stacks. You can now call this function every second, with a time parameter
+     * of two seconds. The relay will be on all the time. If now the RS485 
+     * connection is lost, the relay will turn off in at most two seconds.
+     * 
+     */
     public Long getTime(){
         return time;
     }

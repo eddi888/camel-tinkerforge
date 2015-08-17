@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletTilt;
 
+/**
+ * Detects inclination of Bricklet (tilt switch open/closed)
+ */
 public class TiltEndpoint extends TinkerforgeEndpoint<TiltConsumer, TiltProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(TiltEndpoint.class);

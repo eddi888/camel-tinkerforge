@@ -72,7 +72,7 @@ public class Generate {
         
         
         
-        //createClassBundle("device2", new File("src/test/resources/config/binding/bricklet_io4_config.js"), endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate) ;
+        //createClassBundle("org.atomspace.camel.component.tinkerforge", new File("src/test/resources/config/binding/bricklet_io4_config.js"), endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate, cameldocTemplate) ;
         File[] configFiles = new File("src/test/resources/config/binding").listFiles();
         for (File file : configFiles) {
             if(file.toString().endsWith("bricklet_ac_current_config.json") 
@@ -97,7 +97,7 @@ public class Generate {
      * Generate Class Bundle
      */
     private void createClassBundle(String namespace, File configFile, Template endpointTemplate,Template consumerTemplate,Template producerTemplate, Template consumerCallbackImplTemplate, Template cameldocTemplate) throws IOException {
-        InputStream inputStream2 = new FileInputStream(configFile);
+    	InputStream inputStream2 = new FileInputStream(configFile);
         Config config = mapper.readValue(inputStream2 , Config.class);
         
         String subspace = config.name[0].toLowerCase();
@@ -301,14 +301,16 @@ public class Generate {
         context.put("namespace", namespace);
         context.put("config_name_0", config.name[0]);
         context.put("config_category", config.category);
+        context.put("config_description", config.description.en);
         
         StringBuffer parameters = new StringBuffer();
         StringBuffer parameterGetteSetters = new StringBuffer();
         Map<String, String> parameterSet = new HashMap<String, String>();
+        parameterSet.put("uid", "uid");	//Requird for endpoint super class
         StringBuffer callFunctions = new StringBuffer();
         // Find possible transfer parameters. 
         for (Packet packet : config.packets) {
-            
+
             if(packet.type.equals("function") 
                     && !packet.name[1].equals("get_response_expected") 
                     && !packet.name[1].equals("set_response_expected")
@@ -322,9 +324,9 @@ public class Generate {
                 String callFunction = "device."+packet.name[0].substring(0, 1).toLowerCase()+packet.name[0].substring(1)+"(";
 
                 for (Element element : packet.elements) {
-                    
+                	
                     if(element.inout.equals("in")){
-                        if(parameterSet.get(element.name)==null){
+                    	if (parameterSet.get(element.name)==null) {
                             parameterSet.put(element.name, element.name);
                         } else {
                             for(int i=2; i<99;i++){
@@ -339,6 +341,9 @@ public class Generate {
                         }
                         parameters.append("    private "+javaBigType(element.type, element.num)+ " " +camelCaseName(element.name)+";\n");
                         
+                        parameterGetteSetters.append("    /**\n");
+                        parameterGetteSetters.append("     * "+packet.doc.en.replace("\n", "\n     * ")+"\n");
+                        parameterGetteSetters.append("     */\n");
                         parameterGetteSetters.append("    public "+javaBigType(element.type, element.num)+ " " +camelCaseMethodeNameGet(element.name)+"(){\n");
                         parameterGetteSetters.append("        return "+camelCaseName(element.name)+";\n");
                         parameterGetteSetters.append("    }\n\n");

@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletDualButton;
 
+/**
+ * Two tactile buttons with built-in blue LEDs
+ */
 public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, DualButtonProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DualButtonEndpoint.class);
@@ -113,6 +116,24 @@ public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, 
     }
     
     
+    /**
+     * 
+     * Sets the state of the LEDs. Possible states are:
+     * 
+     * * 0 = AutoToggleOn: Enables auto toggle with initially enabled LED.
+     * * 1 = AutoToggleOff: Activates auto toggle with initially disabled LED.
+     * * 2 = On: Enables LED (auto toggle is disabled).
+     * * 3 = Off: Disables LED (auto toggle is disabled).
+     * 
+     * In auto toggle mode the LED is toggled automatically at each press of a button.
+     * 
+     * If you just want to set one of the LEDs and don't know the current state
+     * of the other LED, you can get the state with :func:`GetLEDState` or you
+     * can use :func:`SetSelectedLEDState`.
+     * 
+     * The default value is (1, 1).
+     * 
+     */
     public Short getLedL(){
         return ledL;
     }
@@ -121,6 +142,24 @@ public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, 
         this.ledL = ledL;
     }
 
+    /**
+     * 
+     * Sets the state of the LEDs. Possible states are:
+     * 
+     * * 0 = AutoToggleOn: Enables auto toggle with initially enabled LED.
+     * * 1 = AutoToggleOff: Activates auto toggle with initially disabled LED.
+     * * 2 = On: Enables LED (auto toggle is disabled).
+     * * 3 = Off: Disables LED (auto toggle is disabled).
+     * 
+     * In auto toggle mode the LED is toggled automatically at each press of a button.
+     * 
+     * If you just want to set one of the LEDs and don't know the current state
+     * of the other LED, you can get the state with :func:`GetLEDState` or you
+     * can use :func:`SetSelectedLEDState`.
+     * 
+     * The default value is (1, 1).
+     * 
+     */
     public Short getLedR(){
         return ledR;
     }
@@ -129,6 +168,13 @@ public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, 
         this.ledR = ledR;
     }
 
+    /**
+     * 
+     * Sets the state of the selected LED (0 or 1). 
+     * 
+     * The other LED remains untouched.
+     * 
+     */
     public Short getLed(){
         return led;
     }
@@ -137,6 +183,13 @@ public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, 
         this.led = led;
     }
 
+    /**
+     * 
+     * Sets the state of the selected LED (0 or 1). 
+     * 
+     * The other LED remains untouched.
+     * 
+     */
     public Short getState(){
         return state;
     }

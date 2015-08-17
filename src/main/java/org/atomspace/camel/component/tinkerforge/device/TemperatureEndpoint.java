@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletTemperature;
 
+/**
+ * Measures ambient temperature with 0.5°C accuracy
+ */
 public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer, TemperatureProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(TemperatureEndpoint.class);
@@ -139,6 +142,17 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Temperature` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Temperature` is only triggered if the temperature has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -147,6 +161,25 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`TemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -155,6 +188,25 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`TemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -163,6 +215,25 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`TemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -171,6 +242,21 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`TemperatureReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetTemperatureCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -179,6 +265,21 @@ public class TemperatureEndpoint extends TinkerforgeEndpoint<TemperatureConsumer
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the I2C mode. Possible modes are:
+     * 
+     * * 0: Fast (400kHz, default)
+     * * 1: Slow (100kHz)
+     * 
+     * If you have problems with obvious outliers in the
+     * Temperature Bricklet measurements, they may be caused by EMI issues.
+     * In this case it may be helpful to lower the I2C speed.
+     * 
+     * It is however not recommended to lower the I2C speed in applications where
+     * a high throughput needs to be achieved.
+     * 
+     */
     public Short getMode(){
         return mode;
     }

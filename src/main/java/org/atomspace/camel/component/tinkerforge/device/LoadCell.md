@@ -31,8 +31,8 @@
 |    getDebouncePeriod |                                          |
 |     setMovingAverage |                                  average |
 |     getMovingAverage |                                          |
-|                ledOn |                                          |
-|               ledOff |                                          |
+|                lEDOn |                                          |
+|               lEDOff |                                          |
 |              isLEDOn |                                          |
 |            calibrate |                                   weight |
 |                 tare |                                          |

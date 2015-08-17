@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletPiezoSpeaker;
 
+/**
+ * Creates beep with configurable frequency
+ */
 public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsumer, PiezoSpeakerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(PiezoSpeakerEndpoint.class);
@@ -109,6 +112,23 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
     }
     
     
+    /**
+     * 
+     * Beeps with the given frequency for the duration in ms. For example: 
+     * If you set a duration of 1000, with a frequency value of 2000
+     * the piezo buzzer will beep for one second with a frequency of
+     * approximately 2 kHz.
+     * 
+     * .. versionchanged:: 2.0.2~(Plugin)
+     *    A duration of 0 stops the current beep if any, the frequency parameter is
+     *    ignored. A duration of 4294967295 results in an infinite beep.
+     * 
+     * The *frequency* parameter can be set between 585 and 7100.
+     * 
+     * The Piezo Speaker Bricklet can only approximate the frequency, it will play
+     * the best possible match by applying the calibration (see :func:`Calibrate`).
+     * 
+     */
     public Long getDuration(){
         return duration;
     }
@@ -117,6 +137,23 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
         this.duration = duration;
     }
 
+    /**
+     * 
+     * Beeps with the given frequency for the duration in ms. For example: 
+     * If you set a duration of 1000, with a frequency value of 2000
+     * the piezo buzzer will beep for one second with a frequency of
+     * approximately 2 kHz.
+     * 
+     * .. versionchanged:: 2.0.2~(Plugin)
+     *    A duration of 0 stops the current beep if any, the frequency parameter is
+     *    ignored. A duration of 4294967295 results in an infinite beep.
+     * 
+     * The *frequency* parameter can be set between 585 and 7100.
+     * 
+     * The Piezo Speaker Bricklet can only approximate the frequency, it will play
+     * the best possible match by applying the calibration (see :func:`Calibrate`).
+     * 
+     */
     public Integer getFrequency(){
         return frequency;
     }
@@ -125,6 +162,20 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
         this.frequency = frequency;
     }
 
+    /**
+     * 
+     * Sets morse code that will be played by the piezo buzzer. The morse code
+     * is given as a string consisting of "." (dot), "-" (minus) and " " (space)
+     * for *dits*, *dahs* and *pauses*. Every other character is ignored.
+     * The second parameter is the frequency (see :func:`Beep`).
+     * 
+     * For example: If you set the string "...---...", the piezo buzzer will beep
+     * nine times with the durations "short short short long long long short 
+     * short short".
+     * 
+     * The maximum string size is 60.
+     * 
+     */
     public String getMorse(){
         return morse;
     }
@@ -133,6 +184,20 @@ public class PiezoSpeakerEndpoint extends TinkerforgeEndpoint<PiezoSpeakerConsum
         this.morse = morse;
     }
 
+    /**
+     * 
+     * Sets morse code that will be played by the piezo buzzer. The morse code
+     * is given as a string consisting of "." (dot), "-" (minus) and " " (space)
+     * for *dits*, *dahs* and *pauses*. Every other character is ignored.
+     * The second parameter is the frequency (see :func:`Beep`).
+     * 
+     * For example: If you set the string "...---...", the piezo buzzer will beep
+     * nine times with the durations "short short short long long long short 
+     * short short".
+     * 
+     * The maximum string size is 60.
+     * 
+     */
     public Integer getFrequency2(){
         return frequency2;
     }

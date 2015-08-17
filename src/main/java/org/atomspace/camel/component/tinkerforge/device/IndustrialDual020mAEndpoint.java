@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletIndustrialDual020mA;
 
+/**
+ * Measures two DC currents between 0mA and 20mA (IEC 60381-1)
+ */
 public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialDual020mAConsumer, IndustrialDual020mAProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDual020mAEndpoint.class);
@@ -152,6 +155,23 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
     }
     
     
+    /**
+     * 
+     * Returns the current of the specified sensor (0 or 1). The value is in nA
+     * and between 0nA and 22505322nA (22.5mA).
+     * 
+     * It is possible to detect if an IEC 60381-1 compatible sensor is connected
+     * and if it works probably.
+     * 
+     * If the returned current is below 4mA, there is likely no sensor connected
+     * or the sensor may be defect. If the returned current is over 20mA, there might
+     * be a short circuit or the sensor may be defect.
+     * 
+     * If you want to get the current periodically, it is recommended to use the
+     * callback :func:`Current` and set the period with 
+     * :func:`SetCurrentCallbackPeriod`.
+     * 
+     */
     public Short getSensor(){
         return sensor;
     }
@@ -160,6 +180,17 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.sensor = sensor;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Current` callback is triggered
+     * periodically for the given sensor. A value of 0 turns the callback off.
+     * 
+     * :func:`Current` is only triggered if the current has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Short getSensor2(){
         return sensor2;
     }
@@ -168,6 +199,17 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.sensor2 = sensor2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Current` callback is triggered
+     * periodically for the given sensor. A value of 0 turns the callback off.
+     * 
+     * :func:`Current` is only triggered if the current has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -176,6 +218,11 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.period = period;
     }
 
+    /**
+     * 
+     * Returns the period as set by :func:`SetCurrentCallbackPeriod`.
+     * 
+     */
     public Short getSensor3(){
         return sensor3;
     }
@@ -184,6 +231,26 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.sensor3 = sensor3;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback for the given
+     * sensor.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getSensor4(){
         return sensor4;
     }
@@ -192,6 +259,26 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.sensor4 = sensor4;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback for the given
+     * sensor.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -200,6 +287,26 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback for the given
+     * sensor.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -208,6 +315,26 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback for the given
+     * sensor.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -216,6 +343,11 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.max = max;
     }
 
+    /**
+     * 
+     * Returns the threshold as set by :func:`SetCurrentCallbackThreshold`.
+     * 
+     */
     public Short getSensor5(){
         return sensor5;
     }
@@ -224,6 +356,21 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.sensor5 = sensor5;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`CurrentReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetCurrentCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -232,6 +379,23 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the sample rate to either 240, 60, 15 or 4 samples per second.
+     * The resolution for the rates is 12, 14, 16 and 18 bit respectively.
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "0",    "240 samples per second, 12 bit resolution"
+     *  "1",    "60 samples per second, 14 bit resolution"
+     *  "2",    "15 samples per second, 16 bit resolution"
+     *  "3",    "4 samples per second, 18 bit resolution"
+     * 
+     * The default value is 3: 4 samples per second with 18 bit resolution.
+     * 
+     */
     public Short getRate(){
         return rate;
     }

@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletLCD16x2;
 
+/**
+ * 16x2 character alphanumeric display with blue backlight
+ */
 public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LCD16x2Endpoint.class);
@@ -150,6 +153,21 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
     }
     
     
+    /**
+     * 
+     * Writes text to a specific line (0 to 1) with a specific position 
+     * (0 to 15). The text can have a maximum of 16 characters.
+     * 
+     * For example: (0, 5, "Hello") will write *Hello* in the middle of the
+     * first line of the display.
+     * 
+     * The display uses a special charset that includes all ASCII characters except
+     * backslash and tilde. The LCD charset also includes several other non-ASCII characters, see
+     * the `charset specification <https://github.com/Tinkerforge/lcd-16x2-bricklet/raw/master/datasheets/standard_charset.pdf>`__
+     * for details. The Unicode example above shows how to specify non-ASCII characters
+     * and how to translate from Unicode to the LCD charset.
+     * 
+     */
     public Short getLine(){
         return line;
     }
@@ -158,6 +176,21 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.line = line;
     }
 
+    /**
+     * 
+     * Writes text to a specific line (0 to 1) with a specific position 
+     * (0 to 15). The text can have a maximum of 16 characters.
+     * 
+     * For example: (0, 5, "Hello") will write *Hello* in the middle of the
+     * first line of the display.
+     * 
+     * The display uses a special charset that includes all ASCII characters except
+     * backslash and tilde. The LCD charset also includes several other non-ASCII characters, see
+     * the `charset specification <https://github.com/Tinkerforge/lcd-16x2-bricklet/raw/master/datasheets/standard_charset.pdf>`__
+     * for details. The Unicode example above shows how to specify non-ASCII characters
+     * and how to translate from Unicode to the LCD charset.
+     * 
+     */
     public Short getPosition(){
         return position;
     }
@@ -166,6 +199,21 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.position = position;
     }
 
+    /**
+     * 
+     * Writes text to a specific line (0 to 1) with a specific position 
+     * (0 to 15). The text can have a maximum of 16 characters.
+     * 
+     * For example: (0, 5, "Hello") will write *Hello* in the middle of the
+     * first line of the display.
+     * 
+     * The display uses a special charset that includes all ASCII characters except
+     * backslash and tilde. The LCD charset also includes several other non-ASCII characters, see
+     * the `charset specification <https://github.com/Tinkerforge/lcd-16x2-bricklet/raw/master/datasheets/standard_charset.pdf>`__
+     * for details. The Unicode example above shows how to specify non-ASCII characters
+     * and how to translate from Unicode to the LCD charset.
+     * 
+     */
     public String getText(){
         return text;
     }
@@ -174,6 +222,16 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.text = text;
     }
 
+    /**
+     * 
+     * Configures if the cursor (shown as "_") should be visible and if it
+     * should be blinking (shown as a blinking block). The cursor position
+     * is one character behind the the last text written with 
+     * :func:`WriteLine`.
+     * 
+     * The default is (false, false).
+     * 
+     */
     public Boolean getCursor(){
         return cursor;
     }
@@ -182,6 +240,16 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.cursor = cursor;
     }
 
+    /**
+     * 
+     * Configures if the cursor (shown as "_") should be visible and if it
+     * should be blinking (shown as a blinking block). The cursor position
+     * is one character behind the the last text written with 
+     * :func:`WriteLine`.
+     * 
+     * The default is (false, false).
+     * 
+     */
     public Boolean getBlinking(){
         return blinking;
     }
@@ -190,6 +258,13 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.blinking = blinking;
     }
 
+    /**
+     * 
+     * Returns *true* if the button (0 to 2) is pressed. If you want to react
+     * on button presses and releases it is recommended to use the
+     * :func:`ButtonPressed` and :func:`ButtonReleased` callbacks.
+     * 
+     */
     public Short getButton(){
         return button;
     }
@@ -198,6 +273,32 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.button = button;
     }
 
+    /**
+     * 
+     * The LCD 16x2 Bricklet can store up to 8 custom characters. The characters
+     * consist of 5x8 pixels and can be addressed with the index 0-7. To describe
+     * the pixels, the first 5 bits of 8 bytes are used. For example, to make
+     * a custom character "H", you should transfer the following:
+     * 
+     * * ``character[0] = 0b00010001`` (decimal value 17)
+     * * ``character[1] = 0b00010001`` (decimal value 17)
+     * * ``character[2] = 0b00010001`` (decimal value 17)
+     * * ``character[3] = 0b00011111`` (decimal value 31)
+     * * ``character[4] = 0b00010001`` (decimal value 17)
+     * * ``character[5] = 0b00010001`` (decimal value 17)
+     * * ``character[6] = 0b00010001`` (decimal value 17)
+     * * ``character[7] = 0b00000000`` (decimal value 0)
+     * 
+     * The characters can later be written with :func:`WriteLine` by using the
+     * characters with the byte representation 8 to 15.
+     * 
+     * You can play around with the custom characters in Brick Viewer since
+     * version 2.0.1.
+     * 
+     * Custom characters are stored by the LCD in RAM, so they have to be set
+     * after each startup.
+     * 
+     */
     public Short getIndex(){
         return index;
     }
@@ -206,6 +307,32 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.index = index;
     }
 
+    /**
+     * 
+     * The LCD 16x2 Bricklet can store up to 8 custom characters. The characters
+     * consist of 5x8 pixels and can be addressed with the index 0-7. To describe
+     * the pixels, the first 5 bits of 8 bytes are used. For example, to make
+     * a custom character "H", you should transfer the following:
+     * 
+     * * ``character[0] = 0b00010001`` (decimal value 17)
+     * * ``character[1] = 0b00010001`` (decimal value 17)
+     * * ``character[2] = 0b00010001`` (decimal value 17)
+     * * ``character[3] = 0b00011111`` (decimal value 31)
+     * * ``character[4] = 0b00010001`` (decimal value 17)
+     * * ``character[5] = 0b00010001`` (decimal value 17)
+     * * ``character[6] = 0b00010001`` (decimal value 17)
+     * * ``character[7] = 0b00000000`` (decimal value 0)
+     * 
+     * The characters can later be written with :func:`WriteLine` by using the
+     * characters with the byte representation 8 to 15.
+     * 
+     * You can play around with the custom characters in Brick Viewer since
+     * version 2.0.1.
+     * 
+     * Custom characters are stored by the LCD in RAM, so they have to be set
+     * after each startup.
+     * 
+     */
     public short[] getCharacter(){
         return character;
     }
@@ -214,6 +341,12 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
         this.character = character;
     }
 
+    /**
+     * 
+     * Returns the custom character for a given index, as set with
+     * :func:`SetCustomCharacter`.
+     * 
+     */
     public Short getIndex2(){
         return index2;
     }

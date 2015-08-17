@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletIndustrialDualAnalogIn;
 
+/**
+ * Measures two DC voltages between -35V and +35V with 24bit resolution each
+ */
 public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<IndustrialDualAnalogInConsumer, IndustrialDualAnalogInProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDualAnalogInEndpoint.class);
@@ -169,6 +172,15 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
     }
     
     
+    /**
+     * 
+     * Returns the voltage for the given channel in mV.
+     * 
+     * If you want to get the voltage periodically, it is recommended to use the
+     * callback :func:`Voltage` and set the period with 
+     * :func:`SetVoltageCallbackPeriod`.
+     * 
+     */
     public Short getChannel(){
         return channel;
     }
@@ -177,6 +189,17 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.channel = channel;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Voltage` callback is triggered
+     * periodically for the given channel. A value of 0 turns the callback off.
+     * 
+     * :func:`Voltage` is only triggered if the voltage has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Short getChannel2(){
         return channel2;
     }
@@ -185,6 +208,17 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.channel2 = channel2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Voltage` callback is triggered
+     * periodically for the given channel. A value of 0 turns the callback off.
+     * 
+     * :func:`Voltage` is only triggered if the voltage has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -193,6 +227,11 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.period = period;
     }
 
+    /**
+     * 
+     * Returns the period as set by :func:`SetVoltageCallbackPeriod`.
+     * 
+     */
     public Short getChannel3(){
         return channel3;
     }
@@ -201,6 +240,26 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.channel3 = channel3;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback for the given
+     * channel.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getChannel4(){
         return channel4;
     }
@@ -209,6 +268,26 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.channel4 = channel4;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback for the given
+     * channel.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -217,6 +296,26 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback for the given
+     * channel.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -225,6 +324,26 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback for the given
+     * channel.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -233,6 +352,11 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.max = max;
     }
 
+    /**
+     * 
+     * Returns the threshold as set by :func:`SetVoltageCallbackThreshold`.
+     * 
+     */
     public Short getChannel5(){
         return channel5;
     }
@@ -241,6 +365,21 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.channel5 = channel5;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`VoltageReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetVoltageCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -249,6 +388,13 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the sample rate. The sample rate can be between 1 sample per second
+     * and 976 samples per second. Decreasing the sample rate will also decrease the
+     * noise on the data.
+     * 
+     */
     public Short getRate(){
         return rate;
     }
@@ -257,6 +403,15 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.rate = rate;
     }
 
+    /**
+     * 
+     * Sets offset and gain of MCP3911 internal calibration registers.
+     * 
+     * See MCP3911 datasheet 7.7 and 7.8. The Industrial Dual Analog In Bricklet
+     * is already factory calibrated by Tinkerforge. It should not be necessary
+     * for you to use this function
+     * 
+     */
     public int[] getOffset(){
         return offset;
     }
@@ -265,6 +420,15 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
         this.offset = offset;
     }
 
+    /**
+     * 
+     * Sets offset and gain of MCP3911 internal calibration registers.
+     * 
+     * See MCP3911 datasheet 7.7 and 7.8. The Industrial Dual Analog In Bricklet
+     * is already factory calibrated by Tinkerforge. It should not be necessary
+     * for you to use this function
+     * 
+     */
     public int[] getGain(){
         return gain;
     }

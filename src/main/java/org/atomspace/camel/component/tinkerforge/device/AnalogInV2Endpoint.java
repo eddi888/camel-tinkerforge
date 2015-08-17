@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletAnalogInV2;
 
+/**
+ * Measures DC voltage between 0V and 42V
+ */
 public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, AnalogInV2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AnalogInV2Endpoint.class);
@@ -169,6 +172,17 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Voltage` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Voltage` is only triggered if the voltage has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -177,6 +191,17 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AnalogValue` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AnalogValue` is only triggered if the analog value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -185,6 +210,25 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -193,6 +237,25 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -201,6 +264,25 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -209,6 +291,25 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -217,6 +318,25 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -225,6 +345,25 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -233,6 +372,23 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`VoltageReached`,
+     * * :func:`AnalogValueReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetVoltageCallbackThreshold`,
+     * * :func:`SetAnalogValueCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -241,6 +397,19 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the moisture value.
+     * 
+     * Setting the length to 1 will turn the averaging off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 1-50.
+     * 
+     * The default value is 50.
+     * 
+     */
     public Short getAverage(){
         return average;
     }

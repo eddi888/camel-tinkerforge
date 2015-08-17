@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletLine;
 
+/**
+ * Measures reflectivity of a surface
+ */
 public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LineEndpoint.class);
@@ -128,6 +131,17 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Reflectivity` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Reflectivity` is only triggered if the reflectivity has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -136,6 +150,25 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ReflectivityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the reflectivity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the reflectivity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the reflectivity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the reflectivity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -144,6 +177,25 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ReflectivityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the reflectivity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the reflectivity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the reflectivity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the reflectivity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -152,6 +204,25 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ReflectivityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the reflectivity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the reflectivity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the reflectivity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the reflectivity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -160,6 +231,21 @@ public class LineEndpoint extends TinkerforgeEndpoint<LineConsumer, LineProducer
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`ReflectivityReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetReflectivityCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

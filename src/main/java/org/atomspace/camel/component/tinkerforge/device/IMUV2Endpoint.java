@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickIMUV2;
 
+/**
+ * Full fledged AHRS with 9 degrees of freedom
+ */
 public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IMUV2Endpoint.class);
@@ -265,6 +268,14 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Acceleration` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -273,6 +284,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`MagneticField` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -281,6 +298,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AngularVelocity` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod3(){
         return period3;
     }
@@ -289,6 +312,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period3 = period3;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Temperature` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod4(){
         return period4;
     }
@@ -297,6 +326,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period4 = period4;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Orientation` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod5(){
         return period5;
     }
@@ -305,6 +340,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period5 = period5;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`LinearAcceleration` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod6(){
         return period6;
     }
@@ -313,6 +354,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period6 = period6;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`GravityVector` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod7(){
         return period7;
     }
@@ -321,6 +368,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period7 = period7;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Quaternion` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod8(){
         return period8;
     }
@@ -329,6 +382,12 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period8 = period8;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AllData` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     */
     public Long getPeriod9(){
         return period9;
     }
@@ -337,6 +396,15 @@ public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Produ
         this.period9 = period9;
     }
 
+    /**
+     * 
+     * Returns the firmware and protocol version and the name of the Bricklet for a
+     * given port.
+     * 
+     * This functions sole purpose is to allow automatic flashing of v1.x.y Bricklet
+     * plugins.
+     * 
+     */
     public Character getPort(){
         return port;
     }

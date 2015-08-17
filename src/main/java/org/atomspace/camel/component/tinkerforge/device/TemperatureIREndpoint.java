@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletTemperatureIR;
 
+/**
+ * Measures contactless object temperature between -70°C and +380°C
+ */
 public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRConsumer, TemperatureIRProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(TemperatureIREndpoint.class);
@@ -169,6 +172,28 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
     }
     
     
+    /**
+     * 
+     * Sets the `emissivity <https://en.wikipedia.org/wiki/Emissivity>`__ that is
+     * used to calculate the surface temperature as returned by 
+     * :func:`GetObjectTemperature`. 
+     * 
+     * The emissivity is usually given as a value between 0.0 and 1.0. A list of
+     * emissivities of different materials can be found 
+     * `here <http://www.infrared-thermography.com/material.htm>`__.
+     * 
+     * The parameter of :func:`SetEmissivity` has to be given with a factor of
+     * 65535 (16-bit). For example: An emissivity of 0.1 can be set with the
+     * value 6553, an emissivity of 0.5 with the value 32767 and so on.
+     * 
+     * .. note::
+     *  If you need a precise measurement for the object temperature, it is
+     *  absolutely crucial that you also provide a precise emissivity.
+     * 
+     * The default emissivity is 1.0 (value of 65535) and the minimum emissivity the
+     * sensor can handle is 0.1 (value of 6553).
+     * 
+     */
     public Integer getEmissivity(){
         return emissivity;
     }
@@ -177,6 +202,17 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.emissivity = emissivity;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AmbientTemperature` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AmbientTemperature` is only triggered if the temperature has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -185,6 +221,17 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`ObjectTemperature` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`ObjectTemperature` is only triggered if the temperature has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -193,6 +240,25 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AmbientTemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the ambient temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the ambient temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the ambient temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the ambient temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -201,6 +267,25 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AmbientTemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the ambient temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the ambient temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the ambient temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the ambient temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -209,6 +294,25 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AmbientTemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the ambient temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the ambient temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the ambient temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the ambient temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -217,6 +321,25 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ObjectTemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the object temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the object temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the object temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the object temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -225,6 +348,25 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ObjectTemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the object temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the object temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the object temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the object temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin2(){
         return min2;
     }
@@ -233,6 +375,25 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ObjectTemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the object temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the object temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the object temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the object temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax2(){
         return max2;
     }
@@ -241,6 +402,23 @@ public class TemperatureIREndpoint extends TinkerforgeEndpoint<TemperatureIRCons
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`AmbientTemperatureReached`,
+     * * :func:`ObjectTemperatureReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetAmbientTemperatureCallbackThreshold`,
+     * * :func:`SetObjectTemperatureCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletNFCRFID;
 
+/**
+ * Reads and writes NFC and RFID tags
+ */
 public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFIDProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(NFCRFIDEndpoint.class);
@@ -133,6 +136,38 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
     }
     
     
+    /**
+     * 
+     * To read or write a tag that is in proximity of the NFC/RFID Bricklet you 
+     * first have to call this function with the expected tag type as parameter.
+     * It is no problem if you don't know the tag type. You can cycle through 
+     * the available tag types until the tag gives an answer to the request.
+     * 
+     * Current the following tag types are supported:
+     * 
+     * * Mifare Classic (``tag_type`` = 0)
+     * * NFC Forum Type 1 (``tag_type`` = 1)
+     * * NFC Forum Type 2 (``tag_type`` = 2)
+     * 
+     * After you call :func:`RequestTagID` the NFC/RFID Bricklet will try to read 
+     * the tag ID from the tag. After this process is done the state will change.
+     * You can either register the :func:`StateChanged` callback or you can poll
+     * :func:`GetState` to find out about the state change.
+     * 
+     * If the state changes to *RequestTagIDError* it means that either there was 
+     * no tag present or that the tag is of an incompatible type. If the state 
+     * changes to *RequestTagIDReady* it means that a compatible tag was found 
+     * and that the tag ID could be read out. You can now get the tag ID by
+     * calling :func:`GetTagID`.
+     * 
+     * If two tags are in the proximity of the NFC/RFID Bricklet, this
+     * function will cycle through the tags. To select a specific tag you have
+     * to call :func:`RequestTagID` until the correct tag id is found.
+     * 
+     * In case of any *Error* state the selection is lost and you have to
+     * start again by calling :func:`RequestTagID`.
+     * 
+     */
     public Short getTagType(){
         return tagType;
     }
@@ -141,6 +176,28 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.tagType = tagType;
     }
 
+    /**
+     * 
+     * Mifare Classic tags use authentication. If you want to read from or write to
+     * a Mifare Classic page you have to authenticate it beforehand.
+     * Each page can be authenticated with two keys: A (``key_number`` = 0) and B
+     * (``key_number`` = 1). A new Mifare Classic
+     * tag that has not yet been written to can can be accessed with key A
+     * and the default key ``[0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]``.
+     * 
+     * The approach to read or write a Mifare Classic page is as follows:
+     * 
+     * 1. Call :func:`RequestTagID`
+     * 2. Wait for state to change to *RequestTagIDReady* (see :func:`GetState`
+     *    or :func:`StateChanged`)
+     * 3. If looking for a specific tag then call :func:`GetTagID` and check if the
+     *    expected tag was found, if it was not found got back to step 1
+     * 4. Call :func:`AuthenticateMifareClassicPage` with page and key for the page
+     * 5. Wait for state to change to *AuthenticatingMifareClassicPageReady* (see
+     *    :func:`GetState` or :func:`StateChanged`)
+     * 6. Call :func:`RequestPage` or :func:`WritePage` to read/write page
+     * 
+     */
     public Integer getPage(){
         return page;
     }
@@ -149,6 +206,28 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.page = page;
     }
 
+    /**
+     * 
+     * Mifare Classic tags use authentication. If you want to read from or write to
+     * a Mifare Classic page you have to authenticate it beforehand.
+     * Each page can be authenticated with two keys: A (``key_number`` = 0) and B
+     * (``key_number`` = 1). A new Mifare Classic
+     * tag that has not yet been written to can can be accessed with key A
+     * and the default key ``[0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]``.
+     * 
+     * The approach to read or write a Mifare Classic page is as follows:
+     * 
+     * 1. Call :func:`RequestTagID`
+     * 2. Wait for state to change to *RequestTagIDReady* (see :func:`GetState`
+     *    or :func:`StateChanged`)
+     * 3. If looking for a specific tag then call :func:`GetTagID` and check if the
+     *    expected tag was found, if it was not found got back to step 1
+     * 4. Call :func:`AuthenticateMifareClassicPage` with page and key for the page
+     * 5. Wait for state to change to *AuthenticatingMifareClassicPageReady* (see
+     *    :func:`GetState` or :func:`StateChanged`)
+     * 6. Call :func:`RequestPage` or :func:`WritePage` to read/write page
+     * 
+     */
     public Short getKeyNumber(){
         return keyNumber;
     }
@@ -157,6 +236,28 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.keyNumber = keyNumber;
     }
 
+    /**
+     * 
+     * Mifare Classic tags use authentication. If you want to read from or write to
+     * a Mifare Classic page you have to authenticate it beforehand.
+     * Each page can be authenticated with two keys: A (``key_number`` = 0) and B
+     * (``key_number`` = 1). A new Mifare Classic
+     * tag that has not yet been written to can can be accessed with key A
+     * and the default key ``[0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]``.
+     * 
+     * The approach to read or write a Mifare Classic page is as follows:
+     * 
+     * 1. Call :func:`RequestTagID`
+     * 2. Wait for state to change to *RequestTagIDReady* (see :func:`GetState`
+     *    or :func:`StateChanged`)
+     * 3. If looking for a specific tag then call :func:`GetTagID` and check if the
+     *    expected tag was found, if it was not found got back to step 1
+     * 4. Call :func:`AuthenticateMifareClassicPage` with page and key for the page
+     * 5. Wait for state to change to *AuthenticatingMifareClassicPageReady* (see
+     *    :func:`GetState` or :func:`StateChanged`)
+     * 6. Call :func:`RequestPage` or :func:`WritePage` to read/write page
+     * 
+     */
     public short[] getKey(){
         return key;
     }
@@ -165,6 +266,30 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.key = key;
     }
 
+    /**
+     * 
+     * Writes 16 bytes starting from the given page. How many pages are written
+     * depends on the tag type. The page sizes are as follows:
+     * 
+     * * Mifare Classic page size: 16 byte (one page is written)
+     * * NFC Forum Type 1 page size: 8 byte (two pages are written)
+     * * NFC Forum Type 2 page size: 4 byte (four pages are written)
+     * 
+     * The general approach for writing to a tag is as follows:
+     * 
+     * 1. Call :func:`RequestTagID`
+     * 2. Wait for state to change to *RequestTagIDReady* (see :func:`GetState` or
+     *    :func:`StateChanged`)
+     * 3. If looking for a specific tag then call :func:`GetTagID` and check if the
+     *    expected tag was found, if it was not found got back to step 1
+     * 4. Call :func:`WritePage` with page number and data
+     * 5. Wait for state to change to *WritePageReady* (see :func:`GetState` or
+     *    :func:`StateChanged`)
+     * 
+     * If you use a Mifare Classic tag you have to authenticate a page before you
+     * can write to it. See :func:`AuthenticateMifareClassicPage`.
+     * 
+     */
     public Integer getPage2(){
         return page2;
     }
@@ -173,6 +298,30 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.page2 = page2;
     }
 
+    /**
+     * 
+     * Writes 16 bytes starting from the given page. How many pages are written
+     * depends on the tag type. The page sizes are as follows:
+     * 
+     * * Mifare Classic page size: 16 byte (one page is written)
+     * * NFC Forum Type 1 page size: 8 byte (two pages are written)
+     * * NFC Forum Type 2 page size: 4 byte (four pages are written)
+     * 
+     * The general approach for writing to a tag is as follows:
+     * 
+     * 1. Call :func:`RequestTagID`
+     * 2. Wait for state to change to *RequestTagIDReady* (see :func:`GetState` or
+     *    :func:`StateChanged`)
+     * 3. If looking for a specific tag then call :func:`GetTagID` and check if the
+     *    expected tag was found, if it was not found got back to step 1
+     * 4. Call :func:`WritePage` with page number and data
+     * 5. Wait for state to change to *WritePageReady* (see :func:`GetState` or
+     *    :func:`StateChanged`)
+     * 
+     * If you use a Mifare Classic tag you have to authenticate a page before you
+     * can write to it. See :func:`AuthenticateMifareClassicPage`.
+     * 
+     */
     public short[] getData(){
         return data;
     }
@@ -181,6 +330,33 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
         this.data = data;
     }
 
+    /**
+     * 
+     * Reads 16 bytes starting from the given page and stores them into a buffer. 
+     * The buffer can then be read out with :func:`GetPage`.
+     * How many pages are read depends on the tag type. The page sizes are 
+     * as follows:
+     * 
+     * * Mifare Classic page size: 16 byte (one page is read)
+     * * NFC Forum Type 1 page size: 8 byte (two pages are read)
+     * * NFC Forum Type 2 page size: 4 byte (four pages are read)
+     * 
+     * The general approach for reading a tag is as follows:
+     * 
+     * 1. Call :func:`RequestTagID`
+     * 2. Wait for state to change to *RequestTagIDReady* (see :func:`GetState`
+     *    or :func:`StateChanged`)
+     * 3. If looking for a specific tag then call :func:`GetTagID` and check if the
+     *    expected tag was found, if it was not found got back to step 1
+     * 4. Call :func:`RequestPage` with page number
+     * 5. Wait for state to change to *RequestPageReady* (see :func:`GetState`
+     *    or :func:`StateChanged`)
+     * 6. Call :func:`GetPage` to retrieve the page from the buffer
+     * 
+     * If you use a Mifare Classic tag you have to authenticate a page before you
+     * can read it. See :func:`AuthenticateMifareClassicPage`.
+     * 
+     */
     public Integer getPage3(){
         return page3;
     }

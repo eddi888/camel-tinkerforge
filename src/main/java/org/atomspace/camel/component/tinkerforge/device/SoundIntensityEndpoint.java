@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletSoundIntensity;
 
+/**
+ * Measures sound intensity
+ */
 public class SoundIntensityEndpoint extends TinkerforgeEndpoint<SoundIntensityConsumer, SoundIntensityProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(SoundIntensityEndpoint.class);
@@ -128,6 +131,17 @@ public class SoundIntensityEndpoint extends TinkerforgeEndpoint<SoundIntensityCo
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Intensity` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Intensity` is only triggered if the intensity has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -136,6 +150,25 @@ public class SoundIntensityEndpoint extends TinkerforgeEndpoint<SoundIntensityCo
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`IntensityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the intensity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the intensity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the intensity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the intensity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -144,6 +177,25 @@ public class SoundIntensityEndpoint extends TinkerforgeEndpoint<SoundIntensityCo
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`IntensityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the intensity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the intensity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the intensity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the intensity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -152,6 +204,25 @@ public class SoundIntensityEndpoint extends TinkerforgeEndpoint<SoundIntensityCo
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`IntensityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the intensity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the intensity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the intensity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the intensity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -160,6 +231,21 @@ public class SoundIntensityEndpoint extends TinkerforgeEndpoint<SoundIntensityCo
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`IntensityReached`
+     * 
+     * is triggered, if the thresholds
+     * 
+     * * :func:`SetIntensityCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

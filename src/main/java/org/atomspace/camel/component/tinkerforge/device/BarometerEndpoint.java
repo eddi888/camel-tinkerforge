@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletBarometer;
 
+/**
+ * Measures air pressure and altitude changes
+ */
 public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, BarometerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(BarometerEndpoint.class);
@@ -188,6 +191,17 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AirPressure` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AirPressure` is only triggered if the air pressure has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -196,6 +210,17 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Altitude` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Altitude` is only triggered if the altitude has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -204,6 +229,25 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AirPressureReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the air pressure is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the air pressure is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the air pressure is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the air pressure is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -212,6 +256,25 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AirPressureReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the air pressure is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the air pressure is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the air pressure is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the air pressure is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -220,6 +283,25 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AirPressureReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the air pressure is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the air pressure is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the air pressure is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the air pressure is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -228,6 +310,25 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AltitudeReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the altitude is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the altitude is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the altitude is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the altitude is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -236,6 +337,25 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AltitudeReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the altitude is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the altitude is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the altitude is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the altitude is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -244,6 +364,25 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AltitudeReached` callback.
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the altitude is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the altitude is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the altitude is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the altitude is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -252,6 +391,23 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`AirPressureReached`,
+     * * :func:`AltitudeReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetAirPressureCallbackThreshold`,
+     * * :func:`SetAltitudeCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -260,6 +416,21 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the reference air pressure in mbar/1000 for the altitude calculation.
+     * Setting the reference to the current air pressure results in a calculated
+     * altitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as
+     * reference.
+     * 
+     * Well known reference values are the Q codes
+     * `QNH <https://en.wikipedia.org/wiki/QNH>`__ and
+     * `QFE <https://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__
+     * used in aviation.
+     * 
+     * The default value is 1013.25mbar.
+     * 
+     */
     public Integer getAirPressure(){
         return airPressure;
     }
@@ -268,6 +439,28 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.airPressure = airPressure;
     }
 
+    /**
+     * 
+     * Sets the different averaging parameters. It is possible to set
+     * the length of a normal averaging for the temperature and pressure,
+     * as well as an additional length of a 
+     * `moving average <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the pressure. The moving average is calculated from the normal 
+     * averages.  There is no moving average for the temperature.
+     * 
+     * The maximum length for the pressure average is 10, for the
+     * temperature average is 255 and for the moving average is 25.
+     * 
+     * Setting the all three parameters to 0 will turn the averaging
+     * completely off. If the averaging is off, there is lots of noise
+     * on the data, but the data is without delay. Thus we recommend
+     * to turn the averaging off if the Barometer Bricklet data is
+     * to be used for sensor fusion with other sensors.
+     * 
+     * The default values are 10 for the normal averages and 25 for the
+     * moving average.
+     * 
+     */
     public Short getMovingAveragePressure(){
         return movingAveragePressure;
     }
@@ -276,6 +469,28 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.movingAveragePressure = movingAveragePressure;
     }
 
+    /**
+     * 
+     * Sets the different averaging parameters. It is possible to set
+     * the length of a normal averaging for the temperature and pressure,
+     * as well as an additional length of a 
+     * `moving average <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the pressure. The moving average is calculated from the normal 
+     * averages.  There is no moving average for the temperature.
+     * 
+     * The maximum length for the pressure average is 10, for the
+     * temperature average is 255 and for the moving average is 25.
+     * 
+     * Setting the all three parameters to 0 will turn the averaging
+     * completely off. If the averaging is off, there is lots of noise
+     * on the data, but the data is without delay. Thus we recommend
+     * to turn the averaging off if the Barometer Bricklet data is
+     * to be used for sensor fusion with other sensors.
+     * 
+     * The default values are 10 for the normal averages and 25 for the
+     * moving average.
+     * 
+     */
     public Short getAveragePressure(){
         return averagePressure;
     }
@@ -284,6 +499,28 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
         this.averagePressure = averagePressure;
     }
 
+    /**
+     * 
+     * Sets the different averaging parameters. It is possible to set
+     * the length of a normal averaging for the temperature and pressure,
+     * as well as an additional length of a 
+     * `moving average <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the pressure. The moving average is calculated from the normal 
+     * averages.  There is no moving average for the temperature.
+     * 
+     * The maximum length for the pressure average is 10, for the
+     * temperature average is 255 and for the moving average is 25.
+     * 
+     * Setting the all three parameters to 0 will turn the averaging
+     * completely off. If the averaging is off, there is lots of noise
+     * on the data, but the data is without delay. Thus we recommend
+     * to turn the averaging off if the Barometer Bricklet data is
+     * to be used for sensor fusion with other sensors.
+     * 
+     * The default values are 10 for the normal averages and 25 for the
+     * moving average.
+     * 
+     */
     public Short getAverageTemperature(){
         return averageTemperature;
     }

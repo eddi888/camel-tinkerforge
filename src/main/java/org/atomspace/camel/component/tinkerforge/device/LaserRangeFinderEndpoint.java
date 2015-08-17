@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletLaserRangeFinder;
 
+/**
+ * Measures distance up to 40m with laser light
+ */
 public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFinderConsumer, LaserRangeFinderProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LaserRangeFinderEndpoint.class);
@@ -194,6 +197,17 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Distance` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Distance` is only triggered if the distance value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -202,6 +216,17 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Velocity` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Velocity` is only triggered if the velocity value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -210,6 +235,25 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -218,6 +262,25 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -226,6 +289,25 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -234,6 +316,25 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VelocityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the velocity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the velocity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the velocity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the velocity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -242,6 +343,25 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VelocityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the velocity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the velocity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the velocity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the velocity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin2(){
         return min2;
     }
@@ -250,6 +370,25 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VelocityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the velocity is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the velocity is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the velocity is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the velocity is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax2(){
         return max2;
     }
@@ -258,6 +397,23 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`DistanceReached`,
+     * * :func:`VelocityReached`,
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetDistanceCallbackThreshold`,
+     * * :func:`SetVelocityCallbackThreshold`,
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -266,6 +422,19 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the distance and velocity.
+     * 
+     * Setting the length to 0 will turn the averaging completely off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 0-30.
+     * 
+     * The default value is 10.
+     * 
+     */
     public Short getDistanceAverageLength(){
         return distanceAverageLength;
     }
@@ -274,6 +443,19 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.distanceAverageLength = distanceAverageLength;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the distance and velocity.
+     * 
+     * Setting the length to 0 will turn the averaging completely off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 0-30.
+     * 
+     * The default value is 10.
+     * 
+     */
     public Short getVelocityAverageLength(){
         return velocityAverageLength;
     }
@@ -282,6 +464,23 @@ public class LaserRangeFinderEndpoint extends TinkerforgeEndpoint<LaserRangeFind
         this.velocityAverageLength = velocityAverageLength;
     }
 
+    /**
+     * 
+     * The LIDAR has five different modes. One mode is for distance
+     * measurements and four modes are for velocity measurements with
+     * different ranges.
+     * 
+     * The following modes are available:
+     * 
+     * * 0: Distance is measured with resolution 1.0 cm and range 0-400 cm
+     * * 1: Velocity is measured with resolution 0.1 m/s and range is 0-12.7 m/s
+     * * 2: Velocity is measured with resolution 0.25 m/s and range is 0-31.75 m/s
+     * * 3: Velocity is measured with resolution 0.5 m/s and range is 0-63.5 m/s
+     * * 4: Velocity is measured with resolution 1.0 m/s and range is 0-127 m/s
+     * 
+     * The default mode is 0 (distance is measured).
+     * 
+     */
     public Short getMode(){
         return mode;
     }

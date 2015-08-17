@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletDistanceIR;
 
+/**
+ * Measures distance up to 150cm with infrared light
+ */
 public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, DistanceIRProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DistanceIREndpoint.class);
@@ -174,6 +177,28 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
     }
     
     
+    /**
+     * 
+     * Sets a sampling point value to a specific position of the lookup table.
+     * The lookup table comprises 128 equidistant analog values with
+     * corresponding distances.
+     * 
+     * If you measure a distance of 50cm at the analog value 2048, you
+     * should call this function with (64, 5000). The utilized analog-to-digital
+     * converter has a resolution of 12 bit. With 128 sampling points on the
+     * whole range, this means that every sampling point has a size of 32
+     * analog values. Thus the analog value 2048 has the corresponding sampling
+     * point 64 = 2048/32.
+     * 
+     * Sampling points are saved on the EEPROM of the Distance IR Bricklet and
+     * loaded again on startup.
+     * 
+     * .. note::
+     *  An easy way to calibrate the sampling points of the Distance IR Bricklet is
+     *  implemented in the Brick Viewer. If you want to calibrate your Bricklet it is
+     *  highly recommended to use this implementation.
+     * 
+     */
     public Short getPosition(){
         return position;
     }
@@ -182,6 +207,28 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.position = position;
     }
 
+    /**
+     * 
+     * Sets a sampling point value to a specific position of the lookup table.
+     * The lookup table comprises 128 equidistant analog values with
+     * corresponding distances.
+     * 
+     * If you measure a distance of 50cm at the analog value 2048, you
+     * should call this function with (64, 5000). The utilized analog-to-digital
+     * converter has a resolution of 12 bit. With 128 sampling points on the
+     * whole range, this means that every sampling point has a size of 32
+     * analog values. Thus the analog value 2048 has the corresponding sampling
+     * point 64 = 2048/32.
+     * 
+     * Sampling points are saved on the EEPROM of the Distance IR Bricklet and
+     * loaded again on startup.
+     * 
+     * .. note::
+     *  An easy way to calibrate the sampling points of the Distance IR Bricklet is
+     *  implemented in the Brick Viewer. If you want to calibrate your Bricklet it is
+     *  highly recommended to use this implementation.
+     * 
+     */
     public Integer getDistance(){
         return distance;
     }
@@ -190,6 +237,12 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.distance = distance;
     }
 
+    /**
+     * 
+     * Returns the distance to a sampling point position as set by
+     * :func:`SetSamplingPoint`.
+     * 
+     */
     public Short getPosition2(){
         return position2;
     }
@@ -198,6 +251,17 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.position2 = position2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Distance` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Distance` is only triggered if the distance has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -206,6 +270,17 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AnalogValue` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AnalogValue` is only triggered if the analog value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -214,6 +289,25 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -222,6 +316,25 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -230,6 +343,25 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -238,6 +370,25 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -246,6 +397,25 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -254,6 +424,25 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -262,6 +451,23 @@ public class DistanceIREndpoint extends TinkerforgeEndpoint<DistanceIRConsumer, 
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`DistanceReached`,
+     * * :func:`AnalogValueReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetDistanceCallbackThreshold`,
+     * * :func:`SetAnalogValueCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

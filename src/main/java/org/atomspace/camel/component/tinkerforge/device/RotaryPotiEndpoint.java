@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletRotaryPoti;
 
+/**
+ * 300° rotary potentiometer
+ */
 public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, RotaryPotiProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RotaryPotiEndpoint.class);
@@ -158,6 +161,17 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Position` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Position` is only triggered if the position has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -166,6 +180,17 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AnalogValue` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AnalogValue` is only triggered if the analog value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -174,6 +199,25 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -182,6 +226,25 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -190,6 +253,25 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -198,6 +280,25 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -206,6 +307,25 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -214,6 +334,25 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -222,6 +361,23 @@ public class RotaryPotiEndpoint extends TinkerforgeEndpoint<RotaryPotiConsumer, 
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`PositionReached`,
+     * * :func:`AnalogValueReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetPositionCallbackThreshold`,
+     * * :func:`SetAnalogValueCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

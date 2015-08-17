@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletPTC;
 
+/**
+ * Reads temperatures from Pt100 und Pt1000 sensors
+ */
 public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(PTCEndpoint.class);
@@ -184,6 +187,17 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Temperature` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Temperature` is only triggered if the temperature has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -192,6 +206,17 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Resistance` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Resistance` is only triggered if the resistance has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -200,6 +225,25 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`TemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -208,6 +252,25 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`TemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -216,6 +279,25 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`TemperatureReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -224,6 +306,25 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ResistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -232,6 +333,25 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ResistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -240,6 +360,25 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`ResistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -248,6 +387,23 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`TemperatureReached`,
+     * * :func:`ResistanceReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetTemperatureCallbackThreshold`,
+     * * :func:`SetResistanceCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -256,6 +412,16 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the noise rejection filter to either 50Hz (0) or 60Hz (1).
+     * Noise from 50Hz or 60Hz power sources (including
+     * harmonics of the AC power's fundamental frequency) is
+     * attenuated by 82dB.
+     * 
+     * Default value is 0 = 50Hz.
+     * 
+     */
     public Short getFilter(){
         return filter;
     }
@@ -264,6 +430,15 @@ public class PTCEndpoint extends TinkerforgeEndpoint<PTCConsumer, PTCProducer> {
         this.filter = filter;
     }
 
+    /**
+     * 
+     * Sets the wire mode of the sensor. Possible values are 2, 3 and 4 which
+     * correspond to 2-, 3- and 4-wire sensors. The value has to match the jumper
+     * configuration on the Bricklet.
+     * 
+     * The default value is 2 = 2-wire.
+     * 
+     */
     public Short getMode(){
         return mode;
     }

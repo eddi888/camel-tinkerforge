@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletJoystick;
 
+/**
+ * 2-axis joystick with push-button
+ */
 public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, JoystickProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(JoystickEndpoint.class);
@@ -174,6 +177,17 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Position` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Position` is only triggered if the position has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -182,6 +196,17 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AnalogValue` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AnalogValue` is only triggered if the analog values have changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -190,6 +215,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -198,6 +242,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Short getMinX(){
         return minX;
     }
@@ -206,6 +269,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.minX = minX;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Short getMaxX(){
         return maxX;
     }
@@ -214,6 +296,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.maxX = maxX;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Short getMinY(){
         return minY;
     }
@@ -222,6 +323,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.minY = minY;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PositionReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the position is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the position is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the position is smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the position is greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Short getMaxY(){
         return maxY;
     }
@@ -230,6 +350,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.maxY = maxY;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog values are *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog values are *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog values are smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog values are greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -238,6 +377,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog values are *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog values are *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog values are smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog values are greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Integer getMinX2(){
         return minX2;
     }
@@ -246,6 +404,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.minX2 = minX2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog values are *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog values are *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog values are smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog values are greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Integer getMaxX2(){
         return maxX2;
     }
@@ -254,6 +431,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.maxX2 = maxX2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog values are *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog values are *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog values are smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog values are greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Integer getMinY2(){
         return minY2;
     }
@@ -262,6 +458,25 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.minY2 = minY2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog values are *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog values are *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog values are smaller than the min values (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog values are greater than the min values (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0, 0, 0).
+     * 
+     */
     public Integer getMaxY2(){
         return maxY2;
     }
@@ -270,6 +485,23 @@ public class JoystickEndpoint extends TinkerforgeEndpoint<JoystickConsumer, Joys
         this.maxY2 = maxY2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`PositionReached`,
+     * * :func:`AnalogValueReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetPositionCallbackThreshold`,
+     * * :func:`SetAnalogValueCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

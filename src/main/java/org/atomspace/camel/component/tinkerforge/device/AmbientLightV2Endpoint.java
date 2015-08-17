@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletAmbientLightV2;
 
+/**
+ * Measures ambient light up to 64000lux
+ */
 public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Consumer, AmbientLightV2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AmbientLightV2Endpoint.class);
@@ -141,6 +144,17 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Illuminance` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Illuminance` is only triggered if the illuminance has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -149,6 +163,25 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`IlluminanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the illuminance is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the illuminance is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the illuminance is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the illuminance is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -157,6 +190,25 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`IlluminanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the illuminance is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the illuminance is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the illuminance is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the illuminance is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Long getMin(){
         return min;
     }
@@ -165,6 +217,25 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`IlluminanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the illuminance is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the illuminance is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the illuminance is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the illuminance is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Long getMax(){
         return max;
     }
@@ -173,6 +244,21 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`IlluminanceReached`,
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetIlluminanceCallbackThreshold`,
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -181,6 +267,17 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the configuration. It is possible to configure an illuminance range
+     * between 0-600lux and 0-64000lux and an integration time between 50ms and 400ms.
+     * 
+     * A smaller illuminance range increases the resolution of the data. An
+     * increase in integration time will result in less noise on the data.
+     * 
+     * The default values are 0-8000lux illuminance range and 200ms integration time.
+     * 
+     */
     public Short getIlluminanceRange(){
         return illuminanceRange;
     }
@@ -189,6 +286,17 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
         this.illuminanceRange = illuminanceRange;
     }
 
+    /**
+     * 
+     * Sets the configuration. It is possible to configure an illuminance range
+     * between 0-600lux and 0-64000lux and an integration time between 50ms and 400ms.
+     * 
+     * A smaller illuminance range increases the resolution of the data. An
+     * increase in integration time will result in less noise on the data.
+     * 
+     * The default values are 0-8000lux illuminance range and 200ms integration time.
+     * 
+     */
     public Short getIntegrationTime(){
         return integrationTime;
     }

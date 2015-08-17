@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletCurrent25;
 
+/**
+ * Measures AC/DC current between -25A and +25A
+ */
 public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Current25Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(Current25Endpoint.class);
@@ -166,6 +169,17 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Current` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Current` is only triggered if the current has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -174,6 +188,17 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`AnalogValue` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`AnalogValue` is only triggered if the analog value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -182,6 +207,25 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -190,6 +234,25 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -198,6 +261,25 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -206,6 +288,25 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -214,6 +315,25 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -222,6 +342,25 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`AnalogValueReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the analog value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the analog value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the analog value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the analog value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -230,6 +369,23 @@ public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Cu
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`CurrentReached`,
+     * * :func:`AnalogValueReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetCurrentCallbackThreshold`,
+     * * :func:`SetAnalogValueCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

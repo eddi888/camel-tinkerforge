@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickServo;
 
+/**
+ * Drives up to 7 RC Servos with up to 3A
+ */
 public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(ServoEndpoint.class);
@@ -314,6 +317,12 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
     }
     
     
+    /**
+     * 
+     * Enables a servo (0 to 6). If a servo is enabled, the configured position,
+     * velocity, acceleration, etc. are applied immediately.
+     * 
+     */
     public Short getServoNum(){
         return servoNum;
     }
@@ -322,6 +331,12 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum = servoNum;
     }
 
+    /**
+     * 
+     * Disables a servo (0 to 6). Disabled servos are not driven at all, i.e. a
+     * disabled servo will not hold its position if a load is applied.
+     * 
+     */
     public Short getServoNum2(){
         return servoNum2;
     }
@@ -330,6 +345,11 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum2 = servoNum2;
     }
 
+    /**
+     * 
+     * Returns *true* if the specified servo is enabled, *false* otherwise.
+     * 
+     */
     public Short getServoNum3(){
         return servoNum3;
     }
@@ -338,6 +358,18 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum3 = servoNum3;
     }
 
+    /**
+     * 
+     * Sets the position in °/100 for the specified servo. 
+     * 
+     * The default range of the position is -9000 to 9000, but it can be specified
+     * according to your servo with :func:`SetDegree`.
+     * 
+     * If you want to control a linear servo or RC brushless motor controller or
+     * similar with the Servo Brick, you can also define lengths or speeds with
+     * :func:`SetDegree`.
+     * 
+     */
     public Short getServoNum4(){
         return servoNum4;
     }
@@ -346,6 +378,18 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum4 = servoNum4;
     }
 
+    /**
+     * 
+     * Sets the position in °/100 for the specified servo. 
+     * 
+     * The default range of the position is -9000 to 9000, but it can be specified
+     * according to your servo with :func:`SetDegree`.
+     * 
+     * If you want to control a linear servo or RC brushless motor controller or
+     * similar with the Servo Brick, you can also define lengths or speeds with
+     * :func:`SetDegree`.
+     * 
+     */
     public Short getPosition(){
         return position;
     }
@@ -354,6 +398,11 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.position = position;
     }
 
+    /**
+     * 
+     * Returns the position of the specified servo as set by :func:`SetPosition`.
+     * 
+     */
     public Short getServoNum5(){
         return servoNum5;
     }
@@ -362,6 +411,13 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum5 = servoNum5;
     }
 
+    /**
+     * 
+     * Returns the *current* position of the specified servo. This may not be the
+     * value of :func:`SetPosition` if the servo is currently approaching a
+     * position goal.
+     * 
+     */
     public Short getServoNum6(){
         return servoNum6;
     }
@@ -370,6 +426,17 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum6 = servoNum6;
     }
 
+    /**
+     * 
+     * Sets the maximum velocity of the specified servo in °/100s. The velocity
+     * is accelerated according to the value set by :func:`SetAcceleration`.
+     * 
+     * The minimum velocity is 0 (no movement) and the maximum velocity is 65535.
+     * With a value of 65535 the position will be set immediately (no velocity).
+     * 
+     * The default value is 65535.
+     * 
+     */
     public Short getServoNum7(){
         return servoNum7;
     }
@@ -378,6 +445,17 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum7 = servoNum7;
     }
 
+    /**
+     * 
+     * Sets the maximum velocity of the specified servo in °/100s. The velocity
+     * is accelerated according to the value set by :func:`SetAcceleration`.
+     * 
+     * The minimum velocity is 0 (no movement) and the maximum velocity is 65535.
+     * With a value of 65535 the position will be set immediately (no velocity).
+     * 
+     * The default value is 65535.
+     * 
+     */
     public Integer getVelocity(){
         return velocity;
     }
@@ -386,6 +464,11 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.velocity = velocity;
     }
 
+    /**
+     * 
+     * Returns the velocity of the specified servo as set by :func:`SetVelocity`.
+     * 
+     */
     public Short getServoNum8(){
         return servoNum8;
     }
@@ -394,6 +477,13 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum8 = servoNum8;
     }
 
+    /**
+     * 
+     * Returns the *current* velocity of the specified servo. This may not be the
+     * value of :func:`SetVelocity` if the servo is currently approaching a
+     * velocity goal.
+     * 
+     */
     public Short getServoNum9(){
         return servoNum9;
     }
@@ -402,6 +492,16 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum9 = servoNum9;
     }
 
+    /**
+     * 
+     * Sets the acceleration of the specified servo in °/100s².
+     * 
+     * The minimum acceleration is 1 and the maximum acceleration is 65535.
+     * With a value of 65535 the velocity will be set immediately (no acceleration).
+     * 
+     * The default value is 65535.
+     * 
+     */
     public Short getServoNum10(){
         return servoNum10;
     }
@@ -410,6 +510,16 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum10 = servoNum10;
     }
 
+    /**
+     * 
+     * Sets the acceleration of the specified servo in °/100s².
+     * 
+     * The minimum acceleration is 1 and the maximum acceleration is 65535.
+     * With a value of 65535 the velocity will be set immediately (no acceleration).
+     * 
+     * The default value is 65535.
+     * 
+     */
     public Integer getAcceleration(){
         return acceleration;
     }
@@ -418,6 +528,12 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.acceleration = acceleration;
     }
 
+    /**
+     * 
+     * Returns the acceleration for the specified servo as set by 
+     * :func:`SetAcceleration`.
+     * 
+     */
     public Short getServoNum11(){
         return servoNum11;
     }
@@ -426,6 +542,20 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum11 = servoNum11;
     }
 
+    /**
+     * 
+     * Sets the output voltages with which the servos are driven in mV.
+     * The minimum output voltage is 2000mV and the maximum output voltage is 
+     * 9000mV.
+     * 
+     * .. note::
+     *  We recommend that you set this value to the maximum voltage that is
+     *  specified for your servo, most servos achieve their maximum force only
+     *  with high voltages.
+     * 
+     * The default value is 5000.
+     * 
+     */
     public Integer getVoltage(){
         return voltage;
     }
@@ -434,6 +564,27 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.voltage = voltage;
     }
 
+    /**
+     * 
+     * Sets the minimum and maximum pulse width of the specified servo in µs.
+     * 
+     * Usually, servos are controlled with a 
+     * `PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__, whereby the
+     * length of the pulse controls the position of the servo. Every servo has
+     * different minimum and maximum pulse widths, these can be specified with
+     * this function.
+     * 
+     * If you have a datasheet for your servo that specifies the minimum and
+     * maximum pulse width, you should set the values accordingly. If your servo
+     * comes without any datasheet you have to find the values via trial and error.
+     * 
+     * Both values have a range from 1 to 65535 (unsigned 16-bit integer). The
+     * minimum must be smaller than the maximum.
+     * 
+     * The default values are 1000µs (1ms) and 2000µs (2ms) for minimum and 
+     * maximum pulse width.
+     * 
+     */
     public Short getServoNum12(){
         return servoNum12;
     }
@@ -442,6 +593,27 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum12 = servoNum12;
     }
 
+    /**
+     * 
+     * Sets the minimum and maximum pulse width of the specified servo in µs.
+     * 
+     * Usually, servos are controlled with a 
+     * `PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__, whereby the
+     * length of the pulse controls the position of the servo. Every servo has
+     * different minimum and maximum pulse widths, these can be specified with
+     * this function.
+     * 
+     * If you have a datasheet for your servo that specifies the minimum and
+     * maximum pulse width, you should set the values accordingly. If your servo
+     * comes without any datasheet you have to find the values via trial and error.
+     * 
+     * Both values have a range from 1 to 65535 (unsigned 16-bit integer). The
+     * minimum must be smaller than the maximum.
+     * 
+     * The default values are 1000µs (1ms) and 2000µs (2ms) for minimum and 
+     * maximum pulse width.
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -450,6 +622,27 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the minimum and maximum pulse width of the specified servo in µs.
+     * 
+     * Usually, servos are controlled with a 
+     * `PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__, whereby the
+     * length of the pulse controls the position of the servo. Every servo has
+     * different minimum and maximum pulse widths, these can be specified with
+     * this function.
+     * 
+     * If you have a datasheet for your servo that specifies the minimum and
+     * maximum pulse width, you should set the values accordingly. If your servo
+     * comes without any datasheet you have to find the values via trial and error.
+     * 
+     * Both values have a range from 1 to 65535 (unsigned 16-bit integer). The
+     * minimum must be smaller than the maximum.
+     * 
+     * The default values are 1000µs (1ms) and 2000µs (2ms) for minimum and 
+     * maximum pulse width.
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -458,6 +651,12 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.max = max;
     }
 
+    /**
+     * 
+     * Returns the minimum and maximum pulse width for the specified servo as set by
+     * :func:`SetPulseWidth`.
+     * 
+     */
     public Short getServoNum13(){
         return servoNum13;
     }
@@ -466,6 +665,40 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum13 = servoNum13;
     }
 
+    /**
+     * 
+     * Sets the minimum and maximum degree for the specified servo (by default
+     * given as °/100).
+     * 
+     * This only specifies the abstract values between which the minimum and maximum
+     * pulse width is scaled. For example: If you specify a pulse width of 1000µs
+     * to 2000µs and a degree range of -90° to 90°, a call of :func:`SetPosition`
+     * with 0 will result in a pulse width of 1500µs 
+     * (-90° = 1000µs, 90° = 2000µs, etc.).
+     * 
+     * Possible usage:
+     * 
+     * * The datasheet of your servo specifies a range of 200° with the middle position
+     *   at 110°. In this case you can set the minimum to -9000 and the maximum to 11000.
+     * * You measure a range of 220° on your servo and you don't have or need a middle
+     *   position. In this case you can set the minimum to 0 and the maximum to 22000.
+     * * You have a linear servo with a drive length of 20cm, In this case you could
+     *   set the minimum to 0 and the maximum to 20000. Now you can set the Position
+     *   with :func:`SetPosition` with a resolution of cm/100. Also the velocity will
+     *   have a resolution of cm/100s and the acceleration will have a resolution of
+     *   cm/100s².
+     * * You don't care about units and just want the highest possible resolution. In
+     *   this case you should set the minimum to -32767 and the maximum to 32767.
+     * * You have a brushless motor with a maximum speed of 10000 rpm and want to
+     *   control it with a RC brushless motor controller. In this case you can set the
+     *   minimum to 0 and the maximum to 10000. :func:`SetPosition` now controls the rpm.
+     * 
+     * Both values have a possible range from -32767 to 32767 
+     * (signed 16-bit integer). The minimum must be smaller than the maximum.
+     * 
+     * The default values are -9000 and 9000 for the minimum and maximum degree.
+     * 
+     */
     public Short getServoNum14(){
         return servoNum14;
     }
@@ -474,6 +707,40 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum14 = servoNum14;
     }
 
+    /**
+     * 
+     * Sets the minimum and maximum degree for the specified servo (by default
+     * given as °/100).
+     * 
+     * This only specifies the abstract values between which the minimum and maximum
+     * pulse width is scaled. For example: If you specify a pulse width of 1000µs
+     * to 2000µs and a degree range of -90° to 90°, a call of :func:`SetPosition`
+     * with 0 will result in a pulse width of 1500µs 
+     * (-90° = 1000µs, 90° = 2000µs, etc.).
+     * 
+     * Possible usage:
+     * 
+     * * The datasheet of your servo specifies a range of 200° with the middle position
+     *   at 110°. In this case you can set the minimum to -9000 and the maximum to 11000.
+     * * You measure a range of 220° on your servo and you don't have or need a middle
+     *   position. In this case you can set the minimum to 0 and the maximum to 22000.
+     * * You have a linear servo with a drive length of 20cm, In this case you could
+     *   set the minimum to 0 and the maximum to 20000. Now you can set the Position
+     *   with :func:`SetPosition` with a resolution of cm/100. Also the velocity will
+     *   have a resolution of cm/100s and the acceleration will have a resolution of
+     *   cm/100s².
+     * * You don't care about units and just want the highest possible resolution. In
+     *   this case you should set the minimum to -32767 and the maximum to 32767.
+     * * You have a brushless motor with a maximum speed of 10000 rpm and want to
+     *   control it with a RC brushless motor controller. In this case you can set the
+     *   minimum to 0 and the maximum to 10000. :func:`SetPosition` now controls the rpm.
+     * 
+     * Both values have a possible range from -32767 to 32767 
+     * (signed 16-bit integer). The minimum must be smaller than the maximum.
+     * 
+     * The default values are -9000 and 9000 for the minimum and maximum degree.
+     * 
+     */
     public Short getMin2(){
         return min2;
     }
@@ -482,6 +749,40 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the minimum and maximum degree for the specified servo (by default
+     * given as °/100).
+     * 
+     * This only specifies the abstract values between which the minimum and maximum
+     * pulse width is scaled. For example: If you specify a pulse width of 1000µs
+     * to 2000µs and a degree range of -90° to 90°, a call of :func:`SetPosition`
+     * with 0 will result in a pulse width of 1500µs 
+     * (-90° = 1000µs, 90° = 2000µs, etc.).
+     * 
+     * Possible usage:
+     * 
+     * * The datasheet of your servo specifies a range of 200° with the middle position
+     *   at 110°. In this case you can set the minimum to -9000 and the maximum to 11000.
+     * * You measure a range of 220° on your servo and you don't have or need a middle
+     *   position. In this case you can set the minimum to 0 and the maximum to 22000.
+     * * You have a linear servo with a drive length of 20cm, In this case you could
+     *   set the minimum to 0 and the maximum to 20000. Now you can set the Position
+     *   with :func:`SetPosition` with a resolution of cm/100. Also the velocity will
+     *   have a resolution of cm/100s and the acceleration will have a resolution of
+     *   cm/100s².
+     * * You don't care about units and just want the highest possible resolution. In
+     *   this case you should set the minimum to -32767 and the maximum to 32767.
+     * * You have a brushless motor with a maximum speed of 10000 rpm and want to
+     *   control it with a RC brushless motor controller. In this case you can set the
+     *   minimum to 0 and the maximum to 10000. :func:`SetPosition` now controls the rpm.
+     * 
+     * Both values have a possible range from -32767 to 32767 
+     * (signed 16-bit integer). The minimum must be smaller than the maximum.
+     * 
+     * The default values are -9000 and 9000 for the minimum and maximum degree.
+     * 
+     */
     public Short getMax2(){
         return max2;
     }
@@ -490,6 +791,12 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Returns the minimum and maximum degree for the specified servo as set by
+     * :func:`SetDegree`.
+     * 
+     */
     public Short getServoNum15(){
         return servoNum15;
     }
@@ -498,6 +805,25 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum15 = servoNum15;
     }
 
+    /**
+     * 
+     * Sets the period of the specified servo in µs.
+     * 
+     * Usually, servos are controlled with a 
+     * `PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__. Different
+     * servos expect PWMs with different periods. Most servos run well with a 
+     * period of about 20ms.
+     * 
+     * If your servo comes with a datasheet that specifies a period, you should
+     * set it accordingly. If you don't have a datasheet and you have no idea
+     * what the correct period is, the default value (19.5ms) will most likely
+     * work fine. 
+     * 
+     * The minimum possible period is 1µs and the maximum is 65535µs.
+     * 
+     * The default value is 19.5ms (19500µs).
+     * 
+     */
     public Short getServoNum16(){
         return servoNum16;
     }
@@ -506,6 +832,25 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum16 = servoNum16;
     }
 
+    /**
+     * 
+     * Sets the period of the specified servo in µs.
+     * 
+     * Usually, servos are controlled with a 
+     * `PWM <https://en.wikipedia.org/wiki/Pulse-width_modulation>`__. Different
+     * servos expect PWMs with different periods. Most servos run well with a 
+     * period of about 20ms.
+     * 
+     * If your servo comes with a datasheet that specifies a period, you should
+     * set it accordingly. If you don't have a datasheet and you have no idea
+     * what the correct period is, the default value (19.5ms) will most likely
+     * work fine. 
+     * 
+     * The minimum possible period is 1µs and the maximum is 65535µs.
+     * 
+     * The default value is 19.5ms (19500µs).
+     * 
+     */
     public Integer getPeriod(){
         return period;
     }
@@ -514,6 +859,11 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.period = period;
     }
 
+    /**
+     * 
+     * Returns the period for the specified servo as set by :func:`SetPeriod`.
+     * 
+     */
     public Short getServoNum17(){
         return servoNum17;
     }
@@ -522,6 +872,11 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum17 = servoNum17;
     }
 
+    /**
+     * 
+     * Returns the current consumption of the specified servo in mA.
+     * 
+     */
     public Short getServoNum18(){
         return servoNum18;
     }
@@ -530,6 +885,17 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.servoNum18 = servoNum18;
     }
 
+    /**
+     * 
+     * Sets the minimum voltage in mV, below which the :func:`UnderVoltage` callback
+     * is triggered. The minimum possible value that works with the Servo Brick is 5V.
+     * You can use this function to detect the discharge of a battery that is used
+     * to drive the stepper motor. If you have a fixed power supply, you likely do 
+     * not need this functionality.
+     * 
+     * The default value is 5V (5000mV).
+     * 
+     */
     public Integer getVoltage2(){
         return voltage2;
     }
@@ -538,6 +904,15 @@ public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProdu
         this.voltage2 = voltage2;
     }
 
+    /**
+     * 
+     * Returns the firmware and protocol version and the name of the Bricklet for a
+     * given port.
+     * 
+     * This functions sole purpose is to allow automatic flashing of v1.x.y Bricklet
+     * plugins.
+     * 
+     */
     public Character getPort(){
         return port;
     }

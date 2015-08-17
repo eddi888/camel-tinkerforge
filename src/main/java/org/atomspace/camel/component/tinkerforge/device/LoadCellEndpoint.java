@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletLoadCell;
 
+/**
+ * Measures weight with a load cell
+ */
 public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, LoadCellProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoadCellEndpoint.class);
@@ -134,7 +137,7 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
                 break;
 
             case "ledOff":
-                device.ledOff();;
+                device.ledOff();
                 break;
 
             case "isLedOn":
@@ -175,6 +178,17 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Weight` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Weight` is only triggered if the weight has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -183,6 +197,25 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`WeightReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the weight is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the weight is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the weight is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the weight is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -191,6 +224,25 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`WeightReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the weight is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the weight is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the weight is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the weight is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -199,6 +251,25 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`WeightReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the weight is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the weight is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the weight is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the weight is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -207,6 +278,21 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`WeightReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetWeightCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -215,6 +301,19 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the weight value.
+     * 
+     * Setting the length to 1 will turn the averaging off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 1-40.
+     * 
+     * The default value is 4.
+     * 
+     */
     public Short getAverage(){
         return average;
     }
@@ -223,6 +322,21 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.average = average;
     }
 
+    /**
+     * 
+     * To calibrate your Load Cell Bricklet you have to
+     * 
+     * * empty the scale and call this function with 0 and
+     * * add a known weight to the scale and call this function with the weight in 
+     *   grams.
+     * 
+     * The calibration is saved in the EEPROM of the Bricklet and only
+     * needs to be done once.
+     * 
+     * We recommend to use the Brick Viewer for calibration, you don't need
+     * to call this function in your source code.
+     * 
+     */
     public Long getWeight(){
         return weight;
     }
@@ -231,6 +345,30 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.weight = weight;
     }
 
+    /**
+     * 
+     * The measurement rate and gain are configurable.
+     * 
+     * The rate can be either 10Hz or 80Hz. A faster rate will produce more noise.
+     * It is additionally possible to add a moving average
+     * (see :func:`SetMovingAverage`) to the measurements.
+     * 
+     * The gain can be 128x, 64x or 32x. It represents a measurement range of
+     * ±20mV, ±40mV and ±80mV respectively. The Load Cell Bricklet uses an
+     * excitation voltage of 5V and most load cells use an output of 2mV/V. That
+     * means the voltage range is ±15mV for most load cells (i.e. gain of 128x
+     * is best). If you don't know what all of this means you should keep it at 
+     * 128x, it will most likely be correct.
+     * 
+     * The configuration is saved in the EEPROM of the Bricklet and only
+     * needs to be done once.
+     * 
+     * We recommend to use the Brick Viewer for configuration, you don't need
+     * to call this function in your source code.
+     * 
+     * The default rate is 10Hz and the default gain is 128x.
+     * 
+     */
     public Short getRate(){
         return rate;
     }
@@ -239,6 +377,30 @@ public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, Load
         this.rate = rate;
     }
 
+    /**
+     * 
+     * The measurement rate and gain are configurable.
+     * 
+     * The rate can be either 10Hz or 80Hz. A faster rate will produce more noise.
+     * It is additionally possible to add a moving average
+     * (see :func:`SetMovingAverage`) to the measurements.
+     * 
+     * The gain can be 128x, 64x or 32x. It represents a measurement range of
+     * ±20mV, ±40mV and ±80mV respectively. The Load Cell Bricklet uses an
+     * excitation voltage of 5V and most load cells use an output of 2mV/V. That
+     * means the voltage range is ±15mV for most load cells (i.e. gain of 128x
+     * is best). If you don't know what all of this means you should keep it at 
+     * 128x, it will most likely be correct.
+     * 
+     * The configuration is saved in the EEPROM of the Bricklet and only
+     * needs to be done once.
+     * 
+     * We recommend to use the Brick Viewer for configuration, you don't need
+     * to call this function in your source code.
+     * 
+     * The default rate is 10Hz and the default gain is 128x.
+     * 
+     */
     public Short getGain(){
         return gain;
     }

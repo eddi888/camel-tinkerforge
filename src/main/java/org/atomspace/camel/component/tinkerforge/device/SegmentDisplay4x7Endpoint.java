@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletSegmentDisplay4x7;
 
+/**
+ * Four 7-segment displays with switchable colon
+ */
 public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDisplay4x7Consumer, SegmentDisplay4x7Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(SegmentDisplay4x7Endpoint.class);
@@ -119,6 +122,23 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
     }
     
     
+    /**
+     * 
+     * The 7-segment display can be set with bitmaps. Every bit controls one
+     * segment:
+     * 
+     * .. image:: /Images/Bricklets/bricklet_segment_display_4x7_bit_order.png
+     *    :scale: 100 %
+     *    :alt: Bit order of one segment
+     *    :align: center
+     * 
+     * For example to set a "5" you would want to activate segments 0, 2, 3, 5 and 6.
+     * This is represented by the number 0b01101101 = 0x6d = 109.
+     * 
+     * The brightness can be set between 0 (dark) and 7 (bright). The colon
+     * parameter turns the colon of the display on or off.
+     * 
+     */
     public short[] getSegments(){
         return segments;
     }
@@ -127,6 +147,23 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         this.segments = segments;
     }
 
+    /**
+     * 
+     * The 7-segment display can be set with bitmaps. Every bit controls one
+     * segment:
+     * 
+     * .. image:: /Images/Bricklets/bricklet_segment_display_4x7_bit_order.png
+     *    :scale: 100 %
+     *    :alt: Bit order of one segment
+     *    :align: center
+     * 
+     * For example to set a "5" you would want to activate segments 0, 2, 3, 5 and 6.
+     * This is represented by the number 0b01101101 = 0x6d = 109.
+     * 
+     * The brightness can be set between 0 (dark) and 7 (bright). The colon
+     * parameter turns the colon of the display on or off.
+     * 
+     */
     public Short getBrightness(){
         return brightness;
     }
@@ -135,6 +172,23 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         this.brightness = brightness;
     }
 
+    /**
+     * 
+     * The 7-segment display can be set with bitmaps. Every bit controls one
+     * segment:
+     * 
+     * .. image:: /Images/Bricklets/bricklet_segment_display_4x7_bit_order.png
+     *    :scale: 100 %
+     *    :alt: Bit order of one segment
+     *    :align: center
+     * 
+     * For example to set a "5" you would want to activate segments 0, 2, 3, 5 and 6.
+     * This is represented by the number 0b01101101 = 0x6d = 109.
+     * 
+     * The brightness can be set between 0 (dark) and 7 (bright). The colon
+     * parameter turns the colon of the display on or off.
+     * 
+     */
     public Boolean getColon(){
         return colon;
     }
@@ -143,6 +197,24 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         this.colon = colon;
     }
 
+    /**
+     * 
+     * Starts a counter with the *from* value that counts to the *to*
+     * value with the each step incremented by *increment*.
+     * The *length* of the increment is given in ms.
+     * 
+     * Example: If you set *from* to 0, *to* to 100, *increment* to 1 and
+     * *length* to 1000, a counter that goes from 0 to 100 with one second
+     * pause between each increment will be started.
+     * 
+     * The maximum values for *from*, *to* and *increment* is 9999, 
+     * the minimum value is -999.
+     * 
+     * Using a negative increment allows to count backwards.
+     * 
+     * You can stop the counter at every time by calling :func:`SetSegments`.
+     * 
+     */
     public Short getValueFrom(){
         return valueFrom;
     }
@@ -151,6 +223,24 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         this.valueFrom = valueFrom;
     }
 
+    /**
+     * 
+     * Starts a counter with the *from* value that counts to the *to*
+     * value with the each step incremented by *increment*.
+     * The *length* of the increment is given in ms.
+     * 
+     * Example: If you set *from* to 0, *to* to 100, *increment* to 1 and
+     * *length* to 1000, a counter that goes from 0 to 100 with one second
+     * pause between each increment will be started.
+     * 
+     * The maximum values for *from*, *to* and *increment* is 9999, 
+     * the minimum value is -999.
+     * 
+     * Using a negative increment allows to count backwards.
+     * 
+     * You can stop the counter at every time by calling :func:`SetSegments`.
+     * 
+     */
     public Short getValueTo(){
         return valueTo;
     }
@@ -159,6 +249,24 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         this.valueTo = valueTo;
     }
 
+    /**
+     * 
+     * Starts a counter with the *from* value that counts to the *to*
+     * value with the each step incremented by *increment*.
+     * The *length* of the increment is given in ms.
+     * 
+     * Example: If you set *from* to 0, *to* to 100, *increment* to 1 and
+     * *length* to 1000, a counter that goes from 0 to 100 with one second
+     * pause between each increment will be started.
+     * 
+     * The maximum values for *from*, *to* and *increment* is 9999, 
+     * the minimum value is -999.
+     * 
+     * Using a negative increment allows to count backwards.
+     * 
+     * You can stop the counter at every time by calling :func:`SetSegments`.
+     * 
+     */
     public Short getIncrement(){
         return increment;
     }
@@ -167,6 +275,24 @@ public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDispla
         this.increment = increment;
     }
 
+    /**
+     * 
+     * Starts a counter with the *from* value that counts to the *to*
+     * value with the each step incremented by *increment*.
+     * The *length* of the increment is given in ms.
+     * 
+     * Example: If you set *from* to 0, *to* to 100, *increment* to 1 and
+     * *length* to 1000, a counter that goes from 0 to 100 with one second
+     * pause between each increment will be started.
+     * 
+     * The maximum values for *from*, *to* and *increment* is 9999, 
+     * the minimum value is -999.
+     * 
+     * Using a negative increment allows to count backwards.
+     * 
+     * You can stop the counter at every time by calling :func:`SetSegments`.
+     * 
+     */
     public Long getLength(){
         return length;
     }

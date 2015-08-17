@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletGPS;
 
+/**
+ * Determine position, velocity and altitude using GPS
+ */
 public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(GPSEndpoint.class);
@@ -169,6 +172,20 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
     }
     
     
+    /**
+     * 
+     * Restarts the GPS Bricklet, the following restart types are available:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "0", "Hot start (use all available data in the NV store)"
+     *  "1", "Warm start (don't use ephemeris at restart)"
+     *  "2", "Cold start (don't use time, position, almanacs and ephemeris at restart)"
+     *  "3", "Factory reset (clear all system/user configurations at restart)"
+     * 
+     */
     public Short getRestartType(){
         return restartType;
     }
@@ -177,6 +194,17 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
         this.restartType = restartType;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Coordinates` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Coordinates` is only triggered if the coordinates changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -185,6 +213,17 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Status` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Status` is only triggered if the status changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -193,6 +232,17 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Altitude` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Altitude` is only triggered if the altitude changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod3(){
         return period3;
     }
@@ -201,6 +251,17 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
         this.period3 = period3;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Motion` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Motion` is only triggered if the motion changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod4(){
         return period4;
     }
@@ -209,6 +270,17 @@ public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
         this.period4 = period4;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`DateTime` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`DateTime` is only triggered if the date or time changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod5(){
         return period5;
     }

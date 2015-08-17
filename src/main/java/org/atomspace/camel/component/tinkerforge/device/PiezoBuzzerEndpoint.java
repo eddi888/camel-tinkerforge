@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletPiezoBuzzer;
 
+/**
+ * Creates 1kHz beep
+ */
 public class PiezoBuzzerEndpoint extends TinkerforgeEndpoint<PiezoBuzzerConsumer, PiezoBuzzerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(PiezoBuzzerEndpoint.class);
@@ -101,6 +104,12 @@ public class PiezoBuzzerEndpoint extends TinkerforgeEndpoint<PiezoBuzzerConsumer
     }
     
     
+    /**
+     * 
+     * Beeps with the duration in ms. For example: If you set a value of 1000,
+     * the piezo buzzer will beep for one second.
+     * 
+     */
     public Long getDuration(){
         return duration;
     }
@@ -109,6 +118,19 @@ public class PiezoBuzzerEndpoint extends TinkerforgeEndpoint<PiezoBuzzerConsumer
         this.duration = duration;
     }
 
+    /**
+     * 
+     * Sets morse code that will be played by the piezo buzzer. The morse code
+     * is given as a string consisting of "." (dot), "-" (minus) and " " (space)
+     * for *dits*, *dahs* and *pauses*. Every other character is ignored.
+     * 
+     * For example: If you set the string "...---...", the piezo buzzer will beep
+     * nine times with the durations "short short short long long long short 
+     * short short".
+     * 
+     * The maximum string size is 60.
+     * 
+     */
     public String getMorse(){
         return morse;
     }

@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletAnalogOutV2;
 
+/**
+ * Generates configurable DC voltage between 0V and 12V
+ */
 public class AnalogOutV2Endpoint extends TinkerforgeEndpoint<AnalogOutV2Consumer, AnalogOutV2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AnalogOutV2Endpoint.class);
@@ -102,6 +105,11 @@ public class AnalogOutV2Endpoint extends TinkerforgeEndpoint<AnalogOutV2Consumer
     }
     
     
+    /**
+     * 
+     * Sets the voltage in mV. The possible range is 0V to 12V (0-12000).
+     * 
+     */
     public Integer getVoltage(){
         return voltage;
     }

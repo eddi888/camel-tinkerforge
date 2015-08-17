@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletHallEffect;
 
+/**
+ * Detects presence of magnetic field
+ */
 public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, HallEffectProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(HallEffectEndpoint.class);
@@ -137,6 +140,16 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
     }
     
     
+    /**
+     * 
+     * Returns the current value of the edge counter. You can configure
+     * edge type (rising, falling, both) that is counted with
+     * :func:`SetEdgeCountConfig`.
+     * 
+     * If you set the reset counter to *true*, the count is set back to 0
+     * directly after it is read.
+     * 
+     */
     public Boolean getResetCounter(){
         return resetCounter;
     }
@@ -145,6 +158,31 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
         this.resetCounter = resetCounter;
     }
 
+    /**
+     * 
+     * The edge type parameter configures if rising edges, falling edges or 
+     * both are counted. Possible edge types are:
+     * 
+     * * 0 = rising (default)
+     * * 1 = falling
+     * * 2 = both
+     * 
+     * A magnetic field of 35 Gauss (3.5mT) or greater causes a falling edge and a
+     * magnetic field of 25 Gauss (2.5mT) or smaller causes a rising edge.
+     * 
+     * If a magnet comes near the Bricklet the signal goes low (falling edge), if
+     * a magnet is removed from the vicinity the signal goes high (rising edge).
+     * 
+     * The debounce time is given in ms.
+     * 
+     * Configuring an edge counter resets its value to 0.
+     * 
+     * If you don't know what any of this means, just leave it at default. The
+     * default configuration is very likely OK for you.
+     * 
+     * Default values: 0 (edge type) and 100ms (debounce time)
+     * 
+     */
     public Short getEdgeType(){
         return edgeType;
     }
@@ -153,6 +191,31 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
         this.edgeType = edgeType;
     }
 
+    /**
+     * 
+     * The edge type parameter configures if rising edges, falling edges or 
+     * both are counted. Possible edge types are:
+     * 
+     * * 0 = rising (default)
+     * * 1 = falling
+     * * 2 = both
+     * 
+     * A magnetic field of 35 Gauss (3.5mT) or greater causes a falling edge and a
+     * magnetic field of 25 Gauss (2.5mT) or smaller causes a rising edge.
+     * 
+     * If a magnet comes near the Bricklet the signal goes low (falling edge), if
+     * a magnet is removed from the vicinity the signal goes high (rising edge).
+     * 
+     * The debounce time is given in ms.
+     * 
+     * Configuring an edge counter resets its value to 0.
+     * 
+     * If you don't know what any of this means, just leave it at default. The
+     * default configuration is very likely OK for you.
+     * 
+     * Default values: 0 (edge type) and 100ms (debounce time)
+     * 
+     */
     public Short getDebounce(){
         return debounce;
     }
@@ -161,6 +224,17 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the number of edges until an interrupt is invoked.
+     * 
+     * If *edges* is set to n, an interrupt is invoked for every n-th detected edge.
+     * 
+     * If *edges* is set to 0, the interrupt is disabled.
+     * 
+     * Default value is 0.
+     * 
+     */
     public Long getEdges(){
         return edges;
     }
@@ -169,6 +243,17 @@ public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, 
         this.edges = edges;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`EdgeCount` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`EdgeCount` is only triggered if the edge count has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }

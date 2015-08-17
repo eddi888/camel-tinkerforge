@@ -19,9 +19,11 @@ package org.atomspace.camel.component.tinkerforge;
 import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointConfiguration;
 import org.apache.camel.Message;
+import org.apache.camel.component.timer.TimerConsumer;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.impl.DefaultProducer;
+import org.apache.camel.spi.UriEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +31,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Represents a Tinkerforge endpoint.
  */
+@UriEndpoint(scheme = "tinkerforge", title = "Tinkerforge", syntax = "tinkerforge:[host[:port]/]deviceType", consumerClass = TinkerforgeConsumer.class, label = "iot,tinkerforge")
 public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, ProducerType extends DefaultProducer> extends DefaultEndpoint {
 
     private static final Logger LOG = LoggerFactory.getLogger(TinkerforgeEndpoint.class);

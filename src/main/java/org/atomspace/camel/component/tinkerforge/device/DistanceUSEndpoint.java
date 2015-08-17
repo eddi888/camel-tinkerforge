@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletDistanceUS;
 
+/**
+ * Measures distance between 2cm and 400cm with ultrasound
+ */
 public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, DistanceUSProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DistanceUSEndpoint.class);
@@ -139,6 +142,17 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Distance` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Distance` is only triggered if the distance value has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -147,6 +161,25 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -155,6 +188,25 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMin(){
         return min;
     }
@@ -163,6 +215,25 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DistanceReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the distance value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the distance value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the distance value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the distance value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Short getMax(){
         return max;
     }
@@ -171,6 +242,21 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`DistanceReached`,
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetDistanceCallbackThreshold`,
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -179,6 +265,19 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the distance value.
+     * 
+     * Setting the length to 0 will turn the averaging completely off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 0-100.
+     * 
+     * The default value is 20.
+     * 
+     */
     public Short getAverage(){
         return average;
     }

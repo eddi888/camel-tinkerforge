@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletRS232;
 
+/**
+ * Communicates with RS232 devices
+ */
 public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RS232Endpoint.class);
@@ -133,6 +136,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
     }
     
     
+    /**
+     * 
+     * Writes a string of up to 60 characters to the RS232 interface. The string
+     * can be binary data, ASCII or similar is not necessary.
+     * 
+     * The length of the string has to be given as an additional parameter.
+     * 
+     * The return value is the number of bytes that could be written.
+     * 
+     * See :func:`SetConfigurations` for configuration possibilities
+     * regarding baudrate, parity and so on.
+     * 
+     */
     public char[] getMessage(){
         return message;
     }
@@ -141,6 +157,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.message = message;
     }
 
+    /**
+     * 
+     * Writes a string of up to 60 characters to the RS232 interface. The string
+     * can be binary data, ASCII or similar is not necessary.
+     * 
+     * The length of the string has to be given as an additional parameter.
+     * 
+     * The return value is the number of bytes that could be written.
+     * 
+     * See :func:`SetConfigurations` for configuration possibilities
+     * regarding baudrate, parity and so on.
+     * 
+     */
     public Short getLength(){
         return length;
     }
@@ -149,6 +178,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.length = length;
     }
 
+    /**
+     * 
+     * Sets the configuration for the RS232 communication. Available options:
+     * 
+     * * Baudrate between 300 and 230400 baud.
+     * * Parity of none, odd, even or forced parity.
+     * * Stopbits can be 1 or 2.
+     * * Word length of 5 to 8.
+     * * Hard-/Software flow control can each be on or off.
+     * 
+     * The default is: 115200 baud, parity none, 1 stop bit, word length 8, hard-/software flow control off.
+     * 
+     */
     public Short getBaudrate(){
         return baudrate;
     }
@@ -157,6 +199,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.baudrate = baudrate;
     }
 
+    /**
+     * 
+     * Sets the configuration for the RS232 communication. Available options:
+     * 
+     * * Baudrate between 300 and 230400 baud.
+     * * Parity of none, odd, even or forced parity.
+     * * Stopbits can be 1 or 2.
+     * * Word length of 5 to 8.
+     * * Hard-/Software flow control can each be on or off.
+     * 
+     * The default is: 115200 baud, parity none, 1 stop bit, word length 8, hard-/software flow control off.
+     * 
+     */
     public Short getParity(){
         return parity;
     }
@@ -165,6 +220,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.parity = parity;
     }
 
+    /**
+     * 
+     * Sets the configuration for the RS232 communication. Available options:
+     * 
+     * * Baudrate between 300 and 230400 baud.
+     * * Parity of none, odd, even or forced parity.
+     * * Stopbits can be 1 or 2.
+     * * Word length of 5 to 8.
+     * * Hard-/Software flow control can each be on or off.
+     * 
+     * The default is: 115200 baud, parity none, 1 stop bit, word length 8, hard-/software flow control off.
+     * 
+     */
     public Short getStopbits(){
         return stopbits;
     }
@@ -173,6 +241,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.stopbits = stopbits;
     }
 
+    /**
+     * 
+     * Sets the configuration for the RS232 communication. Available options:
+     * 
+     * * Baudrate between 300 and 230400 baud.
+     * * Parity of none, odd, even or forced parity.
+     * * Stopbits can be 1 or 2.
+     * * Word length of 5 to 8.
+     * * Hard-/Software flow control can each be on or off.
+     * 
+     * The default is: 115200 baud, parity none, 1 stop bit, word length 8, hard-/software flow control off.
+     * 
+     */
     public Short getWordlength(){
         return wordlength;
     }
@@ -181,6 +262,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.wordlength = wordlength;
     }
 
+    /**
+     * 
+     * Sets the configuration for the RS232 communication. Available options:
+     * 
+     * * Baudrate between 300 and 230400 baud.
+     * * Parity of none, odd, even or forced parity.
+     * * Stopbits can be 1 or 2.
+     * * Word length of 5 to 8.
+     * * Hard-/Software flow control can each be on or off.
+     * 
+     * The default is: 115200 baud, parity none, 1 stop bit, word length 8, hard-/software flow control off.
+     * 
+     */
     public Short getHardwareFlowcontrol(){
         return hardwareFlowcontrol;
     }
@@ -189,6 +283,19 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
         this.hardwareFlowcontrol = hardwareFlowcontrol;
     }
 
+    /**
+     * 
+     * Sets the configuration for the RS232 communication. Available options:
+     * 
+     * * Baudrate between 300 and 230400 baud.
+     * * Parity of none, odd, even or forced parity.
+     * * Stopbits can be 1 or 2.
+     * * Word length of 5 to 8.
+     * * Hard-/Software flow control can each be on or off.
+     * 
+     * The default is: 115200 baud, parity none, 1 stop bit, word length 8, hard-/software flow control off.
+     * 
+     */
     public Short getSoftwareFlowcontrol(){
         return softwareFlowcontrol;
     }

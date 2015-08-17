@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletDustDetector;
 
+/**
+ * Measures dust density
+ */
 public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsumer, DustDetectorProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DustDetectorEndpoint.class);
@@ -139,6 +142,17 @@ public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsum
     }
     
     
+    /**
+     * 
+     * Sets the period in ms with which the :func:`DustDensity` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`DustDensity` is only triggered if the dust density has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -147,6 +161,25 @@ public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsum
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DustDensityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the dust density value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the dust density value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the dust density value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the dust density value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -155,6 +188,25 @@ public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsum
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DustDensityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the dust density value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the dust density value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the dust density value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the dust density value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -163,6 +215,25 @@ public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsum
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`DustDensityReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the dust density value is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the dust density value is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the dust density value is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the dust density value is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -171,6 +242,21 @@ public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsum
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`DustDensityReached`
+     * 
+     * is triggered, if the threshold
+     * 
+     * * :func:`SetDustDensityCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -179,6 +265,19 @@ public class DustDetectorEndpoint extends TinkerforgeEndpoint<DustDetectorConsum
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
+     * for the dust_density.
+     * 
+     * Setting the length to 0 will turn the averaging completely off. With less
+     * averaging, there is more noise on the data.
+     * 
+     * The range for the averaging is 0-100.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Short getAverage(){
         return average;
     }

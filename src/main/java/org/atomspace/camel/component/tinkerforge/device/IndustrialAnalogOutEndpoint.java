@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletIndustrialAnalogOut;
 
+/**
+ * Generates configurable DC voltage and current, 0V to 10V and 4mA to 20mA
+ */
 public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialAnalogOutConsumer, IndustrialAnalogOutProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialAnalogOutEndpoint.class);
@@ -134,6 +137,14 @@ public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialA
     }
     
     
+    /**
+     * 
+     * Sets the output voltage in mV.
+     * 
+     * The output voltage and output current are linked. Changing the output voltage
+     * also changes the output current.
+     * 
+     */
     public Integer getVoltage(){
         return voltage;
     }
@@ -142,6 +153,14 @@ public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialA
         this.voltage = voltage;
     }
 
+    /**
+     * 
+     * Sets the output current in µA.
+     * 
+     * The output current and output voltage are linked. Changing the output current
+     * also changes the output voltage.
+     * 
+     */
     public Integer getCurrent(){
         return current;
     }
@@ -150,6 +169,25 @@ public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialA
         this.current = current;
     }
 
+    /**
+     * 
+     * Configures the voltage and current range.
+     * 
+     * Possible voltage ranges are:
+     * 
+     * * 0V to 5V
+     * * 0V to 10V
+     * 
+     * Possible current ranges are:
+     * 
+     * * 4mA to 20mA
+     * * 0mA to 20mA
+     * * 0mA to 24mA
+     * 
+     * The resolution will always be 12 bit. This means, that the
+     * precision is higher with a smaller range.
+     * 
+     */
     public Short getVoltageRange(){
         return voltageRange;
     }
@@ -158,6 +196,25 @@ public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialA
         this.voltageRange = voltageRange;
     }
 
+    /**
+     * 
+     * Configures the voltage and current range.
+     * 
+     * Possible voltage ranges are:
+     * 
+     * * 0V to 5V
+     * * 0V to 10V
+     * 
+     * Possible current ranges are:
+     * 
+     * * 4mA to 20mA
+     * * 0mA to 20mA
+     * * 0mA to 24mA
+     * 
+     * The resolution will always be 12 bit. This means, that the
+     * precision is higher with a smaller range.
+     * 
+     */
     public Short getCurrentRange(){
         return currentRange;
     }

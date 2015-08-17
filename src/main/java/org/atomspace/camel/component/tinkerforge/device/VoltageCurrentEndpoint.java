@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletVoltageCurrent;
 
+/**
+ * Measures power, DC voltage and DC current up to 720W/36V/20A
+ */
 public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentConsumer, VoltageCurrentProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(VoltageCurrentEndpoint.class);
@@ -216,6 +219,46 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
     }
     
     
+    /**
+     * 
+     * Sets the configuration of the Voltage/Current Bricklet. It is
+     * possible to configure number of averages as well as
+     * voltage and current conversion time.
+     * 
+     * Averaging:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Number of Averages"
+     *  :widths: 20, 20
+     * 
+     *  "0",    "1"
+     *  "1",    "4"
+     *  "2",    "16"
+     *  "3",    "64"
+     *  "4",    "128"
+     *  "5",    "256"
+     *  "6",    "512"
+     *  ">=7",  "1024"
+     * 
+     * Voltage/Current conversion:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Conversion time"
+     *  :widths: 20, 20
+     * 
+     *  "0",    "140µs"
+     *  "1",    "204µs"
+     *  "2",    "332µs"
+     *  "3",    "588µs"
+     *  "4",    "1.1ms"
+     *  "5",    "2.116ms"
+     *  "6",    "4.156ms"
+     *  ">=7",  "8.244ms"
+     * 
+     * The default values are 3, 4 and 4 (64, 1.1ms, 1.1ms) for averaging, voltage 
+     * conversion and current conversion.
+     * 
+     */
     public Short getAveraging(){
         return averaging;
     }
@@ -224,6 +267,46 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.averaging = averaging;
     }
 
+    /**
+     * 
+     * Sets the configuration of the Voltage/Current Bricklet. It is
+     * possible to configure number of averages as well as
+     * voltage and current conversion time.
+     * 
+     * Averaging:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Number of Averages"
+     *  :widths: 20, 20
+     * 
+     *  "0",    "1"
+     *  "1",    "4"
+     *  "2",    "16"
+     *  "3",    "64"
+     *  "4",    "128"
+     *  "5",    "256"
+     *  "6",    "512"
+     *  ">=7",  "1024"
+     * 
+     * Voltage/Current conversion:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Conversion time"
+     *  :widths: 20, 20
+     * 
+     *  "0",    "140µs"
+     *  "1",    "204µs"
+     *  "2",    "332µs"
+     *  "3",    "588µs"
+     *  "4",    "1.1ms"
+     *  "5",    "2.116ms"
+     *  "6",    "4.156ms"
+     *  ">=7",  "8.244ms"
+     * 
+     * The default values are 3, 4 and 4 (64, 1.1ms, 1.1ms) for averaging, voltage 
+     * conversion and current conversion.
+     * 
+     */
     public Short getVoltageConversionTime(){
         return voltageConversionTime;
     }
@@ -232,6 +315,46 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.voltageConversionTime = voltageConversionTime;
     }
 
+    /**
+     * 
+     * Sets the configuration of the Voltage/Current Bricklet. It is
+     * possible to configure number of averages as well as
+     * voltage and current conversion time.
+     * 
+     * Averaging:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Number of Averages"
+     *  :widths: 20, 20
+     * 
+     *  "0",    "1"
+     *  "1",    "4"
+     *  "2",    "16"
+     *  "3",    "64"
+     *  "4",    "128"
+     *  "5",    "256"
+     *  "6",    "512"
+     *  ">=7",  "1024"
+     * 
+     * Voltage/Current conversion:
+     * 
+     * .. csv-table::
+     *  :header: "Value", "Conversion time"
+     *  :widths: 20, 20
+     * 
+     *  "0",    "140µs"
+     *  "1",    "204µs"
+     *  "2",    "332µs"
+     *  "3",    "588µs"
+     *  "4",    "1.1ms"
+     *  "5",    "2.116ms"
+     *  "6",    "4.156ms"
+     *  ">=7",  "8.244ms"
+     * 
+     * The default values are 3, 4 and 4 (64, 1.1ms, 1.1ms) for averaging, voltage 
+     * conversion and current conversion.
+     * 
+     */
     public Short getCurrentConversionTime(){
         return currentConversionTime;
     }
@@ -240,6 +363,17 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.currentConversionTime = currentConversionTime;
     }
 
+    /**
+     * 
+     * Since the shunt resistor that is used to measure the current is not
+     * perfectly precise, it needs to be calibrated by a multiplier and
+     * divisor if a very precise reading is needed.
+     * 
+     * For example, if you are expecting a measurement of 1000mA and you
+     * are measuring 1023mA, you can calibrate the Voltage/Current Bricklet 
+     * by setting the multiplier to 1000 and the divisor to 1023.
+     * 
+     */
     public Integer getGainMultiplier(){
         return gainMultiplier;
     }
@@ -248,6 +382,17 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.gainMultiplier = gainMultiplier;
     }
 
+    /**
+     * 
+     * Since the shunt resistor that is used to measure the current is not
+     * perfectly precise, it needs to be calibrated by a multiplier and
+     * divisor if a very precise reading is needed.
+     * 
+     * For example, if you are expecting a measurement of 1000mA and you
+     * are measuring 1023mA, you can calibrate the Voltage/Current Bricklet 
+     * by setting the multiplier to 1000 and the divisor to 1023.
+     * 
+     */
     public Integer getGainDivisor(){
         return gainDivisor;
     }
@@ -256,6 +401,17 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.gainDivisor = gainDivisor;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Current` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Current` is only triggered if the current has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -264,6 +420,17 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Voltage` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Voltage` is only triggered if the voltage has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod2(){
         return period2;
     }
@@ -272,6 +439,17 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.period2 = period2;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Power` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Power` is only triggered if the power has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod3(){
         return period3;
     }
@@ -280,6 +458,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.period3 = period3;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -288,6 +485,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -296,6 +512,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CurrentReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the current is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the current is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the current is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the current is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -304,6 +539,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption2(){
         return option2;
     }
@@ -312,6 +566,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.option2 = option2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin2(){
         return min2;
     }
@@ -320,6 +593,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.min2 = min2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`VoltageReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the voltage is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the voltage is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the voltage is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the voltage is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax2(){
         return max2;
     }
@@ -328,6 +620,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.max2 = max2;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PowerReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the power is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the power is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the power is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the power is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption3(){
         return option3;
     }
@@ -336,6 +647,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.option3 = option3;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PowerReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the power is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the power is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the power is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the power is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin3(){
         return min3;
     }
@@ -344,6 +674,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.min3 = min3;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`PowerReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the power is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the power is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the power is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the power is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax3(){
         return max3;
     }
@@ -352,6 +701,25 @@ public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentCo
         this.max3 = max3;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callbacks
+     * 
+     * * :func:`CurrentReached`,
+     * * :func:`VoltageReached`,
+     * * :func:`PowerReached`
+     * 
+     * are triggered, if the thresholds
+     * 
+     * * :func:`SetCurrentCallbackThreshold`,
+     * * :func:`SetVoltageCallbackThreshold`,
+     * * :func:`SetPowerCallbackThreshold`
+     * 
+     * keep being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

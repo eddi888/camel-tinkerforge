@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletRotaryEncoder;
 
+/**
+ * 360° rotary encoder with push-button
+ */
 public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderConsumer, RotaryEncoderProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RotaryEncoderEndpoint.class);
@@ -135,6 +138,18 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
     }
     
     
+    /**
+     * 
+     * Returns the current count of the encoder. If you set reset
+     * to true, the count is set back to 0 directly after the
+     * current count is read.
+     * 
+     * The encoder has 24 steps per rotation
+     * 
+     * Turning the encoder to the left decrements the counter,
+     * so a negative count is possible.
+     * 
+     */
     public Boolean getReset(){
         return reset;
     }
@@ -143,6 +158,17 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
         this.reset = reset;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the :func:`Count` callback is triggered
+     * periodically. A value of 0 turns the callback off.
+     * 
+     * :func:`Count` is only triggered if the count has changed since the
+     * last triggering.
+     * 
+     * The default value is 0.
+     * 
+     */
     public Long getPeriod(){
         return period;
     }
@@ -151,6 +177,25 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
         this.period = period;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CountReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the count is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the count is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the count is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the count is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Character getOption(){
         return option;
     }
@@ -159,6 +204,25 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
         this.option = option;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CountReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the count is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the count is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the count is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the count is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMin(){
         return min;
     }
@@ -167,6 +231,25 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
         this.min = min;
     }
 
+    /**
+     * 
+     * Sets the thresholds for the :func:`CountReached` callback. 
+     * 
+     * The following options are possible:
+     * 
+     * .. csv-table::
+     *  :header: "Option", "Description"
+     *  :widths: 10, 100
+     * 
+     *  "'x'",    "Callback is turned off"
+     *  "'o'",    "Callback is triggered when the count is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the count is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the count is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the count is greater than the min value (max is ignored)"
+     * 
+     * The default value is ('x', 0, 0).
+     * 
+     */
     public Integer getMax(){
         return max;
     }
@@ -175,6 +258,21 @@ public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderCons
         this.max = max;
     }
 
+    /**
+     * 
+     * Sets the period in ms with which the threshold callback
+     * 
+     * * :func:`CountReached`
+     * 
+     * is triggered, if the thresholds
+     * 
+     * * :func:`SetCountCallbackThreshold`
+     * 
+     * keeps being reached.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }

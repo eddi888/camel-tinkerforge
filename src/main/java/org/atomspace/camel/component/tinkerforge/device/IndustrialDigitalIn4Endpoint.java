@@ -28,6 +28,9 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletIndustrialDigitalIn4;
 
+/**
+ * 4 galvanically isolated digital inputs
+ */
 public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<IndustrialDigitalIn4Consumer, IndustrialDigitalIn4Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDigitalIn4Endpoint.class);
@@ -155,6 +158,28 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
     }
     
     
+    /**
+     * 
+     * Sets a group of Digital In 4 Bricklets that should work together. You can
+     * find Bricklets that can be grouped together with :func:`GetAvailableForGroup`.
+     * 
+     * The group consists of 4 elements. Element 1 in the group will get pins 0-3,
+     * element 2 pins 4-7, element 3 pins 8-11 and element 4 pins 12-15.
+     * 
+     * Each element can either be one of the ports ('a' to 'd') or 'n' if it should
+     * not be used.
+     * 
+     * For example: If you have two Digital In 4 Bricklets connected to port A and
+     * port B respectively, you could call with |abnn|.
+     * 
+     * Now the pins on the Digital In 4 on port A are assigned to 0-3 and the
+     * pins on the Digital In 4 on port B are assigned to 4-7. It is now possible
+     * to call :func:`GetValue` and read out two Bricklets at the same time.
+     * 
+     * Changing the group configuration resets all edge counter configurations
+     * and values.
+     * 
+     */
     public char[] getGroup(){
         return group;
     }
@@ -163,6 +188,17 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.group = group;
     }
 
+    /**
+     * 
+     * Sets the debounce period of the :func:`Interrupt` callback in ms.
+     * 
+     * For example: If you set this value to 100, you will get the interrupt
+     * maximal every 100ms. This is necessary if something that bounces is
+     * connected to the Digital In 4 Bricklet, such as a button.
+     * 
+     * The default value is 100.
+     * 
+     */
     public Long getDebounce(){
         return debounce;
     }
@@ -171,6 +207,20 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.debounce = debounce;
     }
 
+    /**
+     * 
+     * Sets the pins on which an interrupt is activated with a bitmask.
+     * Interrupts are triggered on changes of the voltage level of the pin,
+     * i.e. changes from high to low and low to high.
+     * 
+     * For example: An interrupt bitmask of 9 or 0b1001 will enable the interrupt for
+     * pins 0 and 3.
+     * 
+     * The interrupts use the grouping as set by :func:`SetGroup`.
+     * 
+     * The interrupt is delivered with the callback :func:`Interrupt`.
+     * 
+     */
     public Integer getInterruptMask(){
         return interruptMask;
     }
@@ -179,6 +229,15 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.interruptMask = interruptMask;
     }
 
+    /**
+     * 
+     * Returns the current value of the edge counter for the selected pin. You can
+     * configure the edges that are counted with :func:`SetEdgeCountConfig`.
+     * 
+     * If you set the reset counter to *true*, the count is set back to 0
+     * directly after it is read.
+     * 
+     */
     public Short getPin(){
         return pin;
     }
@@ -187,6 +246,15 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.pin = pin;
     }
 
+    /**
+     * 
+     * Returns the current value of the edge counter for the selected pin. You can
+     * configure the edges that are counted with :func:`SetEdgeCountConfig`.
+     * 
+     * If you set the reset counter to *true*, the count is set back to 0
+     * directly after it is read.
+     * 
+     */
     public Boolean getResetCounter(){
         return resetCounter;
     }
@@ -195,6 +263,28 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.resetCounter = resetCounter;
     }
 
+    /**
+     * 
+     * Configures the edge counter for the selected pins. A bitmask of 9 or 0b1001 will
+     * enable the edge counter for pins 0 and 3.
+     * 
+     * The edge type parameter configures if rising edges, falling edges or
+     * both are counted if the pin is configured for input. Possible edge types are:
+     * 
+     * * 0 = rising (default)
+     * * 1 = falling
+     * * 2 = both
+     * 
+     * The debounce time is given in ms.
+     * 
+     * Configuring an edge counter resets its value to 0.
+     * 
+     * If you don't know what any of this means, just leave it at default. The
+     * default configuration is very likely OK for you.
+     * 
+     * Default values: 0 (edge type) and 100ms (debounce time)
+     * 
+     */
     public Integer getSelectionMask(){
         return selectionMask;
     }
@@ -203,6 +293,28 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.selectionMask = selectionMask;
     }
 
+    /**
+     * 
+     * Configures the edge counter for the selected pins. A bitmask of 9 or 0b1001 will
+     * enable the edge counter for pins 0 and 3.
+     * 
+     * The edge type parameter configures if rising edges, falling edges or
+     * both are counted if the pin is configured for input. Possible edge types are:
+     * 
+     * * 0 = rising (default)
+     * * 1 = falling
+     * * 2 = both
+     * 
+     * The debounce time is given in ms.
+     * 
+     * Configuring an edge counter resets its value to 0.
+     * 
+     * If you don't know what any of this means, just leave it at default. The
+     * default configuration is very likely OK for you.
+     * 
+     * Default values: 0 (edge type) and 100ms (debounce time)
+     * 
+     */
     public Short getEdgeType(){
         return edgeType;
     }
@@ -211,6 +323,28 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.edgeType = edgeType;
     }
 
+    /**
+     * 
+     * Configures the edge counter for the selected pins. A bitmask of 9 or 0b1001 will
+     * enable the edge counter for pins 0 and 3.
+     * 
+     * The edge type parameter configures if rising edges, falling edges or
+     * both are counted if the pin is configured for input. Possible edge types are:
+     * 
+     * * 0 = rising (default)
+     * * 1 = falling
+     * * 2 = both
+     * 
+     * The debounce time is given in ms.
+     * 
+     * Configuring an edge counter resets its value to 0.
+     * 
+     * If you don't know what any of this means, just leave it at default. The
+     * default configuration is very likely OK for you.
+     * 
+     * Default values: 0 (edge type) and 100ms (debounce time)
+     * 
+     */
     public Short getDebounce2(){
         return debounce2;
     }
@@ -219,6 +353,12 @@ public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<Industrial
         this.debounce2 = debounce2;
     }
 
+    /**
+     * 
+     * Returns the edge type and debounce time for the selected pin as set by
+     * :func:`SetEdgeCountConfig`.
+     * 
+     */
     public Short getPin2(){
         return pin2;
     }
