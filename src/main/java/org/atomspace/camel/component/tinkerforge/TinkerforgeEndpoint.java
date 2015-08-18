@@ -19,7 +19,6 @@ package org.atomspace.camel.component.tinkerforge;
 import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointConfiguration;
 import org.apache.camel.Message;
-import org.apache.camel.component.timer.TimerConsumer;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.impl.DefaultProducer;

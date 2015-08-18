@@ -7,9 +7,36 @@ The **Tinkerforge** Apache Camel Component for a simple access for use the Tinke
 <dependency>
     <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
-    <version>2.15.0-SNAPSHOT</version>
+    <version>2.15.2</version>
 </dependency>
 ```
+
+
+### Key Features
+
+
+- Support 100% of all Bricks and Bricklets
+
+- Support Selection over all Callbacks from every Bricklet
+
+- Support Configuration over Path-Variables
+
+- Support Configuration over Header-Variables inside Exchange
+
+- Support Request Reply Route with Command Messages
+
+
+
+### Version Matrix
+
+
+camel-tinkerforge-Version  | Apache-Camel-Version  | Tinkerforge-SDK-Version
+-------------------------- | --------------------- | -------------------------
+2.14.0                     | 2.14.0                | 2.1.2
+2.15.2                     | 2.15.2                | 2.1.5
+
+
+
 
 ### URI format
 
@@ -34,7 +61,7 @@ callback       |               | add Device Listener to ConsumerEndpoint for rec
 function       |               | execute Device Function, can use for configure a ConsumerEndpoint and ProducerEndpoint or use dynamic in header for producerEndpoints
 
 
-### Components
+### Supported Components
 
 [Accelerometer](src/main/java/org/atomspace/camel/component/tinkerforge/device/Accelerometer.md)
 
@@ -129,6 +156,8 @@ function       |               | execute Device Function, can use for configure 
 [RS232](src/main/java/org/atomspace/camel/component/tinkerforge/device/RS232.md)
 
 [PTC](src/main/java/org/atomspace/camel/component/tinkerforge/device/PTC.md)
+
+[RED](src/main/java/org/atomspace/camel/component/tinkerforge/device/RED.md)
 
 [RemoteSwitch](src/main/java/org/atomspace/camel/component/tinkerforge/device/RemoteSwitch.md)
 
