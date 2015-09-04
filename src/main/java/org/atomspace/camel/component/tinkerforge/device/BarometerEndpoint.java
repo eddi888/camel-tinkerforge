@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,25 @@ import com.tinkerforge.BrickletBarometer;
 /**
  * Measures air pressure and altitude changes
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]barometer", consumerClass = BarometerConsumer.class, label = "iot", title = "Tinkerforge")
 public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, BarometerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(BarometerEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String OPTION2="option2";
+    public static final String MIN2="min2";
+    public static final String MAX2="max2";
+    public static final String DEBOUNCE="debounce";
+    public static final String AIRPRESSURE="airPressure";
+    public static final String MOVINGAVERAGEPRESSURE="movingAveragePressure";
+    public static final String AVERAGEPRESSURE="averagePressure";
+    public static final String AVERAGETEMPERATURE="averageTemperature";
+
     
     private Long period;
     private Long period2;

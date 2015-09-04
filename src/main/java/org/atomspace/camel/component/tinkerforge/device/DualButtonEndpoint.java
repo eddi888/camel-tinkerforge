@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,16 @@ import com.tinkerforge.BrickletDualButton;
 /**
  * Two tactile buttons with built-in blue LEDs
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]dualbutton", consumerClass = DualButtonConsumer.class, label = "iot", title = "Tinkerforge")
 public class DualButtonEndpoint extends TinkerforgeEndpoint<DualButtonConsumer, DualButtonProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DualButtonEndpoint.class);
+
+    public static final String LEDL="ledL";
+    public static final String LEDR="ledR";
+    public static final String LED="led";
+    public static final String STATE="state";
+
     
     private Short ledL;
     private Short ledR;

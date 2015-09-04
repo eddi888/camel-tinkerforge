@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,22 @@ import com.tinkerforge.BrickIMUV2;
 /**
  * Full fledged AHRS with 9 degrees of freedom
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]imuv2", consumerClass = IMUV2Consumer.class, label = "iot", title = "Tinkerforge")
 public class IMUV2Endpoint extends TinkerforgeEndpoint<IMUV2Consumer, IMUV2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IMUV2Endpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String PERIOD3="period3";
+    public static final String PERIOD4="period4";
+    public static final String PERIOD5="period5";
+    public static final String PERIOD6="period6";
+    public static final String PERIOD7="period7";
+    public static final String PERIOD8="period8";
+    public static final String PERIOD9="period9";
+    public static final String PORT="port";
+
     
     private Long period;
     private Long period2;

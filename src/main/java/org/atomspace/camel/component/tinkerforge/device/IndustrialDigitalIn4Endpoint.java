@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,21 @@ import com.tinkerforge.BrickletIndustrialDigitalIn4;
 /**
  * 4 galvanically isolated digital inputs
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]industrialdigitalin4", consumerClass = IndustrialDigitalIn4Consumer.class, label = "iot", title = "Tinkerforge")
 public class IndustrialDigitalIn4Endpoint extends TinkerforgeEndpoint<IndustrialDigitalIn4Consumer, IndustrialDigitalIn4Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDigitalIn4Endpoint.class);
+
+    public static final String GROUP="group";
+    public static final String DEBOUNCE="debounce";
+    public static final String INTERRUPTMASK="interruptMask";
+    public static final String PIN="pin";
+    public static final String RESETCOUNTER="resetCounter";
+    public static final String SELECTIONMASK="selectionMask";
+    public static final String EDGETYPE="edgeType";
+    public static final String DEBOUNCE2="debounce2";
+    public static final String PIN2="pin2";
+
     
     private char[] group;
     private Long debounce;

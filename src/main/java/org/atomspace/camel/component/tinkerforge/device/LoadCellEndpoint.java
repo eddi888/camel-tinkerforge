@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,21 @@ import com.tinkerforge.BrickletLoadCell;
 /**
  * Measures weight with a load cell
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]loadcell", consumerClass = LoadCellConsumer.class, label = "iot", title = "Tinkerforge")
 public class LoadCellEndpoint extends TinkerforgeEndpoint<LoadCellConsumer, LoadCellProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoadCellEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String DEBOUNCE="debounce";
+    public static final String AVERAGE="average";
+    public static final String WEIGHT="weight";
+    public static final String RATE="rate";
+    public static final String GAIN="gain";
+
     
     private Long period;
     private Character option;

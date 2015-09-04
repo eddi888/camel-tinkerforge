@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,15 @@ import com.tinkerforge.BrickletSolidStateRelay;
 /**
  * Controls AC and DC Solid State Relays
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]solidstaterelay", consumerClass = SolidStateRelayConsumer.class, label = "iot", title = "Tinkerforge")
 public class SolidStateRelayEndpoint extends TinkerforgeEndpoint<SolidStateRelayConsumer, SolidStateRelayProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(SolidStateRelayEndpoint.class);
+
+    public static final String STATE="state";
+    public static final String STATE2="state2";
+    public static final String TIME="time";
+
     
     private Boolean state;
     private Boolean state2;

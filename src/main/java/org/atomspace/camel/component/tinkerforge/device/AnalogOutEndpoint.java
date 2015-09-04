@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,14 @@ import com.tinkerforge.BrickletAnalogOut;
 /**
  * Generates configurable DC voltage between 0V and 5V
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]analogout", consumerClass = AnalogOutConsumer.class, label = "iot", title = "Tinkerforge")
 public class AnalogOutEndpoint extends TinkerforgeEndpoint<AnalogOutConsumer, AnalogOutProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AnalogOutEndpoint.class);
+
+    public static final String VOLTAGE="voltage";
+    public static final String MODE="mode";
+
     
     private Integer voltage;
     private Short mode;

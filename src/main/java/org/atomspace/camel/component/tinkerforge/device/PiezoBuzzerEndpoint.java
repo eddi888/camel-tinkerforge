@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,14 @@ import com.tinkerforge.BrickletPiezoBuzzer;
 /**
  * Creates 1kHz beep
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]piezobuzzer", consumerClass = PiezoBuzzerConsumer.class, label = "iot", title = "Tinkerforge")
 public class PiezoBuzzerEndpoint extends TinkerforgeEndpoint<PiezoBuzzerConsumer, PiezoBuzzerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(PiezoBuzzerEndpoint.class);
+
+    public static final String DURATION="duration";
+    public static final String MORSE="morse";
+
     
     private Long duration;
     private String morse;

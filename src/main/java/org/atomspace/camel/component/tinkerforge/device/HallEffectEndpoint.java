@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,17 @@ import com.tinkerforge.BrickletHallEffect;
 /**
  * Detects presence of magnetic field
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]halleffect", consumerClass = HallEffectConsumer.class, label = "iot", title = "Tinkerforge")
 public class HallEffectEndpoint extends TinkerforgeEndpoint<HallEffectConsumer, HallEffectProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(HallEffectEndpoint.class);
+
+    public static final String RESETCOUNTER="resetCounter";
+    public static final String EDGETYPE="edgeType";
+    public static final String DEBOUNCE="debounce";
+    public static final String EDGES="edges";
+    public static final String PERIOD="period";
+
     
     private Boolean resetCounter;
     private Short edgeType;

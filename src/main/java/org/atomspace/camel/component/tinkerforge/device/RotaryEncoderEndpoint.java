@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,18 @@ import com.tinkerforge.BrickletRotaryEncoder;
 /**
  * 360° rotary encoder with push-button
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]rotaryencoder", consumerClass = RotaryEncoderConsumer.class, label = "iot", title = "Tinkerforge")
 public class RotaryEncoderEndpoint extends TinkerforgeEndpoint<RotaryEncoderConsumer, RotaryEncoderProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RotaryEncoderEndpoint.class);
+
+    public static final String RESET="reset";
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String DEBOUNCE="debounce";
+
     
     private Boolean reset;
     private Long period;

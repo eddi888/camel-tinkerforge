@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,28 @@ import com.tinkerforge.BrickletRemoteSwitch;
 /**
  * Controls remote mains switches
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]remoteswitch", consumerClass = RemoteSwitchConsumer.class, label = "iot", title = "Tinkerforge")
 public class RemoteSwitchEndpoint extends TinkerforgeEndpoint<RemoteSwitchConsumer, RemoteSwitchProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RemoteSwitchEndpoint.class);
+
+    public static final String HOUSECODE="houseCode";
+    public static final String RECEIVERCODE="receiverCode";
+    public static final String SWITCHTO="switchTo";
+    public static final String REPEATS="repeats";
+    public static final String HOUSECODE2="houseCode2";
+    public static final String RECEIVERCODE2="receiverCode2";
+    public static final String SWITCHTO2="switchTo2";
+    public static final String ADDRESS="address";
+    public static final String UNIT="unit";
+    public static final String SWITCHTO3="switchTo3";
+    public static final String ADDRESS2="address2";
+    public static final String UNIT2="unit2";
+    public static final String DIMVALUE="dimValue";
+    public static final String SYSTEMCODE="systemCode";
+    public static final String DEVICECODE="deviceCode";
+    public static final String SWITCHTO4="switchTo4";
+
     
     private Short houseCode;
     private Short receiverCode;

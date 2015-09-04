@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,30 @@ import com.tinkerforge.BrickletVoltageCurrent;
 /**
  * Measures power, DC voltage and DC current up to 720W/36V/20A
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]voltagecurrent", consumerClass = VoltageCurrentConsumer.class, label = "iot", title = "Tinkerforge")
 public class VoltageCurrentEndpoint extends TinkerforgeEndpoint<VoltageCurrentConsumer, VoltageCurrentProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(VoltageCurrentEndpoint.class);
+
+    public static final String AVERAGING="averaging";
+    public static final String VOLTAGECONVERSIONTIME="voltageConversionTime";
+    public static final String CURRENTCONVERSIONTIME="currentConversionTime";
+    public static final String GAINMULTIPLIER="gainMultiplier";
+    public static final String GAINDIVISOR="gainDivisor";
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String PERIOD3="period3";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String OPTION2="option2";
+    public static final String MIN2="min2";
+    public static final String MAX2="max2";
+    public static final String OPTION3="option3";
+    public static final String MIN3="min3";
+    public static final String MAX3="max3";
+    public static final String DEBOUNCE="debounce";
+
     
     private Short averaging;
     private Short voltageConversionTime;

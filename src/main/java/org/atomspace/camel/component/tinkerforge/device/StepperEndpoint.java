@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,26 @@ import com.tinkerforge.BrickStepper;
 /**
  * Drives one bipolar stepper motor with up to 38V and 2.5A per phase
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]stepper", consumerClass = StepperConsumer.class, label = "iot", title = "Tinkerforge")
 public class StepperEndpoint extends TinkerforgeEndpoint<StepperConsumer, StepperProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(StepperEndpoint.class);
+
+    public static final String VELOCITY="velocity";
+    public static final String ACCELERATION="acceleration";
+    public static final String DEACCELERATION="deacceleration";
+    public static final String POSITION="position";
+    public static final String POSITION2="position2";
+    public static final String STEPS="steps";
+    public static final String MODE="mode";
+    public static final String CURRENT="current";
+    public static final String DECAY="decay";
+    public static final String VOLTAGE="voltage";
+    public static final String SYNCRECT="syncRect";
+    public static final String TIMEBASE="timeBase";
+    public static final String PERIOD="period";
+    public static final String PORT="port";
+
     
     private Integer velocity;
     private Integer acceleration;

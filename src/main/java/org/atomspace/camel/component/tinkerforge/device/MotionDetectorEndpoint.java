@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -28,9 +29,15 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletMotionDetector;
 
+/**
+ * Passive infrared (PIR) motion sensor, 7m range
+ */
+@UriEndpoint(scheme = "tinkerforge", syntax = "tinkerforge:[host[:port]/]motiondetector", consumerClass = MotionDetectorConsumer.class, label = "iot", title = "Tinkerforge")
 public class MotionDetectorEndpoint extends TinkerforgeEndpoint<MotionDetectorConsumer, MotionDetectorProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MotionDetectorEndpoint.class);
+
+
     
 
         

@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,30 @@ import com.tinkerforge.BrickletIO4;
 /**
  * 4-channel digital input/output
  */
+@UriEndpoint(scheme = "tinkerforge", syntax = "tinkerforge:[host[:port]/]io4", consumerClass = IO4Consumer.class, label = "iot", title = "Tinkerforge")
 public class IO4Endpoint extends TinkerforgeEndpoint<IO4Consumer, IO4Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IO4Endpoint.class);
+
+    public static final String VALUEMASK="valueMask";
+    public static final String SELECTIONMASK="selectionMask";
+    public static final String DIRECTION="direction";
+    public static final String VALUE="value";
+    public static final String DEBOUNCE="debounce";
+    public static final String INTERRUPTMASK="interruptMask";
+    public static final String SELECTIONMASK2="selectionMask2";
+    public static final String VALUEMASK2="valueMask2";
+    public static final String TIME="time";
+    public static final String PIN="pin";
+    public static final String SELECTIONMASK3="selectionMask3";
+    public static final String VALUEMASK3="valueMask3";
+    public static final String PIN2="pin2";
+    public static final String RESETCOUNTER="resetCounter";
+    public static final String SELECTIONMASK4="selectionMask4";
+    public static final String EDGETYPE="edgeType";
+    public static final String DEBOUNCE2="debounce2";
+    public static final String PIN3="pin3";
+
     
     private Short valueMask;
     private Short selectionMask;

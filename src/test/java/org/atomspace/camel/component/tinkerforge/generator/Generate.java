@@ -82,7 +82,6 @@ public class Generate {
                     || file.toString().endsWith("bricklet_oled_128x64_config.json")
                     || file.toString().endsWith("bricklet_oled_64x48_config.json")
                     || file.toString().endsWith("bricklet_ozone_config.json")
-                    || file.toString().endsWith("brick_red_config.json")
                 ){
                 
             }else if(file.toString().endsWith("json")){
@@ -302,7 +301,9 @@ public class Generate {
         context.put("config_name_0", config.name[0]);
         context.put("config_category", config.category);
         context.put("config_description", config.description.en);
-        
+        context.put("uriannotation", "@UriEndpoint(scheme = \"tinkerforgegen\", syntax = \"tinkerforgegen:[host[:port]/]"+config.name[0].toLowerCase()+"\", consumerClass = "+config.name[0]+"Consumer.class, label = \"iot\", title = \"Tinkerforge\")");
+
+        StringBuffer parameternames = new StringBuffer();
         StringBuffer parameters = new StringBuffer();
         StringBuffer parameterGetteSetters = new StringBuffer();
         Map<String, String> parameterSet = new HashMap<String, String>();
@@ -320,9 +321,8 @@ public class Generate {
                 boolean out=false;
                 boolean first=true;
                 String callFunctionPre = "            case \""+camelCaseName(packet.name[1])+"\":\n";
-                //String callFunction = "device."+camelCaseNameOnlyFirstSmall(packet.name[1])+"(";
-                String callFunction = "device."+packet.name[0].substring(0, 1).toLowerCase()+packet.name[0].substring(1)+"(";
-
+                String callFunction = "device."+camelCaseNameFirstGroupLowerCase(packet.name[1],packet.name[0])+"(";
+                        
                 for (Element element : packet.elements) {
                 	
                     if(element.inout.equals("in")){
@@ -339,6 +339,8 @@ public class Generate {
                                 }
                             }
                         }
+                        parameternames.append("    public static final String "+camelCaseName(element.name).toUpperCase()+"=\""+camelCaseName(element.name)+"\";\n");
+
                         parameters.append("    private "+javaBigType(element.type, element.num)+ " " +camelCaseName(element.name)+";\n");
                         
                         parameterGetteSetters.append("    /**\n");
@@ -378,6 +380,7 @@ public class Generate {
             }
             
         }
+        context.put("parameternames", parameternames);
         context.put("parameters", parameters);
         context.put("parameterGetteSetters", parameterGetteSetters);
         context.put("callFunctions", callFunctions);
@@ -475,6 +478,8 @@ public class Generate {
     
     /**
      * Convert 'response_expected' to 'responseExpected'
+     * AND
+     * Convert 'led_on' to 'ledOn'
      */
     private String camelCaseName(String name){
         String camelCaseName = null;
@@ -485,6 +490,31 @@ public class Generate {
         }
         return camelCaseName;
     }
+    
+    /**
+     * Convert 'set_pwm_frequency, SetPWMFrequency' to 'setPWMFrequency'
+     * AND
+     * Convert 'is_led_on, IsLEDOn' to 'isLEDOn'
+     * AND
+     * Convert 'led_on, LEDOn' to 'ledOn'
+     * 
+     */
+    private String camelCaseNameFirstGroupLowerCase(String name, String nameCC){
+        
+        boolean secoundCharUpperCase = (Character.isUpperCase(nameCC.charAt(1)));
+        
+        String camelCaseName = null;
+        
+        if(secoundCharUpperCase){
+            String firstGroup = name.split("_")[0];
+            camelCaseName = firstGroup.toLowerCase()+nameCC.substring(firstGroup.length());
+        }else{
+            camelCaseName = nameCC.substring(0, 1).toLowerCase()+nameCC.substring(1);
+        }
+        
+        return camelCaseName;
+    }
+    
     
     /**
      * Convert 'response_expected' to 'ResponseExpected'

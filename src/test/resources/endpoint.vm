@@ -38,6 +38,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -48,9 +49,12 @@ import com.tinkerforge.$!{config_category}$!{config_name_0};
 /**
  * $!{config_description}
  */
+${uriannotation}
 public class $!{config_name_0}Endpoint extends TinkerforgeEndpoint<$!{config_name_0}Consumer, $!{config_name_0}Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger($!{config_name_0}Endpoint.class);
+
+$!{parameternames}
     
 $!{parameters}
         

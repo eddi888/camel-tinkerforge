@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,19 @@ import com.tinkerforge.BrickDC;
 /**
  * Drives one brushed DC motor with up to 28V and 5A (peak)
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]dc", consumerClass = DCConsumer.class, label = "iot", title = "Tinkerforge")
 public class DCEndpoint extends TinkerforgeEndpoint<DCConsumer, DCProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DCEndpoint.class);
+
+    public static final String VELOCITY="velocity";
+    public static final String ACCELERATION="acceleration";
+    public static final String FREQUENCY="frequency";
+    public static final String VOLTAGE="voltage";
+    public static final String MODE="mode";
+    public static final String PERIOD="period";
+    public static final String PORT="port";
+
     
     private Short velocity;
     private Integer acceleration;

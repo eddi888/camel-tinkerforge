@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,12 @@ import com.tinkerforge.BrickletTilt;
 /**
  * Detects inclination of Bricklet (tilt switch open/closed)
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]tilt", consumerClass = TiltConsumer.class, label = "iot", title = "Tinkerforge")
 public class TiltEndpoint extends TinkerforgeEndpoint<TiltConsumer, TiltProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(TiltEndpoint.class);
+
+
     
 
         

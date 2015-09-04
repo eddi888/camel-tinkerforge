@@ -30,23 +30,23 @@ import org.slf4j.LoggerFactory;
 /**
  * Represents a Tinkerforge endpoint.
  */
-@UriEndpoint(scheme = "tinkerforge", title = "Tinkerforge", syntax = "tinkerforge:[host[:port]/]deviceType", consumerClass = TinkerforgeConsumer.class, label = "iot,tinkerforge")
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforge:[host[:port]/]<deviceType>", consumerClass = TinkerforgeConsumer.class, label = "iot", title = "Tinkerforge")
 public abstract class TinkerforgeEndpoint<ConsumerType extends DefaultConsumer, ProducerType extends DefaultProducer> extends DefaultEndpoint {
 
     private static final Logger LOG = LoggerFactory.getLogger(TinkerforgeEndpoint.class);
     
-    private String secret;
-    private boolean autoReconnect = true;
-    private int timeout = 2500;
+    protected String secret;
+    protected boolean autoReconnect = true;
+    protected int timeout = 2500;
     protected SharedConnection sharedConnection;
     protected String uid;
     
     protected ConsumerType consumer;
     protected ProducerType producer;
     
-    private String callback;
-    private String init;
-    private String function;
+    protected String callback;
+    protected String init;
+    protected String function;
     
     public TinkerforgeEndpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
         super(uri, tinkerforgeComponent);

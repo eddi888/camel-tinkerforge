@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,25 @@ import com.tinkerforge.BrickletIndustrialDualAnalogIn;
 /**
  * Measures two DC voltages between -35V and +35V with 24bit resolution each
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]industrialdualanalogin", consumerClass = IndustrialDualAnalogInConsumer.class, label = "iot", title = "Tinkerforge")
 public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<IndustrialDualAnalogInConsumer, IndustrialDualAnalogInProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDualAnalogInEndpoint.class);
+
+    public static final String CHANNEL="channel";
+    public static final String CHANNEL2="channel2";
+    public static final String PERIOD="period";
+    public static final String CHANNEL3="channel3";
+    public static final String CHANNEL4="channel4";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String CHANNEL5="channel5";
+    public static final String DEBOUNCE="debounce";
+    public static final String RATE="rate";
+    public static final String OFFSET="offset";
+    public static final String GAIN="gain";
+
     
     private Short channel;
     private Short channel2;

@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,21 @@ import com.tinkerforge.BrickletCurrent25;
 /**
  * Measures AC/DC current between -25A and +25A
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]current25", consumerClass = Current25Consumer.class, label = "iot", title = "Tinkerforge")
 public class Current25Endpoint extends TinkerforgeEndpoint<Current25Consumer, Current25Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(Current25Endpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String OPTION2="option2";
+    public static final String MIN2="min2";
+    public static final String MAX2="max2";
+    public static final String DEBOUNCE="debounce";
+
     
     private Long period;
     private Long period2;

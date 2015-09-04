@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,19 @@ import com.tinkerforge.BrickletSegmentDisplay4x7;
 /**
  * Four 7-segment displays with switchable colon
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]segmentdisplay4x7", consumerClass = SegmentDisplay4x7Consumer.class, label = "iot", title = "Tinkerforge")
 public class SegmentDisplay4x7Endpoint extends TinkerforgeEndpoint<SegmentDisplay4x7Consumer, SegmentDisplay4x7Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(SegmentDisplay4x7Endpoint.class);
+
+    public static final String SEGMENTS="segments";
+    public static final String BRIGHTNESS="brightness";
+    public static final String COLON="colon";
+    public static final String VALUEFROM="valueFrom";
+    public static final String VALUETO="valueTo";
+    public static final String INCREMENT="increment";
+    public static final String LENGTH="length";
+
     
     private short[] segments;
     private Short brightness;

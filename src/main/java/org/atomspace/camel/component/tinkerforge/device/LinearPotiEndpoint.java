@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,21 @@ import com.tinkerforge.BrickletLinearPoti;
 /**
  * 59mm linear potentiometer
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]linearpoti", consumerClass = LinearPotiConsumer.class, label = "iot", title = "Tinkerforge")
 public class LinearPotiEndpoint extends TinkerforgeEndpoint<LinearPotiConsumer, LinearPotiProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LinearPotiEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String OPTION2="option2";
+    public static final String MIN2="min2";
+    public static final String MAX2="max2";
+    public static final String DEBOUNCE="debounce";
+
     
     private Long period;
     private Long period2;

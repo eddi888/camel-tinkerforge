@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/eddi888/camel-tinkerforge.svg?branch=master)](https://travis-ci.org/eddi888/camel-tinkerforge)
-## Tinkerforge Component (proof of concept)
+## Tinkerforge Component (generated)
 
 
 The **Tinkerforge** Apache Camel Component for a simple access for use the Tinkerforge Daemon, Bricks and Bricklets.
@@ -23,8 +23,9 @@ The **Tinkerforge** Apache Camel Component for a simple access for use the Tinke
 
 - Support Configuration over Header-Variables inside Exchange
 
-- Support Request Reply Route with Command Messages
+- Support Request Reply Route like the Command Messages Pattern
 
+- Based on the model of the [Tinkerforge-Generators](https://github.com/Tinkerforge/generators)
 
 
 ### Version Matrix
@@ -34,6 +35,7 @@ camel-tinkerforge-Version  | Apache-Camel-Version  | Tinkerforge-SDK-Version
 -------------------------- | --------------------- | -------------------------
 2.14.0                     | 2.14.0                | 2.1.2
 2.15.2                     | 2.15.2                | 2.1.5
+2.15.3                     | 2.15.3                | 2.1.5
 
 
 
@@ -42,7 +44,7 @@ camel-tinkerforge-Version  | Apache-Camel-Version  | Tinkerforge-SDK-Version
 
 
 ```
-tinkerforge:[host[:port]/]deviceType?[uid=uid&options...]
+tinkerforgegen:[host[:port]/]deviceType?[uid=uid&options...]
 ```
 
 ### General Options
@@ -203,7 +205,7 @@ Typically connection where the daemon running on same system
 ```
 <route>
   <from uri="timer://foo?period=10000"/>
-  <to uri="tinkerforge:temperture?uid=ABC&function=getTemperature" />
+  <to uri="tinkerforgegen:temperture?uid=ABC&function=getTemperature" />
   <to uri="log:temperature?level=INFO&showHeaders=true"/>
 </route>
 
@@ -213,7 +215,7 @@ Use remote temperatur sensor inside an Request Reply Route
 ```
 <route>
   <from uri="jetty:0.0.0.0:8044/bathroom" />
-  <to uri="tinkerforge:192.168.4.17:1433/temperature?uid=ABC&function=getTemperature" />
+  <to uri="tinkerforgegen:192.168.4.17:1433/temperature?uid=ABC&function=getTemperature" />
 </route>
 
 ```
@@ -221,7 +223,7 @@ Use remote temperatur sensor inside an Request Reply Route
 Temperatur consumer from remote masterbrick 
 ```
 <route>
-  <from uri="tinkerforge:192.168.4.17:1433/temperature?uid=ABC&init=setTemperatureCallbackPeriod&period=5000" />
+  <from uri="tinkerforgegen:192.168.4.17:1433/temperature?uid=ABC&init=setTemperatureCallbackPeriod&period=5000" />
   <to uri="bean:save"/>
 </route>
 ```

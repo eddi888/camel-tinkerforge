@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,19 @@ import com.tinkerforge.BrickletAmbientLightV2;
 /**
  * Measures ambient light up to 64000lux
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]ambientlightv2", consumerClass = AmbientLightV2Consumer.class, label = "iot", title = "Tinkerforge")
 public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Consumer, AmbientLightV2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AmbientLightV2Endpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String DEBOUNCE="debounce";
+    public static final String ILLUMINANCERANGE="illuminanceRange";
+    public static final String INTEGRATIONTIME="integrationTime";
+
     
     private Long period;
     private Character option;

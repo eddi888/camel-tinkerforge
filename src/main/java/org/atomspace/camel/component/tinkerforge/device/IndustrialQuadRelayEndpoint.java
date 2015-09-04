@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,20 @@ import com.tinkerforge.BrickletIndustrialQuadRelay;
 /**
  * 4 galvanically isolated solid state relays
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]industrialquadrelay", consumerClass = IndustrialQuadRelayConsumer.class, label = "iot", title = "Tinkerforge")
 public class IndustrialQuadRelayEndpoint extends TinkerforgeEndpoint<IndustrialQuadRelayConsumer, IndustrialQuadRelayProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialQuadRelayEndpoint.class);
+
+    public static final String VALUEMASK="valueMask";
+    public static final String SELECTIONMASK="selectionMask";
+    public static final String VALUEMASK2="valueMask2";
+    public static final String TIME="time";
+    public static final String PIN="pin";
+    public static final String GROUP="group";
+    public static final String SELECTIONMASK2="selectionMask2";
+    public static final String VALUEMASK3="valueMask3";
+
     
     private Integer valueMask;
     private Integer selectionMask;

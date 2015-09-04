@@ -35,8 +35,8 @@
 |       getTemperature |                                          |
 |     setConfiguration |     dataRate, fullScale, filterBandwidth |
 |     getConfiguration |                                          |
-|                ledOn |                                          |
-|               ledOff |                                          |
+|                lEDOn |                                          |
+|               lEDOff |                                          |
 |              isLEDOn |                                          |
 |          getIdentity |                                          |
 

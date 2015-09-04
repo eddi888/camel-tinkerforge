@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,23 @@ import com.tinkerforge.BrickletIndustrialDual020mA;
 /**
  * Measures two DC currents between 0mA and 20mA (IEC 60381-1)
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]industrialdual020ma", consumerClass = IndustrialDual020mAConsumer.class, label = "iot", title = "Tinkerforge")
 public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialDual020mAConsumer, IndustrialDual020mAProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndustrialDual020mAEndpoint.class);
+
+    public static final String SENSOR="sensor";
+    public static final String SENSOR2="sensor2";
+    public static final String PERIOD="period";
+    public static final String SENSOR3="sensor3";
+    public static final String SENSOR4="sensor4";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String SENSOR5="sensor5";
+    public static final String DEBOUNCE="debounce";
+    public static final String RATE="rate";
+
     
     private Short sensor;
     private Short sensor2;

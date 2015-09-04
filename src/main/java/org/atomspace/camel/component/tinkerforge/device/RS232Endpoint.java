@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,20 @@ import com.tinkerforge.BrickletRS232;
 /**
  * Communicates with RS232 devices
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]rs232", consumerClass = RS232Consumer.class, label = "iot", title = "Tinkerforge")
 public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RS232Endpoint.class);
+
+    public static final String MESSAGE="message";
+    public static final String LENGTH="length";
+    public static final String BAUDRATE="baudrate";
+    public static final String PARITY="parity";
+    public static final String STOPBITS="stopbits";
+    public static final String WORDLENGTH="wordlength";
+    public static final String HARDWAREFLOWCONTROL="hardwareFlowcontrol";
+    public static final String SOFTWAREFLOWCONTROL="softwareFlowcontrol";
+
     
     private char[] message;
     private Short length;

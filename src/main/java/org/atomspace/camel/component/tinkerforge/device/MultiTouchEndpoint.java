@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,14 @@ import com.tinkerforge.BrickletMultiTouch;
 /**
  * Capacitive touch sensor for 12 electrodes
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]multitouch", consumerClass = MultiTouchConsumer.class, label = "iot", title = "Tinkerforge")
 public class MultiTouchEndpoint extends TinkerforgeEndpoint<MultiTouchConsumer, MultiTouchProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MultiTouchEndpoint.class);
+
+    public static final String ENABLEDELECTRODES="enabledElectrodes";
+    public static final String SENSITIVITY="sensitivity";
+
     
     private Integer enabledElectrodes;
     private Short sensitivity;

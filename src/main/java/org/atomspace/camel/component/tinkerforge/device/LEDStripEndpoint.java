@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,22 @@ import com.tinkerforge.BrickletLEDStrip;
 /**
  * Controls up to 320 RGB LEDs
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]ledstrip", consumerClass = LEDStripConsumer.class, label = "iot", title = "Tinkerforge")
 public class LEDStripEndpoint extends TinkerforgeEndpoint<LEDStripConsumer, LEDStripProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LEDStripEndpoint.class);
+
+    public static final String INDEX="index";
+    public static final String LENGTH="length";
+    public static final String R="r";
+    public static final String G="g";
+    public static final String B="b";
+    public static final String INDEX2="index2";
+    public static final String LENGTH2="length2";
+    public static final String DURATION="duration";
+    public static final String FREQUENCY="frequency";
+    public static final String CHIP="chip";
+
     
     private Integer index;
     private Short length;

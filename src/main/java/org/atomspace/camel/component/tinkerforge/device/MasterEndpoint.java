@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,75 @@ import com.tinkerforge.BrickMaster;
 /**
  * Basis to build stacks and has 4 Bricklet ports
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]master", consumerClass = MasterConsumer.class, label = "iot", title = "Tinkerforge")
 public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MasterEndpoint.class);
+
+    public static final String EXTENSION="extension";
+    public static final String EXTTYPE="exttype";
+    public static final String EXTENSION2="extension2";
+    public static final String ADDRESS="address";
+    public static final String ADDRESS2="address2";
+    public static final String NUM="num";
+    public static final String ADDRESS3="address3";
+    public static final String NUM2="num2";
+    public static final String FREQUENCY="frequency";
+    public static final String CHANNEL="channel";
+    public static final String ADDRESS4="address4";
+    public static final String NUM3="num3";
+    public static final String ADDRESS5="address5";
+    public static final String NUM4="num4";
+    public static final String SPEED="speed";
+    public static final String PARITY="parity";
+    public static final String STOPBITS="stopbits";
+    public static final String SSID="ssid";
+    public static final String CONNECTION="connection";
+    public static final String IP="ip";
+    public static final String SUBNETMASK="subnetMask";
+    public static final String GATEWAY="gateway";
+    public static final String PORT="port";
+    public static final String ENCRYPTION="encryption";
+    public static final String KEY="key";
+    public static final String KEYINDEX="keyIndex";
+    public static final String EAPOPTIONS="eapOptions";
+    public static final String CACERTIFICATELENGTH="caCertificateLength";
+    public static final String CLIENTCERTIFICATELENGTH="clientCertificateLength";
+    public static final String PRIVATEKEYLENGTH="privateKeyLength";
+    public static final String INDEX="index";
+    public static final String DATA="data";
+    public static final String DATALENGTH="dataLength";
+    public static final String INDEX2="index2";
+    public static final String MODE="mode";
+    public static final String DOMAIN="domain";
+    public static final String KEY2="key2";
+    public static final String HOSTNAME="hostname";
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String PERIOD3="period3";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String OPTION2="option2";
+    public static final String MIN2="min2";
+    public static final String MAX2="max2";
+    public static final String OPTION3="option3";
+    public static final String MIN3="min3";
+    public static final String MAX3="max3";
+    public static final String DEBOUNCE="debounce";
+    public static final String CONNECTION2="connection2";
+    public static final String IP2="ip2";
+    public static final String SUBNETMASK2="subnetMask2";
+    public static final String GATEWAY2="gateway2";
+    public static final String PORT2="port2";
+    public static final String HOSTNAME2="hostname2";
+    public static final String MACADDRESS="macAddress";
+    public static final String SOCKETS="sockets";
+    public static final String PORT3="port3";
+    public static final String SECRET="secret";
+    public static final String SECRET2="secret2";
+    public static final String PORT4="port4";
+
     
     private Short extension;
     private Long exttype;

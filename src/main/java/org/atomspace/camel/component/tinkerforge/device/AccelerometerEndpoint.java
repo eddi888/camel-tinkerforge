@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,24 @@ import com.tinkerforge.BrickletAccelerometer;
 /**
  * Measures acceleration in three axis
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]accelerometer", consumerClass = AccelerometerConsumer.class, label = "iot", title = "Tinkerforge")
 public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerConsumer, AccelerometerProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(AccelerometerEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MINX="minX";
+    public static final String MAXX="maxX";
+    public static final String MINY="minY";
+    public static final String MAXY="maxY";
+    public static final String MINZ="minZ";
+    public static final String MAXZ="maxZ";
+    public static final String DEBOUNCE="debounce";
+    public static final String DATARATE="dataRate";
+    public static final String FULLSCALE="fullScale";
+    public static final String FILTERBANDWIDTH="filterBandwidth";
+
     
     private Long period;
     private Character option;

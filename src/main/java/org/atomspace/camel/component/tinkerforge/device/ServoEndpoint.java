@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,41 @@ import com.tinkerforge.BrickServo;
 /**
  * Drives up to 7 RC Servos with up to 3A
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]servo", consumerClass = ServoConsumer.class, label = "iot", title = "Tinkerforge")
 public class ServoEndpoint extends TinkerforgeEndpoint<ServoConsumer, ServoProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(ServoEndpoint.class);
+
+    public static final String SERVONUM="servoNum";
+    public static final String SERVONUM2="servoNum2";
+    public static final String SERVONUM3="servoNum3";
+    public static final String SERVONUM4="servoNum4";
+    public static final String POSITION="position";
+    public static final String SERVONUM5="servoNum5";
+    public static final String SERVONUM6="servoNum6";
+    public static final String SERVONUM7="servoNum7";
+    public static final String VELOCITY="velocity";
+    public static final String SERVONUM8="servoNum8";
+    public static final String SERVONUM9="servoNum9";
+    public static final String SERVONUM10="servoNum10";
+    public static final String ACCELERATION="acceleration";
+    public static final String SERVONUM11="servoNum11";
+    public static final String VOLTAGE="voltage";
+    public static final String SERVONUM12="servoNum12";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String SERVONUM13="servoNum13";
+    public static final String SERVONUM14="servoNum14";
+    public static final String MIN2="min2";
+    public static final String MAX2="max2";
+    public static final String SERVONUM15="servoNum15";
+    public static final String SERVONUM16="servoNum16";
+    public static final String PERIOD="period";
+    public static final String SERVONUM17="servoNum17";
+    public static final String SERVONUM18="servoNum18";
+    public static final String VOLTAGE2="voltage2";
+    public static final String PORT="port";
+
     
     private Short servoNum;
     private Short servoNum2;

@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,18 @@ import com.tinkerforge.BrickletMoisture;
 /**
  * Measures soil moisture
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]moisture", consumerClass = MoistureConsumer.class, label = "iot", title = "Tinkerforge")
 public class MoistureEndpoint extends TinkerforgeEndpoint<MoistureConsumer, MoistureProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(MoistureEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String DEBOUNCE="debounce";
+    public static final String AVERAGE="average";
+
     
     private Long period;
     private Character option;

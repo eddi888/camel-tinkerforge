@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,20 @@ import com.tinkerforge.BrickletDualRelay;
 /**
  * Two relays to switch AC/DC devices
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]dualrelay", consumerClass = DualRelayConsumer.class, label = "iot", title = "Tinkerforge")
 public class DualRelayEndpoint extends TinkerforgeEndpoint<DualRelayConsumer, DualRelayProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DualRelayEndpoint.class);
+
+    public static final String RELAY1="relay1";
+    public static final String RELAY2="relay2";
+    public static final String RELAY="relay";
+    public static final String STATE="state";
+    public static final String TIME="time";
+    public static final String RELAY3="relay3";
+    public static final String RELAY4="relay4";
+    public static final String STATE2="state2";
+
     
     private Boolean relay1;
     private Boolean relay2;

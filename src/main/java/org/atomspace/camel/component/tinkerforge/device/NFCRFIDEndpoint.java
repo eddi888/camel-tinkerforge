@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,19 @@ import com.tinkerforge.BrickletNFCRFID;
 /**
  * Reads and writes NFC and RFID tags
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]nfcrfid", consumerClass = NFCRFIDConsumer.class, label = "iot", title = "Tinkerforge")
 public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFIDProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(NFCRFIDEndpoint.class);
+
+    public static final String TAGTYPE="tagType";
+    public static final String PAGE="page";
+    public static final String KEYNUMBER="keyNumber";
+    public static final String KEY="key";
+    public static final String PAGE2="page2";
+    public static final String DATA="data";
+    public static final String PAGE3="page3";
+
     
     private Short tagType;
     private Integer page;

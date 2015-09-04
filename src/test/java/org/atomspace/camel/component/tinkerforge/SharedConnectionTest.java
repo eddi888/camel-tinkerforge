@@ -29,10 +29,10 @@ import org.junit.Test;
  *
  */
 public class SharedConnectionTest extends CamelTestSupport {
-    private static final String ENDPOINT01 = "tinkerforge://Mock?uid=aAa&autoReconnect=true&timeout=4000";
-    private static final String ENDPOINT02 = "tinkerforge://Mock?uid=bBb&autoReconnect=false&timeout=5000";
-    private static final String ENDPOINT03 = "tinkerforge://192.168.5.34:4444/Mock?uid=cCc&autoReconnect=true&timeout=6000";
-    private static final String ENDPOINT04 = "tinkerforge://192.168.5.34:4444/Mock?uid=dDd&autoReconnect=false&timeout=7000";
+    private static final String ENDPOINT01 = "tinkerforgegen://Mock?uid=aAa&autoReconnect=true&timeout=4000";
+    private static final String ENDPOINT02 = "tinkerforgegen://Mock?uid=bBb&autoReconnect=false&timeout=5000";
+    private static final String ENDPOINT03 = "tinkerforgegen://192.168.5.34:4444/Mock?uid=cCc&autoReconnect=true&timeout=6000";
+    private static final String ENDPOINT04 = "tinkerforgegen://192.168.5.34:4444/Mock?uid=dDd&autoReconnect=false&timeout=7000";
 
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {

@@ -71,6 +71,7 @@ import org.atomspace.camel.component.tinkerforge.device.NFCRFIDEndpoint;
 import org.atomspace.camel.component.tinkerforge.device.PTCEndpoint;
 import org.atomspace.camel.component.tinkerforge.device.PiezoBuzzerEndpoint;
 import org.atomspace.camel.component.tinkerforge.device.PiezoSpeakerEndpoint;
+import org.atomspace.camel.component.tinkerforge.device.REDEndpoint;
 import org.atomspace.camel.component.tinkerforge.device.RS232Endpoint;
 import org.atomspace.camel.component.tinkerforge.device.RemoteSwitchEndpoint;
 import org.atomspace.camel.component.tinkerforge.device.RotaryEncoderEndpoint;
@@ -110,7 +111,7 @@ public class TinkerforgeComponent extends DefaultComponent {
     public static final String DEFAULT_HOST = "localhost";
     public static final int DEFAULT_PORT = 4223;
     
-    private static final String URI_ERROR = "Invalid URI. Format must be of the form tinkerforge:[host[:port]/]brickletType?[options...]";
+    private static final String URI_ERROR = "Invalid URI. Format must be of the form tinkerforgegen:[host[:port]/]brickletType?[options...]";
     
     
     protected Endpoint createEndpoint(String endpointUri, String remaining, Map<String, Object> parameters) throws Exception {
@@ -202,6 +203,7 @@ public class TinkerforgeComponent extends DefaultComponent {
             case "piezobuzzer"              :       endpoint = new PiezoBuzzerEndpoint(endpointUri, this); break;
             case "piezospeaker"             :       endpoint = new PiezoSpeakerEndpoint(endpointUri, this); break;
             case "ptc"                      :       endpoint = new PTCEndpoint(endpointUri, this); break;
+            case "red"                      :       endpoint = new REDEndpoint(endpointUri, this); break;
             case "remoteswitch"             :       endpoint = new RemoteSwitchEndpoint(endpointUri, this); break;
             case "rotaryencoder"            :       endpoint = new RotaryEncoderEndpoint(endpointUri, this); break;
             case "rotarypoti"               :       endpoint = new RotaryPotiEndpoint(endpointUri, this); break;

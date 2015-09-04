@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,18 @@ import com.tinkerforge.BrickletGPS;
 /**
  * Determine position, velocity and altitude using GPS
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]gps", consumerClass = GPSConsumer.class, label = "iot", title = "Tinkerforge")
 public class GPSEndpoint extends TinkerforgeEndpoint<GPSConsumer, GPSProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(GPSEndpoint.class);
+
+    public static final String RESTARTTYPE="restartType";
+    public static final String PERIOD="period";
+    public static final String PERIOD2="period2";
+    public static final String PERIOD3="period3";
+    public static final String PERIOD4="period4";
+    public static final String PERIOD5="period5";
+
     
     private Short restartType;
     private Long period;

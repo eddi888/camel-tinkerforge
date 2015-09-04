@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,27 @@ import com.tinkerforge.BrickletColor;
 /**
  * Measures color (RGB value), illuminance and color temperature
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]color", consumerClass = ColorConsumer.class, label = "iot", title = "Tinkerforge")
 public class ColorEndpoint extends TinkerforgeEndpoint<ColorConsumer, ColorProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(ColorEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MINR="minR";
+    public static final String MAXR="maxR";
+    public static final String MING="minG";
+    public static final String MAXG="maxG";
+    public static final String MINB="minB";
+    public static final String MAXB="maxB";
+    public static final String MINC="minC";
+    public static final String MAXC="maxC";
+    public static final String DEBOUNCE="debounce";
+    public static final String GAIN="gain";
+    public static final String INTEGRATIONTIME="integrationTime";
+    public static final String PERIOD2="period2";
+    public static final String PERIOD3="period3";
+
     
     private Long period;
     private Character option;

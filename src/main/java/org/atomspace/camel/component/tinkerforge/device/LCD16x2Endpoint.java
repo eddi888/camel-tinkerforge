@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,21 @@ import com.tinkerforge.BrickletLCD16x2;
 /**
  * 16x2 character alphanumeric display with blue backlight
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]lcd16x2", consumerClass = LCD16x2Consumer.class, label = "iot", title = "Tinkerforge")
 public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x2Producer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(LCD16x2Endpoint.class);
+
+    public static final String LINE="line";
+    public static final String POSITION="position";
+    public static final String TEXT="text";
+    public static final String CURSOR="cursor";
+    public static final String BLINKING="blinking";
+    public static final String BUTTON="button";
+    public static final String INDEX="index";
+    public static final String CHARACTER="character";
+    public static final String INDEX2="index2";
+
     
     private Short line;
     private Short position;

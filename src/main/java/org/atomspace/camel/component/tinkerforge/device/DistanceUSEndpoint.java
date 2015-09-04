@@ -21,6 +21,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
+import org.apache.camel.spi.UriEndpoint;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeComponent;
 import org.atomspace.camel.component.tinkerforge.TinkerforgeEndpoint;
 import org.slf4j.Logger;
@@ -31,9 +32,18 @@ import com.tinkerforge.BrickletDistanceUS;
 /**
  * Measures distance between 2cm and 400cm with ultrasound
  */
+@UriEndpoint(scheme = "tinkerforgegen", syntax = "tinkerforgegen:[host[:port]/]distanceus", consumerClass = DistanceUSConsumer.class, label = "iot", title = "Tinkerforge")
 public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, DistanceUSProducer> {
 
     private static final Logger LOG = LoggerFactory.getLogger(DistanceUSEndpoint.class);
+
+    public static final String PERIOD="period";
+    public static final String OPTION="option";
+    public static final String MIN="min";
+    public static final String MAX="max";
+    public static final String DEBOUNCE="debounce";
+    public static final String AVERAGE="average";
+
     
     private Long period;
     private Character option;
