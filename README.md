@@ -36,6 +36,7 @@ camel-tinkerforge-Version  | Apache-Camel-Version  | Tinkerforge-SDK-Version
 2.14.0                     | 2.14.0                | 2.1.2
 2.15.2                     | 2.15.2                | 2.1.5
 2.15.3                     | 2.15.3                | 2.1.5
+2.17.0                     | 2.17.0                | 2.1.8
 
 
 
@@ -80,6 +81,8 @@ function       |               | execute Device Function, can use for configure 
 [AnalogOutV2](src/main/java/org/atomspace/camel/component/tinkerforge/device/AnalogOutV2.md)
 
 [Barometer](src/main/java/org/atomspace/camel/component/tinkerforge/device/Barometer.md)
+
+[CO2](src/main/java/org/atomspace/camel/component/tinkerforge/device/CO2.md)
 
 [Color](src/main/java/org/atomspace/camel/component/tinkerforge/device/Color.md)
 
@@ -151,6 +154,10 @@ function       |               | execute Device Function, can use for configure 
 
 [NFCRFID](src/main/java/org/atomspace/camel/component/tinkerforge/device/NFCRFID.md)
 
+[OLED128x64](src/main/java/org/atomspace/camel/component/tinkerforge/device/OLED128x64.md)
+
+[OLED64x48](src/main/java/org/atomspace/camel/component/tinkerforge/device/OLED64x48.md)
+
 [PiezoBuzzer](src/main/java/org/atomspace/camel/component/tinkerforge/device/PiezoBuzzer.md)
 
 [PiezoSpeaker](src/main/java/org/atomspace/camel/component/tinkerforge/device/PiezoSpeaker.md)
@@ -158,6 +165,8 @@ function       |               | execute Device Function, can use for configure 
 [RS232](src/main/java/org/atomspace/camel/component/tinkerforge/device/RS232.md)
 
 [PTC](src/main/java/org/atomspace/camel/component/tinkerforge/device/PTC.md)
+
+[RealTimeClock](src/main/java/org/atomspace/camel/component/tinkerforge/device/RealTimeClock.md)
 
 [RED](src/main/java/org/atomspace/camel/component/tinkerforge/device/RED.md)
 
@@ -181,7 +190,11 @@ function       |               | execute Device Function, can use for configure 
 
 [TemperatureIR](src/main/java/org/atomspace/camel/component/tinkerforge/device/TemperatureIR.md)
 
+[Thermocouple](src/main/java/org/atomspace/camel/component/tinkerforge/device/Thermocouple.md)
+
 [Tilt](src/main/java/org/atomspace/camel/component/tinkerforge/device/Tilt.md)
+
+[UVLight](src/main/java/org/atomspace/camel/component/tinkerforge/device/UVLight.md)
 
 [Voltage](src/main/java/org/atomspace/camel/component/tinkerforge/device/Voltage.md)
 

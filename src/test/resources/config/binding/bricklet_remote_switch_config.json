@@ -9,44 +9,38 @@
         {
             "elements": [
                 [
-                    "house_code",
+                    "House Code",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "receiver_code",
+                    "Receiver Code",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "switch_to",
+                    "Switch To",
                     "uint8",
                     1,
                     "in",
                     [
-                        "SwitchTo",
-                        "switch_to",
+                        "Switch To",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SwitchSocket",
-                "switch_socket"
-            ],
+            "name": "Switch Socket",
             "doc": [
                 "bf",
                 {
@@ -65,32 +59,26 @@
         {
             "elements": [
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
-                        "SwitchingState",
-                        "switching_state",
+                        "Switching State",
                         [
                             [
                                 "Ready",
-                                "ready",
                                 0
                             ],
                             [
                                 "Busy",
-                                "busy",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetSwitchingState",
-                "get_switching_state"
-            ],
+            "name": "Get Switching State",
             "doc": [
                 "bf",
                 {
@@ -108,10 +96,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "SwitchingDone",
-                "switching_done"
-            ],
+            "name": "Switching Done",
             "doc": [
                 "c",
                 {
@@ -130,16 +115,13 @@
         {
             "elements": [
                 [
-                    "repeats",
+                    "Repeats",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetRepeats",
-                "set_repeats"
-            ],
+            "name": "Set Repeats",
             "doc": [
                 "af",
                 {
@@ -158,16 +140,13 @@
         {
             "elements": [
                 [
-                    "repeats",
+                    "Repeats",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRepeats",
-                "get_repeats"
-            ],
+            "name": "Get Repeats",
             "doc": [
                 "af",
                 {
@@ -186,44 +165,38 @@
         {
             "elements": [
                 [
-                    "house_code",
+                    "House Code",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "receiver_code",
+                    "Receiver Code",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "switch_to",
+                    "Switch To",
                     "uint8",
                     1,
                     "in",
                     [
-                        "SwitchTo",
-                        "switch_to",
+                        "Switch To",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SwitchSocketA",
-                "switch_socket_a"
-            ],
+            "name": "Switch Socket A",
             "doc": [
                 "bf",
                 {
@@ -242,44 +215,38 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint32",
                     1,
                     "in"
                 ],
                 [
-                    "unit",
+                    "Unit",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "switch_to",
+                    "Switch To",
                     "uint8",
                     1,
                     "in",
                     [
-                        "SwitchTo",
-                        "switch_to",
+                        "Switch To",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SwitchSocketB",
-                "switch_socket_b"
-            ],
+            "name": "Switch Socket B",
             "doc": [
                 "bf",
                 {
@@ -298,28 +265,25 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint32",
                     1,
                     "in"
                 ],
                 [
-                    "unit",
+                    "Unit",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "dim_value",
+                    "Dim Value",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "DimSocketB",
-                "dim_socket_b"
-            ],
+            "name": "Dim Socket B",
             "doc": [
                 "bf",
                 {
@@ -338,44 +302,38 @@
         {
             "elements": [
                 [
-                    "system_code",
+                    "System Code",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "device_code",
+                    "Device Code",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "switch_to",
+                    "Switch To",
                     "uint8",
                     1,
                     "in",
                     [
-                        "SwitchTo",
-                        "switch_to",
+                        "Switch To",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SwitchSocketC",
-                "switch_socket_c"
-            ],
+            "name": "Switch Socket C",
             "doc": [
                 "bf",
                 {
@@ -394,16 +352,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -419,22 +374,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -450,22 +402,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -481,16 +430,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -506,46 +452,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -565,6 +508,33 @@
     ],
     "device_identifier": 235,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Switch Socket A",
+                    [
+                        [
+                            "uint8",
+                            17
+                        ],
+                        [
+                            "uint8",
+                            1
+                        ],
+                        [
+                            "uint8:constant",
+                            1
+                        ]
+                    ],
+                    "Switch on a type A socket with house code 17 and receiver code 1.\nHouse code 17 is 10001 in binary (least-significant bit first)\nand means that the DIP switches 1 and 5 are on and 2-4 are off.\nReceiver code 1 is 10000 in binary (least-significant bit first)\nand means that the DIP switch A is on and B-E are off.",
+                    null
+                ]
+            ],
+            "name": "Switch Socket"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -573,8 +543,7 @@
         1
     ],
     "name": [
-        "RemoteSwitch",
-        "remote_switch",
+        "Remote Switch",
         "Remote Switch",
         "Remote Switch Bricklet"
     ]

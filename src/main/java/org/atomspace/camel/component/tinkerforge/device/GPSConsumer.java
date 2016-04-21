@@ -95,7 +95,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
     }
     
     @Override
-    public void status(short fix, short satellites_view, short satellites_used) {
+    public void status(short fix, short satellitesView, short satellitesUsed) {
         LOG.trace("status()");
         
         Exchange exchange = null;
@@ -105,8 +105,8 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_STATUS);
             exchange.getIn().setHeader("fix", fix);
-            exchange.getIn().setHeader("satellites_view", satellites_view);
-            exchange.getIn().setHeader("satellites_used", satellites_used);
+            exchange.getIn().setHeader("satellitesView", satellitesView);
+            exchange.getIn().setHeader("satellitesUsed", satellitesUsed);
             
             
             // ADD BODY
@@ -123,7 +123,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
     }
     
     @Override
-    public void altitude(long altitude, long geoidal_separation) {
+    public void altitude(int altitude, int geoidalSeparation) {
         LOG.trace("altitude()");
         
         Exchange exchange = null;
@@ -133,7 +133,7 @@ public class GPSConsumer extends TinkerforgeConsumer<GPSEndpoint, BrickletGPS> i
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletGPS.CALLBACK_ALTITUDE);
             exchange.getIn().setHeader("altitude", altitude);
-            exchange.getIn().setHeader("geoidal_separation", geoidal_separation);
+            exchange.getIn().setHeader("geoidalSeparation", geoidalSeparation);
             
             
             // ADD BODY

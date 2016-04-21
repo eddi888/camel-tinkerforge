@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "Enable",
-                "enable"
-            ],
+            "name": "Enable",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "Disable",
-                "disable"
-            ],
+            "name": "Disable",
             "doc": [
                 "bf",
                 {
@@ -65,22 +59,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsEnabled",
-                "is_enabled"
-            ],
+            "name": "Is Enabled",
             "doc": [
                 "bf",
                 {
@@ -99,22 +90,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "position",
+                    "Position",
                     "int16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPosition",
-                "set_position"
-            ],
+            "name": "Set Position",
             "doc": [
                 "bf",
                 {
@@ -133,22 +121,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "position",
+                    "Position",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPosition",
-                "get_position"
-            ],
+            "name": "Get Position",
             "doc": [
                 "bf",
                 {
@@ -167,22 +152,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "position",
+                    "Position",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentPosition",
-                "get_current_position"
-            ],
+            "name": "Get Current Position",
             "doc": [
                 "bf",
                 {
@@ -201,22 +183,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "velocity",
+                    "Velocity",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetVelocity",
-                "set_velocity"
-            ],
+            "name": "Set Velocity",
             "doc": [
                 "bf",
                 {
@@ -235,22 +214,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "velocity",
+                    "Velocity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVelocity",
-                "get_velocity"
-            ],
+            "name": "Get Velocity",
             "doc": [
                 "bf",
                 {
@@ -269,22 +245,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "velocity",
+                    "Velocity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentVelocity",
-                "get_current_velocity"
-            ],
+            "name": "Get Current Velocity",
             "doc": [
                 "bf",
                 {
@@ -303,22 +276,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "acceleration",
+                    "Acceleration",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAcceleration",
-                "set_acceleration"
-            ],
+            "name": "Set Acceleration",
             "doc": [
                 "bf",
                 {
@@ -337,22 +307,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "acceleration",
+                    "Acceleration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAcceleration",
-                "get_acceleration"
-            ],
+            "name": "Get Acceleration",
             "doc": [
                 "bf",
                 {
@@ -371,16 +338,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetOutputVoltage",
-                "set_output_voltage"
-            ],
+            "name": "Set Output Voltage",
             "doc": [
                 "bf",
                 {
@@ -399,16 +363,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetOutputVoltage",
-                "get_output_voltage"
-            ],
+            "name": "Get Output Voltage",
             "doc": [
                 "bf",
                 {
@@ -427,28 +388,25 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPulseWidth",
-                "set_pulse_width"
-            ],
+            "name": "Set Pulse Width",
             "doc": [
                 "bf",
                 {
@@ -467,28 +425,25 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPulseWidth",
-                "get_pulse_width"
-            ],
+            "name": "Get Pulse Width",
             "doc": [
                 "bf",
                 {
@@ -507,28 +462,25 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "min",
+                    "Min",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDegree",
-                "set_degree"
-            ],
+            "name": "Set Degree",
             "doc": [
                 "bf",
                 {
@@ -547,28 +499,25 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "min",
+                    "Min",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDegree",
-                "get_degree"
-            ],
+            "name": "Get Degree",
             "doc": [
                 "bf",
                 {
@@ -587,22 +536,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "period",
+                    "Period",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPeriod",
-                "set_period"
-            ],
+            "name": "Set Period",
             "doc": [
                 "bf",
                 {
@@ -621,22 +567,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "period",
+                    "Period",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPeriod",
-                "get_period"
-            ],
+            "name": "Get Period",
             "doc": [
                 "bf",
                 {
@@ -655,22 +598,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetServoCurrent",
-                "get_servo_current"
-            ],
+            "name": "Get Servo Current",
             "doc": [
                 "bf",
                 {
@@ -689,16 +629,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetOverallCurrent",
-                "get_overall_current"
-            ],
+            "name": "Get Overall Current",
             "doc": [
                 "bf",
                 {
@@ -717,16 +654,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackInputVoltage",
-                "get_stack_input_voltage"
-            ],
+            "name": "Get Stack Input Voltage",
             "doc": [
                 "bf",
                 {
@@ -745,16 +679,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetExternalInputVoltage",
-                "get_external_input_voltage"
-            ],
+            "name": "Get External Input Voltage",
             "doc": [
                 "bf",
                 {
@@ -773,16 +704,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMinimumVoltage",
-                "set_minimum_voltage"
-            ],
+            "name": "Set Minimum Voltage",
             "doc": [
                 "ccf",
                 {
@@ -801,16 +729,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMinimumVoltage",
-                "get_minimum_voltage"
-            ],
+            "name": "Get Minimum Voltage",
             "doc": [
                 "ccf",
                 {
@@ -829,16 +754,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "UnderVoltage",
-                "under_voltage"
-            ],
+            "name": "Under Voltage",
             "doc": [
                 "c",
                 {
@@ -857,22 +779,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "PositionReached",
-                "position_reached"
-            ],
+            "name": "Position Reached",
             "doc": [
                 "c",
                 {
@@ -891,22 +810,19 @@
         {
             "elements": [
                 [
-                    "servo_num",
+                    "Servo Num",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "velocity",
+                    "Velocity",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "VelocityReached",
-                "velocity_reached"
-            ],
+            "name": "Velocity Reached",
             "doc": [
                 "c",
                 {
@@ -924,10 +840,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnablePositionReachedCallback",
-                "enable_position_reached_callback"
-            ],
+            "name": "Enable Position Reached Callback",
             "doc": [
                 "ccf",
                 {
@@ -945,10 +858,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisablePositionReachedCallback",
-                "disable_position_reached_callback"
-            ],
+            "name": "Disable Position Reached Callback",
             "doc": [
                 "ccf",
                 {
@@ -967,16 +877,13 @@
         {
             "elements": [
                 [
-                    "enabled",
-                    "uint8",
+                    "Enabled",
+                    "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsPositionReachedCallbackEnabled",
-                "is_position_reached_callback_enabled"
-            ],
+            "name": "Is Position Reached Callback Enabled",
             "doc": [
                 "ccf",
                 {
@@ -994,10 +901,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableVelocityReachedCallback",
-                "enable_velocity_reached_callback"
-            ],
+            "name": "Enable Velocity Reached Callback",
             "doc": [
                 "ccf",
                 {
@@ -1015,10 +919,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableVelocityReachedCallback",
-                "disable_velocity_reached_callback"
-            ],
+            "name": "Disable Velocity Reached Callback",
             "doc": [
                 "ccf",
                 {
@@ -1037,16 +938,13 @@
         {
             "elements": [
                 [
-                    "enabled",
-                    "uint8",
+                    "Enabled",
+                    "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsVelocityReachedCallbackEnabled",
-                "is_velocity_reached_callback_enabled"
-            ],
+            "name": "Is Velocity Reached Callback Enabled",
             "doc": [
                 "ccf",
                 {
@@ -1065,16 +963,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -1090,22 +985,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -1121,22 +1013,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -1152,16 +1041,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -1176,10 +1062,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableStatusLED",
-                "enable_status_led"
-            ],
+            "name": "Enable Status LED",
             "doc": [
                 "af",
                 {
@@ -1197,10 +1080,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableStatusLED",
-                "disable_status_led"
-            ],
+            "name": "Disable Status LED",
             "doc": [
                 "af",
                 {
@@ -1219,16 +1099,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsStatusLEDEnabled",
-                "is_status_led_enabled"
-            ],
+            "name": "Is Status LED Enabled",
             "doc": [
                 "af",
                 {
@@ -1247,34 +1124,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "protocol_version",
+                    "Protocol Version",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "name",
+                    "Name",
                     "string",
                     40,
                     "out"
                 ]
             ],
-            "name": [
-                "GetProtocol1BrickletName",
-                "get_protocol1_bricklet_name"
-            ],
+            "name": "Get Protocol1 Bricklet Name",
             "doc": [
                 "af",
                 {
@@ -1293,16 +1167,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -1320,10 +1191,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Reset",
-                "reset"
-            ],
+            "name": "Reset",
             "doc": [
                 "af",
                 {
@@ -1342,46 +1210,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1400,22 +1265,417 @@
         }
     ],
     "device_identifier": 14,
+    "name": [
+        "Servo",
+        "Servo",
+        "Servo Brick"
+    ],
     "released": true,
     "api": {
         "de": "\nJede Funktion der Servo Brick API, welche den *servo_num* Parameter verwendet,\nkann einen Servo \u00fcber die Servo Nummer (0 bis 6) adressieren. Falls es sich um\neine Setter-Funktion handelt k\u00f6nnen mehrere Servos gleichzeitig mit einer\nBitmaske adressiert werden. Um dies zu kennzeichnen muss das h\u00f6chstwertigste\nBit gesetzt werden. Beispiel: ``1`` adressiert den Servo 1,\n``(1 << 1) | (1 << 5) | (1 << 7)`` adressiert die Servos 1 und 5, ``0xFF``\nadressiert alle 7 Servos, und so weiter. Das erm\u00f6glicht es Konfigurationen von\nverschiedenen Servos mit einem Funktionsaufruf durchzuf\u00fchren. Es ist\nsichergestellt das die \u00c4nderungen in der selben PWM Periode vorgenommen werden,\nf\u00fcr alle Servos entsprechend der Bitmaske.\n",
         "en": "\nEvery function of the Servo Brick API that has a *servo_num* parameter can\naddress a servo with the servo number (0 to 6). If it is a setter function then\nmultiple servos can be addressed at once with a bitmask for the\nservos, if the highest bit is set. For example: ``1`` will address servo 1,\n``(1 << 1) | (1 << 5) | (1 << 7)`` will address servos 1 and 5, ``0xFF`` will\naddress all seven servos, etc. This allows to set configurations to several\nservos with one function call. It is guaranteed that the changes will take\neffect in the same PWM period for all servos you specified in the bitmask.\n"
     },
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Output Voltage",
+                    [
+                        [
+                            "uint16",
+                            5500
+                        ]
+                    ],
+                    "Configure two servos with voltage 5.5V\nServo 1: Connected to port 0, period of 19.5ms, pulse width of 1 to 2ms\n         and operating angle -100 to 100\u00b0\n\nServo 2: Connected to port 5, period of 20ms, pulse width of 0.95 \n         to 1.95ms and operating angle -90 to 90\u00b0",
+                    null
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Set Degree",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "int16",
+                            -10000
+                        ],
+                        [
+                            "int16",
+                            10000
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Pulse Width",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint16",
+                            1000
+                        ],
+                        [
+                            "uint16",
+                            2000
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Period",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint16",
+                            19500
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Acceleration",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint16",
+                            1000
+                        ]
+                    ],
+                    null,
+                    "Slow acceleration"
+                ],
+                [
+                    "setter",
+                    "Set Velocity",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint16",
+                            65535
+                        ]
+                    ],
+                    null,
+                    "Full speed"
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Set Degree",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ],
+                        [
+                            "int16",
+                            -9000
+                        ],
+                        [
+                            "int16",
+                            9000
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Pulse Width",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ],
+                        [
+                            "uint16",
+                            950
+                        ],
+                        [
+                            "uint16",
+                            1950
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Period",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ],
+                        [
+                            "uint16",
+                            20000
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Acceleration",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ],
+                        [
+                            "uint16",
+                            65535
+                        ]
+                    ],
+                    null,
+                    "Full acceleration"
+                ],
+                [
+                    "setter",
+                    "Set Velocity",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ],
+                        [
+                            "uint16",
+                            65535
+                        ]
+                    ],
+                    null,
+                    "Full speed"
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Set Position",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "int16",
+                            10000
+                        ]
+                    ],
+                    null,
+                    "Set to most right position"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Set Position",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ],
+                        [
+                            "int16",
+                            -9000
+                        ]
+                    ],
+                    null,
+                    "Set to most left position"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "wait"
+                ]
+            ],
+            "name": "Configuration",
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Disable",
+                    [
+                        [
+                            "uint8",
+                            5
+                        ]
+                    ],
+                    null,
+                    null
+                ]
+            ]
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Position Reached",
+                        "position reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Servo Num",
+                                "Servo Number"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Position",
+                                "Position"
+                            ],
+                            "int16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    "Use position reached callback to swing back and forth",
+                    null
+                ],
+                [
+                    "setter",
+                    "Enable Position Reached Callback",
+                    [],
+                    "Enable position reached callback",
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Velocity",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint16",
+                            10000
+                        ]
+                    ],
+                    "Set velocity to 100\u00b0/s. This has to be smaller or equal to the\nmaximum velocity of the servo you are using, otherwise the position\nreached callback will be called too early",
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Position",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "int16",
+                            9000
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ]
+                    ],
+                    null,
+                    null
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true,
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ]
+                    ],
+                    null,
+                    null
+                ]
+            ]
+        }
+    ],
     "common_included": true,
-    "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        0
+        1
     ],
-    "name": [
-        "Servo",
-        "servo",
-        "Servo",
-        "Servo Brick"
-    ]
+    "manufacturer": "Tinkerforge"
 }

@@ -9,74 +9,61 @@
         {
             "elements": [
                 [
-                    "led_l",
+                    "LED L",
                     "uint8",
                     1,
                     "in",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "led_r",
+                    "LED R",
                     "uint8",
                     1,
                     "in",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetLEDState",
-                "set_led_state"
-            ],
+            "name": "Set LED State",
             "doc": [
                 "bf",
                 {
@@ -95,74 +82,61 @@
         {
             "elements": [
                 [
-                    "led_l",
+                    "LED L",
                     "uint8",
                     1,
                     "out",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "led_r",
+                    "LED R",
                     "uint8",
                     1,
                     "out",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetLEDState",
-                "get_led_state"
-            ],
+            "name": "Get LED State",
             "doc": [
                 "bf",
                 {
@@ -181,54 +155,45 @@
         {
             "elements": [
                 [
-                    "button_l",
+                    "Button L",
                     "uint8",
                     1,
                     "out",
                     [
-                        "ButtonState",
-                        "button_state",
+                        "Button State",
                         [
                             [
                                 "Pressed",
-                                "pressed",
                                 0
                             ],
                             [
                                 "Released",
-                                "released",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "button_r",
+                    "Button R",
                     "uint8",
                     1,
                     "out",
                     [
-                        "ButtonState",
-                        "button_state",
+                        "Button State",
                         [
                             [
                                 "Pressed",
-                                "pressed",
                                 0
                             ],
                             [
                                 "Released",
-                                "released",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetButtonState",
-                "get_button_state"
-            ],
+            "name": "Get Button State",
             "doc": [
                 "bf",
                 {
@@ -247,118 +212,99 @@
         {
             "elements": [
                 [
-                    "button_l",
+                    "Button L",
                     "uint8",
                     1,
                     "out",
                     [
-                        "ButtonState",
-                        "button_state",
+                        "Button State",
                         [
                             [
                                 "Pressed",
-                                "pressed",
                                 0
                             ],
                             [
                                 "Released",
-                                "released",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "button_r",
+                    "Button R",
                     "uint8",
                     1,
                     "out",
                     [
-                        "ButtonState",
-                        "button_state",
+                        "Button State",
                         [
                             [
                                 "Pressed",
-                                "pressed",
                                 0
                             ],
                             [
                                 "Released",
-                                "released",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "led_l",
+                    "LED L",
                     "uint8",
                     1,
                     "out",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "led_r",
+                    "LED R",
                     "uint8",
                     1,
                     "out",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "StateChanged",
-                "state_changed"
-            ],
+            "name": "State Changed",
             "doc": [
                 "c",
                 {
@@ -377,64 +323,53 @@
         {
             "elements": [
                 [
-                    "led",
+                    "LED",
                     "uint8",
                     1,
                     "in",
                     [
                         "LED",
-                        "led",
                         [
                             [
                                 "Left",
-                                "left",
                                 0
                             ],
                             [
                                 "Right",
-                                "right",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "in",
                     [
-                        "LEDState",
-                        "led_state",
+                        "LED State",
                         [
                             [
-                                "AutoToggleOn",
-                                "auto_toggle_on",
+                                "Auto Toggle On",
                                 0
                             ],
                             [
-                                "AutoToggleOff",
-                                "auto_toggle_off",
+                                "Auto Toggle Off",
                                 1
                             ],
                             [
                                 "On",
-                                "on",
                                 2
                             ],
                             [
                                 "Off",
-                                "off",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetSelectedLEDState",
-                "set_selected_led_state"
-            ],
+            "name": "Set Selected LED State",
             "doc": [
                 "af",
                 {
@@ -453,16 +388,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -478,22 +410,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -509,22 +438,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -540,16 +466,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -565,46 +488,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -624,6 +544,69 @@
     ],
     "device_identifier": 230,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "State Changed",
+                        "state changed"
+                    ],
+                    [
+                        [
+                            [
+                                "Button L",
+                                "Left Button"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Button R",
+                                "Right Button"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "LED L",
+                                null
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "LED R",
+                                null
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -632,8 +615,7 @@
         0
     ],
     "name": [
-        "DualButton",
-        "dual_button",
+        "Dual Button",
         "Dual Button",
         "Dual Button Bricklet"
     ]

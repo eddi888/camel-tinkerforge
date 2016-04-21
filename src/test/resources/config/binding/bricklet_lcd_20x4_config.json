@@ -9,28 +9,25 @@
         {
             "elements": [
                 [
-                    "line",
+                    "Line",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "position",
+                    "Position",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "text",
+                    "Text",
                     "string",
                     20,
                     "in"
                 ]
             ],
-            "name": [
-                "WriteLine",
-                "write_line"
-            ],
+            "name": "Write Line",
             "doc": [
                 "bf",
                 {
@@ -48,10 +45,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "ClearDisplay",
-                "clear_display"
-            ],
+            "name": "Clear Display",
             "doc": [
                 "bf",
                 {
@@ -69,10 +63,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "BacklightOn",
-                "backlight_on"
-            ],
+            "name": "Backlight On",
             "doc": [
                 "bf",
                 {
@@ -90,10 +81,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "BacklightOff",
-                "backlight_off"
-            ],
+            "name": "Backlight Off",
             "doc": [
                 "bf",
                 {
@@ -112,16 +100,13 @@
         {
             "elements": [
                 [
-                    "backlight",
+                    "Backlight",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsBacklightOn",
-                "is_backlight_on"
-            ],
+            "name": "Is Backlight On",
             "doc": [
                 "bf",
                 {
@@ -140,22 +125,19 @@
         {
             "elements": [
                 [
-                    "cursor",
+                    "Cursor",
                     "bool",
                     1,
                     "in"
                 ],
                 [
-                    "blinking",
+                    "Blinking",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetConfig",
-                "set_config"
-            ],
+            "name": "Set Config",
             "doc": [
                 "af",
                 {
@@ -174,22 +156,19 @@
         {
             "elements": [
                 [
-                    "cursor",
+                    "Cursor",
                     "bool",
                     1,
                     "out"
                 ],
                 [
-                    "blinking",
+                    "Blinking",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetConfig",
-                "get_config"
-            ],
+            "name": "Get Config",
             "doc": [
                 "af",
                 {
@@ -208,27 +187,24 @@
         {
             "elements": [
                 [
-                    "button",
+                    "Button",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "pressed",
+                    "Pressed",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsButtonPressed",
-                "is_button_pressed"
-            ],
+            "name": "Is Button Pressed",
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt *true* zur\u00fcck wenn die Taste (0 bis 2 oder 0 bis 3 seit Hardware\nVersion 1.2) gedr\u00fcckt ist. Wenn auf Tastendr\u00fccken\nund -loslassen reagiert werden soll, wird empfohlen die :func:`ButtonPressed`\nund :func:`ButtonReleased` Callbacks zu nutzen.\n",
-                    "en": "\nReturns *true* if the button (0 to 2 or 0 to 3 since hardware version 1.2)\nis pressed. If you want to react\non button presses and releases it is recommended to use the\n:func:`ButtonPressed` and :func:`ButtonReleased` callbacks.\n"
+                    "de": "\nGibt *true* zur\u00fcck wenn die Taste (0 bis 2 oder 0 bis 3 seit Hardware\nVersion 1.2) gedr\u00fcckt ist.\n\nWenn auf Tastendr\u00fccken und -loslassen reagiert werden soll, wird empfohlen die\n:func:`ButtonPressed` und :func:`ButtonReleased` Callbacks zu nutzen.\n",
+                    "en": "\nReturns *true* if the button (0 to 2 or 0 to 3 since hardware version 1.2)\nis pressed.\n\nIf you want to react on button presses and releases it is recommended to use\nthe :func:`ButtonPressed` and :func:`ButtonReleased` callbacks.\n"
                 }
             ],
             "since_firmware": [
@@ -242,16 +218,13 @@
         {
             "elements": [
                 [
-                    "button",
+                    "Button",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ButtonPressed",
-                "button_pressed"
-            ],
+            "name": "Button Pressed",
             "doc": [
                 "c",
                 {
@@ -270,16 +243,13 @@
         {
             "elements": [
                 [
-                    "button",
+                    "Button",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ButtonReleased",
-                "button_released"
-            ],
+            "name": "Button Released",
             "doc": [
                 "c",
                 {
@@ -298,22 +268,19 @@
         {
             "elements": [
                 [
-                    "index",
+                    "Index",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "character",
+                    "Character",
                     "uint8",
                     8,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCustomCharacter",
-                "set_custom_character"
-            ],
+            "name": "Set Custom Character",
             "doc": [
                 "af",
                 {
@@ -332,22 +299,19 @@
         {
             "elements": [
                 [
-                    "index",
+                    "Index",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "character",
+                    "Character",
                     "uint8",
                     8,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCustomCharacter",
-                "get_custom_character"
-            ],
+            "name": "Get Custom Character",
             "doc": [
                 "af",
                 {
@@ -366,22 +330,19 @@
         {
             "elements": [
                 [
-                    "line",
+                    "Line",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "text",
+                    "Text",
                     "string",
                     20,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDefaultText",
-                "set_default_text"
-            ],
+            "name": "Set Default Text",
             "doc": [
                 "af",
                 {
@@ -400,22 +361,19 @@
         {
             "elements": [
                 [
-                    "line",
+                    "Line",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "text",
+                    "Text",
                     "string",
                     20,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDefaultText",
-                "get_default_text"
-            ],
+            "name": "Get Default Text",
             "doc": [
                 "af",
                 {
@@ -434,16 +392,13 @@
         {
             "elements": [
                 [
-                    "counter",
+                    "Counter",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDefaultTextCounter",
-                "set_default_text_counter"
-            ],
+            "name": "Set Default Text Counter",
             "doc": [
                 "af",
                 {
@@ -462,16 +417,13 @@
         {
             "elements": [
                 [
-                    "counter",
+                    "Counter",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDefaultTextCounter",
-                "get_default_text_counter"
-            ],
+            "name": "Get Default Text Counter",
             "doc": [
                 "af",
                 {
@@ -490,16 +442,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -515,22 +464,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -546,22 +492,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -577,16 +520,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -602,46 +542,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -661,6 +598,162 @@
     ],
     "device_identifier": 212,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Backlight On",
+                    [],
+                    "Turn backlight on",
+                    null
+                ],
+                [
+                    "setter",
+                    "Write Line",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "string",
+                            "Hello World"
+                        ]
+                    ],
+                    "Write \"Hello World\"",
+                    null
+                ]
+            ],
+            "name": "Hello World"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Button Pressed",
+                        "button pressed"
+                    ],
+                    [
+                        [
+                            [
+                                "Button",
+                                "Button Pressed"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback",
+                    [
+                        "Button Released",
+                        "button released"
+                    ],
+                    [
+                        [
+                            [
+                                "Button",
+                                "Button Released"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ]
+            ],
+            "name": "Button Callback"
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Backlight On",
+                    [],
+                    "Turn backlight on",
+                    null
+                ],
+                [
+                    "setter",
+                    "Write Line",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "string",
+                            "FIXME"
+                        ]
+                    ],
+                    "Write some strings using the FIXME function to map to the LCD charset",
+                    null
+                ],
+                [
+                    "setter",
+                    "Write Line",
+                    [
+                        [
+                            "uint8",
+                            1
+                        ],
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "string",
+                            "FIXME"
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Write Line",
+                    [
+                        [
+                            "uint8",
+                            2
+                        ],
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "string",
+                            "FIXME"
+                        ]
+                    ],
+                    "Write a string directly including characters from the LCD charset",
+                    null
+                ]
+            ],
+            "name": "Unicode",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -669,8 +762,7 @@
         0
     ],
     "name": [
-        "LCD20x4",
-        "lcd_20x4",
+        "LCD 20x4",
         "LCD 20x4",
         "LCD 20x4 Bricklet"
     ]

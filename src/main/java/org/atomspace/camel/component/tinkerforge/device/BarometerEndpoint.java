@@ -436,6 +436,7 @@ public class BarometerEndpoint extends TinkerforgeEndpoint<BarometerConsumer, Ba
     /**
      * 
      * Sets the reference air pressure in mbar/1000 for the altitude calculation.
+     * Valid values are between 10000 and 1200000.
      * Setting the reference to the current air pressure results in a calculated
      * altitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as
      * reference.

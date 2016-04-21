@@ -637,6 +637,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
      *  "2",    "RS485"
      *  "3",    "WIFI"
      *  "4",    "Ethernet"
+     *  "5",    "WIFI 2.0"
      * 
      * The extension type is already set when bought and it can be set with the 
      * Brick Viewer, it is unlikely that you need this function.
@@ -666,6 +667,7 @@ public class MasterEndpoint extends TinkerforgeEndpoint<MasterConsumer, MasterPr
      *  "2",    "RS485"
      *  "3",    "WIFI"
      *  "4",    "Ethernet"
+     *  "5",    "WIFI 2.0"
      * 
      * The extension type is already set when bought and it can be set with the 
      * Brick Viewer, it is unlikely that you need this function.

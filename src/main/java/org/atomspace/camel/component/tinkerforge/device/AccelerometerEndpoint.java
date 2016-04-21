@@ -216,10 +216,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 
@@ -243,10 +243,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 
@@ -270,10 +270,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 
@@ -297,10 +297,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 
@@ -324,10 +324,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 
@@ -351,10 +351,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 
@@ -378,10 +378,10 @@ public class AccelerometerEndpoint extends TinkerforgeEndpoint<AccelerometerCons
      *  :widths: 10, 100
      * 
      *  "'x'",    "Callback is turned off"
-     *  "'o'",    "Callback is triggered when the temperature is *outside* the min and max values"
-     *  "'i'",    "Callback is triggered when the temperature is *inside* the min and max values"
-     *  "'<'",    "Callback is triggered when the temperature is smaller than the min value (max is ignored)"
-     *  "'>'",    "Callback is triggered when the temperature is greater than the min value (max is ignored)"
+     *  "'o'",    "Callback is triggered when the acceleration is *outside* the min and max values"
+     *  "'i'",    "Callback is triggered when the acceleration is *inside* the min and max values"
+     *  "'<'",    "Callback is triggered when the acceleration is smaller than the min value (max is ignored)"
+     *  "'>'",    "Callback is triggered when the acceleration is greater than the min value (max is ignored)"
      * 
      * The default value is ('x', 0, 0, 0, 0, 0, 0).
      * 

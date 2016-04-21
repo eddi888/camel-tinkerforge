@@ -297,7 +297,7 @@ public class IMUV2Consumer extends TinkerforgeConsumer<IMUV2Endpoint, BrickIMUV2
     }
     
     @Override
-    public void allData(short[] acceleration, short[] magnetic_field, short[] angular_velocity, short[] euler_angle, short[] quaternion, short[] linear_acceleration, short[] gravity_vector, byte temperature, short calibration_status) {
+    public void allData(short[] acceleration, short[] magneticField, short[] angularVelocity, short[] eulerAngle, short[] quaternion, short[] linearAcceleration, short[] gravityVector, byte temperature, short calibrationStatus) {
         LOG.trace("allData()");
         
         Exchange exchange = null;
@@ -307,14 +307,14 @@ public class IMUV2Consumer extends TinkerforgeConsumer<IMUV2Endpoint, BrickIMUV2
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickIMUV2.CALLBACK_ALL_DATA);
             exchange.getIn().setHeader("acceleration", acceleration);
-            exchange.getIn().setHeader("magnetic_field", magnetic_field);
-            exchange.getIn().setHeader("angular_velocity", angular_velocity);
-            exchange.getIn().setHeader("euler_angle", euler_angle);
+            exchange.getIn().setHeader("magneticField", magneticField);
+            exchange.getIn().setHeader("angularVelocity", angularVelocity);
+            exchange.getIn().setHeader("eulerAngle", eulerAngle);
             exchange.getIn().setHeader("quaternion", quaternion);
-            exchange.getIn().setHeader("linear_acceleration", linear_acceleration);
-            exchange.getIn().setHeader("gravity_vector", gravity_vector);
+            exchange.getIn().setHeader("linearAcceleration", linearAcceleration);
+            exchange.getIn().setHeader("gravityVector", gravityVector);
             exchange.getIn().setHeader("temperature", temperature);
-            exchange.getIn().setHeader("calibration_status", calibration_status);
+            exchange.getIn().setHeader("calibrationStatus", calibrationStatus);
             
             
             // ADD BODY

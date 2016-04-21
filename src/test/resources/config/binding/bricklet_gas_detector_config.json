@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetValue",
-                "get_value"
-            ],
+            "name": "Get Value",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetValueCallbackPeriod",
-                "set_value_callback_period"
-            ],
+            "name": "Set Value Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetValueCallbackPeriod",
-                "get_value_callback_period"
-            ],
+            "name": "Get Value Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,59 +84,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetValueCallbackThreshold",
-                "set_value_callback_threshold"
-            ],
+            "name": "Set Value Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetValueCallbackThreshold",
-                "get_value_callback_threshold"
-            ],
+            "name": "Get Value Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,16 +258,13 @@
         {
             "elements": [
                 [
-                    "average",
+                    "Average",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMovingAverage",
-                "set_moving_average"
-            ],
+            "name": "Set Moving Average",
             "doc": [
                 "af",
                 {
@@ -319,16 +283,13 @@
         {
             "elements": [
                 [
-                    "average",
+                    "Average",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMovingAverage",
-                "get_moving_average"
-            ],
+            "name": "Get Moving Average",
             "doc": [
                 "af",
                 {
@@ -347,21 +308,18 @@
         {
             "elements": [
                 [
-                    "detector_type",
+                    "Detector Type",
                     "uint8",
                     1,
                     "in",
                     [
-                        "DetectorType",
-                        "detector_type",
+                        "Detector Type",
                         [
                             [
-                                "0",
                                 "0",
                                 0
                             ],
                             [
-                                "1",
                                 "1",
                                 1
                             ]
@@ -369,10 +327,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "SetDetectorType",
-                "set_detector_type"
-            ],
+            "name": "Set Detector Type",
             "doc": [
                 "af",
                 {
@@ -391,21 +346,18 @@
         {
             "elements": [
                 [
-                    "detector_type",
+                    "Detector Type",
                     "uint8",
                     1,
                     "out",
                     [
-                        "DetectorType",
-                        "detector_type",
+                        "Detector Type",
                         [
                             [
-                                "0",
                                 "0",
                                 0
                             ],
                             [
-                                "1",
                                 "1",
                                 1
                             ]
@@ -413,10 +365,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "GetDetectorType",
-                "get_detector_type"
-            ],
+            "name": "Get Detector Type",
             "doc": [
                 "af",
                 {
@@ -434,10 +383,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "HeaterOn",
-                "heater_on"
-            ],
+            "name": "Heater On",
             "doc": [
                 "af",
                 {
@@ -455,10 +401,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "HeaterOff",
-                "heater_off"
-            ],
+            "name": "Heater Off",
             "doc": [
                 "af",
                 {
@@ -477,16 +420,13 @@
         {
             "elements": [
                 [
-                    "heater",
+                    "Heater",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsHeaterOn",
-                "is_heater_on"
-            ],
+            "name": "Is Heater On",
             "doc": [
                 "af",
                 {
@@ -505,16 +445,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Value",
-                "value"
-            ],
+            "name": "Value",
             "doc": [
                 "c",
                 {
@@ -533,16 +470,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ValueReached",
-                "value_reached"
-            ],
+            "name": "Value Reached",
             "doc": [
                 "c",
                 {
@@ -561,16 +495,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -586,22 +517,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -617,22 +545,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -648,16 +573,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -673,46 +595,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -732,6 +651,7 @@
     ],
     "device_identifier": 252,
     "released": false,
+    "examples": [],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -740,8 +660,7 @@
         0
     ],
     "name": [
-        "GasDetector",
-        "gas_detector",
+        "Gas Detector",
         "Gas Detector",
         "Gas Detector Bricklet"
     ]

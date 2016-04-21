@@ -9,22 +9,19 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "current",
+                    "Current",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrent",
-                "get_current"
-            ],
+            "name": "Get Current",
             "doc": [
                 "bf",
                 {
@@ -43,22 +40,19 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrentCallbackPeriod",
-                "set_current_callback_period"
-            ],
+            "name": "Set Current Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -77,22 +71,19 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentCallbackPeriod",
-                "get_current_callback_period"
-            ],
+            "name": "Get Current Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -111,65 +102,56 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrentCallbackThreshold",
-                "set_current_callback_threshold"
-            ],
+            "name": "Set Current Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -188,65 +170,56 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentCallbackThreshold",
-                "get_current_callback_threshold"
-            ],
+            "name": "Get Current Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -265,16 +238,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -293,16 +263,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -321,47 +288,39 @@
         {
             "elements": [
                 [
-                    "rate",
+                    "Rate",
                     "uint8",
                     1,
                     "in",
                     [
-                        "SampleRate",
-                        "sample_rate",
+                        "Sample Rate",
                         [
                             [
-                                "240SPS",
-                                "240_sps",
+                                "240 SPS",
                                 0
                             ],
                             [
-                                "60SPS",
-                                "60_sps",
+                                "60 SPS",
                                 1
                             ],
                             [
-                                "15SPS",
-                                "15_sps",
+                                "15 SPS",
                                 2
                             ],
                             [
-                                "4SPS",
-                                "4_sps",
+                                "4 SPS",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetSampleRate",
-                "set_sample_rate"
-            ],
+            "name": "Set Sample Rate",
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt die Abtastrate auf 240, 60, 15 oder 4 Samples pro Sekunde.\nDie Aufl\u00f6sung f\u00fcr die Raten sind 12, 14, 16 und 18 Bit respektive.\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 100\n\n \"0\",    \"240 Samples pro Sekunde, 12 Bit Aufl\u00f6sung\"\n \"1\",    \"60 Samples pro Sekunde, 14 Bit Aufl\u00f6sung\"\n \"2\",    \"15 Samples pro Sekunde, 16 Bit Aufl\u00f6sung\"\n \"3\",    \"4 Samples pro Sekunde, 18 Bit Aufl\u00f6sung\"\n\nDer Standardwert ist 3: 4 Samples pro Sekunde mit 18 Bit Aufl\u00f6sung.\n",
-                    "en": "\nSets the sample rate to either 240, 60, 15 or 4 samples per second.\nThe resolution for the rates is 12, 14, 16 and 18 bit respectively.\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 100\n\n \"0\",    \"240 samples per second, 12 bit resolution\"\n \"1\",    \"60 samples per second, 14 bit resolution\"\n \"2\",    \"15 samples per second, 16 bit resolution\"\n \"3\",    \"4 samples per second, 18 bit resolution\"\n\nThe default value is 3: 4 samples per second with 18 bit resolution.\n"
+                    "de": "\nSetzt die Abtastrate auf 240, 60, 15 oder 4 Samples pro Sekunde.\nDie Aufl\u00f6sung f\u00fcr die Raten sind 12, 14, 16 und 18 Bit respektive.\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 100\n\n \"0\",    \"240 Samples pro Sekunde, 12 Bit Aufl\u00f6sung\"\n \"1\",    \"60 Samples pro Sekunde, 14 Bit Aufl\u00f6sung\"\n \"2\",    \"15 Samples pro Sekunde, 16 Bit Aufl\u00f6sung\"\n \"3\",    \"4 Samples pro Sekunde, 18 Bit Aufl\u00f6sung\"\n\nDer Standardwert ist 3 (4 Samples pro Sekunde mit 18 Bit Aufl\u00f6sung).\n",
+                    "en": "\nSets the sample rate to either 240, 60, 15 or 4 samples per second.\nThe resolution for the rates is 12, 14, 16 and 18 bit respectively.\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 100\n\n \"0\",    \"240 samples per second, 12 bit resolution\"\n \"1\",    \"60 samples per second, 14 bit resolution\"\n \"2\",    \"15 samples per second, 16 bit resolution\"\n \"3\",    \"4 samples per second, 18 bit resolution\"\n\nThe default value is 3 (4 samples per second with 18 bit resolution).\n"
                 }
             ],
             "since_firmware": [
@@ -375,42 +334,34 @@
         {
             "elements": [
                 [
-                    "rate",
+                    "Rate",
                     "uint8",
                     1,
                     "out",
                     [
-                        "SampleRate",
-                        "sample_rate",
+                        "Sample Rate",
                         [
                             [
-                                "240SPS",
-                                "240_sps",
+                                "240 SPS",
                                 0
                             ],
                             [
-                                "60SPS",
-                                "60_sps",
+                                "60 SPS",
                                 1
                             ],
                             [
-                                "15SPS",
-                                "15_sps",
+                                "15 SPS",
                                 2
                             ],
                             [
-                                "4SPS",
-                                "4_sps",
+                                "4 SPS",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetSampleRate",
-                "get_sample_rate"
-            ],
+            "name": "Get Sample Rate",
             "doc": [
                 "af",
                 {
@@ -429,22 +380,19 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "current",
+                    "Current",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Current",
-                "current"
-            ],
+            "name": "Current",
             "doc": [
                 "c",
                 {
@@ -463,22 +411,19 @@
         {
             "elements": [
                 [
-                    "sensor",
+                    "Sensor",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "current",
+                    "Current",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "CurrentReached",
-                "current_reached"
-            ],
+            "name": "Current Reached",
             "doc": [
                 "c",
                 {
@@ -497,16 +442,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -522,22 +464,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -553,22 +492,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -584,16 +520,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -609,46 +542,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -667,22 +597,168 @@
         }
     ],
     "device_identifier": 228,
+    "name": [
+        "Industrial Dual 0 20mA",
+        "Industrial Dual 0-20mA",
+        "Industrial Dual 0-20mA Bricklet"
+    ],
     "released": true,
     "api": {
         "de": "\nEs k\u00f6nnen zwei Sensoren an das Bricklet angeschlossen werden. Funktionen die\nsich direkt auf einen der Sensoren beziehen haben einen ``sensor`` Parameter,\num den Sensor anzugeben. G\u00fcltige Werte f\u00fcr den ``sensor`` Parameter sind 0\nund 1.\n",
         "en": "\nTwo sensors can be connected to the Bricklet. Functions that are related\ndirectly to a sensor have a ``sensor`` parameter to specify one of the two\nsensors. Valid values for the ``sensor`` parameter are 0 and 1.\n"
     },
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Current",
+                        "current from sensor 1"
+                    ],
+                    [
+                        [
+                            [
+                                "Current",
+                                "Current (Sensor 1)"
+                            ],
+                            "int32",
+                            1000000.0,
+                            "nA",
+                            "mA",
+                            null
+                        ]
+                    ],
+                    [
+                        [
+                            "uint8",
+                            1
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Current",
+                        "current"
+                    ],
+                    [
+                        [
+                            [
+                                "Sensor",
+                                "Sensor"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Current",
+                                "Current"
+                            ],
+                            "int32",
+                            1000000.0,
+                            "nA",
+                            "mA",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Current",
+                        "current (sensor 1)"
+                    ],
+                    [
+                        [
+                            "uint8",
+                            1
+                        ]
+                    ],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Current Reached",
+                        "current reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Sensor",
+                                "Sensor"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Current",
+                                "Current"
+                            ],
+                            "int32",
+                            1000000.0,
+                            "nA",
+                            "mA",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Current",
+                        "current (sensor 1)"
+                    ],
+                    [
+                        [
+                            "uint8",
+                            1
+                        ]
+                    ],
+                    ">",
+                    [
+                        [
+                            10,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
-    "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
         0
     ],
-    "name": [
-        "IndustrialDual020mA",
-        "industrial_dual_0_20ma",
-        "Industrial Dual 0-20mA",
-        "Industrial Dual 0-20mA Bricklet"
-    ]
+    "manufacturer": "Tinkerforge"
 }

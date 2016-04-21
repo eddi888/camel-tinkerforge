@@ -9,28 +9,25 @@
         {
             "elements": [
                 [
-                    "segments",
+                    "Segments",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "brightness",
+                    "Brightness",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "colon",
+                    "Colon",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetSegments",
-                "set_segments"
-            ],
+            "name": "Set Segments",
             "doc": [
                 "bf",
                 {
@@ -49,28 +46,25 @@
         {
             "elements": [
                 [
-                    "segments",
+                    "Segments",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "brightness",
+                    "Brightness",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "colon",
+                    "Colon",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetSegments",
-                "get_segments"
-            ],
+            "name": "Get Segments",
             "doc": [
                 "bf",
                 {
@@ -89,34 +83,31 @@
         {
             "elements": [
                 [
-                    "value_from",
+                    "Value From",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "value_to",
+                    "Value To",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "increment",
+                    "Increment",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "length",
+                    "Length",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "StartCounter",
-                "start_counter"
-            ],
+            "name": "Start Counter",
             "doc": [
                 "af",
                 {
@@ -135,16 +126,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCounterValue",
-                "get_counter_value"
-            ],
+            "name": "Get Counter Value",
             "doc": [
                 "af",
                 {
@@ -162,10 +150,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "CounterFinished",
-                "counter_finished"
-            ],
+            "name": "Counter Finished",
             "doc": [
                 "c",
                 {
@@ -184,16 +169,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -209,22 +191,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -240,22 +219,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -271,16 +247,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -296,46 +269,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -355,6 +325,12 @@
     ],
     "device_identifier": 237,
     "released": true,
+    "examples": [
+        {
+            "name": "Simple",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -363,8 +339,7 @@
         0
     ],
     "name": [
-        "SegmentDisplay4x7",
-        "segment_display_4x7",
+        "Segment Display 4x7",
         "Segment Display 4x7",
         "Segment Display 4x7 Bricklet"
     ]

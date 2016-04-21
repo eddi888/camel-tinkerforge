@@ -1,0 +1,581 @@
+{
+    "category": "Bricklet",
+    "description": {
+        "de": "Batteriegepufferte Echtzeituhr",
+        "en": "Battery-backed real-time clock"
+    },
+    "author": "Matthias Bolte <matthias@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "Year",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "Month",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Day",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Hour",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Minute",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Second",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Centisecond",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Weekday",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Weekday",
+                        [
+                            [
+                                "Monday",
+                                1
+                            ],
+                            [
+                                "Tuesday",
+                                2
+                            ],
+                            [
+                                "Wednesday",
+                                3
+                            ],
+                            [
+                                "Thursday",
+                                4
+                            ],
+                            [
+                                "Friday",
+                                5
+                            ],
+                            [
+                                "Saturday",
+                                6
+                            ],
+                            [
+                                "Sunday",
+                                7
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Set Date Time",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt das aktuelle Datum (inklusive Wochentag) und die aktuelle Zeit mit\nHundertstelsekunden Aufl\u00f6sung.\n\nM\u00f6gliche Wertebereiche:\n\n* Year: 2000 bis 2099\n* Month: 1 bis 12 (Januar bis Dezember)\n* Day: 1 bis 31\n* Hour: 0 bis 23\n* Minute: 0 bis 59\n* Second: 0 bis 59\n* Centisecond: 0 bis 99\n* Weekday: 1 bis 7 (Montag bis Sontag)\n\nWenn die Backup Batterie eingebaut ist, dann beh\u00e4lt die Echtzeituhr Datum und\nZeit auch dann, wenn kein Brick das Bricklet mit Strom versorgt.\n\nDie Echtzeituhr behandelt Schaltjahre und f\u00fcgt den 29. Februar entsprechend ein.\nSchaltsekunden, Zeitzonen und die Sommerzeit werden jedoch nicht behandelt.\n",
+                    "en": "\nSets the current date (including weekday) and the current time with hundredths\nof a second resolution.\n\nPossible value ranges:\n\n* Year: 2000 to 2099\n* Month: 1 to 12 (January to December)\n* Day: 1 to 31\n* Hour: 0 to 23\n* Minute: 0 to 59\n* Second: 0 to 59\n* Centisecond: 0 to 99\n* Weekday: 1 to 7 (Monday to Sunday)\n\nIf the backup battery is installed then the real-time clock keeps date and\ntime even if the Bricklet is not powered by a Brick.\n\nThe real-time clock handles leap year and inserts the 29th of February\naccordingly. But leap seconds, time zones and daylight saving time are not\nhandled.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Year",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "Month",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Day",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Hour",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Minute",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Second",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Centisecond",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Weekday",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Weekday",
+                        [
+                            [
+                                "Monday",
+                                1
+                            ],
+                            [
+                                "Tuesday",
+                                2
+                            ],
+                            [
+                                "Wednesday",
+                                3
+                            ],
+                            [
+                                "Thursday",
+                                4
+                            ],
+                            [
+                                "Friday",
+                                5
+                            ],
+                            [
+                                "Saturday",
+                                6
+                            ],
+                            [
+                                "Sunday",
+                                7
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Get Date Time",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt das aktuelle Datum (inklusive Wochentag) und die aktuelle Zeit der\nEchtzeituhr mit Hundertstelsekunden Aufl\u00f6sung zur\u00fcck.\n",
+                    "en": "\nReturns the current date (including weekday) and the current time of the\nreal-time clock with hundredths of a second resolution.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Timestamp",
+                    "int64",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Timestamp",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt das aktuelle Datum und Zeit der Echtzeituhr in Millisekunden umgerechnet\nzur\u00fcck. Der Zeitstempel hat eine effektive Aufl\u00f6sung von Hundertstelsekunden.\n",
+                    "en": "\nReturns the current date and the time of the real-time clock converted to\nmilliseconds. The timestamp has an effective resolution of hundredths of a\nsecond.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Offset",
+                    "int8",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Offset",
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den Versatz ein, den die Echtzeituhr ausgleichen soll.\nDer Versatz kann in 2,17 ppm Schritten zwischen -277,76 ppm (-128) und\n+275,59 ppm (127) eingestellt werden.\n\nDie Echtzeituhr kann von der eigentlichen Zeit abweichen, bedingt durch die\nFrequenzabweichung des verbauten 32,768 kHz Quarzes. Selbst ohne Ausgleich\n(Werkseinstellung) sollte die daraus entstehende Zeitabweichung h\u00f6chstens\n\u00b120 ppm (\u00b152,6 Sekunden pro Monat) betragen.\n\nDiese Abweichung kann berechnet werden, durch Vergleich der gleichen Zeitdauer\neinmal mit der Echtzeituhr (``rtc_duration``) gemessen und einmal mit einer\ngenauen Kontrolluhr (``ref_duration``) gemessen.\n\nUm das beste Ergebnis zu erzielen, sollte der eingestellte Versatz zuerst auf\n0 ppm gesetzt und dann eine Zeitdauer von mindestens 6 Stunden gemessen werden.\n\nDer neue Versatz (``new_offset``) kann dann wie folgt aus dem aktuell\neingestellten Versatz (``current_offset``) und den gemessenen\nZeitdauern berechnet werden::\n\n  new_offset = current_offset - round(1000000 * (rtc_duration - ref_duration) / rtc_duration / 2.17)\n\nWenn der Versatz berechnet werden soll, dann empfehlen wir den\nKalibrierungsdialog in Brick Viewer daf\u00fcr zu verwenden, anstatt die Berechnung\nvon Hand durchzuf\u00fchren.\n\nDer Versatz wird im EEPROM des Bricklets gespeichert und muss nur einmal\ngesetzt werden.\n",
+                    "en": "\nSets the offset the real-time clock should compensate for in 2.17 ppm steps\nbetween -277.76 ppm (-128) and +275.59 ppm (127).\n\nThe real-time clock time can deviate from the actual time due to the frequency\ndeviation of its 32.768 kHz crystal. Even without compensation (factory\ndefault) the resulting time deviation should be at most \u00b120 ppm (\u00b152.6\nseconds per month).\n\nThis deviation can be calculated by comparing the same duration measured by the\nreal-time clock (``rtc_duration``) an accurate reference clock\n(``ref_duration``).\n\nFor best results the configured offset should be set to 0 ppm first and then a\nduration of at least 6 hours should be measured.\n\nThe new offset (``new_offset``) can be calculated from the currently configured\noffset (``current_offset``) and the measured durations as follow::\n\n  new_offset = current_offset - round(1000000 * (rtc_duration - ref_duration) / rtc_duration / 2.17)\n\nIf you want to calculate the offset, then we recommend using the calibration\ndialog in Brick Viewer, instead of doing it manually.\n\nThe offset is saved in the EEPROM of the Bricklet and only needs to be\nconfigured once.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Offset",
+                    "int8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Offset",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Versatz zur\u00fcck, wie von :func:`SetOffset` gesetzt.\n",
+                    "en": "\nReturns the offset as set by :func:`SetOffset`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "API Version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": "Get API Version",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Function Id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Response Expected",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Function Id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Response Expected",
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Response Expected All",
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "Connected Uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "Position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "Hardware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Firmware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Device Identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Identity",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 268,
+    "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Date Time",
+                        "date and time"
+                    ],
+                    [
+                        [
+                            [
+                                "Year",
+                                "Year"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Month",
+                                "Month"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Day",
+                                "Day"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Hour",
+                                "Hour"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Minute",
+                                "Minute"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Second",
+                                "Second"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Centisecond",
+                                "Centisecond"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Weekday",
+                                "Weekday"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ],
+                [
+                    "getter",
+                    [
+                        "Get Timestamp",
+                        "timestamp"
+                    ],
+                    [
+                        [
+                            [
+                                "Timestamp",
+                                "Timestamp"
+                            ],
+                            "int64",
+                            null,
+                            "ms",
+                            "ms",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        }
+    ],
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "Real Time Clock",
+        "Real-Time Clock",
+        "Real-Time Clock Bricklet"
+    ]
+}

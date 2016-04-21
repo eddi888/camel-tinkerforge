@@ -50,7 +50,7 @@ public class DualButtonConsumer extends TinkerforgeConsumer<DualButtonEndpoint, 
     
     
     @Override
-    public void stateChanged(short button_l, short button_r, short led_l, short led_r) {
+    public void stateChanged(short buttonL, short buttonR, short ledL, short ledR) {
         LOG.trace("stateChanged()");
         
         Exchange exchange = null;
@@ -59,10 +59,10 @@ public class DualButtonConsumer extends TinkerforgeConsumer<DualButtonEndpoint, 
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletDualButton.CALLBACK_STATE_CHANGED);
-            exchange.getIn().setHeader("button_l", button_l);
-            exchange.getIn().setHeader("button_r", button_r);
-            exchange.getIn().setHeader("led_l", led_l);
-            exchange.getIn().setHeader("led_r", led_r);
+            exchange.getIn().setHeader("buttonL", buttonL);
+            exchange.getIn().setHeader("buttonR", buttonR);
+            exchange.getIn().setHeader("ledL", ledL);
+            exchange.getIn().setHeader("ledR", ledR);
             
             
             // ADD BODY

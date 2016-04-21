@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackVoltage",
-                "get_stack_voltage"
-            ],
+            "name": "Get Stack Voltage",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackCurrent",
-                "get_stack_current"
-            ],
+            "name": "Get Stack Current",
             "doc": [
                 "bf",
                 {
@@ -65,53 +59,45 @@
         {
             "elements": [
                 [
-                    "extension",
+                    "Extension",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "exttype",
+                    "Exttype",
                     "uint32",
                     1,
                     "in",
                     [
-                        "ExtensionType",
-                        "extension_type",
+                        "Extension Type",
                         [
                             [
                                 "Chibi",
-                                "chibi",
                                 1
                             ],
                             [
                                 "RS485",
-                                "rs485",
                                 2
                             ],
                             [
                                 "Wifi",
-                                "wifi",
                                 3
                             ],
                             [
                                 "Ethernet",
-                                "ethernet",
                                 4
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetExtensionType",
-                "set_extension_type"
-            ],
+            "name": "Set Extension Type",
             "doc": [
                 "af",
                 {
-                    "de": "\nSchreibt den Typ der Extension in den EEPROM der angegebenen Extension.\nDie Extension kann entweder 0 oder 1 sein (0 ist an der Unterseite, 1\nauf der Oberseite, wenn nur eine Extension verf\u00fcgbar ist, ist 0 zu verwenden)\n\nM\u00f6gliche Extensiontypen:\n\n.. csv-table::\n :header: \"Typ\", \"Beschreibung\"\n :widths: 10, 100\n \n \"1\",    \"Chibi\"\n \"2\",    \"RS485\"\n \"3\",    \"WIFI\"\n \"4\",    \"Ethernet\"\n\nDer Typ der Extension ist schon gesetzt beim Erwerb der Extension und kann\n\u00fcber den Brick Viewer gesetzt werden. Daher ist es unwahrscheinlich, dass\ndiese Funktion ben\u00f6tigt wird.\n",
-                    "en": "\nWrites the extension type to the EEPROM of a specified extension. \nThe extension is either 0 or 1 (0 is the on the bottom, 1 is the on on top, \nif only one extension is present use 0).\n\nPossible extension types:\n\n.. csv-table::\n :header: \"Type\", \"Description\"\n :widths: 10, 100\n\n \"1\",    \"Chibi\"\n \"2\",    \"RS485\"\n \"3\",    \"WIFI\"\n \"4\",    \"Ethernet\"\n\nThe extension type is already set when bought and it can be set with the \nBrick Viewer, it is unlikely that you need this function.\n"
+                    "de": "\nSchreibt den Typ der Extension in den EEPROM der angegebenen Extension.\nDie Extension kann entweder 0 oder 1 sein (0 ist an der Unterseite, 1\nauf der Oberseite, wenn nur eine Extension verf\u00fcgbar ist, ist 0 zu verwenden)\n\nM\u00f6gliche Extensiontypen:\n\n.. csv-table::\n :header: \"Typ\", \"Beschreibung\"\n :widths: 10, 100\n \n \"1\",    \"Chibi\"\n \"2\",    \"RS485\"\n \"3\",    \"WIFI\"\n \"4\",    \"Ethernet\"\n \"5\",    \"WIFI 2.0\"\n\nDer Typ der Extension ist schon gesetzt beim Erwerb der Extension und kann\n\u00fcber den Brick Viewer gesetzt werden. Daher ist es unwahrscheinlich, dass\ndiese Funktion ben\u00f6tigt wird.\n",
+                    "en": "\nWrites the extension type to the EEPROM of a specified extension. \nThe extension is either 0 or 1 (0 is the on the bottom, 1 is the on on top, \nif only one extension is present use 0).\n\nPossible extension types:\n\n.. csv-table::\n :header: \"Type\", \"Description\"\n :widths: 10, 100\n\n \"1\",    \"Chibi\"\n \"2\",    \"RS485\"\n \"3\",    \"WIFI\"\n \"4\",    \"Ethernet\"\n \"5\",    \"WIFI 2.0\"\n\nThe extension type is already set when bought and it can be set with the \nBrick Viewer, it is unlikely that you need this function.\n"
                 }
             ],
             "since_firmware": [
@@ -125,48 +111,40 @@
         {
             "elements": [
                 [
-                    "extension",
+                    "Extension",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "exttype",
+                    "Exttype",
                     "uint32",
                     1,
                     "out",
                     [
-                        "ExtensionType",
-                        "extension_type",
+                        "Extension Type",
                         [
                             [
                                 "Chibi",
-                                "chibi",
                                 1
                             ],
                             [
                                 "RS485",
-                                "rs485",
                                 2
                             ],
                             [
                                 "Wifi",
-                                "wifi",
                                 3
                             ],
                             [
                                 "Ethernet",
-                                "ethernet",
                                 4
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetExtensionType",
-                "get_extension_type"
-            ],
+            "name": "Get Extension Type",
             "doc": [
                 "af",
                 {
@@ -185,16 +163,13 @@
         {
             "elements": [
                 [
-                    "present",
+                    "Present",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsChibiPresent",
-                "is_chibi_present"
-            ],
+            "name": "Is Chibi Present",
             "doc": [
                 "af",
                 {
@@ -213,16 +188,13 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetChibiAddress",
-                "set_chibi_address"
-            ],
+            "name": "Set Chibi Address",
             "doc": [
                 "af",
                 {
@@ -241,16 +213,13 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChibiAddress",
-                "get_chibi_address"
-            ],
+            "name": "Get Chibi Address",
             "doc": [
                 "af",
                 {
@@ -269,16 +238,13 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetChibiMasterAddress",
-                "set_chibi_master_address"
-            ],
+            "name": "Set Chibi Master Address",
             "doc": [
                 "af",
                 {
@@ -297,16 +263,13 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChibiMasterAddress",
-                "get_chibi_master_address"
-            ],
+            "name": "Get Chibi Master Address",
             "doc": [
                 "af",
                 {
@@ -325,22 +288,19 @@
         {
             "elements": [
                 [
-                    "num",
+                    "Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetChibiSlaveAddress",
-                "set_chibi_slave_address"
-            ],
+            "name": "Set Chibi Slave Address",
             "doc": [
                 "af",
                 {
@@ -359,22 +319,19 @@
         {
             "elements": [
                 [
-                    "num",
+                    "Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChibiSlaveAddress",
-                "get_chibi_slave_address"
-            ],
+            "name": "Get Chibi Slave Address",
             "doc": [
                 "af",
                 {
@@ -393,16 +350,13 @@
         {
             "elements": [
                 [
-                    "signal_strength",
+                    "Signal Strength",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChibiSignalStrength",
-                "get_chibi_signal_strength"
-            ],
+            "name": "Get Chibi Signal Strength",
             "doc": [
                 "af",
                 {
@@ -421,34 +375,31 @@
         {
             "elements": [
                 [
-                    "underrun",
+                    "Underrun",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "crc_error",
+                    "CRC Error",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "no_ack",
+                    "No Ack",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "overflow",
+                    "Overflow",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChibiErrorLog",
-                "get_chibi_error_log"
-            ],
+            "name": "Get Chibi Error Log",
             "doc": [
                 "af",
                 {
@@ -467,42 +418,34 @@
         {
             "elements": [
                 [
-                    "frequency",
+                    "Frequency",
                     "uint8",
                     1,
                     "in",
                     [
-                        "ChibiFrequency",
-                        "chibi_frequency",
+                        "Chibi Frequency",
                         [
                             [
-                                "OQPSK868MHz",
-                                "oqpsk_868_mhz",
+                                "OQPSK 868 MHz",
                                 0
                             ],
                             [
-                                "OQPSK915MHz",
-                                "oqpsk_915_mhz",
+                                "OQPSK 915 MHz",
                                 1
                             ],
                             [
-                                "OQPSK780MHz",
-                                "oqpsk_780_mhz",
+                                "OQPSK 780 MHz",
                                 2
                             ],
                             [
-                                "BPSK40915MHz",
-                                "bpsk40_915_mhz",
+                                "BPSK40 915 MHz",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetChibiFrequency",
-                "set_chibi_frequency"
-            ],
+            "name": "Set Chibi Frequency",
             "doc": [
                 "af",
                 {
@@ -521,42 +464,34 @@
         {
             "elements": [
                 [
-                    "frequency",
+                    "Frequency",
                     "uint8",
                     1,
                     "out",
                     [
-                        "ChibiFrequency",
-                        "chibi_frequency",
+                        "Chibi Frequency",
                         [
                             [
-                                "OQPSK868MHz",
-                                "oqpsk_868_mhz",
+                                "OQPSK 868 MHz",
                                 0
                             ],
                             [
-                                "OQPSK915MHz",
-                                "oqpsk_915_mhz",
+                                "OQPSK 915 MHz",
                                 1
                             ],
                             [
-                                "OQPSK780MHz",
-                                "oqpsk_780_mhz",
+                                "OQPSK 780 MHz",
                                 2
                             ],
                             [
-                                "BPSK40915MHz",
-                                "bpsk40_915_mhz",
+                                "BPSK40 915 MHz",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetChibiFrequency",
-                "get_chibi_frequency"
-            ],
+            "name": "Get Chibi Frequency",
             "doc": [
                 "af",
                 {
@@ -575,16 +510,13 @@
         {
             "elements": [
                 [
-                    "channel",
+                    "Channel",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetChibiChannel",
-                "set_chibi_channel"
-            ],
+            "name": "Set Chibi Channel",
             "doc": [
                 "af",
                 {
@@ -603,16 +535,13 @@
         {
             "elements": [
                 [
-                    "channel",
+                    "Channel",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChibiChannel",
-                "get_chibi_channel"
-            ],
+            "name": "Get Chibi Channel",
             "doc": [
                 "af",
                 {
@@ -631,16 +560,13 @@
         {
             "elements": [
                 [
-                    "present",
+                    "Present",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsRS485Present",
-                "is_rs485_present"
-            ],
+            "name": "Is RS485 Present",
             "doc": [
                 "af",
                 {
@@ -659,16 +585,13 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetRS485Address",
-                "set_rs485_address"
-            ],
+            "name": "Set RS485 Address",
             "doc": [
                 "af",
                 {
@@ -687,16 +610,13 @@
         {
             "elements": [
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRS485Address",
-                "get_rs485_address"
-            ],
+            "name": "Get RS485 Address",
             "doc": [
                 "af",
                 {
@@ -715,22 +635,19 @@
         {
             "elements": [
                 [
-                    "num",
+                    "Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetRS485SlaveAddress",
-                "set_rs485_slave_address"
-            ],
+            "name": "Set RS485 Slave Address",
             "doc": [
                 "af",
                 {
@@ -749,22 +666,19 @@
         {
             "elements": [
                 [
-                    "num",
+                    "Num",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "address",
+                    "Address",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRS485SlaveAddress",
-                "get_rs485_slave_address"
-            ],
+            "name": "Get RS485 Slave Address",
             "doc": [
                 "af",
                 {
@@ -783,16 +697,13 @@
         {
             "elements": [
                 [
-                    "crc_error",
+                    "CRC Error",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRS485ErrorLog",
-                "get_rs485_error_log"
-            ],
+            "name": "Get RS485 Error Log",
             "doc": [
                 "af",
                 {
@@ -811,49 +722,42 @@
         {
             "elements": [
                 [
-                    "speed",
+                    "Speed",
                     "uint32",
                     1,
                     "in"
                 ],
                 [
-                    "parity",
+                    "Parity",
                     "char",
                     1,
                     "in",
                     [
-                        "RS485Parity",
-                        "rs485_parity",
+                        "RS485 Parity",
                         [
                             [
                                 "None",
-                                "none",
                                 "n"
                             ],
                             [
                                 "Even",
-                                "even",
                                 "e"
                             ],
                             [
                                 "Odd",
-                                "odd",
                                 "o"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "stopbits",
+                    "Stopbits",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetRS485Configuration",
-                "set_rs485_configuration"
-            ],
+            "name": "Set RS485 Configuration",
             "doc": [
                 "af",
                 {
@@ -872,49 +776,42 @@
         {
             "elements": [
                 [
-                    "speed",
+                    "Speed",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "parity",
+                    "Parity",
                     "char",
                     1,
                     "out",
                     [
-                        "RS485Parity",
-                        "rs485_parity",
+                        "RS485 Parity",
                         [
                             [
                                 "None",
-                                "none",
                                 "n"
                             ],
                             [
                                 "Even",
-                                "even",
                                 "e"
                             ],
                             [
                                 "Odd",
-                                "odd",
                                 "o"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "stopbits",
+                    "Stopbits",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRS485Configuration",
-                "get_rs485_configuration"
-            ],
+            "name": "Get RS485 Configuration",
             "doc": [
                 "af",
                 {
@@ -933,16 +830,13 @@
         {
             "elements": [
                 [
-                    "present",
+                    "Present",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsWifiPresent",
-                "is_wifi_present"
-            ],
+            "name": "Is Wifi Present",
             "doc": [
                 "af",
                 {
@@ -961,82 +855,72 @@
         {
             "elements": [
                 [
-                    "ssid",
+                    "SSID",
                     "string",
                     32,
                     "in"
                 ],
                 [
-                    "connection",
+                    "Connection",
                     "uint8",
                     1,
                     "in",
                     [
-                        "WifiConnection",
-                        "wifi_connection",
+                        "Wifi Connection",
                         [
                             [
                                 "DHCP",
-                                "dhcp",
                                 0
                             ],
                             [
-                                "StaticIP",
-                                "static_ip",
+                                "Static IP",
                                 1
                             ],
                             [
-                                "AccessPointDHCP",
-                                "access_point_dhcp",
+                                "Access Point DHCP",
                                 2
                             ],
                             [
-                                "AccessPointStaticIP",
-                                "access_point_static_ip",
+                                "Access Point Static IP",
                                 3
                             ],
                             [
-                                "AdHocDHCP",
-                                "ad_hoc_dhcp",
+                                "Ad Hoc DHCP",
                                 4
                             ],
                             [
-                                "AdHocStaticIP",
-                                "ad_hoc_static_ip",
+                                "Ad Hoc Static IP",
                                 5
                             ]
                         ]
                     ]
                 ],
                 [
-                    "ip",
+                    "IP",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "subnet_mask",
+                    "Subnet Mask",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "gateway",
+                    "Gateway",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "port",
+                    "Port",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetWifiConfiguration",
-                "set_wifi_configuration"
-            ],
+            "name": "Set Wifi Configuration",
             "doc": [
                 "af",
                 {
@@ -1055,82 +939,72 @@
         {
             "elements": [
                 [
-                    "ssid",
+                    "SSID",
                     "string",
                     32,
                     "out"
                 ],
                 [
-                    "connection",
+                    "Connection",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WifiConnection",
-                        "wifi_connection",
+                        "Wifi Connection",
                         [
                             [
                                 "DHCP",
-                                "dhcp",
                                 0
                             ],
                             [
-                                "StaticIP",
-                                "static_ip",
+                                "Static IP",
                                 1
                             ],
                             [
-                                "AccessPointDHCP",
-                                "access_point_dhcp",
+                                "Access Point DHCP",
                                 2
                             ],
                             [
-                                "AccessPointStaticIP",
-                                "access_point_static_ip",
+                                "Access Point Static IP",
                                 3
                             ],
                             [
-                                "AdHocDHCP",
-                                "ad_hoc_dhcp",
+                                "Ad Hoc DHCP",
                                 4
                             ],
                             [
-                                "AdHocStaticIP",
-                                "ad_hoc_static_ip",
+                                "Ad Hoc Static IP",
                                 5
                             ]
                         ]
                     ]
                 ],
                 [
-                    "ip",
+                    "IP",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "subnet_mask",
+                    "Subnet Mask",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "gateway",
+                    "Gateway",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "port",
+                    "Port",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetWifiConfiguration",
-                "get_wifi_configuration"
-            ],
+            "name": "Get Wifi Configuration",
             "doc": [
                 "af",
                 {
@@ -1149,129 +1023,111 @@
         {
             "elements": [
                 [
-                    "encryption",
+                    "Encryption",
                     "uint8",
                     1,
                     "in",
                     [
-                        "WifiEncryption",
-                        "wifi_encryption",
+                        "Wifi Encryption",
                         [
                             [
-                                "WPAWPA2",
-                                "wpa_wpa2",
+                                "WPA WPA2",
                                 0
                             ],
                             [
-                                "WPAEnterprise",
-                                "wpa_enterprise",
+                                "WPA Enterprise",
                                 1
                             ],
                             [
                                 "WEP",
-                                "wep",
                                 2
                             ],
                             [
-                                "NoEncryption",
-                                "no_encryption",
+                                "No Encryption",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "key",
+                    "Key",
                     "string",
                     50,
                     "in"
                 ],
                 [
-                    "key_index",
+                    "Key Index",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "eap_options",
+                    "EAP Options",
                     "uint8",
                     1,
                     "in",
                     [
-                        "WifiEAPOption",
-                        "wifi_eap_option",
+                        "Wifi EAP Option",
                         [
                             [
-                                "OuterAuthEAPFAST",
-                                "outer_auth_eap_fast",
+                                "Outer Auth EAP FAST",
                                 0
                             ],
                             [
-                                "OuterAuthEAPTLS",
-                                "outer_auth_eap_tls",
+                                "Outer Auth EAP TLS",
                                 1
                             ],
                             [
-                                "OuterAuthEAPTTLS",
-                                "outer_auth_eap_ttls",
+                                "Outer Auth EAP TTLS",
                                 2
                             ],
                             [
-                                "OuterAuthEAPPEAP",
-                                "outer_auth_eap_peap",
+                                "Outer Auth EAP PEAP",
                                 3
                             ],
                             [
-                                "InnerAuthEAPMSCHAP",
-                                "inner_auth_eap_mschap",
+                                "Inner Auth EAP MSCHAP",
                                 0
                             ],
                             [
-                                "InnerAuthEAPGTC",
-                                "inner_auth_eap_gtc",
+                                "Inner Auth EAP GTC",
                                 4
                             ],
                             [
-                                "CertTypeCACert",
-                                "cert_type_ca_cert",
+                                "Cert Type CA Cert",
                                 0
                             ],
                             [
-                                "CertTypeClientCert",
-                                "cert_type_client_cert",
+                                "Cert Type Client Cert",
                                 8
                             ],
                             [
-                                "CertTypePrivateKey",
-                                "cert_type_private_key",
+                                "Cert Type Private Key",
                                 16
                             ]
                         ]
                     ]
                 ],
                 [
-                    "ca_certificate_length",
+                    "CA Certificate Length",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "client_certificate_length",
+                    "Client Certificate Length",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "private_key_length",
+                    "Private Key Length",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetWifiEncryption",
-                "set_wifi_encryption"
-            ],
+            "name": "Set Wifi Encryption",
             "doc": [
                 "af",
                 {
@@ -1290,129 +1146,111 @@
         {
             "elements": [
                 [
-                    "encryption",
+                    "Encryption",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WifiEncryption",
-                        "wifi_encryption",
+                        "Wifi Encryption",
                         [
                             [
-                                "WPAWPA2",
-                                "wpa_wpa2",
+                                "WPA WPA2",
                                 0
                             ],
                             [
-                                "WPAEnterprise",
-                                "wpa_enterprise",
+                                "WPA Enterprise",
                                 1
                             ],
                             [
                                 "WEP",
-                                "wep",
                                 2
                             ],
                             [
-                                "NoEncryption",
-                                "no_encryption",
+                                "No Encryption",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "key",
+                    "Key",
                     "string",
                     50,
                     "out"
                 ],
                 [
-                    "key_index",
+                    "Key Index",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "eap_options",
+                    "EAP Options",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WifiEAPOption",
-                        "wifi_eap_option",
+                        "Wifi EAP Option",
                         [
                             [
-                                "OuterAuthEAPFAST",
-                                "outer_auth_eap_fast",
+                                "Outer Auth EAP FAST",
                                 0
                             ],
                             [
-                                "OuterAuthEAPTLS",
-                                "outer_auth_eap_tls",
+                                "Outer Auth EAP TLS",
                                 1
                             ],
                             [
-                                "OuterAuthEAPTTLS",
-                                "outer_auth_eap_ttls",
+                                "Outer Auth EAP TTLS",
                                 2
                             ],
                             [
-                                "OuterAuthEAPPEAP",
-                                "outer_auth_eap_peap",
+                                "Outer Auth EAP PEAP",
                                 3
                             ],
                             [
-                                "InnerAuthEAPMSCHAP",
-                                "inner_auth_eap_mschap",
+                                "Inner Auth EAP MSCHAP",
                                 0
                             ],
                             [
-                                "InnerAuthEAPGTC",
-                                "inner_auth_eap_gtc",
+                                "Inner Auth EAP GTC",
                                 4
                             ],
                             [
-                                "CertTypeCACert",
-                                "cert_type_ca_cert",
+                                "Cert Type CA Cert",
                                 0
                             ],
                             [
-                                "CertTypeClientCert",
-                                "cert_type_client_cert",
+                                "Cert Type Client Cert",
                                 8
                             ],
                             [
-                                "CertTypePrivateKey",
-                                "cert_type_private_key",
+                                "Cert Type Private Key",
                                 16
                             ]
                         ]
                     ]
                 ],
                 [
-                    "ca_certificate_length",
+                    "CA Certificate Length",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "client_certificate_length",
+                    "Client Certificate Length",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "private_key_length",
+                    "Private Key Length",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetWifiEncryption",
-                "get_wifi_encryption"
-            ],
+            "name": "Get Wifi Encryption",
             "doc": [
                 "af",
                 {
@@ -1431,101 +1269,92 @@
         {
             "elements": [
                 [
-                    "mac_address",
+                    "MAC Address",
                     "uint8",
                     6,
                     "out"
                 ],
                 [
-                    "bssid",
+                    "BSSID",
                     "uint8",
                     6,
                     "out"
                 ],
                 [
-                    "channel",
+                    "Channel",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "rssi",
+                    "RSSI",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ip",
+                    "IP",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "subnet_mask",
+                    "Subnet Mask",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "gateway",
+                    "Gateway",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "rx_count",
+                    "RX Count",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "tx_count",
+                    "TX Count",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WifiState",
-                        "wifi_state",
+                        "Wifi State",
                         [
                             [
                                 "Disassociated",
-                                "disassociated",
                                 0
                             ],
                             [
                                 "Associated",
-                                "associated",
                                 1
                             ],
                             [
                                 "Associating",
-                                "associating",
                                 2
                             ],
                             [
                                 "Error",
-                                "error",
                                 3
                             ],
                             [
-                                "NotInitializedYet",
-                                "not_initialized_yet",
+                                "Not Initialized Yet",
                                 255
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetWifiStatus",
-                "get_wifi_status"
-            ],
+            "name": "Get Wifi Status",
             "doc": [
                 "af",
                 {
@@ -1543,10 +1372,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "RefreshWifiStatus",
-                "refresh_wifi_status"
-            ],
+            "name": "Refresh Wifi Status",
             "doc": [
                 "af",
                 {
@@ -1565,28 +1391,25 @@
         {
             "elements": [
                 [
-                    "index",
+                    "Index",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "data",
+                    "Data",
                     "uint8",
                     32,
                     "in"
                 ],
                 [
-                    "data_length",
+                    "Data Length",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetWifiCertificate",
-                "set_wifi_certificate"
-            ],
+            "name": "Set Wifi Certificate",
             "doc": [
                 "af",
                 {
@@ -1605,28 +1428,25 @@
         {
             "elements": [
                 [
-                    "index",
+                    "Index",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "data",
+                    "Data",
                     "uint8",
                     32,
                     "out"
                 ],
                 [
-                    "data_length",
+                    "Data Length",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetWifiCertificate",
-                "get_wifi_certificate"
-            ],
+            "name": "Get Wifi Certificate",
             "doc": [
                 "af",
                 {
@@ -1645,32 +1465,26 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "in",
                     [
-                        "WifiPowerMode",
-                        "wifi_power_mode",
+                        "Wifi Power Mode",
                         [
                             [
-                                "FullSpeed",
-                                "full_speed",
+                                "Full Speed",
                                 0
                             ],
                             [
-                                "LowPower",
-                                "low_power",
+                                "Low Power",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetWifiPowerMode",
-                "set_wifi_power_mode"
-            ],
+            "name": "Set Wifi Power Mode",
             "doc": [
                 "af",
                 {
@@ -1689,32 +1503,26 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WifiPowerMode",
-                        "wifi_power_mode",
+                        "Wifi Power Mode",
                         [
                             [
-                                "FullSpeed",
-                                "full_speed",
+                                "Full Speed",
                                 0
                             ],
                             [
-                                "LowPower",
-                                "low_power",
+                                "Low Power",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetWifiPowerMode",
-                "get_wifi_power_mode"
-            ],
+            "name": "Get Wifi Power Mode",
             "doc": [
                 "af",
                 {
@@ -1733,28 +1541,25 @@
         {
             "elements": [
                 [
-                    "overflow",
+                    "Overflow",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "low_watermark",
+                    "Low Watermark",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "used",
+                    "Used",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetWifiBufferInfo",
-                "get_wifi_buffer_info"
-            ],
+            "name": "Get Wifi Buffer Info",
             "doc": [
                 "af",
                 {
@@ -1773,37 +1578,30 @@
         {
             "elements": [
                 [
-                    "domain",
+                    "Domain",
                     "uint8",
                     1,
                     "in",
                     [
-                        "WifiDomain",
-                        "wifi_domain",
+                        "Wifi Domain",
                         [
                             [
-                                "Channel1To11",
-                                "channel_1to11",
+                                "Channel 1To11",
                                 0
                             ],
                             [
-                                "Channel1To13",
-                                "channel_1to13",
+                                "Channel 1To13",
                                 1
                             ],
                             [
-                                "Channel1To14",
-                                "channel_1to14",
+                                "Channel 1To14",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetWifiRegulatoryDomain",
-                "set_wifi_regulatory_domain"
-            ],
+            "name": "Set Wifi Regulatory Domain",
             "doc": [
                 "af",
                 {
@@ -1822,37 +1620,30 @@
         {
             "elements": [
                 [
-                    "domain",
+                    "Domain",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WifiDomain",
-                        "wifi_domain",
+                        "Wifi Domain",
                         [
                             [
-                                "Channel1To11",
-                                "channel_1to11",
+                                "Channel 1To11",
                                 0
                             ],
                             [
-                                "Channel1To13",
-                                "channel_1to13",
+                                "Channel 1To13",
                                 1
                             ],
                             [
-                                "Channel1To14",
-                                "channel_1to14",
+                                "Channel 1To14",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetWifiRegulatoryDomain",
-                "get_wifi_regulatory_domain"
-            ],
+            "name": "Get Wifi Regulatory Domain",
             "doc": [
                 "af",
                 {
@@ -1871,16 +1662,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetUSBVoltage",
-                "get_usb_voltage"
-            ],
+            "name": "Get USB Voltage",
             "doc": [
                 "af",
                 {
@@ -1899,16 +1687,13 @@
         {
             "elements": [
                 [
-                    "key",
+                    "Key",
                     "string",
                     64,
                     "in"
                 ]
             ],
-            "name": [
-                "SetLongWifiKey",
-                "set_long_wifi_key"
-            ],
+            "name": "Set Long Wifi Key",
             "doc": [
                 "af",
                 {
@@ -1927,16 +1712,13 @@
         {
             "elements": [
                 [
-                    "key",
+                    "Key",
                     "string",
                     64,
                     "out"
                 ]
             ],
-            "name": [
-                "GetLongWifiKey",
-                "get_long_wifi_key"
-            ],
+            "name": "Get Long Wifi Key",
             "doc": [
                 "af",
                 {
@@ -1955,16 +1737,13 @@
         {
             "elements": [
                 [
-                    "hostname",
+                    "Hostname",
                     "string",
                     16,
                     "in"
                 ]
             ],
-            "name": [
-                "SetWifiHostname",
-                "set_wifi_hostname"
-            ],
+            "name": "Set Wifi Hostname",
             "doc": [
                 "af",
                 {
@@ -1983,16 +1762,13 @@
         {
             "elements": [
                 [
-                    "hostname",
+                    "Hostname",
                     "string",
                     16,
                     "out"
                 ]
             ],
-            "name": [
-                "GetWifiHostname",
-                "get_wifi_hostname"
-            ],
+            "name": "Get Wifi Hostname",
             "doc": [
                 "af",
                 {
@@ -2011,16 +1787,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetStackCurrentCallbackPeriod",
-                "set_stack_current_callback_period"
-            ],
+            "name": "Set Stack Current Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -2039,16 +1812,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackCurrentCallbackPeriod",
-                "get_stack_current_callback_period"
-            ],
+            "name": "Get Stack Current Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -2067,16 +1837,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetStackVoltageCallbackPeriod",
-                "set_stack_voltage_callback_period"
-            ],
+            "name": "Set Stack Voltage Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -2095,16 +1862,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackVoltageCallbackPeriod",
-                "get_stack_voltage_callback_period"
-            ],
+            "name": "Get Stack Voltage Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -2123,16 +1887,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetUSBVoltageCallbackPeriod",
-                "set_usb_voltage_callback_period"
-            ],
+            "name": "Set USB Voltage Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -2151,16 +1912,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetUSBVoltageCallbackPeriod",
-                "get_usb_voltage_callback_period"
-            ],
+            "name": "Get USB Voltage Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -2179,59 +1937,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetStackCurrentCallbackThreshold",
-                "set_stack_current_callback_threshold"
-            ],
+            "name": "Set Stack Current Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -2250,59 +1999,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackCurrentCallbackThreshold",
-                "get_stack_current_callback_threshold"
-            ],
+            "name": "Get Stack Current Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -2321,59 +2061,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetStackVoltageCallbackThreshold",
-                "set_stack_voltage_callback_threshold"
-            ],
+            "name": "Set Stack Voltage Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -2392,59 +2123,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackVoltageCallbackThreshold",
-                "get_stack_voltage_callback_threshold"
-            ],
+            "name": "Get Stack Voltage Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -2463,59 +2185,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetUSBVoltageCallbackThreshold",
-                "set_usb_voltage_callback_threshold"
-            ],
+            "name": "Set USB Voltage Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -2534,59 +2247,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetUSBVoltageCallbackThreshold",
-                "get_usb_voltage_callback_threshold"
-            ],
+            "name": "Get USB Voltage Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -2605,16 +2309,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -2633,16 +2334,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -2661,16 +2359,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "StackCurrent",
-                "stack_current"
-            ],
+            "name": "Stack Current",
             "doc": [
                 "c",
                 {
@@ -2689,16 +2384,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "StackVoltage",
-                "stack_voltage"
-            ],
+            "name": "Stack Voltage",
             "doc": [
                 "c",
                 {
@@ -2717,16 +2409,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "USBVoltage",
-                "usb_voltage"
-            ],
+            "name": "USB Voltage",
             "doc": [
                 "c",
                 {
@@ -2745,16 +2434,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "StackCurrentReached",
-                "stack_current_reached"
-            ],
+            "name": "Stack Current Reached",
             "doc": [
                 "c",
                 {
@@ -2773,16 +2459,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "StackVoltageReached",
-                "stack_voltage_reached"
-            ],
+            "name": "Stack Voltage Reached",
             "doc": [
                 "c",
                 {
@@ -2801,16 +2484,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "USBVoltageReached",
-                "usb_voltage_reached"
-            ],
+            "name": "USB Voltage Reached",
             "doc": [
                 "c",
                 {
@@ -2829,16 +2509,13 @@
         {
             "elements": [
                 [
-                    "present",
+                    "Present",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsEthernetPresent",
-                "is_ethernet_present"
-            ],
+            "name": "Is Ethernet Present",
             "doc": [
                 "af",
                 {
@@ -2857,56 +2534,50 @@
         {
             "elements": [
                 [
-                    "connection",
+                    "Connection",
                     "uint8",
                     1,
                     "in",
                     [
-                        "EthernetConnection",
-                        "ethernet_connection",
+                        "Ethernet Connection",
                         [
                             [
                                 "DHCP",
-                                "dhcp",
                                 0
                             ],
                             [
-                                "StaticIP",
-                                "static_ip",
+                                "Static IP",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "ip",
+                    "IP",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "subnet_mask",
+                    "Subnet Mask",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "gateway",
+                    "Gateway",
                     "uint8",
                     4,
                     "in"
                 ],
                 [
-                    "port",
+                    "Port",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEthernetConfiguration",
-                "set_ethernet_configuration"
-            ],
+            "name": "Set Ethernet Configuration",
             "doc": [
                 "af",
                 {
@@ -2925,56 +2596,50 @@
         {
             "elements": [
                 [
-                    "connection",
+                    "Connection",
                     "uint8",
                     1,
                     "out",
                     [
-                        "EthernetConnection",
-                        "ethernet_connection",
+                        "Ethernet Connection",
                         [
                             [
                                 "DHCP",
-                                "dhcp",
                                 0
                             ],
                             [
-                                "StaticIP",
-                                "static_ip",
+                                "Static IP",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "ip",
+                    "IP",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "subnet_mask",
+                    "Subnet Mask",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "gateway",
+                    "Gateway",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "port",
+                    "Port",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEthernetConfiguration",
-                "get_ethernet_configuration"
-            ],
+            "name": "Get Ethernet Configuration",
             "doc": [
                 "af",
                 {
@@ -2993,52 +2658,49 @@
         {
             "elements": [
                 [
-                    "mac_address",
+                    "MAC Address",
                     "uint8",
                     6,
                     "out"
                 ],
                 [
-                    "ip",
+                    "IP",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "subnet_mask",
+                    "Subnet Mask",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "gateway",
+                    "Gateway",
                     "uint8",
                     4,
                     "out"
                 ],
                 [
-                    "rx_count",
+                    "RX Count",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "tx_count",
+                    "TX Count",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "hostname",
+                    "Hostname",
                     "string",
                     32,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEthernetStatus",
-                "get_ethernet_status"
-            ],
+            "name": "Get Ethernet Status",
             "doc": [
                 "af",
                 {
@@ -3057,16 +2719,13 @@
         {
             "elements": [
                 [
-                    "hostname",
+                    "Hostname",
                     "string",
                     32,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEthernetHostname",
-                "set_ethernet_hostname"
-            ],
+            "name": "Set Ethernet Hostname",
             "doc": [
                 "af",
                 {
@@ -3085,16 +2744,13 @@
         {
             "elements": [
                 [
-                    "mac_address",
+                    "MAC Address",
                     "uint8",
                     6,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEthernetMACAddress",
-                "set_ethernet_mac_address"
-            ],
+            "name": "Set Ethernet MAC Address",
             "doc": [
                 "af",
                 {
@@ -3113,22 +2769,19 @@
         {
             "elements": [
                 [
-                    "sockets",
+                    "Sockets",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "port",
+                    "Port",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEthernetWebsocketConfiguration",
-                "set_ethernet_websocket_configuration"
-            ],
+            "name": "Set Ethernet Websocket Configuration",
             "doc": [
                 "af",
                 {
@@ -3147,22 +2800,19 @@
         {
             "elements": [
                 [
-                    "sockets",
+                    "Sockets",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "port",
+                    "Port",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEthernetWebsocketConfiguration",
-                "get_ethernet_websocket_configuration"
-            ],
+            "name": "Get Ethernet Websocket Configuration",
             "doc": [
                 "af",
                 {
@@ -3181,16 +2831,13 @@
         {
             "elements": [
                 [
-                    "secret",
+                    "Secret",
                     "string",
                     64,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEthernetAuthenticationSecret",
-                "set_ethernet_authentication_secret"
-            ],
+            "name": "Set Ethernet Authentication Secret",
             "doc": [
                 "af",
                 {
@@ -3209,16 +2856,13 @@
         {
             "elements": [
                 [
-                    "secret",
+                    "Secret",
                     "string",
                     64,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEthernetAuthenticationSecret",
-                "get_ethernet_authentication_secret"
-            ],
+            "name": "Get Ethernet Authentication Secret",
             "doc": [
                 "af",
                 {
@@ -3237,16 +2881,13 @@
         {
             "elements": [
                 [
-                    "secret",
+                    "Secret",
                     "string",
                     64,
                     "in"
                 ]
             ],
-            "name": [
-                "SetWifiAuthenticationSecret",
-                "set_wifi_authentication_secret"
-            ],
+            "name": "Set Wifi Authentication Secret",
             "doc": [
                 "af",
                 {
@@ -3265,16 +2906,13 @@
         {
             "elements": [
                 [
-                    "secret",
+                    "Secret",
                     "string",
                     64,
                     "out"
                 ]
             ],
-            "name": [
-                "GetWifiAuthenticationSecret",
-                "get_wifi_authentication_secret"
-            ],
+            "name": "Get Wifi Authentication Secret",
             "doc": [
                 "af",
                 {
@@ -3293,16 +2931,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -3318,22 +2953,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -3349,22 +2981,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -3380,16 +3009,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -3404,10 +3030,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableStatusLED",
-                "enable_status_led"
-            ],
+            "name": "Enable Status LED",
             "doc": [
                 "af",
                 {
@@ -3425,10 +3048,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableStatusLED",
-                "disable_status_led"
-            ],
+            "name": "Disable Status LED",
             "doc": [
                 "af",
                 {
@@ -3447,16 +3067,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsStatusLEDEnabled",
-                "is_status_led_enabled"
-            ],
+            "name": "Is Status LED Enabled",
             "doc": [
                 "af",
                 {
@@ -3475,34 +3092,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "protocol_version",
+                    "Protocol Version",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "name",
+                    "Name",
                     "string",
                     40,
                     "out"
                 ]
             ],
-            "name": [
-                "GetProtocol1BrickletName",
-                "get_protocol1_bricklet_name"
-            ],
+            "name": "Get Protocol1 Bricklet Name",
             "doc": [
                 "af",
                 {
@@ -3521,16 +3135,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -3548,10 +3159,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Reset",
-                "reset"
-            ],
+            "name": "Reset",
             "doc": [
                 "af",
                 {
@@ -3570,46 +3178,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -3629,16 +3234,64 @@
     ],
     "device_identifier": 13,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Stack Voltage",
+                        "stack voltage"
+                    ],
+                    [
+                        [
+                            [
+                                "Stack Voltage",
+                                "Stack Voltage"
+                            ],
+                            "uint16",
+                            1000.0,
+                            "mV",
+                            "V",
+                            null
+                        ]
+                    ],
+                    []
+                ],
+                [
+                    "getter",
+                    [
+                        "Get Stack Current",
+                        "stack current"
+                    ],
+                    [
+                        [
+                            [
+                                "Stack Current",
+                                "Stack Current"
+                            ],
+                            "uint16",
+                            1000.0,
+                            "mA",
+                            "A",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Stack Status"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        3
+        4
     ],
     "name": [
         "Master",
-        "master",
         "Master",
         "Master Brick"
     ]

@@ -50,7 +50,7 @@ public class IndustrialDigitalIn4Consumer extends TinkerforgeConsumer<Industrial
     
     
     @Override
-    public void interrupt(int interrupt_mask, int value_mask) {
+    public void interrupt(int interruptMask, int valueMask) {
         LOG.trace("interrupt()");
         
         Exchange exchange = null;
@@ -59,8 +59,8 @@ public class IndustrialDigitalIn4Consumer extends TinkerforgeConsumer<Industrial
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletIndustrialDigitalIn4.CALLBACK_INTERRUPT);
-            exchange.getIn().setHeader("interrupt_mask", interrupt_mask);
-            exchange.getIn().setHeader("value_mask", value_mask);
+            exchange.getIn().setHeader("interruptMask", interruptMask);
+            exchange.getIn().setHeader("valueMask", valueMask);
             
             
             // ADD BODY

@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperature",
-                "get_temperature"
-            ],
+            "name": "Get Temperature",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "resistance",
+                    "Resistance",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResistance",
-                "get_resistance"
-            ],
+            "name": "Get Resistance",
             "doc": [
                 "af",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTemperatureCallbackPeriod",
-                "set_temperature_callback_period"
-            ],
+            "name": "Set Temperature Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,16 +84,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperatureCallbackPeriod",
-                "get_temperature_callback_period"
-            ],
+            "name": "Get Temperature Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -121,16 +109,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResistanceCallbackPeriod",
-                "set_resistance_callback_period"
-            ],
+            "name": "Set Resistance Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -149,16 +134,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResistanceCallbackPeriod",
-                "get_resistance_callback_period"
-            ],
+            "name": "Get Resistance Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -177,59 +159,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTemperatureCallbackThreshold",
-                "set_temperature_callback_threshold"
-            ],
+            "name": "Set Temperature Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -248,59 +221,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperatureCallbackThreshold",
-                "get_temperature_callback_threshold"
-            ],
+            "name": "Get Temperature Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -319,59 +283,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResistanceCallbackThreshold",
-                "set_resistance_callback_threshold"
-            ],
+            "name": "Set Resistance Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -390,59 +345,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResistanceCallbackThreshold",
-                "get_resistance_callback_threshold"
-            ],
+            "name": "Get Resistance Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -461,16 +407,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -489,16 +432,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -517,16 +457,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Temperature",
-                "temperature"
-            ],
+            "name": "Temperature",
             "doc": [
                 "c",
                 {
@@ -545,16 +482,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "TemperatureReached",
-                "temperature_reached"
-            ],
+            "name": "Temperature Reached",
             "doc": [
                 "c",
                 {
@@ -573,16 +507,13 @@
         {
             "elements": [
                 [
-                    "resistance",
+                    "Resistance",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Resistance",
-                "resistance"
-            ],
+            "name": "Resistance",
             "doc": [
                 "c",
                 {
@@ -601,16 +532,13 @@
         {
             "elements": [
                 [
-                    "resistance",
+                    "Resistance",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ResistanceReached",
-                "resistance_reached"
-            ],
+            "name": "Resistance Reached",
             "doc": [
                 "c",
                 {
@@ -629,32 +557,26 @@
         {
             "elements": [
                 [
-                    "filter",
+                    "Filter",
                     "uint8",
                     1,
                     "in",
                     [
-                        "FilterOption",
-                        "filter_option",
+                        "Filter Option",
                         [
                             [
                                 "50Hz",
-                                "50hz",
                                 0
                             ],
                             [
                                 "60Hz",
-                                "60hz",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetNoiseRejectionFilter",
-                "set_noise_rejection_filter"
-            ],
+            "name": "Set Noise Rejection Filter",
             "doc": [
                 "af",
                 {
@@ -673,32 +595,26 @@
         {
             "elements": [
                 [
-                    "filter",
+                    "Filter",
                     "uint8",
                     1,
                     "out",
                     [
-                        "FilterOption",
-                        "filter_option",
+                        "Filter Option",
                         [
                             [
                                 "50Hz",
-                                "50hz",
                                 0
                             ],
                             [
                                 "60Hz",
-                                "60hz",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetNoiseRejectionFilter",
-                "get_noise_rejection_filter"
-            ],
+            "name": "Get Noise Rejection Filter",
             "doc": [
                 "af",
                 {
@@ -717,16 +633,13 @@
         {
             "elements": [
                 [
-                    "connected",
+                    "Connected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsSensorConnected",
-                "is_sensor_connected"
-            ],
+            "name": "Is Sensor Connected",
             "doc": [
                 "bf",
                 {
@@ -745,26 +658,22 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "in",
                     [
-                        "WireMode",
-                        "wire_mode",
+                        "Wire Mode",
                         [
                             [
-                                "2",
                                 "2",
                                 2
                             ],
                             [
                                 "3",
-                                "3",
                                 3
                             ],
                             [
-                                "4",
                                 "4",
                                 4
                             ]
@@ -772,10 +681,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "SetWireMode",
-                "set_wire_mode"
-            ],
+            "name": "Set Wire Mode",
             "doc": [
                 "bf",
                 {
@@ -794,26 +700,22 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "out",
                     [
-                        "WireMode",
-                        "wire_mode",
+                        "Wire Mode",
                         [
                             [
-                                "2",
                                 "2",
                                 2
                             ],
                             [
                                 "3",
-                                "3",
                                 3
                             ],
                             [
-                                "4",
                                 "4",
                                 4
                             ]
@@ -821,10 +723,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "GetWireMode",
-                "get_wire_mode"
-            ],
+            "name": "Get Wire Mode",
             "doc": [
                 "bf",
                 {
@@ -843,16 +742,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -868,22 +764,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -899,22 +792,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -930,16 +820,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -955,46 +842,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1014,6 +898,116 @@
     ],
     "device_identifier": 226,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Temperature",
+                        "temperature"
+                    ],
+                    [
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int32",
+                            100.0,
+                            "\u00b0C/100",
+                            "\u00b0C",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Temperature",
+                        "temperature"
+                    ],
+                    [
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int32",
+                            100.0,
+                            "\u00b0C/100",
+                            "\u00b0C",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Temperature",
+                        "temperature"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Temperature Reached",
+                        "temperature reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int32",
+                            100.0,
+                            "\u00b0C/100",
+                            "\u00b0C",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Temperature",
+                        "temperature"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            30,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -1023,7 +1017,6 @@
     ],
     "name": [
         "PTC",
-        "ptc",
         "PTC",
         "PTC Bricklet"
     ]

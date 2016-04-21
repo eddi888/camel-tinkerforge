@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "intensity",
+                    "Intensity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIntensity",
-                "get_intensity"
-            ],
+            "name": "Get Intensity",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetIntensityCallbackPeriod",
-                "set_intensity_callback_period"
-            ],
+            "name": "Set Intensity Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIntensityCallbackPeriod",
-                "get_intensity_callback_period"
-            ],
+            "name": "Get Intensity Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,59 +84,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetIntensityCallbackThreshold",
-                "set_intensity_callback_threshold"
-            ],
+            "name": "Set Intensity Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIntensityCallbackThreshold",
-                "get_intensity_callback_threshold"
-            ],
+            "name": "Get Intensity Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,16 +258,13 @@
         {
             "elements": [
                 [
-                    "intensity",
+                    "Intensity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Intensity",
-                "intensity"
-            ],
+            "name": "Intensity",
             "doc": [
                 "c",
                 {
@@ -319,16 +283,13 @@
         {
             "elements": [
                 [
-                    "intensity",
+                    "Intensity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IntensityReached",
-                "intensity_reached"
-            ],
+            "name": "Intensity Reached",
             "doc": [
                 "c",
                 {
@@ -347,16 +308,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -372,22 +330,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -403,22 +358,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -434,16 +386,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -459,46 +408,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -518,6 +464,116 @@
     ],
     "device_identifier": 238,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Intensity",
+                        "intensity"
+                    ],
+                    [
+                        [
+                            [
+                                "Intensity",
+                                "Intensity"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Intensity",
+                        "intensity"
+                    ],
+                    [
+                        [
+                            [
+                                "Intensity",
+                                "Intensity"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Intensity",
+                        "intensity"
+                    ],
+                    [],
+                    50
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    1000
+                ],
+                [
+                    "callback",
+                    [
+                        "Intensity Reached",
+                        "intensity reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Intensity",
+                                "Intensity"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Intensity",
+                        "intensity"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            2000,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -526,8 +582,7 @@
         0
     ],
     "name": [
-        "SoundIntensity",
-        "sound_intensity",
+        "Sound Intensity",
         "Sound Intensity",
         "Sound Intensity Bricklet"
     ]

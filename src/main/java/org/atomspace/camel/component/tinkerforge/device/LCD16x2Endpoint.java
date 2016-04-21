@@ -273,8 +273,9 @@ public class LCD16x2Endpoint extends TinkerforgeEndpoint<LCD16x2Consumer, LCD16x
 
     /**
      * 
-     * Returns *true* if the button (0 to 2) is pressed. If you want to react
-     * on button presses and releases it is recommended to use the
+     * Returns *true* if the button (0 to 2) is pressed.
+     * 
+     * If you want to react on button presses and releases it is recommended to use the
      * :func:`ButtonPressed` and :func:`ButtonReleased` callbacks.
      * 
      */

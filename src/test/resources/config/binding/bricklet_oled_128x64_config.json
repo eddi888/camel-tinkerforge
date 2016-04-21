@@ -1,29 +1,26 @@
 {
     "category": "Bricklet",
     "description": {
-        "de": "1.3\" OLED mit 128x64 Pixel",
-        "en": "1.3\" OLED with 128x64 pixels"
+        "de": "3,3cm (1,3\") OLED mit 128x64 Pixel",
+        "en": "3.3cm (1.3\") OLED with 128x64 pixels"
     },
     "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
     "packets": [
         {
             "elements": [
                 [
-                    "data",
+                    "Data",
                     "uint8",
                     64,
                     "in"
                 ]
             ],
-            "name": [
-                "Write",
-                "write"
-            ],
+            "name": "Write",
             "doc": [
                 "bf",
                 {
-                    "de": "\n",
-                    "en": "\n"
+                    "de": "\nF\u00fcgt 64 Byte Daten zu dem mit :func:`NewWindow` gesetztem Fenster hinzu.\n\nJede Zeile hat eine H\u00f6he von 8 Pixeln welche einem Byte Daten entsprechen.\n\nBeispiel: Wenn :func:`NewWindow` mit Spalte (Column) von 0 bis 127 und\nZeile (Row) von 0 bis 7 (das ganze Display) aufgerufen wird, schreibt\njedes :func:`Write` (roter Pfeil) eine halbe Zeile.\n\n.. image:: /Images/Bricklets/bricklet_oled_64x48_display.png\n   :scale: 100 %\n   :alt: Display Pixel Reihenfolge\n   :align: center\n   :target: ../../_images/Bricklets/bricklet_oled_64x48_display.png\n\nDas LSB (D0) von jedem Daten-Byte ist in der Zeile oben und das\nMSB (D7) ist in der Zeile unten.\n\nDer n\u00e4chste Aufruf von :func:`Write` schreibt die zweite H\u00e4lfte\nder erste Zeile, und die n\u00e4chsten beiden Aufrufe die zweite Zeile\nusw. Um das ganze Display zu f\u00fcllen muss :func:`Write` 16 mal\naufgerufen werden.\n",
+                    "en": "\nAppends 64 byte of data to the window as set by :func:`NewWindow`.\n\nEach row has a height of 8 pixels which corresponds to one byte of data.\n\nExample: if you call :func:`NewWindow` with column from 0 to 127 and row\nfrom 0 to 7 (the whole display) each call of :func:`Write` (red arrow) will\nwrite half of a row.\n\n.. image:: /Images/Bricklets/bricklet_oled_128x64_display.png\n   :scale: 100 %\n   :alt: Display pixel order\n   :align: center\n   :target: ../../_images/Bricklets/bricklet_oled_128x64_display.png\n\nThe LSB (D0) of each data byte is at the top and the MSB (D7) is at the \nbottom of the row.\n\nThe next call of :func:`Write` will write the second half of the row\nand the next two the second row and so on. To fill the whole display \nyou need to call :func:`Write` 16 times.\n"
                 }
             ],
             "since_firmware": [
@@ -37,39 +34,36 @@
         {
             "elements": [
                 [
-                    "column_from",
+                    "Column From",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "column_to",
+                    "Column To",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "row_from",
+                    "Row From",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "row_to",
+                    "Row To",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "NewWindow",
-                "new_window"
-            ],
+            "name": "New Window",
             "doc": [
                 "bf",
                 {
-                    "de": "\n",
-                    "en": "\n"
+                    "de": "\nSetzt das Fenster in welches mit :func:`Write` geschrieben\nwerden kann. Eine Zeile (Row) hat eine H\u00f6he von 8 Pixel.\n\nDie Spalten haben einen Wertebereich von 0 bis 127 und die Zeilen haben\neinen Wertebereich von 0 bis 7.\n",
+                    "en": "\nSets the window in which you can write with :func:`Write`. One row\nhas a height of 8 pixels.\n\nThe columns have a range of 0 to 127 and the rows have a range of 0 to 7.\n"
                 }
             ],
             "since_firmware": [
@@ -82,15 +76,12 @@
         },
         {
             "elements": [],
-            "name": [
-                "ClearDisplay",
-                "clear_display"
-            ],
+            "name": "Clear Display",
             "doc": [
                 "bf",
                 {
-                    "de": "\n",
-                    "en": "\n"
+                    "de": "\nL\u00f6scht den aktuellen Inhalt des mit :func:`NewWindow` gesetztem Fensters.\n",
+                    "en": "\nClears the current content of the window as set by :func:`NewWindow`.\n"
                 }
             ],
             "since_firmware": [
@@ -104,27 +95,24 @@
         {
             "elements": [
                 [
-                    "contrast",
+                    "Contrast",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "invert",
+                    "Invert",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDisplayConfiguration",
-                "set_display_configuration"
-            ],
+            "name": "Set Display Configuration",
             "doc": [
                 "af",
                 {
-                    "de": "\n",
-                    "en": "\n"
+                    "de": "\nSetzt die Konfiguration des Displays\n\nEs k\u00f6nnen der Kontrast mit einem Wertebereich von 0 bis 255 gesetzt, sowie die\nFarben (schwarz/wei\u00df) des Displays invertiert werden.\n\nDie Standardwerte sind ein Kontrast von 143 und die Invertierung ist aus.\n",
+                    "en": "\nSets the configuration of the display.\n\nYou can set a contrast value from 0 to 255 and you can invert the color\n(black/white) of the display.\n\nThe default values are contrast 143 and inverting off.\n"
                 }
             ],
             "since_firmware": [
@@ -138,27 +126,24 @@
         {
             "elements": [
                 [
-                    "contrast",
+                    "Contrast",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "invert",
+                    "Invert",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDisplayConfiguration",
-                "get_display_configuration"
-            ],
+            "name": "Get Display Configuration",
             "doc": [
                 "af",
                 {
-                    "de": "\n",
-                    "en": "\n"
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetDisplayConfiguration`\ngesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetDisplayConfiguration`.\n"
                 }
             ],
             "since_firmware": [
@@ -172,33 +157,30 @@
         {
             "elements": [
                 [
-                    "line",
+                    "Line",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "position",
+                    "Position",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "text",
+                    "Text",
                     "string",
                     26,
                     "in"
                 ]
             ],
-            "name": [
-                "WriteLine",
-                "write_line"
-            ],
+            "name": "Write Line",
             "doc": [
                 "bf",
                 {
-                    "de": "\n",
-                    "en": "\n"
+                    "de": "\nSchreibt einen Text in die angegebene Zeile (0 bis 7) mit einer vorgegebenen\nPosition (0 bis 25). Der Text kann maximal 26 Zeichen lang sein.\n\nBeispiel: (1, 10, \"Hallo\") schreibt *Hallo* in die Mitte der zweiten Zeile\ndes Displays.\n\nEs ist m\u00f6glich zuerst auf das Display mit :func:`Write` zu malen und danach\nText hinzuzuf\u00fcgen.\n\nDas Display nutzt einen speziellen 5x7 Pixel Zeichensatz. Der Zeichensatz\nkann mit Hilfe von Brick Viewer angezeigt werden.\n",
+                    "en": "\nWrites text to a specific line (0 to 7) with a specific position \n(0 to 25). The text can have a maximum of 26 characters.\n\nFor example: (1, 10, \"Hello\") will write *Hello* in the middle of the\nsecond line of the display.\n\nYou can draw to the display with :func:`Write` and then add text to it\nafterwards.\n\nThe display uses a special 5x7 pixel charset. You can view the characters \nof the charset in Brick Viewer.\n"
                 }
             ],
             "since_firmware": [
@@ -212,16 +194,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -237,22 +216,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -268,22 +244,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -299,16 +272,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -324,46 +294,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -382,7 +349,54 @@
         }
     ],
     "device_identifier": 263,
-    "released": false,
+    "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Clear Display",
+                    [],
+                    "Clear display",
+                    null
+                ],
+                [
+                    "setter",
+                    "Write Line",
+                    [
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "uint8",
+                            0
+                        ],
+                        [
+                            "string",
+                            "Hello World"
+                        ]
+                    ],
+                    "Write \"Hello World\" starting from upper left corner of the screen",
+                    null
+                ]
+            ],
+            "name": "Hello World"
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Clear Display",
+                    [],
+                    "Clear display",
+                    null
+                ]
+            ],
+            "name": "Pixel Matrix",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -391,8 +405,7 @@
         0
     ],
     "name": [
-        "OLED128x64",
-        "oled_128x64",
+        "OLED 128x64",
         "OLED 128x64",
         "OLED 128x64 Bricklet"
     ]

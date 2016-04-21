@@ -9,21 +9,18 @@
         {
             "elements": [
                 [
-                    "co2_concentration",
+                    "CO2 Concentration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCO2Concentration",
-                "get_co2_concentration"
-            ],
+            "name": "Get CO2 Concentration",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die gemessene CO2-Konzentration zur\u00fcck. Der Wert ist in\n`ppm (Teile pro Million) <https://de.wikipedia.org/wiki/Parts_per_million>`__\nund im Bereich von 0 bis TBD.\n\nWenn die Spannung periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`CO2Concentration` zu nutzen und die Periode mit\n:func:`SetCO2ConcentrationCallbackPeriod` vorzugeben.\n",
-                    "en": "\nReturns the measured CO2 concentration. The value is in \n`ppm (parts per million) <https://en.wikipedia.org/wiki/Parts-per_notation>`__\nand between 0 to TBD.\n\nIf you want to get the CO2 concentration periodically, it is recommended to use the\ncallback :func:`CO2Concentration` and set the period with\n:func:`SetCO2ConcentrationCallbackPeriod`.\n"
+                    "de": "\nGibt die gemessene CO2-Konzentration zur\u00fcck. Der Wert ist in\n`ppm (Teile pro Million) <https://de.wikipedia.org/wiki/Parts_per_million>`__\nund im Bereich von 0 bis 10000.\n\nWenn die CO2-Konzentration periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`CO2Concentration` zu nutzen und die Periode mit\n:func:`SetCO2ConcentrationCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the measured CO2 concentration. The value is in \n`ppm (parts per million) <https://en.wikipedia.org/wiki/Parts-per_notation>`__\nand between 0 to 10000.\n\nIf you want to get the CO2 concentration periodically, it is recommended to use the\ncallback :func:`CO2Concentration` and set the period with\n:func:`SetCO2ConcentrationCallbackPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -37,21 +34,18 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCO2ConcentrationCallbackPeriod",
-                "set_co2_concentration_callback_period"
-            ],
+            "name": "Set CO2 Concentration Callback Period",
             "doc": [
                 "ccf",
                 {
-                    "de": "\nSetzt die Periode in ms mit welcher der :func:`CO2Concentration` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`CO2Concentration` wird nur ausgel\u00f6st wenn sich die Spannung seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
-                    "en": "\nSets the period in ms with which the :func:`CO2Concentration` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`CO2Concentration` is only triggered if the co2_concentration has changed since the\nlast triggering.\n\nThe default value is 0.\n"
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`CO2Concentration` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n\n:func:`CO2Concentration` wird nur ausgel\u00f6st wenn sich die CO2-Konzentration seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n\nDer Standardwert ist 0.\n",
+                    "en": "\nSets the period in ms with which the :func:`CO2Concentration` callback is triggered\nperiodically. A value of 0 turns the callback off.\n\n:func:`CO2Concentration` is only triggered if the CO2 concentration has changed since the\nlast triggering.\n\nThe default value is 0.\n"
                 }
             ],
             "since_firmware": [
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCO2ConcentrationCallbackPeriod",
-                "get_co2_concentration_callback_period"
-            ],
+            "name": "Get CO2 Concentration Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,64 +84,55 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
-                    "int16",
+                    "Min",
+                    "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
-                    "int16",
+                    "Max",
+                    "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCO2ConcentrationCallbackThreshold",
-                "set_co2_concentration_callback_threshold"
-            ],
+            "name": "Set CO2 Concentration Callback Threshold",
             "doc": [
                 "ccf",
                 {
-                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`CO2ConcentrationReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Spannung *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Spannung *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Spannung kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Spannung gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n\nDer Standardwert ist ('x', 0, 0).\n",
-                    "en": "\nSets the thresholds for the :func:`CO2ConcentrationReached` callback.\n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the co2_concentration is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the co2_concentration is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the co2_concentration is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the co2_concentration is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`CO2ConcentrationReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die CO2-Konzentration *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die CO2-Konzentration *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die CO2-Konzentration kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die CO2-Konzentration gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n\nDer Standardwert ist ('x', 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`CO2ConcentrationReached` callback.\n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the CO2 concentration is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the CO2 concentration is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the CO2 concentration is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the CO2 concentration is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0).\n"
                 }
             ],
             "since_firmware": [
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
-                    "int16",
+                    "Min",
+                    "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
-                    "int16",
+                    "Max",
+                    "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCO2ConcentrationCallbackThreshold",
-                "get_co2_concentration_callback_threshold"
-            ],
+            "name": "Get CO2 Concentration Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,21 +258,18 @@
         {
             "elements": [
                 [
-                    "co2_concentration",
+                    "CO2 Concentration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "CO2Concentration",
-                "co2_concentration"
-            ],
+            "name": "CO2 Concentration",
             "doc": [
                 "c",
                 {
                     "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetCO2ConcentrationCallbackPeriod`,\nausgel\u00f6st. Der :word:`parameter` ist die gemessene CO2-Konzentration des Sensors.\n\n:func:`CO2Concentration` wird nur ausgel\u00f6st wenn sich die CO2-Konzentration seit der\nletzten Ausl\u00f6sung ge\u00e4ndert hat.\n",
-                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetCO2ConcentrationCallbackPeriod`. The :word:`parameter` is the co2 concentration of the\nsensor.\n\n:func:`CO2Concentration` is only triggered if the co2 concentration has changed since the\nlast triggering.\n"
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetCO2ConcentrationCallbackPeriod`. The :word:`parameter` is the CO2 concentration of the\nsensor.\n\n:func:`CO2Concentration` is only triggered if the CO2 concentration has changed since the\nlast triggering.\n"
                 }
             ],
             "since_firmware": [
@@ -319,16 +283,13 @@
         {
             "elements": [
                 [
-                    "co2_concentration",
+                    "CO2 Concentration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "CO2ConcentrationReached",
-                "co2_concentration_reached"
-            ],
+            "name": "CO2 Concentration Reached",
             "doc": [
                 "c",
                 {
@@ -347,16 +308,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -372,22 +330,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -403,22 +358,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -434,16 +386,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -459,46 +408,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -517,7 +463,117 @@
         }
     ],
     "device_identifier": 262,
-    "released": false,
+    "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get CO2 Concentration",
+                        "CO2 concentration"
+                    ],
+                    [
+                        [
+                            [
+                                "CO2 Concentration",
+                                "CO2 Concentration"
+                            ],
+                            "uint16",
+                            null,
+                            "ppm",
+                            "ppm",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "CO2 Concentration",
+                        "CO2 concentration"
+                    ],
+                    [
+                        [
+                            [
+                                "CO2 Concentration",
+                                "CO2 Concentration"
+                            ],
+                            "uint16",
+                            null,
+                            "ppm",
+                            "ppm",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "CO2 Concentration",
+                        "CO2 concentration"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "CO2 Concentration Reached",
+                        "CO2 concentration reached"
+                    ],
+                    [
+                        [
+                            [
+                                "CO2 Concentration",
+                                "CO2 Concentration"
+                            ],
+                            "uint16",
+                            null,
+                            "ppm",
+                            "ppm",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "CO2 Concentration",
+                        "CO2 concentration"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            750,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -527,7 +583,6 @@
     ],
     "name": [
         "CO2",
-        "co2",
         "CO2",
         "CO2 Bricklet"
     ]

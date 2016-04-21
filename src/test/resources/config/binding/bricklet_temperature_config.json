@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperature",
-                "get_temperature"
-            ],
+            "name": "Get Temperature",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTemperatureCallbackPeriod",
-                "set_temperature_callback_period"
-            ],
+            "name": "Set Temperature Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperatureCallbackPeriod",
-                "get_temperature_callback_period"
-            ],
+            "name": "Get Temperature Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,59 +84,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTemperatureCallbackThreshold",
-                "set_temperature_callback_threshold"
-            ],
+            "name": "Set Temperature Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperatureCallbackThreshold",
-                "get_temperature_callback_threshold"
-            ],
+            "name": "Get Temperature Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,16 +258,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Temperature",
-                "temperature"
-            ],
+            "name": "Temperature",
             "doc": [
                 "c",
                 {
@@ -319,16 +283,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "TemperatureReached",
-                "temperature_reached"
-            ],
+            "name": "Temperature Reached",
             "doc": [
                 "c",
                 {
@@ -347,32 +308,26 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "in",
                     [
-                        "I2CMode",
-                        "i2c_mode",
+                        "I2C Mode",
                         [
                             [
                                 "Fast",
-                                "fast",
                                 0
                             ],
                             [
                                 "Slow",
-                                "slow",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetI2CMode",
-                "set_i2c_mode"
-            ],
+            "name": "Set I2C Mode",
             "doc": [
                 "af",
                 {
@@ -391,32 +346,26 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "out",
                     [
-                        "I2CMode",
-                        "i2c_mode",
+                        "I2C Mode",
                         [
                             [
                                 "Fast",
-                                "fast",
                                 0
                             ],
                             [
                                 "Slow",
-                                "slow",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetI2CMode",
-                "get_i2c_mode"
-            ],
+            "name": "Get I2C Mode",
             "doc": [
                 "af",
                 {
@@ -435,16 +384,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -460,22 +406,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -491,22 +434,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -522,16 +462,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -547,46 +484,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -606,6 +540,116 @@
     ],
     "device_identifier": 216,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Temperature",
+                        "temperature"
+                    ],
+                    [
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int16",
+                            100.0,
+                            "\u00b0C/100",
+                            "\u00b0C",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Temperature",
+                        "temperature"
+                    ],
+                    [
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int16",
+                            100.0,
+                            "\u00b0C/100",
+                            "\u00b0C",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Temperature",
+                        "temperature"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Temperature Reached",
+                        "temperature reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int16",
+                            100.0,
+                            "\u00b0C/100",
+                            "\u00b0C",
+                            null
+                        ]
+                    ],
+                    null,
+                    "It is too hot, we need air conditioning!"
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Temperature",
+                        "temperature"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            30,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -615,7 +659,6 @@
     ],
     "name": [
         "Temperature",
-        "temperature",
         "Temperature",
         "Temperature Bricklet"
     ]

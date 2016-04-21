@@ -9,33 +9,30 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAcceleration",
-                "get_acceleration"
-            ],
+            "name": "Get Acceleration",
             "doc": [
                 "af",
                 {
-                    "de": "\nGibt die kalibrierten Beschleunigungen des Beschleunigungsmessers f\u00fcr die \nX, Y und Z-Achse in mG zur\u00fcck (G/1000, 1G = 9.80605m/s\u00b2).\n\nWenn die kalibrierten Beschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Acceleration` zu nutzen und die Periode mit :func:`SetAccelerationPeriod`\nvorzugeben.\n",
-                    "en": " \nReturns the calibrated acceleration from the accelerometer for the \nx, y and z axis in mG (G/1000, 1G = 9.80605m/s\u00b2).\n\nIf you want to get the acceleration periodically, it is recommended \nto use the callback :func:`Acceleration` and set the period with \n:func:`SetAccelerationPeriod`.\n"
+                    "de": "\nGibt die kalibrierten Beschleunigungen des Beschleunigungsmessers f\u00fcr die \nX, Y und Z-Achse in g/1000 zur\u00fcck (1g = 9,80665m/s\u00b2).\n\nWenn die kalibrierten Beschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Acceleration` zu nutzen und die Periode mit :func:`SetAccelerationPeriod`\nvorzugeben.\n",
+                    "en": " \nReturns the calibrated acceleration from the accelerometer for the \nx, y and z axis in g/1000 (1g = 9.80665m/s\u00b2).\n\nIf you want to get the acceleration periodically, it is recommended \nto use the callback :func:`Acceleration` and set the period with \n:func:`SetAccelerationPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -49,28 +46,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMagneticField",
-                "get_magnetic_field"
-            ],
+            "name": "Get Magnetic Field",
             "doc": [
                 "af",
                 {
@@ -89,28 +83,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAngularVelocity",
-                "get_angular_velocity"
-            ],
+            "name": "Get Angular Velocity",
             "doc": [
                 "af",
                 {
@@ -129,70 +120,67 @@
         {
             "elements": [
                 [
-                    "acc_x",
+                    "Acc X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "acc_y",
+                    "Acc Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "acc_z",
+                    "Acc Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "mag_x",
+                    "Mag X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "mag_y",
+                    "Mag Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "mag_z",
+                    "Mag Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ang_x",
+                    "Ang X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ang_y",
+                    "Ang Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ang_z",
+                    "Ang Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAllData",
-                "get_all_data"
-            ],
+            "name": "Get All Data",
             "doc": [
                 "af",
                 {
@@ -211,28 +199,25 @@
         {
             "elements": [
                 [
-                    "roll",
+                    "Roll",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "pitch",
+                    "Pitch",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "yaw",
+                    "Yaw",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetOrientation",
-                "get_orientation"
-            ],
+            "name": "Get Orientation",
             "doc": [
                 "bf",
                 {
@@ -251,34 +236,31 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "float",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "float",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "float",
                     1,
                     "out"
                 ],
                 [
-                    "w",
+                    "W",
                     "float",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetQuaternion",
-                "get_quaternion"
-            ],
+            "name": "Get Quaternion",
             "doc": [
                 "bf",
                 {
@@ -297,16 +279,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIMUTemperature",
-                "get_imu_temperature"
-            ],
+            "name": "Get IMU Temperature",
             "doc": [
                 "af",
                 {
@@ -324,10 +303,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LedsOn",
-                "leds_on"
-            ],
+            "name": "Leds On",
             "doc": [
                 "bf",
                 {
@@ -345,10 +321,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LedsOff",
-                "leds_off"
-            ],
+            "name": "Leds Off",
             "doc": [
                 "bf",
                 {
@@ -367,16 +340,13 @@
         {
             "elements": [
                 [
-                    "leds",
+                    "Leds",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AreLedsOn",
-                "are_leds_on"
-            ],
+            "name": "Are Leds On",
             "doc": [
                 "bf",
                 {
@@ -395,16 +365,13 @@
         {
             "elements": [
                 [
-                    "range",
+                    "Range",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAccelerationRange",
-                "set_acceleration_range"
-            ],
+            "name": "Set Acceleration Range",
             "doc": [
                 "af",
                 {
@@ -423,16 +390,13 @@
         {
             "elements": [
                 [
-                    "range",
+                    "Range",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAccelerationRange",
-                "get_acceleration_range"
-            ],
+            "name": "Get Acceleration Range",
             "doc": [
                 "af",
                 {
@@ -451,16 +415,13 @@
         {
             "elements": [
                 [
-                    "range",
+                    "Range",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMagnetometerRange",
-                "set_magnetometer_range"
-            ],
+            "name": "Set Magnetometer Range",
             "doc": [
                 "af",
                 {
@@ -479,16 +440,13 @@
         {
             "elements": [
                 [
-                    "range",
+                    "Range",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMagnetometerRange",
-                "get_magnetometer_range"
-            ],
+            "name": "Get Magnetometer Range",
             "doc": [
                 "af",
                 {
@@ -507,16 +465,13 @@
         {
             "elements": [
                 [
-                    "speed",
+                    "Speed",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetConvergenceSpeed",
-                "set_convergence_speed"
-            ],
+            "name": "Set Convergence Speed",
             "doc": [
                 "bf",
                 {
@@ -535,16 +490,13 @@
         {
             "elements": [
                 [
-                    "speed",
+                    "Speed",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetConvergenceSpeed",
-                "get_convergence_speed"
-            ],
+            "name": "Get Convergence Speed",
             "doc": [
                 "bf",
                 {
@@ -563,58 +515,48 @@
         {
             "elements": [
                 [
-                    "typ",
+                    "Typ",
                     "uint8",
                     1,
                     "in",
                     [
-                        "CalibrationType",
-                        "calibration_type",
+                        "Calibration Type",
                         [
                             [
-                                "AccelerometerGain",
-                                "accelerometer_gain",
+                                "Accelerometer Gain",
                                 0
                             ],
                             [
-                                "AccelerometerBias",
-                                "accelerometer_bias",
+                                "Accelerometer Bias",
                                 1
                             ],
                             [
-                                "MagnetometerGain",
-                                "magnetometer_gain",
+                                "Magnetometer Gain",
                                 2
                             ],
                             [
-                                "MagnetometerBias",
-                                "magnetometer_bias",
+                                "Magnetometer Bias",
                                 3
                             ],
                             [
-                                "GyroscopeGain",
-                                "gyroscope_gain",
+                                "Gyroscope Gain",
                                 4
                             ],
                             [
-                                "GyroscopeBias",
-                                "gyroscope_bias",
+                                "Gyroscope Bias",
                                 5
                             ]
                         ]
                     ]
                 ],
                 [
-                    "data",
+                    "Data",
                     "int16",
                     10,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCalibration",
-                "set_calibration"
-            ],
+            "name": "Set Calibration",
             "doc": [
                 "af",
                 {
@@ -633,58 +575,48 @@
         {
             "elements": [
                 [
-                    "typ",
+                    "Typ",
                     "uint8",
                     1,
                     "in",
                     [
-                        "CalibrationType",
-                        "calibration_type",
+                        "Calibration Type",
                         [
                             [
-                                "AccelerometerGain",
-                                "accelerometer_gain",
+                                "Accelerometer Gain",
                                 0
                             ],
                             [
-                                "AccelerometerBias",
-                                "accelerometer_bias",
+                                "Accelerometer Bias",
                                 1
                             ],
                             [
-                                "MagnetometerGain",
-                                "magnetometer_gain",
+                                "Magnetometer Gain",
                                 2
                             ],
                             [
-                                "MagnetometerBias",
-                                "magnetometer_bias",
+                                "Magnetometer Bias",
                                 3
                             ],
                             [
-                                "GyroscopeGain",
-                                "gyroscope_gain",
+                                "Gyroscope Gain",
                                 4
                             ],
                             [
-                                "GyroscopeBias",
-                                "gyroscope_bias",
+                                "Gyroscope Bias",
                                 5
                             ]
                         ]
                     ]
                 ],
                 [
-                    "data",
+                    "Data",
                     "int16",
                     10,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCalibration",
-                "get_calibration"
-            ],
+            "name": "Get Calibration",
             "doc": [
                 "af",
                 {
@@ -703,16 +635,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAccelerationPeriod",
-                "set_acceleration_period"
-            ],
+            "name": "Set Acceleration Period",
             "doc": [
                 "ccf",
                 {
@@ -731,16 +660,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAccelerationPeriod",
-                "get_acceleration_period"
-            ],
+            "name": "Get Acceleration Period",
             "doc": [
                 "ccf",
                 {
@@ -759,16 +685,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMagneticFieldPeriod",
-                "set_magnetic_field_period"
-            ],
+            "name": "Set Magnetic Field Period",
             "doc": [
                 "ccf",
                 {
@@ -787,16 +710,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMagneticFieldPeriod",
-                "get_magnetic_field_period"
-            ],
+            "name": "Get Magnetic Field Period",
             "doc": [
                 "ccf",
                 {
@@ -815,16 +735,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAngularVelocityPeriod",
-                "set_angular_velocity_period"
-            ],
+            "name": "Set Angular Velocity Period",
             "doc": [
                 "ccf",
                 {
@@ -843,16 +760,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAngularVelocityPeriod",
-                "get_angular_velocity_period"
-            ],
+            "name": "Get Angular Velocity Period",
             "doc": [
                 "ccf",
                 {
@@ -871,16 +785,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAllDataPeriod",
-                "set_all_data_period"
-            ],
+            "name": "Set All Data Period",
             "doc": [
                 "ccf",
                 {
@@ -899,16 +810,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAllDataPeriod",
-                "get_all_data_period"
-            ],
+            "name": "Get All Data Period",
             "doc": [
                 "ccf",
                 {
@@ -927,16 +835,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetOrientationPeriod",
-                "set_orientation_period"
-            ],
+            "name": "Set Orientation Period",
             "doc": [
                 "ccf",
                 {
@@ -955,16 +860,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetOrientationPeriod",
-                "get_orientation_period"
-            ],
+            "name": "Get Orientation Period",
             "doc": [
                 "ccf",
                 {
@@ -983,16 +885,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetQuaternionPeriod",
-                "set_quaternion_period"
-            ],
+            "name": "Set Quaternion Period",
             "doc": [
                 "ccf",
                 {
@@ -1011,16 +910,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetQuaternionPeriod",
-                "get_quaternion_period"
-            ],
+            "name": "Get Quaternion Period",
             "doc": [
                 "ccf",
                 {
@@ -1039,28 +935,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Acceleration",
-                "acceleration"
-            ],
+            "name": "Acceleration",
             "doc": [
                 "c",
                 {
@@ -1079,28 +972,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "MagneticField",
-                "magnetic_field"
-            ],
+            "name": "Magnetic Field",
             "doc": [
                 "c",
                 {
@@ -1119,28 +1009,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AngularVelocity",
-                "angular_velocity"
-            ],
+            "name": "Angular Velocity",
             "doc": [
                 "c",
                 {
@@ -1159,70 +1046,67 @@
         {
             "elements": [
                 [
-                    "acc_x",
+                    "Acc X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "acc_y",
+                    "Acc Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "acc_z",
+                    "Acc Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "mag_x",
+                    "Mag X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "mag_y",
+                    "Mag Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "mag_z",
+                    "Mag Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ang_x",
+                    "Ang X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ang_y",
+                    "Ang Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "ang_z",
+                    "Ang Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AllData",
-                "all_data"
-            ],
+            "name": "All Data",
             "doc": [
                 "c",
                 {
@@ -1241,28 +1125,25 @@
         {
             "elements": [
                 [
-                    "roll",
+                    "Roll",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "pitch",
+                    "Pitch",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "yaw",
+                    "Yaw",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Orientation",
-                "orientation"
-            ],
+            "name": "Orientation",
             "doc": [
                 "c",
                 {
@@ -1281,34 +1162,31 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "float",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "float",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "float",
                     1,
                     "out"
                 ],
                 [
-                    "w",
+                    "W",
                     "float",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Quaternion",
-                "quaternion"
-            ],
+            "name": "Quaternion",
             "doc": [
                 "c",
                 {
@@ -1326,10 +1204,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "OrientationCalculationOn",
-                "orientation_calculation_on"
-            ],
+            "name": "Orientation Calculation On",
             "doc": [
                 "af",
                 {
@@ -1347,10 +1222,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "OrientationCalculationOff",
-                "orientation_calculation_off"
-            ],
+            "name": "Orientation Calculation Off",
             "doc": [
                 "af",
                 {
@@ -1369,16 +1241,13 @@
         {
             "elements": [
                 [
-                    "orientation_calculation_on",
+                    "Orientation Calculation On",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsOrientationCalculationOn",
-                "is_orientation_calculation_on"
-            ],
+            "name": "Is Orientation Calculation On",
             "doc": [
                 "af",
                 {
@@ -1397,16 +1266,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -1422,22 +1288,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -1453,22 +1316,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -1484,16 +1344,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -1508,10 +1365,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableStatusLED",
-                "enable_status_led"
-            ],
+            "name": "Enable Status LED",
             "doc": [
                 "af",
                 {
@@ -1529,10 +1383,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableStatusLED",
-                "disable_status_led"
-            ],
+            "name": "Disable Status LED",
             "doc": [
                 "af",
                 {
@@ -1551,16 +1402,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsStatusLEDEnabled",
-                "is_status_led_enabled"
-            ],
+            "name": "Is Status LED Enabled",
             "doc": [
                 "af",
                 {
@@ -1579,34 +1427,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "protocol_version",
+                    "Protocol Version",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "name",
+                    "Name",
                     "string",
                     40,
                     "out"
                 ]
             ],
-            "name": [
-                "GetProtocol1BrickletName",
-                "get_protocol1_bricklet_name"
-            ],
+            "name": "Get Protocol1 Bricklet Name",
             "doc": [
                 "af",
                 {
@@ -1625,16 +1470,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -1652,10 +1494,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Reset",
-                "reset"
-            ],
+            "name": "Reset",
             "doc": [
                 "af",
                 {
@@ -1674,46 +1513,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1733,6 +1569,136 @@
     ],
     "device_identifier": 16,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Quaternion",
+                        "quaternion"
+                    ],
+                    [
+                        [
+                            [
+                                "X",
+                                "Quaternion[X]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Quaternion[Y]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Quaternion[Z]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "W",
+                                "Quaternion[W]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Quaternion",
+                        "quaternion"
+                    ],
+                    [
+                        [
+                            [
+                                "X",
+                                "Quaternion[X]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Quaternion[Y]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Quaternion[Z]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "W",
+                                "Quaternion[W]"
+                            ],
+                            "float",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Quaternion",
+                        "quaternion"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -1742,7 +1708,6 @@
     ],
     "name": [
         "IMU",
-        "imu",
         "IMU",
         "IMU Brick"
     ]

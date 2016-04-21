@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetValue",
-                "get_value"
-            ],
+            "name": "Get Value",
             "doc": [
                 "bf",
                 {
@@ -37,22 +34,19 @@
         {
             "elements": [
                 [
-                    "reset_counter",
+                    "Reset Counter",
                     "bool",
                     1,
                     "in"
                 ],
                 [
-                    "count",
+                    "Count",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCount",
-                "get_edge_count"
-            ],
+            "name": "Get Edge Count",
             "doc": [
                 "bf",
                 {
@@ -71,43 +65,36 @@
         {
             "elements": [
                 [
-                    "edge_type",
+                    "Edge Type",
                     "uint8",
                     1,
                     "in",
                     [
-                        "EdgeType",
-                        "edge_type",
+                        "Edge Type",
                         [
                             [
                                 "Rising",
-                                "rising",
                                 0
                             ],
                             [
                                 "Falling",
-                                "falling",
                                 1
                             ],
                             [
                                 "Both",
-                                "both",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "debounce",
+                    "Debounce",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEdgeCountConfig",
-                "set_edge_count_config"
-            ],
+            "name": "Set Edge Count Config",
             "doc": [
                 "af",
                 {
@@ -126,43 +113,36 @@
         {
             "elements": [
                 [
-                    "edge_type",
+                    "Edge Type",
                     "uint8",
                     1,
                     "out",
                     [
-                        "EdgeType",
-                        "edge_type",
+                        "Edge Type",
                         [
                             [
                                 "Rising",
-                                "rising",
                                 0
                             ],
                             [
                                 "Falling",
-                                "falling",
                                 1
                             ],
                             [
                                 "Both",
-                                "both",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "debounce",
+                    "Debounce",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCountConfig",
-                "get_edge_count_config"
-            ],
+            "name": "Get Edge Count Config",
             "doc": [
                 "af",
                 {
@@ -181,16 +161,13 @@
         {
             "elements": [
                 [
-                    "edges",
+                    "Edges",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEdgeInterrupt",
-                "set_edge_interrupt"
-            ],
+            "name": "Set Edge Interrupt",
             "doc": [
                 "ccf",
                 {
@@ -209,16 +186,13 @@
         {
             "elements": [
                 [
-                    "edges",
+                    "Edges",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeInterrupt",
-                "get_edge_interrupt"
-            ],
+            "name": "Get Edge Interrupt",
             "doc": [
                 "ccf",
                 {
@@ -237,16 +211,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEdgeCountCallbackPeriod",
-                "set_edge_count_callback_period"
-            ],
+            "name": "Set Edge Count Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -265,16 +236,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCountCallbackPeriod",
-                "get_edge_count_callback_period"
-            ],
+            "name": "Get Edge Count Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -293,22 +261,19 @@
         {
             "elements": [
                 [
-                    "count",
+                    "Count",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "value",
+                    "Value",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "EdgeInterrupt",
-                "edge_interrupt"
-            ],
+            "name": "Edge Interrupt",
             "doc": [
                 "c",
                 {
@@ -327,22 +292,19 @@
         {
             "elements": [
                 [
-                    "count",
+                    "Count",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "value",
+                    "Value",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "EdgeCount",
-                "edge_count"
-            ],
+            "name": "Edge Count",
             "doc": [
                 "c",
                 {
@@ -361,16 +323,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -386,22 +345,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -417,22 +373,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -448,16 +401,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -473,46 +423,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -532,6 +479,86 @@
     ],
     "device_identifier": 240,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Edge Count",
+                        "edge count without reset"
+                    ],
+                    [
+                        [
+                            [
+                                "Edge Count",
+                                "Edge Count"
+                            ],
+                            "uint32",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    [
+                        [
+                            "bool",
+                            false
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Edge Count",
+                        "edge count"
+                    ],
+                    [
+                        [
+                            [
+                                "Edge Count",
+                                "Edge Count"
+                            ],
+                            "uint32",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Value",
+                                null
+                            ],
+                            "bool",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Edge Count",
+                        "edge count"
+                    ],
+                    [],
+                    50
+                ]
+            ],
+            "name": "Callback"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -540,8 +567,7 @@
         0
     ],
     "name": [
-        "HallEffect",
-        "hall_effect",
+        "Hall Effect",
         "Hall Effect",
         "Hall Effect Bricklet"
     ]

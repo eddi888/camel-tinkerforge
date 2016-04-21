@@ -9,33 +9,30 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAcceleration",
-                "get_acceleration"
-            ],
+            "name": "Get Acceleration",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die Beschleunigung in X-, Y- und Z-Richtung zur\u00fcck. Die Werte\nhaben die Einheit mg (1/1000 g), nicht zu verwechseln mit Gramm.\n\nWenn die Beschleunigungswerte periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`Acceleration` zu nutzen und die Periode mit \n:func:`SetAccelerationCallbackPeriod` vorzugeben.\n",
-                    "en": "\nReturns the acceleration in x, y and z direction. The values\nare given in mg (1/1000 g), not to be confused with grams.\n\nIf you want to get the acceleration periodically, it is recommended \nto use the callback :func:`Acceleration` and set the period with \n:func:`SetAccelerationCallbackPeriod`.\n"
+                    "de": "\nGibt die Beschleunigung in X-, Y- und Z-Richtung zur\u00fcck. Die Werte\nhaben die Einheit g/1000 (1g = 9,80665m/s\u00b2), nicht zu verwechseln mit Gramm.\n\nWenn die Beschleunigungswerte periodisch abgefragt werden sollen, wird empfohlen\nden Callback :func:`Acceleration` zu nutzen und die Periode mit \n:func:`SetAccelerationCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the acceleration in x, y and z direction. The values\nare given in g/1000 (1g = 9.80665m/s\u00b2), not to be confused with grams.\n\nIf you want to get the acceleration periodically, it is recommended \nto use the callback :func:`Acceleration` and set the period with \n:func:`SetAccelerationCallbackPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -49,16 +46,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAccelerationCallbackPeriod",
-                "set_acceleration_callback_period"
-            ],
+            "name": "Set Acceleration Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -77,16 +71,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAccelerationCallbackPeriod",
-                "get_acceleration_callback_period"
-            ],
+            "name": "Get Acceleration Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -105,88 +96,79 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min_x",
+                    "Min X",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "max_x",
+                    "Max X",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "min_y",
+                    "Min Y",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "max_y",
+                    "Max Y",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "min_z",
+                    "Min Z",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "max_z",
+                    "Max Z",
                     "int16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAccelerationCallbackThreshold",
-                "set_acceleration_callback_threshold"
-            ],
+            "name": "Set Acceleration Callback Threshold",
             "doc": [
                 "ccf",
                 {
-                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`AccelerationReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Temperatur *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Temperatur *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Temperatur kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Temperatur gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0, 0, 0, 0, 0, 0, 0).\n",
-                    "en": "\nSets the thresholds for the :func:`AccelerationReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the temperature is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the temperature is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the temperature is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the temperature is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0, 0, 0, 0, 0).\n"
+                    "de": "\nSetzt den Schwellwert f\u00fcr den :func:`AccelerationReached` Callback.\n\nDie folgenden Optionen sind m\u00f6glich:\n\n.. csv-table::\n :header: \"Option\", \"Beschreibung\"\n :widths: 10, 100\n \n \"'x'\",    \"Callback ist inaktiv\"\n \"'o'\",    \"Callback wird ausgel\u00f6st wenn die Beschleunigung *au\u00dferhalb* des min und max Wertes ist\"\n \"'i'\",    \"Callback wird ausgel\u00f6st wenn die Beschleunigung *innerhalb* des min und max Wertes ist\"\n \"'<'\",    \"Callback wird ausgel\u00f6st wenn die Beschleunigung kleiner als der min Wert ist (max wird ignoriert)\"\n \"'>'\",    \"Callback wird ausgel\u00f6st wenn die Beschleunigung gr\u00f6\u00dfer als der min Wert ist (max wird ignoriert)\"\n \nDer Standardwert ist ('x', 0, 0, 0, 0, 0, 0, 0, 0).\n",
+                    "en": "\nSets the thresholds for the :func:`AccelerationReached` callback. \n\nThe following options are possible:\n\n.. csv-table::\n :header: \"Option\", \"Description\"\n :widths: 10, 100\n\n \"'x'\",    \"Callback is turned off\"\n \"'o'\",    \"Callback is triggered when the acceleration is *outside* the min and max values\"\n \"'i'\",    \"Callback is triggered when the acceleration is *inside* the min and max values\"\n \"'<'\",    \"Callback is triggered when the acceleration is smaller than the min value (max is ignored)\"\n \"'>'\",    \"Callback is triggered when the acceleration is greater than the min value (max is ignored)\"\n\nThe default value is ('x', 0, 0, 0, 0, 0, 0).\n"
                 }
             ],
             "since_firmware": [
@@ -200,83 +182,74 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min_x",
+                    "Min X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "max_x",
+                    "Max X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "min_y",
+                    "Min Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "max_y",
+                    "Max Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "min_z",
+                    "Min Z",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "max_z",
+                    "Max Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAccelerationCallbackThreshold",
-                "get_acceleration_callback_threshold"
-            ],
+            "name": "Get Acceleration Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -295,16 +268,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -323,16 +293,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -351,16 +318,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperature",
-                "get_temperature"
-            ],
+            "name": "Get Temperature",
             "doc": [
                 "bf",
                 {
@@ -379,98 +343,81 @@
         {
             "elements": [
                 [
-                    "data_rate",
+                    "Data Rate",
                     "uint8",
                     1,
                     "in",
                     [
-                        "DataRate",
-                        "data_rate",
+                        "Data Rate",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "3Hz",
-                                "3hz",
                                 1
                             ],
                             [
                                 "6Hz",
-                                "6hz",
                                 2
                             ],
                             [
                                 "12Hz",
-                                "12hz",
                                 3
                             ],
                             [
                                 "25Hz",
-                                "25hz",
                                 4
                             ],
                             [
                                 "50Hz",
-                                "50hz",
                                 5
                             ],
                             [
                                 "100Hz",
-                                "100hz",
                                 6
                             ],
                             [
                                 "400Hz",
-                                "400hz",
                                 7
                             ],
                             [
                                 "800Hz",
-                                "800hz",
                                 8
                             ],
                             [
                                 "1600Hz",
-                                "1600hz",
                                 9
                             ]
                         ]
                     ]
                 ],
                 [
-                    "full_scale",
+                    "Full Scale",
                     "uint8",
                     1,
                     "in",
                     [
-                        "FullScale",
-                        "full_scale",
+                        "Full Scale",
                         [
                             [
-                                "2g",
                                 "2g",
                                 0
                             ],
                             [
                                 "4g",
-                                "4g",
                                 1
                             ],
                             [
-                                "6g",
                                 "6g",
                                 2
                             ],
                             [
                                 "8g",
-                                "8g",
                                 3
                             ],
                             [
-                                "16g",
                                 "16g",
                                 4
                             ]
@@ -478,42 +425,34 @@
                     ]
                 ],
                 [
-                    "filter_bandwidth",
+                    "Filter Bandwidth",
                     "uint8",
                     1,
                     "in",
                     [
-                        "FilterBandwidth",
-                        "filter_bandwidth",
+                        "Filter Bandwidth",
                         [
                             [
                                 "800Hz",
-                                "800hz",
                                 0
                             ],
                             [
                                 "400Hz",
-                                "400hz",
                                 1
                             ],
                             [
                                 "200Hz",
-                                "200hz",
                                 2
                             ],
                             [
                                 "50Hz",
-                                "50hz",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetConfiguration",
-                "set_configuration"
-            ],
+            "name": "Set Configuration",
             "doc": [
                 "af",
                 {
@@ -532,98 +471,81 @@
         {
             "elements": [
                 [
-                    "data_rate",
+                    "Data Rate",
                     "uint8",
                     1,
                     "out",
                     [
-                        "DataRate",
-                        "data_rate",
+                        "Data Rate",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "3Hz",
-                                "3hz",
                                 1
                             ],
                             [
                                 "6Hz",
-                                "6hz",
                                 2
                             ],
                             [
                                 "12Hz",
-                                "12hz",
                                 3
                             ],
                             [
                                 "25Hz",
-                                "25hz",
                                 4
                             ],
                             [
                                 "50Hz",
-                                "50hz",
                                 5
                             ],
                             [
                                 "100Hz",
-                                "100hz",
                                 6
                             ],
                             [
                                 "400Hz",
-                                "400hz",
                                 7
                             ],
                             [
                                 "800Hz",
-                                "800hz",
                                 8
                             ],
                             [
                                 "1600Hz",
-                                "1600hz",
                                 9
                             ]
                         ]
                     ]
                 ],
                 [
-                    "full_scale",
+                    "Full Scale",
                     "uint8",
                     1,
                     "out",
                     [
-                        "FullScale",
-                        "full_scale",
+                        "Full Scale",
                         [
                             [
-                                "2g",
                                 "2g",
                                 0
                             ],
                             [
                                 "4g",
-                                "4g",
                                 1
                             ],
                             [
-                                "6g",
                                 "6g",
                                 2
                             ],
                             [
                                 "8g",
-                                "8g",
                                 3
                             ],
                             [
-                                "16g",
                                 "16g",
                                 4
                             ]
@@ -631,42 +553,34 @@
                     ]
                 ],
                 [
-                    "filter_bandwidth",
+                    "Filter Bandwidth",
                     "uint8",
                     1,
                     "out",
                     [
-                        "FilterBandwidth",
-                        "filter_bandwidth",
+                        "Filter Bandwidth",
                         [
                             [
                                 "800Hz",
-                                "800hz",
                                 0
                             ],
                             [
                                 "400Hz",
-                                "400hz",
                                 1
                             ],
                             [
                                 "200Hz",
-                                "200hz",
                                 2
                             ],
                             [
                                 "50Hz",
-                                "50hz",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetConfiguration",
-                "get_configuration"
-            ],
+            "name": "Get Configuration",
             "doc": [
                 "af",
                 {
@@ -684,10 +598,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LEDOn",
-                "led_on"
-            ],
+            "name": "LED On",
             "doc": [
                 "bf",
                 {
@@ -705,10 +616,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LEDOff",
-                "led_off"
-            ],
+            "name": "LED Off",
             "doc": [
                 "bf",
                 {
@@ -727,16 +635,13 @@
         {
             "elements": [
                 [
-                    "value",
-                    "uint8",
+                    "On",
+                    "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsLEDOn",
-                "is_led_on"
-            ],
+            "name": "Is LED On",
             "doc": [
                 "bf",
                 {
@@ -755,28 +660,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Acceleration",
-                "acceleration"
-            ],
+            "name": "Acceleration",
             "doc": [
                 "c",
                 {
@@ -795,28 +697,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AccelerationReached",
-                "acceleration_reached"
-            ],
+            "name": "Acceleration Reached",
             "doc": [
                 "c",
                 {
@@ -835,16 +734,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -860,22 +756,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -891,22 +784,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -922,16 +812,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -947,46 +834,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1006,16 +890,199 @@
     ],
     "device_identifier": 250,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Acceleration",
+                        "acceleration"
+                    ],
+                    [
+                        [
+                            [
+                                "X",
+                                "Acceleration[X]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Acceleration[Y]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Acceleration[Z]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Acceleration",
+                        "acceleration"
+                    ],
+                    [
+                        [
+                            [
+                                "X",
+                                "Acceleration[X]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Acceleration[Y]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Acceleration[Z]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Acceleration",
+                        "acceleration"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Acceleration Reached",
+                        "acceleration reached"
+                    ],
+                    [
+                        [
+                            [
+                                "X",
+                                "Acceleration[X]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Acceleration[Y]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Acceleration[Z]"
+                            ],
+                            "int16",
+                            1000.0,
+                            "g/1000",
+                            "g",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Acceleration",
+                        "acceleration"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            2,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        0
+        1
     ],
     "name": [
         "Accelerometer",
-        "accelerometer",
         "Accelerometer",
         "Accelerometer Bricklet"
     ]

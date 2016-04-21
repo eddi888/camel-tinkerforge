@@ -51,8 +51,8 @@ public class VoltageEndpoint extends TinkerforgeEndpoint<VoltageConsumer, Voltag
     private Long period;
     private Long period2;
     private Character option;
-    private Short min;
-    private Short max;
+    private Integer min;
+    private Integer max;
     private Character option2;
     private Integer min2;
     private Integer max2;
@@ -130,8 +130,8 @@ public class VoltageEndpoint extends TinkerforgeEndpoint<VoltageConsumer, Voltag
             case "setVoltageCallbackThreshold":
                 device.setVoltageCallbackThreshold(
                         getValue(char.class, "option", m, getOption()),
-                        getValue(short.class, "min", m, getMin()),
-                        getValue(short.class, "max", m, getMax())
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -258,11 +258,11 @@ public class VoltageEndpoint extends TinkerforgeEndpoint<VoltageConsumer, Voltag
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMin(){
+    public Integer getMin(){
         return min;
     }
 
-    public void setMin(Short min){
+    public void setMin(Integer min){
         this.min = min;
     }
 
@@ -285,11 +285,11 @@ public class VoltageEndpoint extends TinkerforgeEndpoint<VoltageConsumer, Voltag
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMax(){
+    public Integer getMax(){
         return max;
     }
 
-    public void setMax(Short max){
+    public void setMax(Integer max){
         this.max = max;
     }
 

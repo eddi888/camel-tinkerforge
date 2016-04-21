@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "air_pressure",
+                    "Air Pressure",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAirPressure",
-                "get_air_pressure"
-            ],
+            "name": "Get Air Pressure",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "altitude",
+                    "Altitude",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAltitude",
-                "get_altitude"
-            ],
+            "name": "Get Altitude",
             "doc": [
                 "bf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAirPressureCallbackPeriod",
-                "set_air_pressure_callback_period"
-            ],
+            "name": "Set Air Pressure Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,16 +84,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAirPressureCallbackPeriod",
-                "get_air_pressure_callback_period"
-            ],
+            "name": "Get Air Pressure Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -121,16 +109,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAltitudeCallbackPeriod",
-                "set_altitude_callback_period"
-            ],
+            "name": "Set Altitude Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -149,16 +134,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAltitudeCallbackPeriod",
-                "get_altitude_callback_period"
-            ],
+            "name": "Get Altitude Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -177,59 +159,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAirPressureCallbackThreshold",
-                "set_air_pressure_callback_threshold"
-            ],
+            "name": "Set Air Pressure Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -248,59 +221,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAirPressureCallbackThreshold",
-                "get_air_pressure_callback_threshold"
-            ],
+            "name": "Get Air Pressure Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -319,59 +283,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAltitudeCallbackThreshold",
-                "set_altitude_callback_threshold"
-            ],
+            "name": "Set Altitude Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -390,59 +345,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAltitudeCallbackThreshold",
-                "get_altitude_callback_threshold"
-            ],
+            "name": "Get Altitude Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -461,16 +407,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -489,16 +432,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -517,21 +457,18 @@
         {
             "elements": [
                 [
-                    "air_pressure",
+                    "Air Pressure",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetReferenceAirPressure",
-                "set_reference_air_pressure"
-            ],
+            "name": "Set Reference Air Pressure",
             "doc": [
                 "bf",
                 {
-                    "de": "\nSetzt den Referenzluftdruck in mbar/1000 f\u00fcr die H\u00f6henberechnung. Wenn der\naktuelle Luftdruckwert als Referenz \u00fcbergeben wird dann gibt die H\u00f6henberechnung\n0cm aus. Als Abk\u00fcrzung kann auch 0 \u00fcbergeben werden, dadurch wird der\nReferenzluftdruck intern auf den aktuellen Luftdruckwert gesetzt.\n\nWohl bekannte Referenzluftdruckwerte, die in der Luftfahrt verwendet werden, sind\n`QNH <https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QNH>`__ und\n`QFE <https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QFE>`__\naus dem Q-Schl\u00fcssel.\n\nDer Standardwert ist 1013,25mbar.\n",
-                    "en": "\nSets the reference air pressure in mbar/1000 for the altitude calculation.\nSetting the reference to the current air pressure results in a calculated\naltitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as\nreference.\n\nWell known reference values are the Q codes\n`QNH <https://en.wikipedia.org/wiki/QNH>`__ and\n`QFE <https://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__\nused in aviation.\n\nThe default value is 1013.25mbar.\n"
+                    "de": "\nSetzt den Referenzluftdruck in mbar/1000 f\u00fcr die H\u00f6henberechnung.\nG\u00fcltige Werte liegen zwischen 10000 und 1200000. Wenn der\naktuelle Luftdruckwert als Referenz \u00fcbergeben wird dann gibt die H\u00f6henberechnung\n0cm aus. Als Abk\u00fcrzung kann auch 0 \u00fcbergeben werden, dadurch wird der\nReferenzluftdruck intern auf den aktuellen Luftdruckwert gesetzt.\n\nWohl bekannte Referenzluftdruckwerte, die in der Luftfahrt verwendet werden, sind\n`QNH <https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QNH>`__ und\n`QFE <https://de.wikipedia.org/wiki/Barometrische_H%C3%B6henmessung_in_der_Luftfahrt#QFE>`__\naus dem Q-Schl\u00fcssel.\n\nDer Standardwert ist 1013,25mbar.\n",
+                    "en": "\nSets the reference air pressure in mbar/1000 for the altitude calculation.\nValid values are between 10000 and 1200000.\nSetting the reference to the current air pressure results in a calculated\naltitude of 0cm. Passing 0 is a shortcut for passing the current air pressure as\nreference.\n\nWell known reference values are the Q codes\n`QNH <https://en.wikipedia.org/wiki/QNH>`__ and\n`QFE <https://en.wikipedia.org/wiki/Mean_sea_level_pressure#Mean_sea_level_pressure>`__\nused in aviation.\n\nThe default value is 1013.25mbar.\n"
                 }
             ],
             "since_firmware": [
@@ -545,16 +482,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -573,16 +507,13 @@
         {
             "elements": [
                 [
-                    "air_pressure",
+                    "Air Pressure",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AirPressure",
-                "air_pressure"
-            ],
+            "name": "Air Pressure",
             "doc": [
                 "c",
                 {
@@ -601,16 +532,13 @@
         {
             "elements": [
                 [
-                    "altitude",
+                    "Altitude",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Altitude",
-                "altitude"
-            ],
+            "name": "Altitude",
             "doc": [
                 "c",
                 {
@@ -629,16 +557,13 @@
         {
             "elements": [
                 [
-                    "air_pressure",
+                    "Air Pressure",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AirPressureReached",
-                "air_pressure_reached"
-            ],
+            "name": "Air Pressure Reached",
             "doc": [
                 "c",
                 {
@@ -657,16 +582,13 @@
         {
             "elements": [
                 [
-                    "altitude",
+                    "Altitude",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AltitudeReached",
-                "altitude_reached"
-            ],
+            "name": "Altitude Reached",
             "doc": [
                 "c",
                 {
@@ -685,16 +607,13 @@
         {
             "elements": [
                 [
-                    "air_pressure",
+                    "Air Pressure",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetReferenceAirPressure",
-                "get_reference_air_pressure"
-            ],
+            "name": "Get Reference Air Pressure",
             "doc": [
                 "bf",
                 {
@@ -713,28 +632,25 @@
         {
             "elements": [
                 [
-                    "moving_average_pressure",
+                    "Moving Average Pressure",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "average_pressure",
+                    "Average Pressure",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "average_temperature",
+                    "Average Temperature",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAveraging",
-                "set_averaging"
-            ],
+            "name": "Set Averaging",
             "doc": [
                 "af",
                 {
@@ -753,28 +669,25 @@
         {
             "elements": [
                 [
-                    "moving_average_pressure",
+                    "Moving Average Pressure",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "average_pressure",
+                    "Average Pressure",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "average_temperature",
+                    "Average Temperature",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAveraging",
-                "get_averaging"
-            ],
+            "name": "Get Averaging",
             "doc": [
                 "af",
                 {
@@ -793,16 +706,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -818,22 +728,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -849,22 +756,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -880,16 +784,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -905,46 +806,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -964,6 +862,137 @@
     ],
     "device_identifier": 221,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Air Pressure",
+                        "air pressure"
+                    ],
+                    [
+                        [
+                            [
+                                "Air Pressure",
+                                "Air Pressure"
+                            ],
+                            "int32",
+                            1000.0,
+                            "mbar/1000",
+                            "mbar",
+                            null
+                        ]
+                    ],
+                    []
+                ],
+                [
+                    "getter",
+                    [
+                        "Get Altitude",
+                        "altitude"
+                    ],
+                    [
+                        [
+                            [
+                                "Altitude",
+                                "Altitude"
+                            ],
+                            "int32",
+                            100.0,
+                            "cm",
+                            "m",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Air Pressure",
+                        "air pressure"
+                    ],
+                    [
+                        [
+                            [
+                                "Air Pressure",
+                                "Air Pressure"
+                            ],
+                            "int32",
+                            1000.0,
+                            "mbar/1000",
+                            "mbar",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Air Pressure",
+                        "air pressure"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Air Pressure Reached",
+                        "air pressure reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Air Pressure",
+                                "Air Pressure"
+                            ],
+                            "int32",
+                            1000.0,
+                            "mbar/1000",
+                            "mbar",
+                            null
+                        ]
+                    ],
+                    null,
+                    "Enjoy the potentially good weather!"
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Air Pressure",
+                        "air pressure"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            1025,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -973,7 +1002,6 @@
     ],
     "name": [
         "Barometer",
-        "barometer",
         "Barometer",
         "Barometer Bricklet"
     ]

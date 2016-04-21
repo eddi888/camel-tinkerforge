@@ -8,10 +8,7 @@
     "packets": [
         {
             "elements": [],
-            "name": [
-                "Enable",
-                "enable"
-            ],
+            "name": "Enable",
             "doc": [
                 "bf",
                 {
@@ -29,10 +26,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Disable",
-                "disable"
-            ],
+            "name": "Disable",
             "doc": [
                 "bf",
                 {
@@ -51,16 +45,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsEnabled",
-                "is_enabled"
-            ],
+            "name": "Is Enabled",
             "doc": [
                 "bf",
                 {
@@ -79,16 +70,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetVoltage",
-                "set_voltage"
-            ],
+            "name": "Set Voltage",
             "doc": [
                 "bf",
                 {
@@ -107,16 +95,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVoltage",
-                "get_voltage"
-            ],
+            "name": "Get Voltage",
             "doc": [
                 "bf",
                 {
@@ -135,16 +120,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrent",
-                "set_current"
-            ],
+            "name": "Set Current",
             "doc": [
                 "bf",
                 {
@@ -163,16 +145,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrent",
-                "get_current"
-            ],
+            "name": "Get Current",
             "doc": [
                 "bf",
                 {
@@ -191,64 +170,54 @@
         {
             "elements": [
                 [
-                    "voltage_range",
+                    "Voltage Range",
                     "uint8",
                     1,
                     "in",
                     [
-                        "VoltageRange",
-                        "voltage_range",
+                        "Voltage Range",
                         [
                             [
-                                "0To5V",
-                                "0_to_5v",
+                                "0 To 5V",
                                 0
                             ],
                             [
-                                "0To10V",
-                                "0_to_10v",
+                                "0 To 10V",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "current_range",
+                    "Current Range",
                     "uint8",
                     1,
                     "in",
                     [
-                        "CurrentRange",
-                        "current_range",
+                        "Current Range",
                         [
                             [
-                                "4To20mA",
-                                "4_to_20ma",
+                                "4 To 20mA",
                                 0
                             ],
                             [
-                                "0To20mA",
-                                "0_to_20ma",
+                                "0 To 20mA",
                                 1
                             ],
                             [
-                                "0To24mA",
-                                "0_to_24ma",
+                                "0 To 24ma",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetConfiguration",
-                "set_configuration"
-            ],
+            "name": "Set Configuration",
             "doc": [
                 "af",
                 {
-                    "de": "\nKonfiguriert die Spannungs- und Stromwertebereiche.\n\nEinstellbare Spannungswertebereiche sind:\n\n* 0V bis 5V\n* 0V bis 10V\n\nEinstellbare Stromwertebereiche sind:\n\n* 4mA bis 20mA\n* 0mA bis 20mA\n* 0mA bis 24mA\n\nDie Aufl\u00f6sung ist immer 12 Bit. Dass hei\u00dft, die Genauigkeit erh\u00f6ht\nsich bei kleineren Wertebereichen.\n",
-                    "en": "\nConfigures the voltage and current range.\n\nPossible voltage ranges are:\n\n* 0V to 5V\n* 0V to 10V\n\nPossible current ranges are:\n\n* 4mA to 20mA\n* 0mA to 20mA\n* 0mA to 24mA\n\nThe resolution will always be 12 bit. This means, that the\nprecision is higher with a smaller range.\n"
+                    "de": "\nKonfiguriert die Spannungs- und Stromwertebereiche.\n\nEinstellbare Spannungswertebereiche sind:\n\n* 0V bis 5V\n* 0V bis 10V (Standard)\n\nEinstellbare Stromwertebereiche sind:\n\n* 4mA bis 20mA (Standard)\n* 0mA bis 20mA\n* 0mA bis 24mA\n\nDie Aufl\u00f6sung ist immer 12 Bit. Dass hei\u00dft, die Genauigkeit erh\u00f6ht\nsich bei kleineren Wertebereichen.\n",
+                    "en": "\nConfigures the voltage and current range.\n\nPossible voltage ranges are:\n\n* 0V to 5V\n* 0V to 10V (default)\n\nPossible current ranges are:\n\n* 4mA to 20mA (default)\n* 0mA to 20mA\n* 0mA to 24mA\n\nThe resolution will always be 12 bit. This means, that the\nprecision is higher with a smaller range.\n"
                 }
             ],
             "since_firmware": [
@@ -262,59 +231,49 @@
         {
             "elements": [
                 [
-                    "voltage_range",
+                    "Voltage Range",
                     "uint8",
                     1,
                     "out",
                     [
-                        "VoltageRange",
-                        "voltage_range",
+                        "Voltage Range",
                         [
                             [
-                                "0To5V",
-                                "0_to_5v",
+                                "0 To 5V",
                                 0
                             ],
                             [
-                                "0To10V",
-                                "0_to_10v",
+                                "0 To 10V",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "current_range",
+                    "Current Range",
                     "uint8",
                     1,
                     "out",
                     [
-                        "CurrentRange",
-                        "current_range",
+                        "Current Range",
                         [
                             [
-                                "4To20mA",
-                                "4_to_20ma",
+                                "4 To 20mA",
                                 0
                             ],
                             [
-                                "0To20mA",
-                                "0_to_20ma",
+                                "0 To 20mA",
                                 1
                             ],
                             [
-                                "0To24mA",
-                                "0_to_24ma",
+                                "0 To 24ma",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetConfiguration",
-                "get_configuration"
-            ],
+            "name": "Get Configuration",
             "doc": [
                 "af",
                 {
@@ -333,16 +292,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -358,22 +314,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -389,22 +342,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -420,16 +370,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -445,46 +392,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -504,6 +448,80 @@
     ],
     "device_identifier": 258,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Voltage",
+                    [
+                        [
+                            "uint16",
+                            3300
+                        ]
+                    ],
+                    "Set output voltage to 3.3V",
+                    null
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    null
+                ],
+                [
+                    "wait"
+                ]
+            ],
+            "name": "Simple Voltage",
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    null
+                ]
+            ]
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Current",
+                    [
+                        [
+                            "uint16",
+                            4500
+                        ]
+                    ],
+                    "Set output current to 4.5mA",
+                    null
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    null
+                ],
+                [
+                    "wait"
+                ]
+            ],
+            "name": "Simple Current",
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    null
+                ]
+            ]
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -512,8 +530,7 @@
         0
     ],
     "name": [
-        "IndustrialAnalogOut",
-        "industrial_analog_out",
+        "Industrial Analog Out",
         "Industrial Analog Out",
         "Industrial Analog Out Bricklet"
     ]

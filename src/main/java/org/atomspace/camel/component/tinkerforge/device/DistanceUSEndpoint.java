@@ -47,8 +47,8 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
     
     private Long period;
     private Character option;
-    private Short min;
-    private Short max;
+    private Integer min;
+    private Integer max;
     private Long debounce;
     private Short average;
 
@@ -110,8 +110,8 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
             case "setDistanceCallbackThreshold":
                 device.setDistanceCallbackThreshold(
                         getValue(char.class, "option", m, getOption()),
-                        getValue(short.class, "min", m, getMin()),
-                        getValue(short.class, "max", m, getMax())
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -217,11 +217,11 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMin(){
+    public Integer getMin(){
         return min;
     }
 
-    public void setMin(Short min){
+    public void setMin(Integer min){
         this.min = min;
     }
 
@@ -244,11 +244,11 @@ public class DistanceUSEndpoint extends TinkerforgeEndpoint<DistanceUSConsumer, 
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMax(){
+    public Integer getMax(){
         return max;
     }
 
-    public void setMax(Short max){
+    public void setMax(Integer max){
         this.max = max;
     }
 

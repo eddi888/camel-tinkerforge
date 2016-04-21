@@ -156,9 +156,9 @@ public class NFCRFIDEndpoint extends TinkerforgeEndpoint<NFCRFIDConsumer, NFCRFI
      * 
      * Current the following tag types are supported:
      * 
-     * * Mifare Classic (``tag_type`` = 0)
-     * * NFC Forum Type 1 (``tag_type`` = 1)
-     * * NFC Forum Type 2 (``tag_type`` = 2)
+     * * Mifare Classic
+     * * NFC Forum Type 1
+     * * NFC Forum Type 2
      * 
      * After you call :func:`RequestTagID` the NFC/RFID Bricklet will try to read 
      * the tag ID from the tag. After this process is done the state will change.

@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVoltage",
-                "get_voltage"
-            ],
+            "name": "Get Voltage",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAnalogValue",
-                "get_analog_value"
-            ],
+            "name": "Get Analog Value",
             "doc": [
                 "af",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetVoltageCallbackPeriod",
-                "set_voltage_callback_period"
-            ],
+            "name": "Set Voltage Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,16 +84,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVoltageCallbackPeriod",
-                "get_voltage_callback_period"
-            ],
+            "name": "Get Voltage Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -121,16 +109,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAnalogValueCallbackPeriod",
-                "set_analog_value_callback_period"
-            ],
+            "name": "Set Analog Value Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -149,16 +134,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAnalogValueCallbackPeriod",
-                "get_analog_value_callback_period"
-            ],
+            "name": "Get Analog Value Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -177,59 +159,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
-                    "int16",
+                    "Min",
+                    "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
-                    "int16",
+                    "Max",
+                    "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetVoltageCallbackThreshold",
-                "set_voltage_callback_threshold"
-            ],
+            "name": "Set Voltage Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -248,59 +221,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
-                    "int16",
+                    "Min",
+                    "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
-                    "int16",
+                    "Max",
+                    "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVoltageCallbackThreshold",
-                "get_voltage_callback_threshold"
-            ],
+            "name": "Get Voltage Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -319,59 +283,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAnalogValueCallbackThreshold",
-                "set_analog_value_callback_threshold"
-            ],
+            "name": "Set Analog Value Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -390,59 +345,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAnalogValueCallbackThreshold",
-                "get_analog_value_callback_threshold"
-            ],
+            "name": "Get Analog Value Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -461,16 +407,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -489,16 +432,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -517,21 +457,18 @@
         {
             "elements": [
                 [
-                    "average",
+                    "Average",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMovingAverage",
-                "set_moving_average"
-            ],
+            "name": "Set Moving Average",
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt die L\u00e4nge eines `gleitenden Mittelwerts <https://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__\nf\u00fcr den Feuchtigkeitswert.\n\nWenn die L\u00e4nge auf 1 gesetzt wird, ist das Averaging aus. Desto kleiner\ndie L\u00e4nge des Mittelwerts ist, desto mehr Rauschen ist auf den Daten.\n\nDer Wertebereich liegt bei 1-50.\n\nDer Standardwert ist 50.\n",
-                    "en": "\nSets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__\nfor the moisture value.\n\nSetting the length to 1 will turn the averaging off. With less\naveraging, there is more noise on the data.\n\nThe range for the averaging is 1-50.\n\nThe default value is 50.\n"
+                    "de": "\nSetzt die L\u00e4nge eines `gleitenden Mittelwerts <https://de.wikipedia.org/wiki/Gleitender_Mittelwert>`__\nf\u00fcr die Spannung.\n\nWenn die L\u00e4nge auf 1 gesetzt wird, ist das Averaging aus. Desto kleiner\ndie L\u00e4nge des Mittelwerts ist, desto mehr Rauschen ist auf den Daten.\n\nDer Wertebereich liegt bei 1-50.\n\nDer Standardwert ist 50.\n",
+                    "en": "\nSets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__\nfor the voltage.\n\nSetting the length to 1 will turn the averaging off. With less\naveraging, there is more noise on the data.\n\nThe range for the averaging is 1-50.\n\nThe default value is 50.\n"
                 }
             ],
             "since_firmware": [
@@ -545,16 +482,13 @@
         {
             "elements": [
                 [
-                    "average",
+                    "Average",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMovingAverage",
-                "get_moving_average"
-            ],
+            "name": "Get Moving Average",
             "doc": [
                 "af",
                 {
@@ -573,16 +507,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Voltage",
-                "voltage"
-            ],
+            "name": "Voltage",
             "doc": [
                 "c",
                 {
@@ -601,16 +532,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AnalogValue",
-                "analog_value"
-            ],
+            "name": "Analog Value",
             "doc": [
                 "c",
                 {
@@ -629,16 +557,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "VoltageReached",
-                "voltage_reached"
-            ],
+            "name": "Voltage Reached",
             "doc": [
                 "c",
                 {
@@ -657,16 +582,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AnalogValueReached",
-                "analog_value_reached"
-            ],
+            "name": "Analog Value Reached",
             "doc": [
                 "c",
                 {
@@ -685,16 +607,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -710,22 +629,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -741,22 +657,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -772,16 +685,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -797,46 +707,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -856,16 +763,125 @@
     ],
     "device_identifier": 251,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Voltage",
+                        "voltage"
+                    ],
+                    [
+                        [
+                            [
+                                "Voltage",
+                                "Voltage"
+                            ],
+                            "uint16",
+                            1000.0,
+                            "mV",
+                            "V",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Voltage",
+                        "voltage"
+                    ],
+                    [
+                        [
+                            [
+                                "Voltage",
+                                "Voltage"
+                            ],
+                            "uint16",
+                            1000.0,
+                            "mV",
+                            "V",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Voltage",
+                        "voltage"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Voltage Reached",
+                        "voltage reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Voltage",
+                                "Voltage"
+                            ],
+                            "uint16",
+                            1000.0,
+                            "mV",
+                            "V",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Voltage",
+                        "voltage"
+                    ],
+                    [],
+                    "<",
+                    [
+                        [
+                            5,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        0
+        1
     ],
     "name": [
-        "AnalogInV2",
-        "analog_in_v2",
+        "Analog In V2",
         "Analog In 2.0",
         "Analog In Bricklet 2.0"
     ]

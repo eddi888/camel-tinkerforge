@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "moisture",
+                    "Moisture",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMoistureValue",
-                "get_moisture_value"
-            ],
+            "name": "Get Moisture Value",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMoistureCallbackPeriod",
-                "set_moisture_callback_period"
-            ],
+            "name": "Set Moisture Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMoistureCallbackPeriod",
-                "get_moisture_callback_period"
-            ],
+            "name": "Get Moisture Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,59 +84,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMoistureCallbackThreshold",
-                "set_moisture_callback_threshold"
-            ],
+            "name": "Set Moisture Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMoistureCallbackThreshold",
-                "get_moisture_callback_threshold"
-            ],
+            "name": "Get Moisture Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,16 +258,13 @@
         {
             "elements": [
                 [
-                    "moisture",
+                    "Moisture",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Moisture",
-                "moisture"
-            ],
+            "name": "Moisture",
             "doc": [
                 "c",
                 {
@@ -319,16 +283,13 @@
         {
             "elements": [
                 [
-                    "moisture",
+                    "Moisture",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "MoistureReached",
-                "moisture_reached"
-            ],
+            "name": "Moisture Reached",
             "doc": [
                 "c",
                 {
@@ -347,16 +308,13 @@
         {
             "elements": [
                 [
-                    "average",
+                    "Average",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMovingAverage",
-                "set_moving_average"
-            ],
+            "name": "Set Moving Average",
             "doc": [
                 "af",
                 {
@@ -375,16 +333,13 @@
         {
             "elements": [
                 [
-                    "average",
+                    "Average",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMovingAverage",
-                "get_moving_average"
-            ],
+            "name": "Get Moving Average",
             "doc": [
                 "af",
                 {
@@ -403,16 +358,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -428,22 +380,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -459,22 +408,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -490,16 +436,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -515,46 +458,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -574,6 +514,116 @@
     ],
     "device_identifier": 232,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Moisture Value",
+                        "moisture value"
+                    ],
+                    [
+                        [
+                            [
+                                "Moisture",
+                                "Moisture Value"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Moisture",
+                        "moisture value"
+                    ],
+                    [
+                        [
+                            [
+                                "Moisture",
+                                "Moisture Value"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Moisture",
+                        "moisture value"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    1000
+                ],
+                [
+                    "callback",
+                    [
+                        "Moisture Reached",
+                        "moisture value reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Moisture",
+                                "Moisture Value"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Moisture",
+                        "moisture value"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            200,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -583,7 +633,6 @@
     ],
     "name": [
         "Moisture",
-        "moisture",
         "Moisture",
         "Moisture Bricklet"
     ]

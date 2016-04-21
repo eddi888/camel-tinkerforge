@@ -283,8 +283,26 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
      * Sets the configuration. It is possible to configure an illuminance range
      * between 0-600lux and 0-64000lux and an integration time between 50ms and 400ms.
      * 
-     * A smaller illuminance range increases the resolution of the data. An
-     * increase in integration time will result in less noise on the data.
+     * .. versionadded:: 2.0.2$nbsp;(Plugin)
+     *   The unlimited illuminance range allows to measure up to about 100000lux, but
+     *   above 64000lux the precision starts to drop.
+     * 
+     * A smaller illuminance range increases the resolution of the data. A longer
+     * integration time will result in less noise on the data.
+     * 
+     * .. versionchanged:: 2.0.2$nbsp;(Plugin)
+     *   If the actual measure illuminance is out-of-range then the current illuminance
+     *   range maximum +0.01lux is reported by :func:`GetIlluminance` and the
+     *   :func:`Illuminance` callback. For example, 800001 for the 0-8000lux range.
+     * 
+     * .. versionchanged:: 2.0.2$nbsp;(Plugin)
+     *   With a long integration time the sensor might be saturated before the measured
+     *   value reaches the maximum of the selected illuminance range. In this case 0lux
+     *   is reported by :func:`GetIlluminance` and the :func:`Illuminance` callback.
+     * 
+     * If the measurement is out-of-range or the sensor is saturated then you should
+     * configure the next higher illuminance range. If the highest range is already
+     * in use, then start to reduce the integration time.
      * 
      * The default values are 0-8000lux illuminance range and 200ms integration time.
      * 
@@ -302,8 +320,26 @@ public class AmbientLightV2Endpoint extends TinkerforgeEndpoint<AmbientLightV2Co
      * Sets the configuration. It is possible to configure an illuminance range
      * between 0-600lux and 0-64000lux and an integration time between 50ms and 400ms.
      * 
-     * A smaller illuminance range increases the resolution of the data. An
-     * increase in integration time will result in less noise on the data.
+     * .. versionadded:: 2.0.2$nbsp;(Plugin)
+     *   The unlimited illuminance range allows to measure up to about 100000lux, but
+     *   above 64000lux the precision starts to drop.
+     * 
+     * A smaller illuminance range increases the resolution of the data. A longer
+     * integration time will result in less noise on the data.
+     * 
+     * .. versionchanged:: 2.0.2$nbsp;(Plugin)
+     *   If the actual measure illuminance is out-of-range then the current illuminance
+     *   range maximum +0.01lux is reported by :func:`GetIlluminance` and the
+     *   :func:`Illuminance` callback. For example, 800001 for the 0-8000lux range.
+     * 
+     * .. versionchanged:: 2.0.2$nbsp;(Plugin)
+     *   With a long integration time the sensor might be saturated before the measured
+     *   value reaches the maximum of the selected illuminance range. In this case 0lux
+     *   is reported by :func:`GetIlluminance` and the :func:`Illuminance` callback.
+     * 
+     * If the measurement is out-of-range or the sensor is saturated then you should
+     * configure the next higher illuminance range. If the highest range is already
+     * in use, then start to reduce the integration time.
      * 
      * The default values are 0-8000lux illuminance range and 200ms integration time.
      * 

@@ -53,7 +53,7 @@ public class DustDetectorConsumer extends TinkerforgeConsumer<DustDetectorEndpoi
     
     
     @Override
-    public void dustDensity(int dust_density) {
+    public void dustDensity(int dustDensity) {
         LOG.trace("dustDensity()");
         
         Exchange exchange = null;
@@ -62,7 +62,7 @@ public class DustDetectorConsumer extends TinkerforgeConsumer<DustDetectorEndpoi
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletDustDetector.CALLBACK_DUST_DENSITY);
-            exchange.getIn().setHeader("dust_density", dust_density);
+            exchange.getIn().setHeader("dustDensity", dustDensity);
             
             
             // ADD BODY
@@ -79,7 +79,7 @@ public class DustDetectorConsumer extends TinkerforgeConsumer<DustDetectorEndpoi
     }
     
     @Override
-    public void dustDensityReached(int dust_density) {
+    public void dustDensityReached(int dustDensity) {
         LOG.trace("dustDensityReached()");
         
         Exchange exchange = null;
@@ -88,7 +88,7 @@ public class DustDetectorConsumer extends TinkerforgeConsumer<DustDetectorEndpoi
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletDustDetector.CALLBACK_DUST_DENSITY_REACHED);
-            exchange.getIn().setHeader("dust_density", dust_density);
+            exchange.getIn().setHeader("dustDensity", dustDensity);
             
             
             // ADD BODY

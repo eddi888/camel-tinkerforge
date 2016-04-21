@@ -9,42 +9,35 @@
         {
             "elements": [
                 [
-                    "tag_type",
+                    "Tag Type",
                     "uint8",
                     1,
                     "in",
                     [
-                        "TagType",
-                        "tag_type",
+                        "Tag Type",
                         [
                             [
-                                "MifareClassic",
-                                "mifare_classic",
+                                "Mifare Classic",
                                 0
                             ],
                             [
                                 "Type1",
-                                "type1",
                                 1
                             ],
                             [
                                 "Type2",
-                                "type2",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "RequestTagID",
-                "request_tag_id"
-            ],
+            "name": "Request Tag ID",
             "doc": [
                 "bf",
                 {
-                    "de": "\nUm ein Tag welches sich in der n\u00e4he des NFC/RFID Bricklets befindet zu\nlesen oder zu schreiben muss zuerst diese Funktion mit dem erwarteten\nTag Typ aufgerufen werden. Es ist kein Problem wenn der Typ nicht bekannt\nist. Es ist m\u00f6glich die ver\u00fcgbaren Tag Typen einfach nacheinander\ndurchzutesten bis das Tag antwortet.\n\nAktuell werden die folgenden Tag Typen unterst\u00fctzt:\n\n* Mifare Classic (``tag_type`` = 0)\n* NFC Forum Type 1 (``tag_type`` = 1)\n* NFC Forum Type 2 (``tag_type`` = 2)\n\nBeim Aufruf von :func:`RequestTagID` probiert das NFC/RFID Bricklet die tag ID\neines Tags auszulesen. Nachdem dieser Prozess beendet ist \u00e4ndert sich\nder Zustand des Bricklets. Es ist m\u00f6glich den Callback :func:`StateChanged` zu\nregistrieren oder den Zustand \u00fcber :func:`GetState` zu pollen.\n\nWenn der Zustand auf *RequestTagIDError* wechselt ist ein Fehler aufgetreten.\nDies bedeutet, dass entweder kein Tag oder kein Tag vom passenden Typ gefunden\nwerden konnte. Wenn der Zustand auf *RequestTagIDReady* wechselt ist ein\nkompatibles Tag gefunden worden und die Tag ID wurde gespeichert. Die\nTag ID kann nun \u00fcber :func:`GetTagID` ausgelesen werden.\n\nWenn sich zwei Tags gleichzeitig in der N\u00e4he des NFC/RFID Bricklets befinden\nwerden diese nacheinander ausgelesen. Um ein spezifisches Tag zu selektieren\nmuss :func:`RequestTagID` so lange aufgerufen werden bis das korrekte Tag\ngefunden wurde.\n\nFalls sich das NFC/RFID Bricklet in einem der *Error* Zust\u00e4nde befindet\nist die Selektion aufgehoben und :func:`RequestTagID` muss erneut\naufgerufen werden.\n",
-                    "en": "\nTo read or write a tag that is in proximity of the NFC/RFID Bricklet you \nfirst have to call this function with the expected tag type as parameter.\nIt is no problem if you don't know the tag type. You can cycle through \nthe available tag types until the tag gives an answer to the request.\n\nCurrent the following tag types are supported:\n\n* Mifare Classic (``tag_type`` = 0)\n* NFC Forum Type 1 (``tag_type`` = 1)\n* NFC Forum Type 2 (``tag_type`` = 2)\n\nAfter you call :func:`RequestTagID` the NFC/RFID Bricklet will try to read \nthe tag ID from the tag. After this process is done the state will change.\nYou can either register the :func:`StateChanged` callback or you can poll\n:func:`GetState` to find out about the state change.\n\nIf the state changes to *RequestTagIDError* it means that either there was \nno tag present or that the tag is of an incompatible type. If the state \nchanges to *RequestTagIDReady* it means that a compatible tag was found \nand that the tag ID could be read out. You can now get the tag ID by\ncalling :func:`GetTagID`.\n\nIf two tags are in the proximity of the NFC/RFID Bricklet, this\nfunction will cycle through the tags. To select a specific tag you have\nto call :func:`RequestTagID` until the correct tag id is found.\n\nIn case of any *Error* state the selection is lost and you have to\nstart again by calling :func:`RequestTagID`.\n"
+                    "de": "\nUm ein Tag welches sich in der n\u00e4he des NFC/RFID Bricklets befindet zu\nlesen oder zu schreiben muss zuerst diese Funktion mit dem erwarteten\nTag Typ aufgerufen werden. Es ist kein Problem wenn der Typ nicht bekannt\nist. Es ist m\u00f6glich die ver\u00fcgbaren Tag Typen einfach nacheinander\ndurchzutesten bis das Tag antwortet.\n\nAktuell werden die folgenden Tag Typen unterst\u00fctzt:\n\n* Mifare Classic\n* NFC Forum Type 1\n* NFC Forum Type 2\n\nBeim Aufruf von :func:`RequestTagID` probiert das NFC/RFID Bricklet die tag ID\neines Tags auszulesen. Nachdem dieser Prozess beendet ist \u00e4ndert sich\nder Zustand des Bricklets. Es ist m\u00f6glich den Callback :func:`StateChanged` zu\nregistrieren oder den Zustand \u00fcber :func:`GetState` zu pollen.\n\nWenn der Zustand auf *RequestTagIDError* wechselt ist ein Fehler aufgetreten.\nDies bedeutet, dass entweder kein Tag oder kein Tag vom passenden Typ gefunden\nwerden konnte. Wenn der Zustand auf *RequestTagIDReady* wechselt ist ein\nkompatibles Tag gefunden worden und die Tag ID wurde gespeichert. Die\nTag ID kann nun \u00fcber :func:`GetTagID` ausgelesen werden.\n\nWenn sich zwei Tags gleichzeitig in der N\u00e4he des NFC/RFID Bricklets befinden\nwerden diese nacheinander ausgelesen. Um ein spezifisches Tag zu selektieren\nmuss :func:`RequestTagID` so lange aufgerufen werden bis das korrekte Tag\ngefunden wurde.\n\nFalls sich das NFC/RFID Bricklet in einem der *Error* Zust\u00e4nde befindet\nist die Selektion aufgehoben und :func:`RequestTagID` muss erneut\naufgerufen werden.\n",
+                    "en": "\nTo read or write a tag that is in proximity of the NFC/RFID Bricklet you \nfirst have to call this function with the expected tag type as parameter.\nIt is no problem if you don't know the tag type. You can cycle through \nthe available tag types until the tag gives an answer to the request.\n\nCurrent the following tag types are supported:\n\n* Mifare Classic\n* NFC Forum Type 1\n* NFC Forum Type 2\n\nAfter you call :func:`RequestTagID` the NFC/RFID Bricklet will try to read \nthe tag ID from the tag. After this process is done the state will change.\nYou can either register the :func:`StateChanged` callback or you can poll\n:func:`GetState` to find out about the state change.\n\nIf the state changes to *RequestTagIDError* it means that either there was \nno tag present or that the tag is of an incompatible type. If the state \nchanges to *RequestTagIDReady* it means that a compatible tag was found \nand that the tag ID could be read out. You can now get the tag ID by\ncalling :func:`GetTagID`.\n\nIf two tags are in the proximity of the NFC/RFID Bricklet, this\nfunction will cycle through the tags. To select a specific tag you have\nto call :func:`RequestTagID` until the correct tag id is found.\n\nIn case of any *Error* state the selection is lost and you have to\nstart again by calling :func:`RequestTagID`.\n"
                 }
             ],
             "since_firmware": [
@@ -58,49 +51,42 @@
         {
             "elements": [
                 [
-                    "tag_type",
+                    "Tag Type",
                     "uint8",
                     1,
                     "out",
                     [
-                        "TagType",
-                        "tag_type",
+                        "Tag Type",
                         [
                             [
-                                "MifareClassic",
-                                "mifare_classic",
+                                "Mifare Classic",
                                 0
                             ],
                             [
                                 "Type1",
-                                "type1",
                                 1
                             ],
                             [
                                 "Type2",
-                                "type2",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "tid_length",
+                    "TID Length",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "tid",
+                    "TID",
                     "uint8",
                     7,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTagID",
-                "get_tag_id"
-            ],
+            "name": "Get Tag ID",
             "doc": [
                 "bf",
                 {
@@ -119,108 +105,89 @@
         {
             "elements": [
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
                         "State",
-                        "state",
                         [
                             [
                                 "Initialization",
-                                "initialization",
                                 0
                             ],
                             [
                                 "Idle",
-                                "idle",
                                 128
                             ],
                             [
                                 "Error",
-                                "error",
                                 192
                             ],
                             [
-                                "RequestTagID",
-                                "request_tag_id",
+                                "Request Tag ID",
                                 2
                             ],
                             [
-                                "RequestTagIDReady",
-                                "request_tag_id_ready",
+                                "Request Tag ID Ready",
                                 130
                             ],
                             [
-                                "RequestTagIDError",
-                                "request_tag_id_error",
+                                "Request Tag ID Error",
                                 194
                             ],
                             [
-                                "AuthenticatingMifareClassicPage",
-                                "authenticating_mifare_classic_page",
+                                "Authenticating Mifare Classic Page",
                                 3
                             ],
                             [
-                                "AuthenticatingMifareClassicPageReady",
-                                "authenticating_mifare_classic_page_ready",
+                                "Authenticating Mifare Classic Page Ready",
                                 131
                             ],
                             [
-                                "AuthenticatingMifareClassicPageError",
-                                "authenticating_mifare_classic_page_error",
+                                "Authenticating Mifare Classic Page Error",
                                 195
                             ],
                             [
-                                "WritePage",
-                                "write_page",
+                                "Write Page",
                                 4
                             ],
                             [
-                                "WritePageReady",
-                                "write_page_ready",
+                                "Write Page Ready",
                                 132
                             ],
                             [
-                                "WritePageError",
-                                "write_page_error",
+                                "Write Page Error",
                                 196
                             ],
                             [
-                                "RequestPage",
-                                "request_page",
+                                "Request Page",
                                 5
                             ],
                             [
-                                "RequestPageReady",
-                                "request_page_ready",
+                                "Request Page Ready",
                                 133
                             ],
                             [
-                                "RequestPageError",
-                                "request_page_error",
+                                "Request Page Error",
                                 197
                             ]
                         ]
                     ]
                 ],
                 [
-                    "idle",
+                    "Idle",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetState",
-                "get_state"
-            ],
+            "name": "Get State",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt den aktuellen Zustand des NFC/RFID Bricklets aus.\n\nW\u00e4hrend der Startphase ist der Zustand *Initialization*. Die \nInitialisierung dauert etwa 20ms. Danach \u00e4ndert sich der Zustand zu\n*Idle*.\n\nDie Funktionen dieses Bricklets k\u00f6nnen aufgerufen werden wenn der Zustand\nentweder *Idle* ist oder einer der *Ready* oder *Error*-Zust\u00e4nde\nerreicht wurde.\n\nBeispiel: Wenn :func:`RequestPage` aufgerufen wird, \u00e4nder sich der\nZustand zu *RequestPage* solange der Leseprozess noch nicht abgeschlossen\nist. Danach \u00e4ndert sich der Zustand zu *RequestPageReady* wenn das lesen\nfunktioniert hat oder zu *RequestPageError* wenn nicht. Wenn die Anfrage\nerfolgreich war kann die Page mit :func:`GetPage` abgerufen werden.\n\nDer gleiche Ansatz kann analog f\u00fcr andere API Funktionen verwendet werden.\n\nM\u00f6gliche Zust\u00e4nde sind:\n\n* Initialization = 0\n* Idle = 128\n* Error = 192\n* RequestTagID = 2\n* RequestTagIDReady = 130\n* RequestTagIDError = 194\n* AuthenticatingMifareClassicPage = 3\n* AuthenticatingMifareClassicPageReady = 131\n* AuthenticatingMifareClassicPageError = 195\n* WritePage = 4\n* WritePageReady = 132\n* WritePageError = 196\n* RequestPage = 5\n* RequestPageReady = 133\n* RequestPageError = 197\n",
-                    "en": "\nReturns the current state of the NFC/RFID Bricklet.\n\nOn startup the Bricklet will be in the *Initialization* state. The\ninitialization will only take about 20ms. After that it changes to *Idle*.\n\nThe functions of this Bricklet can be called in the *Idle* state and all of\nthe *Ready* and *Error* states.\n\nExample: If you call :func:`RequestPage`, the state will change to \n*RequestPage* until the reading of the page is finished. Then it will change\nto either *RequestPageReady* if it worked or to *RequestPageError* if it\ndidn't. If the request worked you can get the page by calling :func:`GetPage`.\n\nThe same approach is used analogously for the other API functions.\n\nPossible states are:\n\n* Initialization = 0\n* Idle = 128\n* Error = 192\n* RequestTagID = 2\n* RequestTagIDReady = 130\n* RequestTagIDError = 194\n* AuthenticatingMifareClassicPage = 3\n* AuthenticatingMifareClassicPageReady = 131\n* AuthenticatingMifareClassicPageError = 195\n* WritePage = 4\n* WritePageReady = 132\n* WritePageError = 196\n* RequestPage = 5\n* RequestPageReady = 133\n* RequestPageError = 197\n"
+                    "de": "\nGibt den aktuellen Zustand des NFC/RFID Bricklets aus.\n\nW\u00e4hrend der Startphase ist der Zustand *Initialization*. Die \nInitialisierung dauert etwa 20ms. Danach \u00e4ndert sich der Zustand zu\n*Idle*.\n\nDie Funktionen dieses Bricklets k\u00f6nnen aufgerufen werden wenn der Zustand\nentweder *Idle* ist oder einer der *Ready* oder *Error*-Zust\u00e4nde\nerreicht wurde.\n\nBeispiel: Wenn :func:`RequestPage` aufgerufen wird, \u00e4nder sich der\nZustand zu *RequestPage* solange der Leseprozess noch nicht abgeschlossen\nist. Danach \u00e4ndert sich der Zustand zu *RequestPageReady* wenn das lesen\nfunktioniert hat oder zu *RequestPageError* wenn nicht. Wenn die Anfrage\nerfolgreich war kann die Page mit :func:`GetPage` abgerufen werden.\n\nDer gleiche Ansatz kann analog f\u00fcr andere API Funktionen verwendet werden.\n",
+                    "en": "\nReturns the current state of the NFC/RFID Bricklet.\n\nOn startup the Bricklet will be in the *Initialization* state. The\ninitialization will only take about 20ms. After that it changes to *Idle*.\n\nThe functions of this Bricklet can be called in the *Idle* state and all of\nthe *Ready* and *Error* states.\n\nExample: If you call :func:`RequestPage`, the state will change to \n*RequestPage* until the reading of the page is finished. Then it will change\nto either *RequestPageReady* if it worked or to *RequestPageError* if it\ndidn't. If the request worked you can get the page by calling :func:`GetPage`.\n\nThe same approach is used analogously for the other API functions.\n"
                 }
             ],
             "since_firmware": [
@@ -234,44 +201,38 @@
         {
             "elements": [
                 [
-                    "page",
+                    "Page",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "key_number",
+                    "Key Number",
                     "uint8",
                     1,
                     "in",
                     [
                         "Key",
-                        "key",
                         [
                             [
                                 "A",
-                                "a",
                                 0
                             ],
                             [
                                 "B",
-                                "b",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "key",
+                    "Key",
                     "uint8",
                     6,
                     "in"
                 ]
             ],
-            "name": [
-                "AuthenticateMifareClassicPage",
-                "authenticate_mifare_classic_page"
-            ],
+            "name": "Authenticate Mifare Classic Page",
             "doc": [
                 "bf",
                 {
@@ -290,22 +251,19 @@
         {
             "elements": [
                 [
-                    "page",
+                    "Page",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "data",
+                    "Data",
                     "uint8",
                     16,
                     "in"
                 ]
             ],
-            "name": [
-                "WritePage",
-                "write_page"
-            ],
+            "name": "Write Page",
             "doc": [
                 "bf",
                 {
@@ -324,16 +282,13 @@
         {
             "elements": [
                 [
-                    "page",
+                    "Page",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "RequestPage",
-                "request_page"
-            ],
+            "name": "Request Page",
             "doc": [
                 "bf",
                 {
@@ -352,16 +307,13 @@
         {
             "elements": [
                 [
-                    "data",
+                    "Data",
                     "uint8",
                     16,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPage",
-                "get_page"
-            ],
+            "name": "Get Page",
             "doc": [
                 "bf",
                 {
@@ -380,103 +332,84 @@
         {
             "elements": [
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
                         "State",
-                        "state",
                         [
                             [
                                 "Initialization",
-                                "initialization",
                                 0
                             ],
                             [
                                 "Idle",
-                                "idle",
                                 128
                             ],
                             [
                                 "Error",
-                                "error",
                                 192
                             ],
                             [
-                                "RequestTagID",
-                                "request_tag_id",
+                                "Request Tag ID",
                                 2
                             ],
                             [
-                                "RequestTagIDReady",
-                                "request_tag_id_ready",
+                                "Request Tag ID Ready",
                                 130
                             ],
                             [
-                                "RequestTagIDError",
-                                "request_tag_id_error",
+                                "Request Tag ID Error",
                                 194
                             ],
                             [
-                                "AuthenticatingMifareClassicPage",
-                                "authenticating_mifare_classic_page",
+                                "Authenticating Mifare Classic Page",
                                 3
                             ],
                             [
-                                "AuthenticatingMifareClassicPageReady",
-                                "authenticating_mifare_classic_page_ready",
+                                "Authenticating Mifare Classic Page Ready",
                                 131
                             ],
                             [
-                                "AuthenticatingMifareClassicPageError",
-                                "authenticating_mifare_classic_page_error",
+                                "Authenticating Mifare Classic Page Error",
                                 195
                             ],
                             [
-                                "WritePage",
-                                "write_page",
+                                "Write Page",
                                 4
                             ],
                             [
-                                "WritePageReady",
-                                "write_page_ready",
+                                "Write Page Ready",
                                 132
                             ],
                             [
-                                "WritePageError",
-                                "write_page_error",
+                                "Write Page Error",
                                 196
                             ],
                             [
-                                "RequestPage",
-                                "request_page",
+                                "Request Page",
                                 5
                             ],
                             [
-                                "RequestPageReady",
-                                "request_page_ready",
+                                "Request Page Ready",
                                 133
                             ],
                             [
-                                "RequestPageError",
-                                "request_page_error",
+                                "Request Page Error",
                                 197
                             ]
                         ]
                     ]
                 ],
                 [
-                    "idle",
+                    "Idle",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "StateChanged",
-                "state_changed"
-            ],
+            "name": "State Changed",
             "doc": [
                 "c",
                 {
@@ -495,16 +428,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -520,22 +450,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -551,22 +478,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -582,16 +506,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -607,46 +528,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -666,6 +584,110 @@
     ],
     "device_identifier": 246,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "State Changed",
+                        "state changed"
+                    ],
+                    [
+                        [
+                            [
+                                "State",
+                                "State"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Idle",
+                                "Idle"
+                            ],
+                            "bool",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Request Tag ID",
+                    [
+                        [
+                            "uint8:constant",
+                            0
+                        ]
+                    ],
+                    "Start scan loop",
+                    null
+                ]
+            ],
+            "name": "Scan For Tags",
+            "incomplete": true
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "State Changed",
+                        "state changed"
+                    ],
+                    [
+                        [
+                            [
+                                "State",
+                                "State"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Idle",
+                                "Idle"
+                            ],
+                            "bool",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Request Tag ID",
+                    [
+                        [
+                            "uint8:constant",
+                            2
+                        ]
+                    ],
+                    "Select NFC Forum Type 2 tag",
+                    null
+                ]
+            ],
+            "name": "Write Read Type2",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -674,8 +696,7 @@
         0
     ],
     "name": [
-        "NFCRFID",
-        "nfc_rfid",
+        "NFC RFID",
         "NFC/RFID",
         "NFC/RFID Bricklet"
     ]

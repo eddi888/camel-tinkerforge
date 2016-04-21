@@ -9,40 +9,37 @@
         {
             "elements": [
                 [
-                    "index",
+                    "Index",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "length",
+                    "Length",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "r",
+                    "R",
                     "uint8",
                     16,
                     "in"
                 ],
                 [
-                    "g",
+                    "G",
                     "uint8",
                     16,
                     "in"
                 ],
                 [
-                    "b",
+                    "B",
                     "uint8",
                     16,
                     "in"
                 ]
             ],
-            "name": [
-                "SetRGBValues",
-                "set_rgb_values"
-            ],
+            "name": "Set RGB Values",
             "doc": [
                 "bf",
                 {
@@ -77,40 +74,37 @@
         {
             "elements": [
                 [
-                    "index",
+                    "Index",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "length",
+                    "Length",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "r",
+                    "R",
                     "uint8",
                     16,
                     "out"
                 ],
                 [
-                    "g",
+                    "G",
                     "uint8",
                     16,
                     "out"
                 ],
                 [
-                    "b",
+                    "B",
                     "uint8",
                     16,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRGBValues",
-                "get_rgb_values"
-            ],
+            "name": "Get RGB Values",
             "doc": [
                 "bf",
                 {
@@ -129,16 +123,13 @@
         {
             "elements": [
                 [
-                    "duration",
+                    "Duration",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetFrameDuration",
-                "set_frame_duration"
-            ],
+            "name": "Set Frame Duration",
             "doc": [
                 "bf",
                 {
@@ -157,21 +148,18 @@
         {
             "elements": [
                 [
-                    "duration",
+                    "Duration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetFrameDuration",
-                "get_frame_duration"
-            ],
+            "name": "Get Frame Duration",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die *frame duration* (L\u00e4nge des Frames) zur\u00fcck, wie von\n:func:`SetFrameDuration` gesetzt.\n",
-                    "en": "\nReturns the frame duration as set by :func:`SetFrameDuration`.\n"
+                    "de": "\nGibt die *frame duration* (L\u00e4nge des Frames) in ms zur\u00fcck, wie von\n:func:`SetFrameDuration` gesetzt.\n",
+                    "en": "\nReturns the frame duration in ms as set by :func:`SetFrameDuration`.\n"
                 }
             ],
             "since_firmware": [
@@ -185,16 +173,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetSupplyVoltage",
-                "get_supply_voltage"
-            ],
+            "name": "Get Supply Voltage",
             "doc": [
                 "bf",
                 {
@@ -213,21 +198,18 @@
         {
             "elements": [
                 [
-                    "length",
+                    "Length",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "FrameRendered",
-                "frame_rendered"
-            ],
+            "name": "Frame Rendered",
             "doc": [
                 "c",
                 {
-                    "de": "\nDieser Callback wird direkt direkt nachdem ein Frame gerendert wurde ausgel\u00f6st.\n\nDie Daten f\u00fcr das n\u00e4chste Frame sollten direkt nach dem ausl\u00f6sen dieses\nCallbacks \u00fcbertragen werden.\n\nF\u00fcr eine Erkl\u00e4rung des generellen Ansatzes siehe :func:`SetRGBValues`.\n",
-                    "en": "\nThis callback is triggered directly after a new frame is rendered.\n\nYou should send the data for the next frame directly after this callback\nwas triggered.\n\nFor an explanation of the general approach see :func:`SetRGBValues`.\n"
+                    "de": "\nDieser Callback wird direkt direkt nachdem ein Frame gerendert wurde ausgel\u00f6st.\nDer :word:`parameter` ist die Anzahl der LEDs in diesem Frame.\n\nDie Daten f\u00fcr das n\u00e4chste Frame sollten direkt nach dem ausl\u00f6sen dieses\nCallbacks \u00fcbertragen werden.\n\nF\u00fcr eine Erkl\u00e4rung des generellen Ansatzes siehe :func:`SetRGBValues`.\n",
+                    "en": "\nThis callback is triggered directly after a new frame is rendered. The\n:word:`parameter` is the number of LEDs in that frame.\n\nYou should send the data for the next frame directly after this callback\nwas triggered.\n\nFor an explanation of the general approach see :func:`SetRGBValues`.\n"
                 }
             ],
             "since_firmware": [
@@ -241,16 +223,13 @@
         {
             "elements": [
                 [
-                    "frequency",
+                    "Frequency",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetClockFrequency",
-                "set_clock_frequency"
-            ],
+            "name": "Set Clock Frequency",
             "doc": [
                 "bf",
                 {
@@ -269,16 +248,13 @@
         {
             "elements": [
                 [
-                    "frequency",
+                    "Frequency",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetClockFrequency",
-                "get_clock_frequency"
-            ],
+            "name": "Get Clock Frequency",
             "doc": [
                 "bf",
                 {
@@ -297,37 +273,30 @@
         {
             "elements": [
                 [
-                    "chip",
+                    "Chip",
                     "uint16",
                     1,
                     "in",
                     [
-                        "ChipType",
-                        "chip_type",
+                        "Chip Type",
                         [
                             [
                                 "WS2801",
-                                "ws2801",
                                 2801
                             ],
                             [
                                 "WS2811",
-                                "ws2811",
                                 2811
                             ],
                             [
                                 "WS2812",
-                                "ws2812",
                                 2812
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetChipType",
-                "set_chip_type"
-            ],
+            "name": "Set Chip Type",
             "doc": [
                 "bf",
                 {
@@ -346,37 +315,30 @@
         {
             "elements": [
                 [
-                    "chip",
+                    "Chip",
                     "uint16",
                     1,
                     "out",
                     [
-                        "ChipType",
-                        "chip_type",
+                        "Chip Type",
                         [
                             [
                                 "WS2801",
-                                "ws2801",
                                 2801
                             ],
                             [
                                 "WS2811",
-                                "ws2811",
                                 2811
                             ],
                             [
                                 "WS2812",
-                                "ws2812",
                                 2812
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetChipType",
-                "get_chip_type"
-            ],
+            "name": "Get Chip Type",
             "doc": [
                 "bf",
                 {
@@ -395,16 +357,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -420,22 +379,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -451,22 +407,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -482,16 +435,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -507,46 +457,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -566,6 +513,52 @@
     ],
     "device_identifier": 231,
     "released": true,
+    "examples": [
+        {
+            "name": "Simple",
+            "incomplete": true
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Frame Duration",
+                    [
+                        [
+                            "uint16",
+                            50
+                        ]
+                    ],
+                    "Set frame duration to 50ms (20 frames per second)",
+                    null
+                ],
+                [
+                    "callback",
+                    [
+                        "Frame Rendered",
+                        "frame rendered"
+                    ],
+                    [
+                        [
+                            [
+                                "Length",
+                                "Length"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    "Use frame rendered callback to move the active LED every frame",
+                    null
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -574,8 +567,7 @@
         2
     ],
     "name": [
-        "LEDStrip",
-        "led_strip",
+        "LED Strip",
         "LED Strip",
         "LED Strip Bricklet"
     ]

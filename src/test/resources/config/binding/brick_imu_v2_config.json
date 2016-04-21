@@ -9,28 +9,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAcceleration",
-                "get_acceleration"
-            ],
+            "name": "Get Acceleration",
             "doc": [
                 "af",
                 {
@@ -49,28 +46,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMagneticField",
-                "get_magnetic_field"
-            ],
+            "name": "Get Magnetic Field",
             "doc": [
                 "af",
                 {
@@ -89,28 +83,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAngularVelocity",
-                "get_angular_velocity"
-            ],
+            "name": "Get Angular Velocity",
             "doc": [
                 "af",
                 {
@@ -129,16 +120,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperature",
-                "get_temperature"
-            ],
+            "name": "Get Temperature",
             "doc": [
                 "af",
                 {
@@ -157,33 +145,30 @@
         {
             "elements": [
                 [
-                    "heading",
+                    "Heading",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "roll",
+                    "Roll",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "pitch",
+                    "Pitch",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetOrientation",
-                "get_orientation"
-            ],
+            "name": "Get Orientation",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die aktuelle Orientierung (Gier-, Roll-, Nickwinkel) des IMU Brick in Eulerwinkeln\n(in 1/16 \u00b0) zur\u00fcck. Zu beachten ist, dass Eulerwinkel immer eine \n`kardanische Blockade <https://de.wikipedia.org/wiki/Gimbal_Lock>`__ erfahren.\n\nWir empfehlen die Verwendung von Quaternionen stattdessen.\n\nDie Rotationswinkel haben den folgenden Wertebereich:\n\n* Gierwinkel: 0\u00b0 bis 360\u00b0\n* Rollwinkel: -90\u00b0 bis +90\u00b0\n* Nickwinkel: -180\u00b0 bis +180\u00b0\n\nWenn die Orientierung periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Orientation` zu nutzen und die Periode mit :func:`SetOrientationPeriod`\nvorzugeben.\n",
-                    "en": "\nReturns the current orientation (heading, roll, pitch) of the IMU Brick as Euler\nangles in 1/16 degree. Note that Euler angles always experience a\n`gimbal lock <https://en.wikipedia.org/wiki/Gimbal_lock>`__.\n\nWe recommend that you use quaternions instead.\n\nThe rotation angle has the following ranges:\n\n* heading: 0\u00b0 to 360\u00b0\n* roll: -90\u00b0 to +90\u00b0\n* pitch: -180\u00b0 to +180\u00b0\n\nIf you want to get the orientation periodically, it is recommended \nto use the callback :func:`Orientation` and set the period with \n:func:`SetOrientationPeriod`.\n"
+                    "de": "\nGibt die aktuelle Orientierung (Gier-, Roll-, Nickwinkel) des IMU Brick in\nunabh\u00e4ngigen Eulerwinkeln (in 1/16 \u00b0) zur\u00fcck. Zu beachten ist, dass Eulerwinkel\nimmer eine `kardanische Blockade <https://de.wikipedia.org/wiki/Gimbal_Lock>`__\nerfahren. Wir empfehlen daher stattdessen Quaternionen zu verwenden, wenn die\nabsolute Lage im Raum bestimmt werden soll.\n\nDie Rotationswinkel haben den folgenden Wertebereich:\n\n* Gierwinkel: 0\u00b0 bis 360\u00b0\n* Rollwinkel: -90\u00b0 bis +90\u00b0\n* Nickwinkel: -180\u00b0 bis +180\u00b0\n\nWenn die Orientierung periodisch abgefragt werden sollen, wird empfohlen den\nCallback :func:`Orientation` zu nutzen und die Periode mit :func:`SetOrientationPeriod`\nvorzugeben.\n",
+                    "en": "\nReturns the current orientation (heading, roll, pitch) of the IMU Brick as\nindependent Euler angles in 1/16 degree. Note that Euler angles always\nexperience a `gimbal lock <https://en.wikipedia.org/wiki/Gimbal_lock>`__. We\nrecommend that you use quaternions instead, if you need the absolute orientation.\n\nThe rotation angle has the following ranges:\n\n* heading: 0\u00b0 to 360\u00b0\n* roll: -90\u00b0 to +90\u00b0\n* pitch: -180\u00b0 to +180\u00b0\n\nIf you want to get the orientation periodically, it is recommended \nto use the callback :func:`Orientation` and set the period with \n:func:`SetOrientationPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -197,28 +182,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetLinearAcceleration",
-                "get_linear_acceleration"
-            ],
+            "name": "Get Linear Acceleration",
             "doc": [
                 "bf",
                 {
@@ -237,32 +219,29 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetGravityVector",
-                "get_gravity_vector"
-            ],
+            "name": "Get Gravity Vector",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt den Vektor der Erdbeschleunigung des IMU Brick f\u00fcr die \nX-, Y- und Z-Achse in 1/100 m/s\u00b2 zur\u00fcck.\n\nDie Erdbeschleunigung ist die Beschleunigung die auf Grund von Schwerkraft\nentsteht. Einfl\u00fcsse von linearen Beschleunigungen sind entfernt.\n\nEs ist auch m\u00f6glich die lineare Beschleunigung zu bekommen, siehe\n:func:GetLinearAcceleration`\n\nWenn die Erdbeschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`GravityVector` zu nutzen und die Periode mit \n:func:`SetGravityVectorPeriod` vorzugeben.\n",
+                    "de": "\nGibt den Vektor der Erdbeschleunigung des IMU Brick f\u00fcr die \nX-, Y- und Z-Achse in 1/100 m/s\u00b2 zur\u00fcck.\n\nDie Erdbeschleunigung ist die Beschleunigung die auf Grund von Schwerkraft\nentsteht. Einfl\u00fcsse von linearen Beschleunigungen sind entfernt.\n\nEs ist auch m\u00f6glich die lineare Beschleunigung zu bekommen, siehe\n:func:`GetLinearAcceleration`\n\nWenn die Erdbeschleunigungen periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`GravityVector` zu nutzen und die Periode mit \n:func:`SetGravityVectorPeriod` vorzugeben.\n",
                     "en": "\nReturns the current gravity vector of the IMU Brick for the\nx, y and z axis in 1/100 m/s\u00b2.\n\nThe gravity vector is the acceleration that occurs due to gravity.\nInfluences of additional linear acceleration are removed.\n\nIt is also possible to get the linear acceleration with the influence \nof gravity removed, see :func:`GetLinearAcceleration`.\n\nIf you want to get the gravity vector periodically, it is recommended \nto use the callback :func:`GravityVector` and set the period with \n:func:`SetGravityVectorPeriod`.\n"
                 }
             ],
@@ -277,34 +256,31 @@
         {
             "elements": [
                 [
-                    "w",
+                    "W",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetQuaternion",
-                "get_quaternion"
-            ],
+            "name": "Get Quaternion",
             "doc": [
                 "bf",
                 {
@@ -323,64 +299,61 @@
         {
             "elements": [
                 [
-                    "acceleration",
+                    "Acceleration",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "magnetic_field",
+                    "Magnetic Field",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "angular_velocity",
+                    "Angular Velocity",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "euler_angle",
+                    "Euler Angle",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "quaternion",
+                    "Quaternion",
                     "int16",
                     4,
                     "out"
                 ],
                 [
-                    "linear_acceleration",
+                    "Linear Acceleration",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "gravity_vector",
+                    "Gravity Vector",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "temperature",
+                    "Temperature",
                     "int8",
                     1,
                     "out"
                 ],
                 [
-                    "calibration_status",
+                    "Calibration Status",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAllData",
-                "get_all_data"
-            ],
+            "name": "Get All Data",
             "doc": [
                 "bf",
                 {
@@ -398,10 +371,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LedsOn",
-                "leds_on"
-            ],
+            "name": "Leds On",
             "doc": [
                 "bf",
                 {
@@ -419,10 +389,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LedsOff",
-                "leds_off"
-            ],
+            "name": "Leds Off",
             "doc": [
                 "bf",
                 {
@@ -441,16 +408,13 @@
         {
             "elements": [
                 [
-                    "leds",
+                    "Leds",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AreLedsOn",
-                "are_leds_on"
-            ],
+            "name": "Are Leds On",
             "doc": [
                 "bf",
                 {
@@ -469,16 +433,13 @@
         {
             "elements": [
                 [
-                    "calibration_done",
+                    "Calibration Done",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "SaveCalibration",
-                "save_calibration"
-            ],
+            "name": "Save Calibration",
             "doc": [
                 "af",
                 {
@@ -497,16 +458,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAccelerationPeriod",
-                "set_acceleration_period"
-            ],
+            "name": "Set Acceleration Period",
             "doc": [
                 "ccf",
                 {
@@ -525,16 +483,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAccelerationPeriod",
-                "get_acceleration_period"
-            ],
+            "name": "Get Acceleration Period",
             "doc": [
                 "ccf",
                 {
@@ -553,16 +508,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMagneticFieldPeriod",
-                "set_magnetic_field_period"
-            ],
+            "name": "Set Magnetic Field Period",
             "doc": [
                 "ccf",
                 {
@@ -581,16 +533,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMagneticFieldPeriod",
-                "get_magnetic_field_period"
-            ],
+            "name": "Get Magnetic Field Period",
             "doc": [
                 "ccf",
                 {
@@ -609,16 +558,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAngularVelocityPeriod",
-                "set_angular_velocity_period"
-            ],
+            "name": "Set Angular Velocity Period",
             "doc": [
                 "ccf",
                 {
@@ -637,16 +583,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAngularVelocityPeriod",
-                "get_angular_velocity_period"
-            ],
+            "name": "Get Angular Velocity Period",
             "doc": [
                 "ccf",
                 {
@@ -665,16 +608,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTemperaturePeriod",
-                "set_temperature_period"
-            ],
+            "name": "Set Temperature Period",
             "doc": [
                 "ccf",
                 {
@@ -693,16 +633,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTemperaturePeriod",
-                "get_temperature_period"
-            ],
+            "name": "Get Temperature Period",
             "doc": [
                 "ccf",
                 {
@@ -721,16 +658,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetOrientationPeriod",
-                "set_orientation_period"
-            ],
+            "name": "Set Orientation Period",
             "doc": [
                 "ccf",
                 {
@@ -749,16 +683,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetOrientationPeriod",
-                "get_orientation_period"
-            ],
+            "name": "Get Orientation Period",
             "doc": [
                 "ccf",
                 {
@@ -777,16 +708,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetLinearAccelerationPeriod",
-                "set_linear_acceleration_period"
-            ],
+            "name": "Set Linear Acceleration Period",
             "doc": [
                 "ccf",
                 {
@@ -805,16 +733,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetLinearAccelerationPeriod",
-                "get_linear_acceleration_period"
-            ],
+            "name": "Get Linear Acceleration Period",
             "doc": [
                 "ccf",
                 {
@@ -833,16 +758,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetGravityVectorPeriod",
-                "set_gravity_vector_period"
-            ],
+            "name": "Set Gravity Vector Period",
             "doc": [
                 "ccf",
                 {
@@ -861,16 +783,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetGravityVectorPeriod",
-                "get_gravity_vector_period"
-            ],
+            "name": "Get Gravity Vector Period",
             "doc": [
                 "ccf",
                 {
@@ -889,16 +808,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetQuaternionPeriod",
-                "set_quaternion_period"
-            ],
+            "name": "Set Quaternion Period",
             "doc": [
                 "ccf",
                 {
@@ -917,16 +833,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetQuaternionPeriod",
-                "get_quaternion_period"
-            ],
+            "name": "Get Quaternion Period",
             "doc": [
                 "ccf",
                 {
@@ -945,16 +858,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAllDataPeriod",
-                "set_all_data_period"
-            ],
+            "name": "Set All Data Period",
             "doc": [
                 "ccf",
                 {
@@ -973,16 +883,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAllDataPeriod",
-                "get_all_data_period"
-            ],
+            "name": "Get All Data Period",
             "doc": [
                 "ccf",
                 {
@@ -1001,28 +908,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Acceleration",
-                "acceleration"
-            ],
+            "name": "Acceleration",
             "doc": [
                 "c",
                 {
@@ -1041,28 +945,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "MagneticField",
-                "magnetic_field"
-            ],
+            "name": "Magnetic Field",
             "doc": [
                 "c",
                 {
@@ -1081,28 +982,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AngularVelocity",
-                "angular_velocity"
-            ],
+            "name": "Angular Velocity",
             "doc": [
                 "c",
                 {
@@ -1121,16 +1019,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Temperature",
-                "temperature"
-            ],
+            "name": "Temperature",
             "doc": [
                 "c",
                 {
@@ -1149,28 +1044,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "LinearAcceleration",
-                "linear_acceleration"
-            ],
+            "name": "Linear Acceleration",
             "doc": [
                 "c",
                 {
@@ -1189,28 +1081,25 @@
         {
             "elements": [
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GravityVector",
-                "gravity_vector"
-            ],
+            "name": "Gravity Vector",
             "doc": [
                 "c",
                 {
@@ -1229,28 +1118,25 @@
         {
             "elements": [
                 [
-                    "heading",
+                    "Heading",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "roll",
+                    "Roll",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "pitch",
+                    "Pitch",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Orientation",
-                "orientation"
-            ],
+            "name": "Orientation",
             "doc": [
                 "c",
                 {
@@ -1269,34 +1155,31 @@
         {
             "elements": [
                 [
-                    "w",
+                    "W",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "x",
+                    "X",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "y",
+                    "Y",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "z",
+                    "Z",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Quaternion",
-                "quaternion"
-            ],
+            "name": "Quaternion",
             "doc": [
                 "c",
                 {
@@ -1315,64 +1198,61 @@
         {
             "elements": [
                 [
-                    "acceleration",
+                    "Acceleration",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "magnetic_field",
+                    "Magnetic Field",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "angular_velocity",
+                    "Angular Velocity",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "euler_angle",
+                    "Euler Angle",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "quaternion",
+                    "Quaternion",
                     "int16",
                     4,
                     "out"
                 ],
                 [
-                    "linear_acceleration",
+                    "Linear Acceleration",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "gravity_vector",
+                    "Gravity Vector",
                     "int16",
                     3,
                     "out"
                 ],
                 [
-                    "temperature",
+                    "Temperature",
                     "int8",
                     1,
                     "out"
                 ],
                 [
-                    "calibration_status",
+                    "Calibration Status",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AllData",
-                "all_data"
-            ],
+            "name": "All Data",
             "doc": [
                 "c",
                 {
@@ -1391,16 +1271,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -1416,22 +1293,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -1447,22 +1321,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -1478,16 +1349,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -1502,10 +1370,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableStatusLED",
-                "enable_status_led"
-            ],
+            "name": "Enable Status LED",
             "doc": [
                 "af",
                 {
@@ -1523,10 +1388,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableStatusLED",
-                "disable_status_led"
-            ],
+            "name": "Disable Status LED",
             "doc": [
                 "af",
                 {
@@ -1545,16 +1407,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsStatusLEDEnabled",
-                "is_status_led_enabled"
-            ],
+            "name": "Is Status LED Enabled",
             "doc": [
                 "af",
                 {
@@ -1573,34 +1432,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "protocol_version",
+                    "Protocol Version",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "name",
+                    "Name",
                     "string",
                     40,
                     "out"
                 ]
             ],
-            "name": [
-                "GetProtocol1BrickletName",
-                "get_protocol1_bricklet_name"
-            ],
+            "name": "Get Protocol1 Bricklet Name",
             "doc": [
                 "af",
                 {
@@ -1619,16 +1475,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -1646,10 +1499,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Reset",
-                "reset"
-            ],
+            "name": "Reset",
             "doc": [
                 "af",
                 {
@@ -1668,46 +1518,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1727,6 +1574,263 @@
     ],
     "device_identifier": 18,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Quaternion",
+                        "quaternion"
+                    ],
+                    [
+                        [
+                            [
+                                "W",
+                                "Quaternion[W]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "X",
+                                "Quaternion[X]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Quaternion[Y]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Quaternion[Z]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple",
+            "incomplete": true
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Quaternion",
+                        "quaternion"
+                    ],
+                    [
+                        [
+                            [
+                                "W",
+                                "Quaternion[W]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "X",
+                                "Quaternion[X]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Y",
+                                "Quaternion[Y]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Z",
+                                "Quaternion[Z]"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Quaternion",
+                        "quaternion"
+                    ],
+                    [],
+                    100
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "All Data",
+                        "all data"
+                    ],
+                    [
+                        [
+                            [
+                                "Acceleration",
+                                "Acceleration"
+                            ],
+                            "int16",
+                            100.0,
+                            "1/100 m/s\u00b2",
+                            "m/s\u00b2",
+                            null
+                        ],
+                        [
+                            [
+                                "Magnetic Field",
+                                "Magnetic Field"
+                            ],
+                            "int16",
+                            16.0,
+                            "1/16 \u00b5T",
+                            "\u00b5T",
+                            null
+                        ],
+                        [
+                            [
+                                "Angular Velocity",
+                                "Angular Velocity"
+                            ],
+                            "int16",
+                            16.0,
+                            "1/16 \u00b0/s",
+                            "\u00b0/s",
+                            null
+                        ],
+                        [
+                            [
+                                "Euler Angle",
+                                "Euler Angle"
+                            ],
+                            "int16",
+                            16.0,
+                            "\u00b0/16",
+                            "\u00b0",
+                            null
+                        ],
+                        [
+                            [
+                                "Quaternion",
+                                "Quaternion"
+                            ],
+                            "int16",
+                            16383.0,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Linear Acceleration",
+                                "Linear Acceleration"
+                            ],
+                            "int16",
+                            100.0,
+                            "1/100 m/s\u00b2",
+                            "m/s\u00b2",
+                            null
+                        ],
+                        [
+                            [
+                                "Gravity Vector",
+                                "Gravity Vector"
+                            ],
+                            "int16",
+                            100.0,
+                            "1/100 m/s\u00b2",
+                            "m/s\u00b2",
+                            null
+                        ],
+                        [
+                            [
+                                "Temperature",
+                                "Temperature"
+                            ],
+                            "int8",
+                            null,
+                            "\u00b0C",
+                            "\u00b0C",
+                            null
+                        ],
+                        [
+                            [
+                                "Calibration Status",
+                                "Calibration Status"
+                            ],
+                            "uint8:bitmask:8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "All Data",
+                        "all data"
+                    ],
+                    [],
+                    100
+                ]
+            ],
+            "name": "All Data",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -1735,8 +1839,7 @@
         0
     ],
     "name": [
-        "IMUV2",
-        "imu_v2",
+        "IMU V2",
         "IMU 2.0",
         "IMU Brick 2.0"
     ]

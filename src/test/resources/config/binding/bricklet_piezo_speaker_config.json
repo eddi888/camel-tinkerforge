@@ -9,43 +9,37 @@
         {
             "elements": [
                 [
-                    "duration",
+                    "Duration",
                     "uint32",
                     1,
                     "in",
                     [
-                        "BeepDuration",
-                        "beep_duration",
+                        "Beep Duration",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "Infinite",
-                                "infinite",
                                 4294967295
                             ]
                         ]
                     ]
                 ],
                 [
-                    "frequency",
+                    "Frequency",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "Beep",
-                "beep"
-            ],
+            "name": "Beep",
             "doc": [
                 "bf",
                 {
-                    "de": "\nErzeugt einen Piepton mit der gegebenen Frequenz f\u00fcr die angegebene Dauer in ms. \nBeispiel: Wenn *duration* auf 1000 und *frequency* auf 2000 gesetzt wird, \nerzeugt der Piezosummer einen Piepton f\u00fcr eine Sekunde mit einer Frequenz \nvon ca. 2 kHz.\n\n.. versionchanged:: 2.0.2~(Plugin)\n   Eine *durarion* von 0 stoppt den aktuellen Piepton, das *frequency* Parameter\n   wird ignoriert. Eine *durarion* von 4294967295 f\u00fchrt zu einem unendlich\n   langen Piepton.\n\nDas *frequency* Parameter kann Werte von 585 bis 7100 annehmen.\n\nDas Piezo Speaker Bricklet kann die angegebenen Frequenzen nur approximieren,\nes w\u00e4hlt die bestm\u00f6gliche Zuordnung anhand der Kalibrierung \n(siehe :func:`Calibrate`).\n",
-                    "en": "\nBeeps with the given frequency for the duration in ms. For example: \nIf you set a duration of 1000, with a frequency value of 2000\nthe piezo buzzer will beep for one second with a frequency of\napproximately 2 kHz.\n\n.. versionchanged:: 2.0.2~(Plugin)\n   A duration of 0 stops the current beep if any, the frequency parameter is\n   ignored. A duration of 4294967295 results in an infinite beep.\n\nThe *frequency* parameter can be set between 585 and 7100.\n\nThe Piezo Speaker Bricklet can only approximate the frequency, it will play\nthe best possible match by applying the calibration (see :func:`Calibrate`).\n"
+                    "de": "\nErzeugt einen Piepton mit der gegebenen Frequenz f\u00fcr die angegebene Dauer in ms. \nBeispiel: Wenn *duration* auf 1000 und *frequency* auf 2000 gesetzt wird, \nerzeugt der Piezosummer einen Piepton f\u00fcr eine Sekunde mit einer Frequenz \nvon ca. 2 kHz.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n   Eine *durarion* von 0 stoppt den aktuellen Piepton, das *frequency* Parameter\n   wird ignoriert. Eine *durarion* von 4294967295 f\u00fchrt zu einem unendlich\n   langen Piepton.\n\nDas *frequency* Parameter kann Werte von 585 bis 7100 annehmen.\n\nDas Piezo Speaker Bricklet kann die angegebenen Frequenzen nur approximieren,\nes w\u00e4hlt die bestm\u00f6gliche Zuordnung anhand der Kalibrierung \n(siehe :func:`Calibrate`).\n",
+                    "en": "\nBeeps with the given frequency for the duration in ms. For example: \nIf you set a duration of 1000, with a frequency value of 2000\nthe piezo buzzer will beep for one second with a frequency of\napproximately 2 kHz.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n   A duration of 0 stops the current beep if any, the frequency parameter is\n   ignored. A duration of 4294967295 results in an infinite beep.\n\nThe *frequency* parameter can be set between 585 and 7100.\n\nThe Piezo Speaker Bricklet can only approximate the frequency, it will play\nthe best possible match by applying the calibration (see :func:`Calibrate`).\n"
                 }
             ],
             "since_firmware": [
@@ -59,22 +53,19 @@
         {
             "elements": [
                 [
-                    "morse",
+                    "Morse",
                     "string",
                     60,
                     "in"
                 ],
                 [
-                    "frequency",
+                    "Frequency",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "MorseCode",
-                "morse_code"
-            ],
+            "name": "Morse Code",
             "doc": [
                 "bf",
                 {
@@ -93,16 +84,13 @@
         {
             "elements": [
                 [
-                    "calibration",
+                    "Calibration",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Calibrate",
-                "calibrate"
-            ],
+            "name": "Calibrate",
             "doc": [
                 "af",
                 {
@@ -120,10 +108,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "BeepFinished",
-                "beep_finished"
-            ],
+            "name": "Beep Finished",
             "doc": [
                 "c",
                 {
@@ -141,10 +126,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "MorseCodeFinished",
-                "morse_code_finished"
-            ],
+            "name": "Morse Code Finished",
             "doc": [
                 "c",
                 {
@@ -163,16 +145,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -188,22 +167,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -219,22 +195,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -250,16 +223,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -275,46 +245,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -334,6 +301,50 @@
     ],
     "device_identifier": 242,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Beep",
+                    [
+                        [
+                            "uint16",
+                            2000
+                        ],
+                        [
+                            "uint16",
+                            1000
+                        ]
+                    ],
+                    "Make 2 second beep with a frequency of 1kHz",
+                    null
+                ]
+            ],
+            "name": "Beep"
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Morse Code",
+                    [
+                        [
+                            "string",
+                            "... --- ..."
+                        ],
+                        [
+                            "uint16",
+                            2000
+                        ]
+                    ],
+                    "Morse SOS with a frequency of 2kHz",
+                    null
+                ]
+            ],
+            "name": "Morse Code"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -342,8 +353,7 @@
         0
     ],
     "name": [
-        "PiezoSpeaker",
-        "piezo_speaker",
+        "Piezo Speaker",
         "Piezo Speaker",
         "Piezo Speaker Bricklet"
     ]

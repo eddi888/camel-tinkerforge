@@ -24,9 +24,10 @@ import org.slf4j.LoggerFactory;
 
 import com.tinkerforge.BrickletRS232;
 
-import com.tinkerforge.BrickletRS232.ReadCallbackListener;;
+import com.tinkerforge.BrickletRS232.ReadCallbackListener;
+import com.tinkerforge.BrickletRS232.ErrorCallbackListener;;
 
-public class RS232Consumer extends TinkerforgeConsumer<RS232Endpoint, BrickletRS232> implements ReadCallbackListener {
+public class RS232Consumer extends TinkerforgeConsumer<RS232Endpoint, BrickletRS232> implements ReadCallbackListener, ErrorCallbackListener {
     
     private static final Logger LOG = LoggerFactory.getLogger(RS232Consumer.class);
     
@@ -38,11 +39,13 @@ public class RS232Consumer extends TinkerforgeConsumer<RS232Endpoint, BrickletRS
 
         if(endpoint.getCallback()==null || endpoint.getCallback().equals("")){
             device.addReadCallbackListener(this);
+            device.addErrorCallbackListener(this);
             
         }else{
             String[] callbacks = endpoint.getCallback().split(",");
             for (String callback : callbacks) {
                 if(callback.equals("ReadCallbackListener")) device.addReadCallbackListener(this);
+                if(callback.equals("ErrorCallbackListener")) device.addErrorCallbackListener(this);
                 
             }
         }
@@ -65,6 +68,32 @@ public class RS232Consumer extends TinkerforgeConsumer<RS232Endpoint, BrickletRS
             
             // ADD BODY
             exchange.getIn().setBody("read_callback");;
+            
+            getProcessor().process(exchange);
+        } catch (Exception e) {
+            getExceptionHandler().handleException("Error processing exchange", exchange, e);
+        } finally {
+            if (exchange != null && exchange.getException() != null) {
+                getExceptionHandler().handleException("Error processing exchange", exchange, exchange.getException());
+            }
+        }
+    }
+    
+    @Override
+    public void errorCallback(short error) {
+        LOG.trace("errorCallback()");
+        
+        Exchange exchange = null;
+        try {
+            exchange = createExchange();
+            
+            // ADD HEADER
+            exchange.getIn().setHeader("fireBy", BrickletRS232.CALLBACK_ERROR_CALLBACK);
+            exchange.getIn().setHeader("error", error);
+            
+            
+            // ADD BODY
+            exchange.getIn().setBody("error_callback");;
             
             getProcessor().process(exchange);
         } catch (Exception e) {

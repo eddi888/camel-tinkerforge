@@ -82,7 +82,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
     }
     
     @Override
-    public void positionReached(short servo_num, short position) {
+    public void positionReached(short servoNum, short position) {
         LOG.trace("positionReached()");
         
         Exchange exchange = null;
@@ -91,7 +91,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickServo.CALLBACK_POSITION_REACHED);
-            exchange.getIn().setHeader("servo_num", servo_num);
+            exchange.getIn().setHeader("servoNum", servoNum);
             exchange.getIn().setHeader("position", position);
             
             
@@ -109,7 +109,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
     }
     
     @Override
-    public void velocityReached(short servo_num, short velocity) {
+    public void velocityReached(short servoNum, short velocity) {
         LOG.trace("velocityReached()");
         
         Exchange exchange = null;
@@ -118,7 +118,7 @@ public class ServoConsumer extends TinkerforgeConsumer<ServoEndpoint, BrickServo
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickServo.CALLBACK_VELOCITY_REACHED);
-            exchange.getIn().setHeader("servo_num", servo_num);
+            exchange.getIn().setHeader("servoNum", servoNum);
             exchange.getIn().setHeader("velocity", velocity);
             
             

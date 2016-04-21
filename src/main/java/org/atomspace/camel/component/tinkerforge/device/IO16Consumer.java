@@ -53,7 +53,7 @@ public class IO16Consumer extends TinkerforgeConsumer<IO16Endpoint, BrickletIO16
     
     
     @Override
-    public void interrupt(char port, short interrupt_mask, short value_mask) {
+    public void interrupt(char port, short interruptMask, short valueMask) {
         LOG.trace("interrupt()");
         
         Exchange exchange = null;
@@ -63,8 +63,8 @@ public class IO16Consumer extends TinkerforgeConsumer<IO16Endpoint, BrickletIO16
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletIO16.CALLBACK_INTERRUPT);
             exchange.getIn().setHeader("port", port);
-            exchange.getIn().setHeader("interrupt_mask", interrupt_mask);
-            exchange.getIn().setHeader("value_mask", value_mask);
+            exchange.getIn().setHeader("interruptMask", interruptMask);
+            exchange.getIn().setHeader("valueMask", valueMask);
             
             
             // ADD BODY
@@ -81,7 +81,7 @@ public class IO16Consumer extends TinkerforgeConsumer<IO16Endpoint, BrickletIO16
     }
     
     @Override
-    public void monoflopDone(char port, short selection_mask, short value_mask) {
+    public void monoflopDone(char port, short selectionMask, short valueMask) {
         LOG.trace("monoflopDone()");
         
         Exchange exchange = null;
@@ -91,8 +91,8 @@ public class IO16Consumer extends TinkerforgeConsumer<IO16Endpoint, BrickletIO16
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletIO16.CALLBACK_MONOFLOP_DONE);
             exchange.getIn().setHeader("port", port);
-            exchange.getIn().setHeader("selection_mask", selection_mask);
-            exchange.getIn().setHeader("value_mask", value_mask);
+            exchange.getIn().setHeader("selectionMask", selectionMask);
+            exchange.getIn().setHeader("valueMask", valueMask);
             
             
             // ADD BODY

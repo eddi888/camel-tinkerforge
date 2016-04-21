@@ -9,37 +9,30 @@
         {
             "elements": [
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
-                        "TiltState",
-                        "tilt_state",
+                        "Tilt State",
                         [
                             [
                                 "Closed",
-                                "closed",
                                 0
                             ],
                             [
                                 "Open",
-                                "open",
                                 1
                             ],
                             [
-                                "ClosedVibrating",
-                                "closed_vibrating",
+                                "Closed Vibrating",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetTiltState",
-                "get_tilt_state"
-            ],
+            "name": "Get Tilt State",
             "doc": [
                 "bf",
                 {
@@ -57,10 +50,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableTiltStateCallback",
-                "enable_tilt_state_callback"
-            ],
+            "name": "Enable Tilt State Callback",
             "doc": [
                 "ccf",
                 {
@@ -78,10 +68,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableTiltStateCallback",
-                "disable_tilt_state_callback"
-            ],
+            "name": "Disable Tilt State Callback",
             "doc": [
                 "ccf",
                 {
@@ -100,16 +87,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsTiltStateCallbackEnabled",
-                "is_tilt_state_callback_enabled"
-            ],
+            "name": "Is Tilt State Callback Enabled",
             "doc": [
                 "ccf",
                 {
@@ -128,37 +112,30 @@
         {
             "elements": [
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
-                        "TiltState",
-                        "tilt_state",
+                        "Tilt State",
                         [
                             [
                                 "Closed",
-                                "closed",
                                 0
                             ],
                             [
                                 "Open",
-                                "open",
                                 1
                             ],
                             [
-                                "ClosedVibrating",
-                                "closed_vibrating",
+                                "Closed Vibrating",
                                 2
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "TiltState",
-                "tilt_state"
-            ],
+            "name": "Tilt State",
             "doc": [
                 "c",
                 {
@@ -177,16 +154,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -202,22 +176,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -233,22 +204,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -264,16 +232,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -289,46 +254,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -348,6 +310,70 @@
     ],
     "device_identifier": 239,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Tilt State",
+                        "tilt state"
+                    ],
+                    [
+                        [
+                            [
+                                "State",
+                                "Tilt State"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple",
+            "incomplete": true
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Enable Tilt State Callback",
+                    [],
+                    "Enable tilt state callback",
+                    null
+                ],
+                [
+                    "callback",
+                    [
+                        "Tilt State",
+                        "tilt state"
+                    ],
+                    [
+                        [
+                            [
+                                "State",
+                                "Tilt State"
+                            ],
+                            "uint8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -357,7 +383,6 @@
     ],
     "name": [
         "Tilt",
-        "tilt",
         "Tilt",
         "Tilt Bricklet"
     ]

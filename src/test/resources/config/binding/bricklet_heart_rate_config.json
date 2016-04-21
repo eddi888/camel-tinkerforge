@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "heart_rate",
+                    "Heart Rate",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetHeartRate",
-                "get_heart_rate"
-            ],
+            "name": "Get Heart Rate",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetHeartRateCallbackPeriod",
-                "set_heart_rate_callback_period"
-            ],
+            "name": "Set Heart Rate Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetHeartRateCallbackPeriod",
-                "get_heart_rate_callback_period"
-            ],
+            "name": "Get Heart Rate Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,59 +84,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetHeartRateCallbackThreshold",
-                "set_heart_rate_callback_threshold"
-            ],
+            "name": "Set Heart Rate Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetHeartRateCallbackThreshold",
-                "get_heart_rate_callback_threshold"
-            ],
+            "name": "Get Heart Rate Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,16 +258,13 @@
         {
             "elements": [
                 [
-                    "heart_rate",
+                    "Heart Rate",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "HeartRate",
-                "heart_rate"
-            ],
+            "name": "Heart Rate",
             "doc": [
                 "c",
                 {
@@ -319,16 +283,13 @@
         {
             "elements": [
                 [
-                    "heart_rate",
+                    "Heart Rate",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "HeartRateReached",
-                "heart_rate_reached"
-            ],
+            "name": "Heart Rate Reached",
             "doc": [
                 "c",
                 {
@@ -347,32 +308,26 @@
         {
             "elements": [
                 [
-                    "state",
+                    "State",
                     "uint8",
                     1,
                     "out",
                     [
-                        "BeatState",
-                        "beat_state",
+                        "Beat State",
                         [
                             [
                                 "Falling",
-                                "falling",
                                 0
                             ],
                             [
                                 "Rising",
-                                "rising",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "BeatStateChanged",
-                "beat_state_changed"
-            ],
+            "name": "Beat State Changed",
             "doc": [
                 "c",
                 {
@@ -390,10 +345,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableBeatStateChangedCallback",
-                "enable_beat_state_changed_callback"
-            ],
+            "name": "Enable Beat State Changed Callback",
             "doc": [
                 "ccf",
                 {
@@ -411,10 +363,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableBeatStateChangedCallback",
-                "disable_beat_state_changed_callback"
-            ],
+            "name": "Disable Beat State Changed Callback",
             "doc": [
                 "ccf",
                 {
@@ -433,16 +382,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsBeatStateChangedCallbackEnabled",
-                "is_beat_state_changed_callback_enabled"
-            ],
+            "name": "Is Beat State Changed Callback Enabled",
             "doc": [
                 "ccf",
                 {
@@ -461,16 +407,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -486,22 +429,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -517,22 +457,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -548,16 +485,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -573,46 +507,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -632,6 +563,116 @@
     ],
     "device_identifier": 245,
     "released": false,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Heart Rate",
+                        "heart rate"
+                    ],
+                    [
+                        [
+                            [
+                                "Heart Rate",
+                                "Heart Rate"
+                            ],
+                            "uint16",
+                            null,
+                            "bpm",
+                            "bpm",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Heart Rate",
+                        "heart rate"
+                    ],
+                    [
+                        [
+                            [
+                                "Heart Rate",
+                                "Heart Rate"
+                            ],
+                            "uint16",
+                            null,
+                            "bpm",
+                            "bpm",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Heart Rate",
+                        "heart rate"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Heart Rate Reached",
+                        "heart rate reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Heart Rate",
+                                "Heart Rate"
+                            ],
+                            "uint16",
+                            null,
+                            "bpm",
+                            "bpm",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Heart Rate",
+                        "heart rate"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            100,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -640,8 +681,7 @@
         0
     ],
     "name": [
-        "HeartRate",
-        "heart_rate",
+        "Heart Rate",
         "Heart Rate",
         "Heart Rate Bricklet"
     ]

@@ -9,34 +9,31 @@
         {
             "elements": [
                 [
-                    "r",
+                    "R",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "g",
+                    "G",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "b",
+                    "B",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "c",
+                    "C",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetColor",
-                "get_color"
-            ],
+            "name": "Get Color",
             "doc": [
                 "bf",
                 {
@@ -55,16 +52,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetColorCallbackPeriod",
-                "set_color_callback_period"
-            ],
+            "name": "Set Color Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -83,16 +77,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetColorCallbackPeriod",
-                "get_color_callback_period"
-            ],
+            "name": "Get Color Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -111,95 +102,86 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min_r",
+                    "Min R",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max_r",
+                    "Max R",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "min_g",
+                    "Min G",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max_g",
+                    "Max G",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "min_b",
+                    "Min B",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max_b",
+                    "Max B",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "min_c",
+                    "Min C",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max_c",
+                    "Max C",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetColorCallbackThreshold",
-                "set_color_callback_threshold"
-            ],
+            "name": "Set Color Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -218,95 +200,86 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min_r",
+                    "Min R",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max_r",
+                    "Max R",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "min_g",
+                    "Min G",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max_g",
+                    "Max G",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "min_b",
+                    "Min B",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max_b",
+                    "Max B",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "min_c",
+                    "Min C",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max_c",
+                    "Max C",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetColorCallbackThreshold",
-                "get_color_callback_threshold"
-            ],
+            "name": "Get Color Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -325,16 +298,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -353,16 +323,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -381,34 +348,31 @@
         {
             "elements": [
                 [
-                    "r",
+                    "R",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "g",
+                    "G",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "b",
+                    "B",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "c",
+                    "C",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Color",
-                "color"
-            ],
+            "name": "Color",
             "doc": [
                 "c",
                 {
@@ -427,34 +391,31 @@
         {
             "elements": [
                 [
-                    "r",
+                    "R",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "g",
+                    "G",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "b",
+                    "B",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "c",
+                    "C",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ColorReached",
-                "color_reached"
-            ],
+            "name": "Color Reached",
             "doc": [
                 "c",
                 {
@@ -472,10 +433,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LightOn",
-                "light_on"
-            ],
+            "name": "Light On",
             "doc": [
                 "bf",
                 {
@@ -493,10 +451,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "LightOff",
-                "light_off"
-            ],
+            "name": "Light Off",
             "doc": [
                 "bf",
                 {
@@ -515,32 +470,26 @@
         {
             "elements": [
                 [
-                    "light",
+                    "Light",
                     "uint8",
                     1,
                     "out",
                     [
                         "Light",
-                        "light",
                         [
                             [
                                 "On",
-                                "on",
                                 0
                             ],
                             [
                                 "Off",
-                                "off",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "IsLightOn",
-                "is_light_on"
-            ],
+            "name": "Is Light On",
             "doc": [
                 "bf",
                 {
@@ -559,31 +508,26 @@
         {
             "elements": [
                 [
-                    "gain",
+                    "Gain",
                     "uint8",
                     1,
                     "in",
                     [
                         "Gain",
-                        "gain",
                         [
                             [
-                                "1x",
                                 "1x",
                                 0
                             ],
                             [
                                 "4x",
-                                "4x",
                                 1
                             ],
                             [
                                 "16x",
-                                "16x",
                                 2
                             ],
                             [
-                                "60x",
                                 "60x",
                                 3
                             ]
@@ -591,36 +535,30 @@
                     ]
                 ],
                 [
-                    "integration_time",
+                    "Integration Time",
                     "uint8",
                     1,
                     "in",
                     [
-                        "IntegrationTime",
-                        "integration_time",
+                        "Integration Time",
                         [
                             [
-                                "2ms",
                                 "2ms",
                                 0
                             ],
                             [
                                 "24ms",
-                                "24ms",
                                 1
                             ],
                             [
-                                "101ms",
                                 "101ms",
                                 2
                             ],
                             [
                                 "154ms",
-                                "154ms",
                                 3
                             ],
                             [
-                                "700ms",
                                 "700ms",
                                 4
                             ]
@@ -628,10 +566,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "SetConfig",
-                "set_config"
-            ],
+            "name": "Set Config",
             "doc": [
                 "bf",
                 {
@@ -650,31 +585,26 @@
         {
             "elements": [
                 [
-                    "gain",
+                    "Gain",
                     "uint8",
                     1,
                     "out",
                     [
                         "Gain",
-                        "gain",
                         [
                             [
-                                "1x",
                                 "1x",
                                 0
                             ],
                             [
                                 "4x",
-                                "4x",
                                 1
                             ],
                             [
                                 "16x",
-                                "16x",
                                 2
                             ],
                             [
-                                "60x",
                                 "60x",
                                 3
                             ]
@@ -682,36 +612,30 @@
                     ]
                 ],
                 [
-                    "integration_time",
+                    "Integration Time",
                     "uint8",
                     1,
                     "out",
                     [
-                        "IntegrationTime",
-                        "integration_time",
+                        "Integration Time",
                         [
                             [
-                                "2ms",
                                 "2ms",
                                 0
                             ],
                             [
                                 "24ms",
-                                "24ms",
                                 1
                             ],
                             [
-                                "101ms",
                                 "101ms",
                                 2
                             ],
                             [
                                 "154ms",
-                                "154ms",
                                 3
                             ],
                             [
-                                "700ms",
                                 "700ms",
                                 4
                             ]
@@ -719,10 +643,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "GetConfig",
-                "get_config"
-            ],
+            "name": "Get Config",
             "doc": [
                 "bf",
                 {
@@ -741,16 +662,13 @@
         {
             "elements": [
                 [
-                    "illuminance",
+                    "Illuminance",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIlluminance",
-                "get_illuminance"
-            ],
+            "name": "Get Illuminance",
             "doc": [
                 "bf",
                 {
@@ -769,16 +687,13 @@
         {
             "elements": [
                 [
-                    "color_temperature",
+                    "Color Temperature",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetColorTemperature",
-                "get_color_temperature"
-            ],
+            "name": "Get Color Temperature",
             "doc": [
                 "bf",
                 {
@@ -797,16 +712,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetIlluminanceCallbackPeriod",
-                "set_illuminance_callback_period"
-            ],
+            "name": "Set Illuminance Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -825,16 +737,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIlluminanceCallbackPeriod",
-                "get_illuminance_callback_period"
-            ],
+            "name": "Get Illuminance Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -853,16 +762,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetColorTemperatureCallbackPeriod",
-                "set_color_temperature_callback_period"
-            ],
+            "name": "Set Color Temperature Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -881,16 +787,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetColorTemperatureCallbackPeriod",
-                "get_color_temperature_callback_period"
-            ],
+            "name": "Get Color Temperature Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -909,16 +812,13 @@
         {
             "elements": [
                 [
-                    "illuminance",
+                    "Illuminance",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Illuminance",
-                "illuminance"
-            ],
+            "name": "Illuminance",
             "doc": [
                 "c",
                 {
@@ -937,16 +837,13 @@
         {
             "elements": [
                 [
-                    "color_temperature",
+                    "Color Temperature",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ColorTemperature",
-                "color_temperature"
-            ],
+            "name": "Color Temperature",
             "doc": [
                 "c",
                 {
@@ -965,16 +862,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -990,22 +884,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -1021,22 +912,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -1052,16 +940,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -1077,46 +962,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1136,6 +1018,227 @@
     ],
     "device_identifier": 243,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Color",
+                        "color"
+                    ],
+                    [
+                        [
+                            [
+                                "R",
+                                "Color[R]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "G",
+                                "Color[G]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "B",
+                                "Color[B]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "C",
+                                "Color[C]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Color",
+                        "color"
+                    ],
+                    [
+                        [
+                            [
+                                "R",
+                                "Color[R]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "G",
+                                "Color[G]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "B",
+                                "Color[B]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "C",
+                                "Color[C]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Color",
+                        "color"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Color Reached",
+                        "color reached"
+                    ],
+                    [
+                        [
+                            [
+                                "R",
+                                "Color[R]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "G",
+                                "Color[G]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "B",
+                                "Color[B]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "C",
+                                "Color[C]"
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Color",
+                        "color"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            100,
+                            0
+                        ],
+                        [
+                            200,
+                            0
+                        ],
+                        [
+                            300,
+                            0
+                        ],
+                        [
+                            400,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -1145,7 +1248,6 @@
     ],
     "name": [
         "Color",
-        "color",
         "Color",
         "Color Bricklet"
     ]

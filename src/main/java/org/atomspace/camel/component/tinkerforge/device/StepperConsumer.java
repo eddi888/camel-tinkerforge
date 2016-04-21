@@ -111,7 +111,7 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
     }
     
     @Override
-    public void allData(int current_velocity, int current_position, int remaining_steps, int stack_voltage, int external_voltage, int current_consumption) {
+    public void allData(int currentVelocity, int currentPosition, int remainingSteps, int stackVoltage, int externalVoltage, int currentConsumption) {
         LOG.trace("allData()");
         
         Exchange exchange = null;
@@ -120,12 +120,12 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickStepper.CALLBACK_ALL_DATA);
-            exchange.getIn().setHeader("current_velocity", current_velocity);
-            exchange.getIn().setHeader("current_position", current_position);
-            exchange.getIn().setHeader("remaining_steps", remaining_steps);
-            exchange.getIn().setHeader("stack_voltage", stack_voltage);
-            exchange.getIn().setHeader("external_voltage", external_voltage);
-            exchange.getIn().setHeader("current_consumption", current_consumption);
+            exchange.getIn().setHeader("currentVelocity", currentVelocity);
+            exchange.getIn().setHeader("currentPosition", currentPosition);
+            exchange.getIn().setHeader("remainingSteps", remainingSteps);
+            exchange.getIn().setHeader("stackVoltage", stackVoltage);
+            exchange.getIn().setHeader("externalVoltage", externalVoltage);
+            exchange.getIn().setHeader("currentConsumption", currentConsumption);
             
             
             // ADD BODY
@@ -142,7 +142,7 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
     }
     
     @Override
-    public void newState(short state_new, short state_previous) {
+    public void newState(short stateNew, short statePrevious) {
         LOG.trace("newState()");
         
         Exchange exchange = null;
@@ -151,8 +151,8 @@ public class StepperConsumer extends TinkerforgeConsumer<StepperEndpoint, BrickS
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickStepper.CALLBACK_NEW_STATE);
-            exchange.getIn().setHeader("state_new", state_new);
-            exchange.getIn().setHeader("state_previous", state_previous);
+            exchange.getIn().setHeader("stateNew", stateNew);
+            exchange.getIn().setHeader("statePrevious", statePrevious);
             
             
             // ADD BODY

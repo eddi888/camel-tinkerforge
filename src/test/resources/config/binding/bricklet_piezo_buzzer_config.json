@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "duration",
+                    "Duration",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "Beep",
-                "beep"
-            ],
+            "name": "Beep",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "morse",
+                    "Morse",
                     "string",
                     60,
                     "in"
                 ]
             ],
-            "name": [
-                "MorseCode",
-                "morse_code"
-            ],
+            "name": "Morse Code",
             "doc": [
                 "bf",
                 {
@@ -64,10 +58,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "BeepFinished",
-                "beep_finished"
-            ],
+            "name": "Beep Finished",
             "doc": [
                 "c",
                 {
@@ -85,10 +76,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "MorseCodeFinished",
-                "morse_code_finished"
-            ],
+            "name": "Morse Code Finished",
             "doc": [
                 "c",
                 {
@@ -107,16 +95,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -132,22 +117,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -163,22 +145,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -194,16 +173,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -219,46 +195,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -278,6 +251,42 @@
     ],
     "device_identifier": 214,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Beep",
+                    [
+                        [
+                            "uint32",
+                            2000
+                        ]
+                    ],
+                    "Make 2 second beep",
+                    null
+                ]
+            ],
+            "name": "Beep"
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Morse Code",
+                    [
+                        [
+                            "string",
+                            "... --- ..."
+                        ]
+                    ],
+                    "Morse SOS",
+                    null
+                ]
+            ],
+            "name": "Morse Code"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -286,8 +295,7 @@
         0
     ],
     "name": [
-        "PiezoBuzzer",
-        "piezo_buzzer",
+        "Piezo Buzzer",
         "Piezo Buzzer",
         "Piezo Buzzer Bricklet"
     ]

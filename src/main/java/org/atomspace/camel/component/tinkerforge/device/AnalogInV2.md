@@ -9,8 +9,8 @@
 |               period |       Long |
 |              period2 |       Long |
 |               option |  Character |
-|                  min |      Short |
-|                  max |      Short |
+|                  min |    Integer |
+|                  max |    Integer |
 |              option2 |  Character |
 |                 min2 |    Integer |
 |                 max2 |    Integer |

@@ -408,7 +408,7 @@ public class IndustrialDual020mAEndpoint extends TinkerforgeEndpoint<IndustrialD
      *  "2",    "15 samples per second, 16 bit resolution"
      *  "3",    "4 samples per second, 18 bit resolution"
      * 
-     * The default value is 3: 4 samples per second with 18 bit resolution.
+     * The default value is 3 (4 samples per second with 18 bit resolution).
      * 
      */
     public Short getRate(){

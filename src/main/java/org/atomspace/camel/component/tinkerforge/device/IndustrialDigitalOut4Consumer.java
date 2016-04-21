@@ -50,7 +50,7 @@ public class IndustrialDigitalOut4Consumer extends TinkerforgeConsumer<Industria
     
     
     @Override
-    public void monoflopDone(int selection_mask, int value_mask) {
+    public void monoflopDone(int selectionMask, int valueMask) {
         LOG.trace("monoflopDone()");
         
         Exchange exchange = null;
@@ -59,8 +59,8 @@ public class IndustrialDigitalOut4Consumer extends TinkerforgeConsumer<Industria
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletIndustrialDigitalOut4.CALLBACK_MONOFLOP_DONE);
-            exchange.getIn().setHeader("selection_mask", selection_mask);
-            exchange.getIn().setHeader("value_mask", value_mask);
+            exchange.getIn().setHeader("selectionMask", selectionMask);
+            exchange.getIn().setHeader("valueMask", valueMask);
             
             
             // ADD BODY

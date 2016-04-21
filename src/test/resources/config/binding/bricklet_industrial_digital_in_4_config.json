@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetValue",
-                "get_value"
-            ],
+            "name": "Get Value",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "group",
+                    "Group",
                     "char",
                     4,
                     "in"
                 ]
             ],
-            "name": [
-                "SetGroup",
-                "set_group"
-            ],
+            "name": "Set Group",
             "doc": [
                 "af",
                 {
@@ -73,16 +67,13 @@
         {
             "elements": [
                 [
-                    "group",
+                    "Group",
                     "char",
                     4,
                     "out"
                 ]
             ],
-            "name": [
-                "GetGroup",
-                "get_group"
-            ],
+            "name": "Get Group",
             "doc": [
                 "af",
                 {
@@ -101,16 +92,13 @@
         {
             "elements": [
                 [
-                    "available",
+                    "Available",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAvailableForGroup",
-                "get_available_for_group"
-            ],
+            "name": "Get Available For Group",
             "doc": [
                 "af",
                 {
@@ -129,16 +117,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -157,16 +142,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -185,16 +167,13 @@
         {
             "elements": [
                 [
-                    "interrupt_mask",
+                    "Interrupt Mask",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetInterrupt",
-                "set_interrupt"
-            ],
+            "name": "Set Interrupt",
             "doc": [
                 "ccf",
                 {
@@ -213,16 +192,13 @@
         {
             "elements": [
                 [
-                    "interrupt_mask",
+                    "Interrupt Mask",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetInterrupt",
-                "get_interrupt"
-            ],
+            "name": "Get Interrupt",
             "doc": [
                 "ccf",
                 {
@@ -241,22 +217,19 @@
         {
             "elements": [
                 [
-                    "interrupt_mask",
+                    "Interrupt Mask",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Interrupt",
-                "interrupt"
-            ],
+            "name": "Interrupt",
             "doc": [
                 "c",
                 {
@@ -275,28 +248,25 @@
         {
             "elements": [
                 [
-                    "pin",
+                    "Pin",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "reset_counter",
+                    "Reset Counter",
                     "bool",
                     1,
                     "in"
                 ],
                 [
-                    "count",
+                    "Count",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCount",
-                "get_edge_count"
-            ],
+            "name": "Get Edge Count",
             "doc": [
                 "bf",
                 {
@@ -315,49 +285,42 @@
         {
             "elements": [
                 [
-                    "selection_mask",
+                    "Selection Mask",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "edge_type",
+                    "Edge Type",
                     "uint8",
                     1,
                     "in",
                     [
-                        "EdgeType",
-                        "edge_type",
+                        "Edge Type",
                         [
                             [
                                 "Rising",
-                                "rising",
                                 0
                             ],
                             [
                                 "Falling",
-                                "falling",
                                 1
                             ],
                             [
                                 "Both",
-                                "both",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "debounce",
+                    "Debounce",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEdgeCountConfig",
-                "set_edge_count_config"
-            ],
+            "name": "Set Edge Count Config",
             "doc": [
                 "af",
                 {
@@ -376,49 +339,42 @@
         {
             "elements": [
                 [
-                    "pin",
+                    "Pin",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "edge_type",
+                    "Edge Type",
                     "uint8",
                     1,
                     "out",
                     [
-                        "EdgeType",
-                        "edge_type",
+                        "Edge Type",
                         [
                             [
                                 "Rising",
-                                "rising",
                                 0
                             ],
                             [
                                 "Falling",
-                                "falling",
                                 1
                             ],
                             [
                                 "Both",
-                                "both",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "debounce",
+                    "Debounce",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCountConfig",
-                "get_edge_count_config"
-            ],
+            "name": "Get Edge Count Config",
             "doc": [
                 "af",
                 {
@@ -437,16 +393,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -462,22 +415,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -493,22 +443,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -524,16 +471,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -549,46 +493,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -608,6 +549,84 @@
     ],
     "device_identifier": 223,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Value",
+                        "value as bitmask"
+                    ],
+                    [
+                        [
+                            [
+                                "Value Mask",
+                                "Value Mask"
+                            ],
+                            "uint16:bitmask:4",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Interrupt",
+                        "interrupt"
+                    ],
+                    [
+                        [
+                            [
+                                "Interrupt Mask",
+                                "Interrupt Mask"
+                            ],
+                            "uint16:bitmask:4",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Value Mask",
+                                "Value Mask"
+                            ],
+                            "uint16:bitmask:4",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Interrupt",
+                    [
+                        [
+                            "uint16:bitmask:4",
+                            1
+                        ]
+                    ],
+                    "Enable interrupt on pin 0",
+                    null
+                ]
+            ],
+            "name": "Interrupt"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -616,8 +635,7 @@
         1
     ],
     "name": [
-        "IndustrialDigitalIn4",
-        "industrial_digital_in_4",
+        "Industrial Digital In 4",
         "Industrial Digital In 4",
         "Industrial Digital In 4 Bricklet"
     ]

@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMaxVelocity",
-                "set_max_velocity"
-            ],
+            "name": "Set Max Velocity",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMaxVelocity",
-                "get_max_velocity"
-            ],
+            "name": "Get Max Velocity",
             "doc": [
                 "bf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentVelocity",
-                "get_current_velocity"
-            ],
+            "name": "Get Current Velocity",
             "doc": [
                 "bf",
                 {
@@ -93,22 +84,19 @@
         {
             "elements": [
                 [
-                    "acceleration",
+                    "Acceleration",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "deacceleration",
+                    "Deacceleration",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetSpeedRamping",
-                "set_speed_ramping"
-            ],
+            "name": "Set Speed Ramping",
             "doc": [
                 "bf",
                 {
@@ -127,22 +115,19 @@
         {
             "elements": [
                 [
-                    "acceleration",
+                    "Acceleration",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "deacceleration",
+                    "Deacceleration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetSpeedRamping",
-                "get_speed_ramping"
-            ],
+            "name": "Get Speed Ramping",
             "doc": [
                 "bf",
                 {
@@ -160,10 +145,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "FullBrake",
-                "full_brake"
-            ],
+            "name": "Full Brake",
             "doc": [
                 "bf",
                 {
@@ -182,16 +164,13 @@
         {
             "elements": [
                 [
-                    "position",
+                    "Position",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrentPosition",
-                "set_current_position"
-            ],
+            "name": "Set Current Position",
             "doc": [
                 "af",
                 {
@@ -210,16 +189,13 @@
         {
             "elements": [
                 [
-                    "position",
+                    "Position",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentPosition",
-                "get_current_position"
-            ],
+            "name": "Get Current Position",
             "doc": [
                 "af",
                 {
@@ -238,16 +214,13 @@
         {
             "elements": [
                 [
-                    "position",
+                    "Position",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTargetPosition",
-                "set_target_position"
-            ],
+            "name": "Set Target Position",
             "doc": [
                 "af",
                 {
@@ -266,16 +239,13 @@
         {
             "elements": [
                 [
-                    "position",
+                    "Position",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTargetPosition",
-                "get_target_position"
-            ],
+            "name": "Get Target Position",
             "doc": [
                 "af",
                 {
@@ -294,16 +264,13 @@
         {
             "elements": [
                 [
-                    "steps",
+                    "Steps",
                     "int32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetSteps",
-                "set_steps"
-            ],
+            "name": "Set Steps",
             "doc": [
                 "bf",
                 {
@@ -322,16 +289,13 @@
         {
             "elements": [
                 [
-                    "steps",
+                    "Steps",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetSteps",
-                "get_steps"
-            ],
+            "name": "Get Steps",
             "doc": [
                 "bf",
                 {
@@ -350,16 +314,13 @@
         {
             "elements": [
                 [
-                    "steps",
+                    "Steps",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetRemainingSteps",
-                "get_remaining_steps"
-            ],
+            "name": "Get Remaining Steps",
             "doc": [
                 "bf",
                 {
@@ -378,42 +339,34 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "in",
                     [
-                        "StepMode",
-                        "step_mode",
+                        "Step Mode",
                         [
                             [
-                                "FullStep",
-                                "full_step",
+                                "Full Step",
                                 1
                             ],
                             [
-                                "HalfStep",
-                                "half_step",
+                                "Half Step",
                                 2
                             ],
                             [
-                                "QuarterStep",
-                                "quarter_step",
+                                "Quarter Step",
                                 4
                             ],
                             [
-                                "EighthStep",
-                                "eighth_step",
+                                "Eighth Step",
                                 8
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetStepMode",
-                "set_step_mode"
-            ],
+            "name": "Set Step Mode",
             "doc": [
                 "af",
                 {
@@ -432,42 +385,34 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "out",
                     [
-                        "StepMode",
-                        "step_mode",
+                        "Step Mode",
                         [
                             [
-                                "FullStep",
-                                "full_step",
+                                "Full Step",
                                 1
                             ],
                             [
-                                "HalfStep",
-                                "half_step",
+                                "Half Step",
                                 2
                             ],
                             [
-                                "QuarterStep",
-                                "quarter_step",
+                                "Quarter Step",
                                 4
                             ],
                             [
-                                "EighthStep",
-                                "eighth_step",
+                                "Eighth Step",
                                 8
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetStepMode",
-                "get_step_mode"
-            ],
+            "name": "Get Step Mode",
             "doc": [
                 "af",
                 {
@@ -485,10 +430,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DriveForward",
-                "drive_forward"
-            ],
+            "name": "Drive Forward",
             "doc": [
                 "bf",
                 {
@@ -506,10 +448,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DriveBackward",
-                "drive_backward"
-            ],
+            "name": "Drive Backward",
             "doc": [
                 "bf",
                 {
@@ -527,10 +466,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Stop",
-                "stop"
-            ],
+            "name": "Stop",
             "doc": [
                 "bf",
                 {
@@ -549,16 +485,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackInputVoltage",
-                "get_stack_input_voltage"
-            ],
+            "name": "Get Stack Input Voltage",
             "doc": [
                 "af",
                 {
@@ -577,16 +510,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetExternalInputVoltage",
-                "get_external_input_voltage"
-            ],
+            "name": "Get External Input Voltage",
             "doc": [
                 "af",
                 {
@@ -605,16 +535,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentConsumption",
-                "get_current_consumption"
-            ],
+            "name": "Get Current Consumption",
             "doc": [
                 "af",
                 {
@@ -633,16 +560,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMotorCurrent",
-                "set_motor_current"
-            ],
+            "name": "Set Motor Current",
             "doc": [
                 "bf",
                 {
@@ -661,16 +585,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMotorCurrent",
-                "get_motor_current"
-            ],
+            "name": "Get Motor Current",
             "doc": [
                 "bf",
                 {
@@ -688,10 +609,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Enable",
-                "enable"
-            ],
+            "name": "Enable",
             "doc": [
                 "bf",
                 {
@@ -709,10 +627,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Disable",
-                "disable"
-            ],
+            "name": "Disable",
             "doc": [
                 "bf",
                 {
@@ -731,16 +646,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsEnabled",
-                "is_enabled"
-            ],
+            "name": "Is Enabled",
             "doc": [
                 "bf",
                 {
@@ -759,20 +671,17 @@
         {
             "elements": [
                 [
-                    "decay",
+                    "Decay",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDecay",
-                "set_decay"
-            ],
+            "name": "Set Decay",
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt den Decay Modus (Abklingmodus) des Schrittmotors. Der m\u00f6gliche\nWertebereich ist 0 bis 65535. Ein Wert von 0 setzt den Fast Decay Modus\n(schneller Stromabbau), ein Wert von 65535 den Slow Decay Modus (langsamer \nStromabbau) ein Wert dazwischen den Mixed Decay Modus (Nutzung beider Modi).\n\nEine \u00c4nderung des Decay Modus ist nur m\u00f6glich wenn die Synchrongleichrichtung\naktiviert ist (siehe :func:`SetSyncRect`).\n\nF\u00fcr eine gute Erl\u00e4uterung der verschiedenen Decay Modi siehe \n`diesen <http://ebldc.com/?p=86/>`__ Blogeintrag (Englisch) von Avayan oder\n`diesen <http://www.schrittmotor-blog.de/?p=51>`__ Blogeintrag (Deutsch) von\nT. Ostermann.\n\nEin guter Decay Modus ist leider unterschiedlich f\u00fcr jeden Motor. Der beste\nWeg einen guten Decay Modus f\u00fcr den jeweiligen Schrittmotor zu finden, wenn der\nStrom nicht mit einem Oszilloskop gemessen werden kann, ist auf die Ger\u00e4usche des\nMotors zu h\u00f6ren. Wenn der Wert zu gering ist, ist oftmals ein hoher Ton zu h\u00f6ren\nund wenn er zu hoch ist, oftmals ein brummendes Ger\u00e4usch.\n\nIm Allgemeinen ist der Fast Decay Modus (kleine Werte) ger\u00e4uschvoller, erlaubt aber\nh\u00f6here Motorgeschwindigkeiten.\n\nDer Standardwert ist 10000.\n\n.. note::\n Es existiert leider keine Formel zur Berechnung des optimalen Decay Modus eines\n Schrittmotors. Sollten Probleme mit lauten Ger\u00e4uschen oder einer zu geringen maximalen\n Motorgeschwindigkeit bestehen, bleibt nur Ausprobieren um einen besseren Decay Modus zu finden.\n",
+                    "de": "\nSetzt den Decay Modus (Abklingmodus) des Schrittmotors. Der m\u00f6gliche\nWertebereich ist 0 bis 65535. Ein Wert von 0 setzt den Fast Decay Modus\n(schneller Stromabbau), ein Wert von 65535 den Slow Decay Modus (langsamer \nStromabbau) ein Wert dazwischen den Mixed Decay Modus (Nutzung beider Modi).\n\nEine \u00c4nderung des Decay Modus ist nur m\u00f6glich wenn die Synchrongleichrichtung\naktiviert ist (siehe :func:`SetSyncRect`).\n\nF\u00fcr eine gute Erl\u00e4uterung der verschiedenen Decay Modi siehe \n`diesen <http://ebldc.com/?p=86/>`__ Blogeintrag (Englisch) von Avayan oder\n`diesen <http://www.schrittmotor-blog.de/stromregelung-von-schrittmotoren-auf-das-abschalten-kommt-es-an/>`__\nBlogeintrag (Deutsch) von T. Ostermann.\n\nEin guter Decay Modus ist leider unterschiedlich f\u00fcr jeden Motor. Der beste\nWeg einen guten Decay Modus f\u00fcr den jeweiligen Schrittmotor zu finden, wenn der\nStrom nicht mit einem Oszilloskop gemessen werden kann, ist auf die Ger\u00e4usche des\nMotors zu h\u00f6ren. Wenn der Wert zu gering ist, ist oftmals ein hoher Ton zu h\u00f6ren\nund wenn er zu hoch ist, oftmals ein brummendes Ger\u00e4usch.\n\nIm Allgemeinen ist der Fast Decay Modus (kleine Werte) ger\u00e4uschvoller, erlaubt aber\nh\u00f6here Motorgeschwindigkeiten.\n\nDer Standardwert ist 10000.\n\n.. note::\n Es existiert leider keine Formel zur Berechnung des optimalen Decay Modus eines\n Schrittmotors. Sollten Probleme mit lauten Ger\u00e4uschen oder einer zu geringen maximalen\n Motorgeschwindigkeit bestehen, bleibt nur Ausprobieren um einen besseren Decay Modus zu finden.\n",
                     "en": "\nSets the decay mode of the stepper motor. The possible value range is\nbetween 0 and 65535. A value of 0 sets the fast decay mode, a value of\n65535 sets the slow decay mode and a value in between sets the mixed\ndecay mode.\n\nChanging the decay mode is only possible if synchronous rectification\nis enabled (see :func:`SetSyncRect`).\n\nFor a good explanation of the different decay modes see \n`this <http://ebldc.com/?p=86/>`__ blog post by Avayan.\n\nA good decay mode is unfortunately different for every motor. The best\nway to work out a good decay mode for your stepper motor, if you can't\nmeasure the current with an oscilloscope, is to listen to the sound of\nthe motor. If the value is too low, you often hear a high pitched \nsound and if it is too high you can often hear a humming sound.\n\nGenerally, fast decay mode (small value) will be noisier but also\nallow higher motor speeds.\n\nThe default value is 10000.\n\n.. note::\n There is unfortunately no formula to calculate a perfect decay\n mode for a given stepper motor. If you have problems with loud noises\n or the maximum motor speed is too slow, you should try to tinker with\n the decay value\n"
                 }
             ],
@@ -787,16 +696,13 @@
         {
             "elements": [
                 [
-                    "decay",
+                    "Decay",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDecay",
-                "get_decay"
-            ],
+            "name": "Get Decay",
             "doc": [
                 "af",
                 {
@@ -815,16 +721,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMinimumVoltage",
-                "set_minimum_voltage"
-            ],
+            "name": "Set Minimum Voltage",
             "doc": [
                 "ccf",
                 {
@@ -843,16 +746,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMinimumVoltage",
-                "get_minimum_voltage"
-            ],
+            "name": "Get Minimum Voltage",
             "doc": [
                 "ccf",
                 {
@@ -871,16 +771,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "UnderVoltage",
-                "under_voltage"
-            ],
+            "name": "Under Voltage",
             "doc": [
                 "c",
                 {
@@ -899,16 +796,13 @@
         {
             "elements": [
                 [
-                    "position",
+                    "Position",
                     "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "PositionReached",
-                "position_reached"
-            ],
+            "name": "Position Reached",
             "doc": [
                 "c",
                 {
@@ -927,16 +821,13 @@
         {
             "elements": [
                 [
-                    "sync_rect",
+                    "Sync Rect",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetSyncRect",
-                "set_sync_rect"
-            ],
+            "name": "Set Sync Rect",
             "doc": [
                 "af",
                 {
@@ -955,16 +846,13 @@
         {
             "elements": [
                 [
-                    "sync_rect",
+                    "Sync Rect",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsSyncRect",
-                "is_sync_rect"
-            ],
+            "name": "Is Sync Rect",
             "doc": [
                 "af",
                 {
@@ -983,16 +871,13 @@
         {
             "elements": [
                 [
-                    "time_base",
+                    "Time Base",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetTimeBase",
-                "set_time_base"
-            ],
+            "name": "Set Time Base",
             "doc": [
                 "af",
                 {
@@ -1011,16 +896,13 @@
         {
             "elements": [
                 [
-                    "time_base",
+                    "Time Base",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetTimeBase",
-                "get_time_base"
-            ],
+            "name": "Get Time Base",
             "doc": [
                 "af",
                 {
@@ -1039,46 +921,43 @@
         {
             "elements": [
                 [
-                    "current_velocity",
+                    "Current Velocity",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "current_position",
+                    "Current Position",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "remaining_steps",
+                    "Remaining Steps",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "stack_voltage",
+                    "Stack Voltage",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "external_voltage",
+                    "External Voltage",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "current_consumption",
+                    "Current Consumption",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAllData",
-                "get_all_data"
-            ],
+            "name": "Get All Data",
             "doc": [
                 "af",
                 {
@@ -1097,16 +976,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAllDataPeriod",
-                "set_all_data_period"
-            ],
+            "name": "Set All Data Period",
             "doc": [
                 "ccf",
                 {
@@ -1125,16 +1001,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAllDataPeriod",
-                "get_all_data_period"
-            ],
+            "name": "Get All Data Period",
             "doc": [
                 "ccf",
                 {
@@ -1153,46 +1026,43 @@
         {
             "elements": [
                 [
-                    "current_velocity",
+                    "Current Velocity",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "current_position",
+                    "Current Position",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "remaining_steps",
+                    "Remaining Steps",
                     "int32",
                     1,
                     "out"
                 ],
                 [
-                    "stack_voltage",
+                    "Stack Voltage",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "external_voltage",
+                    "External Voltage",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "current_consumption",
+                    "Current Consumption",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AllData",
-                "all_data"
-            ],
+            "name": "All Data",
             "doc": [
                 "c",
                 {
@@ -1211,99 +1081,82 @@
         {
             "elements": [
                 [
-                    "state_new",
+                    "State New",
                     "uint8",
                     1,
                     "out",
                     [
                         "State",
-                        "state",
                         [
                             [
                                 "Stop",
-                                "stop",
                                 1
                             ],
                             [
                                 "Acceleration",
-                                "acceleration",
                                 2
                             ],
                             [
                                 "Run",
-                                "run",
                                 3
                             ],
                             [
                                 "Deacceleration",
-                                "deacceleration",
                                 4
                             ],
                             [
-                                "DirectionChangeToForward",
-                                "direction_change_to_forward",
+                                "Direction Change To Forward",
                                 5
                             ],
                             [
-                                "DirectionChangeToBackward",
-                                "direction_change_to_backward",
+                                "Direction Change To Backward",
                                 6
                             ]
                         ]
                     ]
                 ],
                 [
-                    "state_previous",
+                    "State Previous",
                     "uint8",
                     1,
                     "out",
                     [
                         "State",
-                        "state",
                         [
                             [
                                 "Stop",
-                                "stop",
                                 1
                             ],
                             [
                                 "Acceleration",
-                                "acceleration",
                                 2
                             ],
                             [
                                 "Run",
-                                "run",
                                 3
                             ],
                             [
                                 "Deacceleration",
-                                "deacceleration",
                                 4
                             ],
                             [
-                                "DirectionChangeToForward",
-                                "direction_change_to_forward",
+                                "Direction Change To Forward",
                                 5
                             ],
                             [
-                                "DirectionChangeToBackward",
-                                "direction_change_to_backward",
+                                "Direction Change To Backward",
                                 6
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "NewState",
-                "new_state"
-            ],
+            "name": "New State",
             "doc": [
                 "c",
                 {
-                    "de": "\nDieser Callback wird immer dann ausgel\u00f6st wenn der Stepper Brick einen\nneuen Zustand erreicht. Es wird sowohl der neue wie auch der alte Zustand \nzur\u00fcckgegeben.\n\nM\u00f6gliche Zust\u00e4nde sind:\n\n* 1 = Stopp\n* 2 = Beschleunigung\n* 3 = Fahren\n* 4 = Verz\u00f6gerung\n* 5 = Richtungswechsel auf Vorw\u00e4rts\n* 6 = Richtungswechsel auf R\u00fcckw\u00e4rts\n",
-                    "en": "\nThis callback is triggered whenever the Stepper Brick enters a new state. \nIt returns the new state as well as the previous state.\n\nPossible states are:\n\n* 1 = Stop\n* 2 = Acceleration\n* 3 = Run\n* 4 = Deacceleration\n* 5 = Direction change to forward\n* 6 = Direction change to backward\n"
+                    "de": "\nDieser Callback wird immer dann ausgel\u00f6st wenn der Stepper Brick einen\nneuen Zustand erreicht. Es wird sowohl der neue wie auch der alte Zustand \nzur\u00fcckgegeben.\n",
+                    "en": "\nThis callback is triggered whenever the Stepper Brick enters a new state. \nIt returns the new state as well as the previous state.\n"
                 }
             ],
             "since_firmware": [
@@ -1317,16 +1170,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -1342,22 +1192,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -1373,22 +1220,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -1404,16 +1248,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -1428,10 +1269,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableStatusLED",
-                "enable_status_led"
-            ],
+            "name": "Enable Status LED",
             "doc": [
                 "af",
                 {
@@ -1449,10 +1287,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableStatusLED",
-                "disable_status_led"
-            ],
+            "name": "Disable Status LED",
             "doc": [
                 "af",
                 {
@@ -1471,16 +1306,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsStatusLEDEnabled",
-                "is_status_led_enabled"
-            ],
+            "name": "Is Status LED Enabled",
             "doc": [
                 "af",
                 {
@@ -1499,34 +1331,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "protocol_version",
+                    "Protocol Version",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "name",
+                    "Name",
                     "string",
                     40,
                     "out"
                 ]
             ],
-            "name": [
-                "GetProtocol1BrickletName",
-                "get_protocol1_bricklet_name"
-            ],
+            "name": "Get Protocol1 Bricklet Name",
             "doc": [
                 "af",
                 {
@@ -1545,16 +1374,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -1572,10 +1398,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Reset",
-                "reset"
-            ],
+            "name": "Reset",
             "doc": [
                 "af",
                 {
@@ -1594,46 +1417,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1653,6 +1473,158 @@
     ],
     "device_identifier": 15,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Motor Current",
+                    [
+                        [
+                            "uint16",
+                            800
+                        ]
+                    ],
+                    null,
+                    "800mA"
+                ],
+                [
+                    "setter",
+                    "Set Step Mode",
+                    [
+                        [
+                            "uint8",
+                            8
+                        ]
+                    ],
+                    null,
+                    "1/8 step mode"
+                ],
+                [
+                    "setter",
+                    "Set Max Velocity",
+                    [
+                        [
+                            "uint16",
+                            2000
+                        ]
+                    ],
+                    null,
+                    "Velocity 2000 steps/s"
+                ],
+                [
+                    "setter",
+                    "Set Speed Ramping",
+                    [
+                        [
+                            "uint16",
+                            500
+                        ],
+                        [
+                            "uint16",
+                            5000
+                        ]
+                    ],
+                    "Slow acceleration (500 steps/s^2),\nFast deacceleration (5000 steps/s^2)",
+                    null
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    "Enable motor power"
+                ],
+                [
+                    "setter",
+                    "Set Steps",
+                    [
+                        [
+                            "int32",
+                            60000
+                        ]
+                    ],
+                    null,
+                    "Drive 60000 steps forward"
+                ],
+                [
+                    "wait"
+                ]
+            ],
+            "name": "Configuration",
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    null
+                ]
+            ]
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Position Reached",
+                        "position reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Position",
+                                "Position"
+                            ],
+                            "int32",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    "Use position reached callback to program random movement",
+                    null
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    "Enable motor power"
+                ],
+                [
+                    "setter",
+                    "Set Steps",
+                    [
+                        [
+                            "int32",
+                            1
+                        ]
+                    ],
+                    null,
+                    "Drive one step forward to get things going"
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true,
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    null
+                ]
+            ]
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -1662,7 +1634,6 @@
     ],
     "name": [
         "Stepper",
-        "stepper",
         "Stepper",
         "Stepper Brick"
     ]

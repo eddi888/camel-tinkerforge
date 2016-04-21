@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrent",
-                "get_current"
-            ],
+            "name": "Get Current",
             "doc": [
                 "bf",
                 {
@@ -36,10 +33,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Calibrate",
-                "calibrate"
-            ],
+            "name": "Calibrate",
             "doc": [
                 "af",
                 {
@@ -58,16 +52,13 @@
         {
             "elements": [
                 [
-                    "over",
+                    "Over",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsOverCurrent",
-                "is_over_current"
-            ],
+            "name": "Is Over Current",
             "doc": [
                 "af",
                 {
@@ -86,16 +77,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAnalogValue",
-                "get_analog_value"
-            ],
+            "name": "Get Analog Value",
             "doc": [
                 "af",
                 {
@@ -114,16 +102,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrentCallbackPeriod",
-                "set_current_callback_period"
-            ],
+            "name": "Set Current Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -142,16 +127,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentCallbackPeriod",
-                "get_current_callback_period"
-            ],
+            "name": "Get Current Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -170,16 +152,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAnalogValueCallbackPeriod",
-                "set_analog_value_callback_period"
-            ],
+            "name": "Set Analog Value Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -198,16 +177,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAnalogValueCallbackPeriod",
-                "get_analog_value_callback_period"
-            ],
+            "name": "Get Analog Value Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -226,59 +202,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrentCallbackThreshold",
-                "set_current_callback_threshold"
-            ],
+            "name": "Set Current Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -297,59 +264,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "int16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentCallbackThreshold",
-                "get_current_callback_threshold"
-            ],
+            "name": "Get Current Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -368,59 +326,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAnalogValueCallbackThreshold",
-                "set_analog_value_callback_threshold"
-            ],
+            "name": "Set Analog Value Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -439,59 +388,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAnalogValueCallbackThreshold",
-                "get_analog_value_callback_threshold"
-            ],
+            "name": "Get Analog Value Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -510,16 +450,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -538,16 +475,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -566,16 +500,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Current",
-                "current"
-            ],
+            "name": "Current",
             "doc": [
                 "c",
                 {
@@ -594,16 +525,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AnalogValue",
-                "analog_value"
-            ],
+            "name": "Analog Value",
             "doc": [
                 "c",
                 {
@@ -622,16 +550,13 @@
         {
             "elements": [
                 [
-                    "current",
+                    "Current",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "CurrentReached",
-                "current_reached"
-            ],
+            "name": "Current Reached",
             "doc": [
                 "c",
                 {
@@ -650,16 +575,13 @@
         {
             "elements": [
                 [
-                    "value",
+                    "Value",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "AnalogValueReached",
-                "analog_value_reached"
-            ],
+            "name": "Analog Value Reached",
             "doc": [
                 "c",
                 {
@@ -677,10 +599,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "OverCurrent",
-                "over_current"
-            ],
+            "name": "Over Current",
             "doc": [
                 "c",
                 {
@@ -699,16 +618,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -724,22 +640,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -755,22 +668,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -786,16 +696,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -811,46 +718,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -870,6 +774,116 @@
     ],
     "device_identifier": 24,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Current",
+                        "current"
+                    ],
+                    [
+                        [
+                            [
+                                "Current",
+                                "Current"
+                            ],
+                            "int16",
+                            1000.0,
+                            "mA",
+                            "A",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Current",
+                        "current"
+                    ],
+                    [
+                        [
+                            [
+                                "Current",
+                                "Current"
+                            ],
+                            "int16",
+                            1000.0,
+                            "mA",
+                            "A",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Current",
+                        "current"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Current Reached",
+                        "current reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Current",
+                                "Current"
+                            ],
+                            "int16",
+                            1000.0,
+                            "mA",
+                            "A",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Current",
+                        "current"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            5,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -879,7 +893,6 @@
     ],
     "name": [
         "Current25",
-        "current25",
         "Current25",
         "Current25 Bricklet"
     ]

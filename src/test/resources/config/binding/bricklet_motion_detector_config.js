@@ -9,32 +9,26 @@
         {
             "elements": [
                 [
-                    "motion",
+                    "Motion",
                     "uint8",
                     1,
                     "out",
                     [
                         "Motion",
-                        "motion",
                         [
                             [
-                                "NotDetected",
-                                "not_detected",
+                                "Not Detected",
                                 0
                             ],
                             [
                                 "Detected",
-                                "detected",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetMotionDetected",
-                "get_motion_detected"
-            ],
+            "name": "Get Motion Detected",
             "doc": [
                 "bf",
                 {
@@ -52,10 +46,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "MotionDetected",
-                "motion_detected"
-            ],
+            "name": "Motion Detected",
             "doc": [
                 "c",
                 {
@@ -73,10 +64,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DetectionCycleEnded",
-                "detection_cycle_ended"
-            ],
+            "name": "Detection Cycle Ended",
             "doc": [
                 "c",
                 {
@@ -95,16 +83,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -120,22 +105,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -151,22 +133,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -182,16 +161,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -207,46 +183,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -266,6 +239,33 @@
     ],
     "device_identifier": 233,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Motion Detected",
+                        "motion detected"
+                    ],
+                    [],
+                    null,
+                    "Motion Detected"
+                ],
+                [
+                    "callback",
+                    [
+                        "Detection Cycle Ended",
+                        "detection cycle ended"
+                    ],
+                    [],
+                    null,
+                    "Detection Cycle Ended (next detection possible in ~3 seconds)"
+                ]
+            ],
+            "name": "Callback"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -274,8 +274,7 @@
         0
     ],
     "name": [
-        "MotionDetector",
-        "motion_detector",
+        "Motion Detector",
         "Motion Detector",
         "Motion Detector Bricklet"
     ]

@@ -8,8 +8,8 @@
 |----------------------|-----------------------------------------|
 |               period |       Long |
 |               option |  Character |
-|                  min |      Short |
-|                  max |      Short |
+|                  min |    Integer |
+|                  max |    Integer |
 |             debounce |       Long |
 |              average |      Short |
 

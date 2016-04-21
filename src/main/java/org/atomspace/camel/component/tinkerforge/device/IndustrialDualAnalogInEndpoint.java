@@ -411,6 +411,8 @@ public class IndustrialDualAnalogInEndpoint extends TinkerforgeEndpoint<Industri
      * and 976 samples per second. Decreasing the sample rate will also decrease the
      * noise on the data.
      * 
+     * The default value is 6 (2 samples per second).
+     * 
      */
     public Short getRate(){
         return rate;

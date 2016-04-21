@@ -65,7 +65,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
     
     
     @Override
-    public void asyncFileRead(int file_id, short error_code, short[] buffer, short length_read) {
+    public void asyncFileRead(int fileId, short errorCode, short[] buffer, short lengthRead) {
         LOG.trace("asyncFileRead()");
         
         Exchange exchange = null;
@@ -74,10 +74,10 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickRED.CALLBACK_ASYNC_FILE_READ);
-            exchange.getIn().setHeader("file_id", file_id);
-            exchange.getIn().setHeader("error_code", error_code);
+            exchange.getIn().setHeader("fileId", fileId);
+            exchange.getIn().setHeader("errorCode", errorCode);
             exchange.getIn().setHeader("buffer", buffer);
-            exchange.getIn().setHeader("length_read", length_read);
+            exchange.getIn().setHeader("lengthRead", lengthRead);
             
             
             // ADD BODY
@@ -94,7 +94,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
     }
     
     @Override
-    public void asyncFileWrite(int file_id, short error_code, short length_written) {
+    public void asyncFileWrite(int fileId, short errorCode, short lengthWritten) {
         LOG.trace("asyncFileWrite()");
         
         Exchange exchange = null;
@@ -103,9 +103,9 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickRED.CALLBACK_ASYNC_FILE_WRITE);
-            exchange.getIn().setHeader("file_id", file_id);
-            exchange.getIn().setHeader("error_code", error_code);
-            exchange.getIn().setHeader("length_written", length_written);
+            exchange.getIn().setHeader("fileId", fileId);
+            exchange.getIn().setHeader("errorCode", errorCode);
+            exchange.getIn().setHeader("lengthWritten", lengthWritten);
             
             
             // ADD BODY
@@ -122,7 +122,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
     }
     
     @Override
-    public void fileEventsOccurred(int file_id, int events) {
+    public void fileEventsOccurred(int fileId, int events) {
         LOG.trace("fileEventsOccurred()");
         
         Exchange exchange = null;
@@ -131,7 +131,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickRED.CALLBACK_FILE_EVENTS_OCCURRED);
-            exchange.getIn().setHeader("file_id", file_id);
+            exchange.getIn().setHeader("fileId", fileId);
             exchange.getIn().setHeader("events", events);
             
             
@@ -149,7 +149,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
     }
     
     @Override
-    public void processStateChanged(int process_id, short state, long timestamp, short exit_code) {
+    public void processStateChanged(int processId, short state, long timestamp, short exitCode) {
         LOG.trace("processStateChanged()");
         
         Exchange exchange = null;
@@ -158,10 +158,10 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickRED.CALLBACK_PROCESS_STATE_CHANGED);
-            exchange.getIn().setHeader("process_id", process_id);
+            exchange.getIn().setHeader("processId", processId);
             exchange.getIn().setHeader("state", state);
             exchange.getIn().setHeader("timestamp", timestamp);
-            exchange.getIn().setHeader("exit_code", exit_code);
+            exchange.getIn().setHeader("exitCode", exitCode);
             
             
             // ADD BODY
@@ -178,7 +178,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
     }
     
     @Override
-    public void programSchedulerStateChanged(int program_id) {
+    public void programSchedulerStateChanged(int programId) {
         LOG.trace("programSchedulerStateChanged()");
         
         Exchange exchange = null;
@@ -187,7 +187,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickRED.CALLBACK_PROGRAM_SCHEDULER_STATE_CHANGED);
-            exchange.getIn().setHeader("program_id", program_id);
+            exchange.getIn().setHeader("programId", programId);
             
             
             // ADD BODY
@@ -204,7 +204,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
     }
     
     @Override
-    public void programProcessSpawned(int program_id) {
+    public void programProcessSpawned(int programId) {
         LOG.trace("programProcessSpawned()");
         
         Exchange exchange = null;
@@ -213,7 +213,7 @@ public class REDConsumer extends TinkerforgeConsumer<REDEndpoint, BrickRED> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickRED.CALLBACK_PROGRAM_PROCESS_SPAWNED);
-            exchange.getIn().setHeader("program_id", program_id);
+            exchange.getIn().setHeader("programId", programId);
             
             
             // ADD BODY

@@ -149,7 +149,7 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
     }
     
     @Override
-    public void allData(short acc_x, short acc_y, short acc_z, short mag_x, short mag_y, short mag_z, short ang_x, short ang_y, short ang_z, short temperature) {
+    public void allData(short accX, short accY, short accZ, short magX, short magY, short magZ, short angX, short angY, short angZ, short temperature) {
         LOG.trace("allData()");
         
         Exchange exchange = null;
@@ -158,15 +158,15 @@ public class IMUConsumer extends TinkerforgeConsumer<IMUEndpoint, BrickIMU> impl
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickIMU.CALLBACK_ALL_DATA);
-            exchange.getIn().setHeader("acc_x", acc_x);
-            exchange.getIn().setHeader("acc_y", acc_y);
-            exchange.getIn().setHeader("acc_z", acc_z);
-            exchange.getIn().setHeader("mag_x", mag_x);
-            exchange.getIn().setHeader("mag_y", mag_y);
-            exchange.getIn().setHeader("mag_z", mag_z);
-            exchange.getIn().setHeader("ang_x", ang_x);
-            exchange.getIn().setHeader("ang_y", ang_y);
-            exchange.getIn().setHeader("ang_z", ang_z);
+            exchange.getIn().setHeader("accX", accX);
+            exchange.getIn().setHeader("accY", accY);
+            exchange.getIn().setHeader("accZ", accZ);
+            exchange.getIn().setHeader("magX", magX);
+            exchange.getIn().setHeader("magY", magY);
+            exchange.getIn().setHeader("magZ", magZ);
+            exchange.getIn().setHeader("angX", angX);
+            exchange.getIn().setHeader("angY", angY);
+            exchange.getIn().setHeader("angZ", angZ);
             exchange.getIn().setHeader("temperature", temperature);
             
             

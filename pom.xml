@@ -20,7 +20,7 @@ limitations under the License.
     <groupId>org.atomspace.camel</groupId>
     <artifactId>camel-tinkerforge</artifactId>
     <packaging>bundle</packaging>
-    <version>2.15.4-SNAPSHOT</version>
+    <version>2.17.0-SNAPSHOT</version>
     
     <name>Camel Tinkerforge Component</name>
     <url>https://github.com/eddi888/camel-tinkerforge/</url>
@@ -31,8 +31,8 @@ limitations under the License.
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <camel-version>2.15.3</camel-version>
-        <tinkerforge-version>2.1.5</tinkerforge-version>
+        <camel-version>2.17.0</camel-version>
+        <tinkerforge-version>2.1.8</tinkerforge-version>
     </properties>
 
     <repositories>
@@ -153,7 +153,7 @@ limitations under the License.
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-webdav-jackrabbit</artifactId>
-                <version>2.7</version>
+                <version>2.10</version>
             </extension>
         </extensions>
 
@@ -162,7 +162,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>3.5.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -183,7 +183,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.5.4</version>
+                <version>3.0.1</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -208,7 +208,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>2.19.1</version>
                 <configuration>
                     <excludes>
                         <exclude>**/TinkerforgeIntegrationTest.java</exclude>
@@ -220,7 +220,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -253,7 +253,7 @@ limitations under the License.
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.2</version>
+                <version>2.5.3</version>
             </plugin>
             
             <!-- Deploy Plugin for copy to distributionManagement Repository -->
@@ -264,12 +264,14 @@ limitations under the License.
             </plugin>
 
             
+            
+            
         </plugins>
     </build>
 
-    <!-- RELEASE SIGN-ARTIFACTS PROFILE -->
-    <!-- mvn -DperformRelease=true ...  -->
     <profiles>
+        <!-- RELEASE SIGN-ARTIFACTS PROFILE -->
+        <!-- mvn -DperformRelease=true ...  -->
         <profile>
             <id>release-sign-artifacts</id>
             <activation>
@@ -294,6 +296,38 @@ limitations under the License.
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    
+    
+        <!-- GENERATE SOURCES PROFILE -->
+        <!-- mvn -Pgenscr -->
+        <profile>
+            <id>genscr</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <build>
+            <defaultGoal>exec:java</defaultGoal>
+                <plugins>
+                    <!-- Exec Plugin for generate devices code -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.4.0</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <classpathScope>test</classpathScope>
+                            <mainClass>org.atomspace.camel.component.tinkerforge.generator.Generate</mainClass>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

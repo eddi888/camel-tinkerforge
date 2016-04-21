@@ -1,0 +1,1794 @@
+{
+    "category": "Brick",
+    "description": {
+        "de": "TODO",
+        "en": "TODO"
+    },
+    "author": "Olaf L\u00fcke <olaf@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "Velocity",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Max Velocity",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die maximale Geschwindigkeit des Schrittmotors in Schritten je Sekunde.\nDiese Funktion startet *nicht* den Motor, sondern setzt nur die maximale\nGeschwindigkeit auf welche der Schrittmotor beschleunigt wird. Um den Motor zu fahren\nk\u00f6nnen :func:`SetTargetPosition`, :func:`SetSteps`, :func:`DriveForward` oder\n:func:`DriveBackward` verwendet werden.\n",
+                    "en": "\nSets the maximum velocity of the stepper motor in steps per second.\nThis function does *not* start the motor, it merely sets the maximum\nvelocity the stepper motor is accelerated to. To get the motor running use\neither :func:`SetTargetPosition`, :func:`SetSteps`, :func:`DriveForward` or\n:func:`DriveBackward`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Velocity",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Max Velocity",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Geschwindigkeit zur\u00fcck, wie von :func:`SetMaxVelocity` gesetzt.\n",
+                    "en": "\nReturns the velocity as set by :func:`SetMaxVelocity`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Velocity",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Current Velocity",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die *aktuelle* Geschwindigkeit des Schrittmotors in Schritten je Sekunde zur\u00fcck.\n",
+                    "en": "\nReturns the *current* velocity of the stepper motor in steps per second.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Acceleration",
+                    "uint16",
+                    1,
+                    "in"
+                ],
+                [
+                    "Deacceleration",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Speed Ramping",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Beschleunigung und die Verz\u00f6gerung des Schrittmotors. Die Werte\nm\u00fcssen in *Schritten/s\u00b2* angegeben werden. Eine Beschleunigung von 1000 bedeutet,\ndass jede Sekunde die Geschwindigkeit um 1000 *Schritte/s* erh\u00f6ht wird.\n\nBeispiel: Wenn die aktuelle Geschwindigkeit 0 ist und es soll auf eine Geschwindigkeit\nvon 8000 *Schritten/s* in 10 Sekunden beschleunigt werden, muss die Beschleunigung auf\n800 *Schritte/s\u00b2* gesetzt werden.\n\nEine Beschleunigung/Verz\u00f6gerung von 0 bedeutet ein sprunghaftes Beschleunigen/Verz\u00f6gern\n(nicht empfohlen).\n\nDer Standardwert ist 1000 f\u00fcr beide Parameter.\n",
+                    "en": "\nSets the acceleration and deacceleration of the stepper motor. The values\nare given in *steps/s\u00b2*. An acceleration of 1000 means, that\nevery second the velocity is increased by 1000 *steps/s*.\n\nFor example: If the current velocity is 0 and you want to accelerate to a\nvelocity of 8000 *steps/s* in 10 seconds, you should set an acceleration\nof 800 *steps/s\u00b2*.\n\nAn acceleration/deacceleration of 0 means instantaneous\nacceleration/deacceleration (not recommended)\n\nThe default value is 1000 for both\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Acceleration",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "Deacceleration",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Speed Ramping",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Beschleunigung und Verz\u00f6gerung zur\u00fcck, wie von :func:`SetSpeedRamping` \ngesetzt.\n",
+                    "en": "\nReturns the acceleration and deacceleration as set by \n:func:`SetSpeedRamping`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Full Brake",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nF\u00fchrt eine aktive Vollbremsung aus.\n\n.. warning::\n Diese Funktion ist f\u00fcr Notsituationen bestimmt,\n in denen ein unverz\u00fcglicher Halt notwendig ist. Abh\u00e4ngig von der aktuellen\n Geschwindigkeit und der Kraft des Motors kann eine Vollbremsung brachial sein.\n\nEin Aufruf von :func:`Stop` stoppt den Motor.\n",
+                    "en": "\nExecutes an active full brake. \n \n.. warning::\n This function is for emergency purposes,\n where an immediate brake is necessary. Depending on the current velocity and\n the strength of the motor, a full brake can be quite violent.\n\nCall :func:`Stop` if you just want to stop the motor.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Position",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Current Position",
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt den aktuellen Schrittwert des internen Schrittz\u00e4hlers. Dies kann \nbenutzt werden um die aktuelle Position auf 0 zu setzen wenn ein definierter\nStartpunkt erreicht wurde (z.B. wenn eine CNC Maschine eine Ecke erreicht).\n",
+                    "en": "\nSets the current steps of the internal step counter. This can be used to\nset the current position to 0 when some kind of starting position\nis reached (e.g. when a CNC machine reaches a corner).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Position",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Current Position",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die aktuelle Position des Schrittmotors in Schritten zur\u00fcck. Nach dem \nHochfahren ist die Position 0. Die Schritte werden bei Verwendung aller m\u00f6glichen\nFahrfunktionen gez\u00e4hlt (:func:`SetTargetPosition`, :func:`SetSteps`, :func:`DriveForward` der\n:func:`DriveBackward`). Es ist auch m\u00f6glich den Schrittz\u00e4hler auf 0 oder jeden anderen\ngew\u00fcnschten Wert zu setzen mit :func:`SetCurrentPosition`.\n",
+                    "en": "\nReturns the current position of the stepper motor in steps. On startup\nthe position is 0. The steps are counted with all possible driving\nfunctions (:func:`SetTargetPosition`, :func:`SetSteps`, :func:`DriveForward` or\n:func:`DriveBackward`). It also is possible to reset the steps to 0 or\nset them to any other desired value with :func:`SetCurrentPosition`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Position",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Target Position",
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Zielposition des Schrittmotors in Schritten. Beispiel:\nWenn die aktuelle Position des Motors 500 ist und :func:`SetTargetPosition` mit \n1000 aufgerufen wird, dann verf\u00e4hrt der Schrittmotor 500 Schritte vorw\u00e4rts. Dabei\nwird die Geschwindigkeit, Beschleunigung und Verz\u00f6gerung, wie mit \n:func:`SetMaxVelocity` und :func:`SetSpeedRamping` gesetzt, verwendet.\n\nEin Aufruf von :func:`SetTargetPosition` mit dem Parameter *x* ist \n\u00e4quivalent mit einem Aufruf von :func:`SetSteps` mit dem Parameter\n(*x* - :func:`GetCurrentPosition`).\n",
+                    "en": "\nSets the target position of the stepper motor in steps. For example,\nif the current position of the motor is 500 and :func:`SetTargetPosition` is\ncalled with 1000, the stepper motor will drive 500 steps forward. It will\nuse the velocity, acceleration and deacceleration as set by\n:func:`SetMaxVelocity` and :func:`SetSpeedRamping`.\n\nA call of :func:`SetTargetPosition` with the parameter *x* is equivalent to\na call of :func:`SetSteps` with the parameter \n(*x* - :func:`GetCurrentPosition`).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Position",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Target Position",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die letzte Zielposition zur\u00fcck, wie von :func:`SetTargetPosition`\ngesetzt.\n",
+                    "en": "\nReturns the last target position as set by :func:`SetTargetPosition`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Steps",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Steps",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Anzahl der Schritte die der Schrittmotor fahren soll.\nPositive Werte fahren den Motor vorw\u00e4rts und negative r\u00fcckw\u00e4rts.\nDabei wird die Geschwindigkeit, Beschleunigung und Verz\u00f6gerung, wie mit \n:func:`SetMaxVelocity` und :func:`SetSpeedRamping` gesetzt, verwendet.\n",
+                    "en": "\nSets the number of steps the stepper motor should run. Positive values\nwill drive the motor forward and negative values backward. \nThe velocity, acceleration and deacceleration as set by\n:func:`SetMaxVelocity` and :func:`SetSpeedRamping` will be used.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Steps",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Steps",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die letzten Schritte zur\u00fcck, wie von :func:`SetSteps` gesetzt.\n",
+                    "en": "\nReturns the last steps as set by :func:`SetSteps`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 12,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Steps",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Remaining Steps",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die verbleibenden Schritte des letzten Aufrufs von :func:`SetSteps`\nzur\u00fcck. Beispiel: Wenn :func:`SetSteps` mit 2000 aufgerufen wird und \n:func:`GetRemainingSteps` aufgerufen wird wenn der Motor 500 Schritte fahren\nhat, wird 1500 zur\u00fcckgegeben.\n",
+                    "en": "\nReturns the remaining steps of the last call of :func:`SetSteps`.\nFor example, if :func:`SetSteps` is called with 2000 and \n:func:`GetRemainingSteps` is called after the motor has run for 500 steps,\nit will return 1500.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 13,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Step Mode",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Step Mode",
+                        [
+                            [
+                                "Normal Full",
+                                0
+                            ],
+                            [
+                                "Normal Half",
+                                1
+                            ],
+                            [
+                                "Normal Half Interpolate",
+                                2
+                            ],
+                            [
+                                "Normal Quarter",
+                                3
+                            ],
+                            [
+                                "Normal Sixteenth",
+                                4
+                            ],
+                            [
+                                "Normal Quarter Interpolate",
+                                5
+                            ],
+                            [
+                                "Normal Sixteenth Interpolate",
+                                6
+                            ],
+                            [
+                                "Silent Quarter Interpolate",
+                                7
+                            ],
+                            [
+                                "Silent Sixteenth Interpolate",
+                                8
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Set Step Mode",
+            "doc": [
+                "af",
+                {
+                    "de": "\nTODO\n",
+                    "en": "\nTODO\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 14,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Step Mode",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Step Mode",
+                        [
+                            [
+                                "Normal Full",
+                                0
+                            ],
+                            [
+                                "Normal Half",
+                                1
+                            ],
+                            [
+                                "Normal Half Interpolate",
+                                2
+                            ],
+                            [
+                                "Normal Quarter",
+                                3
+                            ],
+                            [
+                                "Normal Sixteenth",
+                                4
+                            ],
+                            [
+                                "Normal Quarter Interpolate",
+                                5
+                            ],
+                            [
+                                "Normal Sixteenth Interpolate",
+                                6
+                            ],
+                            [
+                                "Silent Quarter Interpolate",
+                                7
+                            ],
+                            [
+                                "Silent Sixteenth Interpolate",
+                                8
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Get Step Mode",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt den Schrittmodus zur\u00fcck, wie von :func:`SetStepMode` gesetzt.\n",
+                    "en": "\nReturns the step mode as set by :func:`SetStepMode`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 15,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Drive Forward",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nF\u00e4hrt den Schrittmotor vorw\u00e4rts bis :func:`DriveBackward` oder\n:func:`Stop` aufgerufen wird. Dabei wird die Geschwindigkeit, \nBeschleunigung und Verz\u00f6gerung, wie mit :func:`SetMaxVelocity`\nund :func:`SetSpeedRamping` gesetzt, verwendet.\n",
+                    "en": "\nDrives the stepper motor forward until :func:`DriveBackward` or\n:func:`Stop` is called. The velocity, acceleration and deacceleration as \nset by :func:`SetMaxVelocity` and :func:`SetSpeedRamping` will be used.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 16,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Drive Backward",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nF\u00e4hrt den Schrittmotor r\u00fcckw\u00e4rts bis :func:`DriveForward` oder\n:func:`Stop` aufgerufen wird. Dabei wird die Geschwindigkeit, \nBeschleunigung und Verz\u00f6gerung, wie mit :func:`SetMaxVelocity`\nund :func:`SetSpeedRamping` gesetzt, verwendet.\n",
+                    "en": "\nDrives the stepper motor backward until :func:`DriveForward` or\n:func:`Stop` is triggered. The velocity, acceleration and deacceleration as\nset by :func:`SetMaxVelocity` and :func:`SetSpeedRamping` will be used.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 17,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Stop",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nStoppt den Schrittmotor mit der Verz\u00f6gerung, wie von \n:func:`SetSpeedRamping` gesetzt.\n",
+                    "en": "\nStops the stepper motor with the deacceleration as set by \n:func:`SetSpeedRamping`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 18,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Stack Input Voltage",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Eingangsspannung (in mV) des Stapels zur\u00fcck. Die Eingangsspannung\ndes Stapel wird \u00fcber diesen bereitgestellt und von einer Step-Down oder\nStep-Up Power Supply erzeugt.\n",
+                    "en": "\nReturns the stack input voltage in mV. The stack input voltage is the\nvoltage that is supplied via the stack, i.e. it is given by a \nStep-Down or Step-Up Power Supply.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 19,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get External Input Voltage",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die externe Eingangsspannung (in mV) zur\u00fcck. Die externe Eingangsspannung\nwird \u00fcber die schwarze Stromversorgungsbuchse, in den Stepper Brick, eingespeist.\n\nSobald eine externe Eingangsspannung und die Spannungsversorgung des Stapels anliegt,\nwird der Motor \u00fcber die externe Spannung versorgt. Sollte nur die Spannungsversorgung\ndes Stapels verf\u00fcgbar sein, erfolgt die Versorgung des Motors \u00fcber diese.\n\n.. warning::\n Das bedeutet, bei einer hohen Versorgungsspannung des Stapels und einer geringen\n externen Versorgungsspannung erfolgt die Spannungsversorgung des Motors \u00fcber die geringere\n externe Versorgungsspannung. Wenn dann die externe Spannungsversorgung getrennt wird,\n erfolgt sofort die Versorgung des Motors \u00fcber die h\u00f6here Versorgungsspannung des Stapels.\n",
+                    "en": "\nReturns the external input voltage in mV. The external input voltage is\ngiven via the black power input connector on the Stepper Brick. \n \nIf there is an external input voltage and a stack input voltage, the motor\nwill be driven by the external input voltage. If there is only a stack \nvoltage present, the motor will be driven by this voltage.\n\n.. warning::\n This means, if you have a high stack voltage and a low external voltage,\n the motor will be driven with the low external voltage. If you then remove\n the external connection, it will immediately be driven by the high\n stack voltage\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 20,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Current Consumption",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Stromaufnahme des Motors zur\u00fcck (in mA).\n",
+                    "en": "\nReturns the current consumption of the motor in mA.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 21,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Current",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Motor Current",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt den Strom in mA mit welchem der Motor angetrieben wird.\nDer minimale Wert ist 100mA, der maximale Wert ist 2291mA und der\nStandardwert ist 800mA.\n\n.. warning::\n Dieser Wert sollte nicht \u00fcber die Spezifikation des Schrittmotors gesetzt werden.\n Sonst ist eine Besch\u00e4digung des Motors m\u00f6glich.\n",
+                    "en": "\nSets the current in mA with which the motor will be driven.\nThe minimum value is 100mA, the maximum value 2291mA and the \ndefault value is 800mA.\n\n.. warning::\n Do not set this value above the specifications of your stepper motor.\n Otherwise it may damage your motor.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 22,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Current",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Motor Current",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt den Strom zur\u00fcck, wie von :func:`SetMotorCurrent` gesetzt.\n",
+                    "en": "\nReturns the current as set by :func:`SetMotorCurrent`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 23,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Enable",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nAktiviert die Treiberstufe. Die Treiberparameter k\u00f6nnen vor der Aktivierung\nkonfiguriert werden (maximale Geschwindigkeit, Beschleunigung, etc.).\n",
+                    "en": "\nEnables the driver chip. The driver parameters can be configured (maximum velocity,\nacceleration, etc) before it is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 24,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Disable",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nDeaktiviert die Treiberstufe. Die Konfiguration (Geschwindigkeit, Beschleunigung,\netc.) bleibt erhalten aber der Motor wird nicht angesteuert bis eine erneute\nAktivierung erfolgt.\n",
+                    "en": "\nDisables the driver chip. The configurations are kept (maximum velocity,\nacceleration, etc) but the motor is not driven until it is enabled again.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 25,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Is Enabled",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Treiberstufe aktiv ist, sonst *false*.\n",
+                    "en": "\nReturns *true* if the driver chip is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 26,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Standstill Power Down",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Standstill Power Down",
+                        [
+                            [
+                                "On",
+                                0
+                            ],
+                            [
+                                "Off",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Chopper Off Time",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Chopper Off Time",
+                        [
+                            [
+                                "Low",
+                                0
+                            ],
+                            [
+                                "Medium",
+                                1
+                            ],
+                            [
+                                "High",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Chopper Hysteresis",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Chopper Hysteresis",
+                        [
+                            [
+                                "Low",
+                                0
+                            ],
+                            [
+                                "Medium",
+                                1
+                            ],
+                            [
+                                "High",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Chopper Blank Time",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Chopper Blank Time",
+                        [
+                            [
+                                "Low",
+                                0
+                            ],
+                            [
+                                "Medium",
+                                1
+                            ],
+                            [
+                                "High",
+                                2
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Set Configuration",
+            "doc": [
+                "af",
+                {
+                    "de": "\nTODO\n",
+                    "en": "\nTODO\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 27,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Standstill Power Down",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Standstill Power Down",
+                        [
+                            [
+                                "On",
+                                0
+                            ],
+                            [
+                                "Off",
+                                1
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Chopper Off Time",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Chopper Off Time",
+                        [
+                            [
+                                "Low",
+                                0
+                            ],
+                            [
+                                "Medium",
+                                1
+                            ],
+                            [
+                                "High",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Chopper Hysteresis",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Chopper Hysteresis",
+                        [
+                            [
+                                "Low",
+                                0
+                            ],
+                            [
+                                "Medium",
+                                1
+                            ],
+                            [
+                                "High",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Chopper Blank Time",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Chopper Blank Time",
+                        [
+                            [
+                                "Low",
+                                0
+                            ],
+                            [
+                                "Medium",
+                                1
+                            ],
+                            [
+                                "High",
+                                2
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Get Configuration",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetConfiguration` gesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetConfiguration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 28,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Voltage",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Minimum Voltage",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die minimale Spannung in mV, bei welcher der :func:`UnderVoltage` Callback\nausgel\u00f6st wird. Der kleinste m\u00f6gliche Wert mit dem der Stepper Brick noch funktioniert,\nist 8V. Mit dieser Funktion kann eine Entladung der versorgenden Batterie detektiert\nwerden. Beim Einsatz einer Netzstromversorgung wird diese Funktionalit\u00e4t\nh\u00f6chstwahrscheinlich nicht ben\u00f6tigt.\n\nDer Standardwert ist 8V.\n",
+                    "en": "\nSets the minimum voltage in mV, below which the :func:`UnderVoltage` callback\nis triggered. The minimum possible value that works with the Stepper Brick is 8V.\nYou can use this function to detect the discharge of a battery that is used\nto drive the stepper motor. If you have a fixed power supply, you likely do \nnot need this functionality.\n\nThe default value is 8V.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 29,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Minimum Voltage",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die minimale Spannung zur\u00fcck, wie von :func:`SetMinimumVoltage` gesetzt.\n",
+                    "en": "\nReturns the minimum voltage as set by :func:`SetMinimumVoltage`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 30,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Under Voltage",
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st wenn die Eingangsspannung unter den, mittels\n:func:`SetMinimumVoltage` gesetzten, Schwellwert sinkt. Der :word:`parameter`\nist die aktuelle Spannung in mV.\n",
+                    "en": "\nThis callback is triggered when the input voltage drops below the value set by\n:func:`SetMinimumVoltage`. The :word:`parameter` is the current voltage given\nin mV.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 31,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "Position",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Position Reached",
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st immer wenn eine konfigurierte Position, wie von\n:func:`SetSteps` oder :func:`SetTargetPosition` gesetzt, erreicht wird. \n\n.. note::\n Da es nicht m\u00f6glich ist eine R\u00fcckmeldung vom Schrittmotor zu erhalten,\n funktioniert dies nur wenn die konfigurierte Beschleunigung (siehe :func:`SetSpeedRamping`)\n kleiner oder gleich der maximalen Beschleunigung des Motors ist. Andernfalls\n wird der Motor hinter dem Vorgabewert zur\u00fcckbleiben und der Callback wird\n zu fr\u00fch ausgel\u00f6st.\n",
+                    "en": "\nThis callback is triggered when a position set by :func:`SetSteps` or\n:func:`SetTargetPosition` is reached.\n\n.. note::\n Since we can't get any feedback from the stepper motor, this only works if the\n acceleration (see :func:`SetSpeedRamping`) is set smaller or equal to the\n maximum acceleration of the motor. Otherwise the motor will lag behind the\n control value and the callback will be triggered too early.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 32,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "Time Base",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Time Base",
+            "doc": [
+                "af",
+                {
+                    "de": "\nSetzt die Zeitbasis der Geschwindigkeit und Beschleunigung des Stepper Brick\n(in Sekunden).\n\nBeispiel: Wenn aller 1,5 Sekunden ein Schritt gefahren werden soll, kann\ndie Zeitbasis auf 15 und die Geschwindigkeit auf 10 gesetzt werden. Damit ist die \nGeschwindigkeit 10Schritte/15s = 1Schritt/1,5s.\n\nDer Standardwert ist 1.\n",
+                    "en": "\nSets the time base of the velocity and the acceleration of the stepper brick\n(in seconds).\n\nFor example, if you want to make one step every 1.5 seconds, you can set \nthe time base to 15 and the velocity to 10. Now the velocity is \n10steps/15s = 1steps/1.5s.\n\nThe default value is 1.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 33,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Time Base",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Time Base",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Zeitbasis zur\u00fcck, wie von :func:`SetTimeBase` gesetzt.\n",
+                    "en": "\nReturns the time base as set by :func:`SetTimeBase`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 34,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Current Velocity",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "Current Position",
+                    "int32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Remaining Steps",
+                    "int32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Stack Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "External Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "Current Consumption",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get All Data",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die folgenden :word:`parameters` zur\u00fcck: Die aktuelle\nGeschwindigkeit, die aktuelle Position, die verbleibenden Schritte,\ndie Spannung des Stapels, die externe Spannung und der aktuelle Stromverbrauch\ndes Schrittmotors.\n\nEs existiert auch ein Callback f\u00fcr diese Funktion, siehe :func:`AllData`.\n",
+                    "en": "\nReturns the following :word:`parameters`: The current velocity,\nthe current position, the remaining steps, the stack voltage, the external\nvoltage and the current consumption of the stepper motor.\n\nThere is also a callback for this function, see :func:`AllData`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 35,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Period",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set All Data Period",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nSetzt die Periode in ms mit welcher der :func:`AllData` Callback ausgel\u00f6st wird.\nEin Wert von 0 deaktiviert den Callback.\n",
+                    "en": "\nSets the period in ms with which the :func:`AllData` callback is triggered\nperiodically. A value of 0 turns the callback off.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 36,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Period",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get All Data Period",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt die Periode zur\u00fcck, wie von :func:`SetAllDataPeriod` gesetzt.\n",
+                    "en": "\nReturns the period as set by :func:`SetAllDataPeriod`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 37,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Current Velocity",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "Current Position",
+                    "int32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Remaining Steps",
+                    "int32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Stack Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "External Voltage",
+                    "uint16",
+                    1,
+                    "out"
+                ],
+                [
+                    "Current Consumption",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "All Data",
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird mit der Periode, wie gesetzt mit :func:`SetAllDataPeriod`,\nausgel\u00f6st. Die :word:`parameters` sind die aktuelle Geschwindigkeit,\ndie aktuelle Position, die verbleibenden Schritte, die Spannung des Stapels, die\nexterne Spannung und der aktuelle Stromverbrauch des Schrittmotors.\n",
+                    "en": "\nThis callback is triggered periodically with the period that is set by\n:func:`SetAllDataPeriod`. The :word:`parameters` are: the current velocity,\nthe current position, the remaining steps, the stack voltage, the external\nvoltage and the current consumption of the stepper motor.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 38,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "State New",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "State",
+                        [
+                            [
+                                "Stop",
+                                1
+                            ],
+                            [
+                                "Acceleration",
+                                2
+                            ],
+                            [
+                                "Run",
+                                3
+                            ],
+                            [
+                                "Deacceleration",
+                                4
+                            ],
+                            [
+                                "Direction Change To Forward",
+                                5
+                            ],
+                            [
+                                "Direction Change To Backward",
+                                6
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "State Previous",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "State",
+                        [
+                            [
+                                "Stop",
+                                1
+                            ],
+                            [
+                                "Acceleration",
+                                2
+                            ],
+                            [
+                                "Run",
+                                3
+                            ],
+                            [
+                                "Deacceleration",
+                                4
+                            ],
+                            [
+                                "Direction Change To Forward",
+                                5
+                            ],
+                            [
+                                "Direction Change To Backward",
+                                6
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "New State",
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird immer dann ausgel\u00f6st wenn der Stepper Brick einen\nneuen Zustand erreicht. Es wird sowohl der neue wie auch der alte Zustand \nzur\u00fcckgegeben.\n",
+                    "en": "\nThis callback is triggered whenever the Stepper Brick enters a new state. \nIt returns the new state as well as the previous state.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                1,
+                6
+            ],
+            "function_id": 39,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "API Version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": "Get API Version",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Function Id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Response Expected",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Function Id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Response Expected",
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Response Expected All",
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Enable Status LED",
+            "doc": [
+                "af",
+                {
+                    "de": "\nAktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nEnables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 238,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Disable Status LED",
+            "doc": [
+                "af",
+                {
+                    "de": "\nDeaktiviert die Status LED.\n\nDie Status LED ist die blaue LED neben dem USB-Stecker. Wenn diese aktiviert\nist, ist sie an und sie flackert wenn Daten transferiert werden. Wenn sie\ndeaktiviert ist, ist sie immer aus.\n\nDer Standardzustand ist aktiviert.\n",
+                    "en": "\nDisables the status LED.\n\nThe status LED is the blue LED next to the USB connector. If enabled is is\non and it flickers if data is transfered. If disabled it is always off.\n\nThe default state is enabled.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 239,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Is Status LED Enabled",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt *true* zur\u00fcck wenn die Status LED aktiviert ist, *false* sonst.\n",
+                    "en": "\nReturns *true* if the status LED is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 240,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Port",
+                    "char",
+                    1,
+                    "in"
+                ],
+                [
+                    "Protocol Version",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Firmware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Name",
+                    "string",
+                    40,
+                    "out"
+                ]
+            ],
+            "name": "Get Protocol1 Bricklet Name",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Firmware und Protokoll Version und den Namen des Bricklets f\u00fcr einen\ngegebenen Port zur\u00fcck.\n\nDer einzige Zweck dieser Funktion ist es, automatischen Flashen von Bricklet\nv1.x.y Plugins zu erm\u00f6glichen.\n",
+                    "en": "\nReturns the firmware and protocol version and the name of the Bricklet for a\ngiven port.\n\nThis functions sole purpose is to allow automatic flashing of v1.x.y Bricklet\nplugins.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 241,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Temperature",
+                    "int16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Chip Temperature",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Temperatur in \u00b0C/10, gemessen im Mikrocontroller, aus. Der\nR\u00fcckgabewert ist nicht die Umgebungstemperatur.\n\nDie Temperatur ist lediglich proportional zur echten Temperatur und hat eine\nGenauigkeit von +-15%. Daher beschr\u00e4nkt sich der praktische Nutzen auf die\nIndikation von Temperaturver\u00e4nderungen.\n",
+                    "en": "\nReturns the temperature in \u00b0C/10 as measured inside the microcontroller. The\nvalue returned is not the ambient temperature!\n\nThe temperature is only proportional to the real temperature and it has an\naccuracy of +-15%. Practically it is only useful as an indicator for\ntemperature changes.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 242,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Reset",
+            "doc": [
+                "af",
+                {
+                    "de": "\nEin Aufruf dieser Funktion setzt den Brick zur\u00fcck. Befindet sich der Brick\ninnerhalb eines Stapels wird der gesamte Stapel zur\u00fcck gesetzt.\n\nNach dem Zur\u00fccksetzen ist es notwendig neue Ger\u00e4teobjekte zu erzeugen,\nFunktionsaufrufe auf bestehende f\u00fchrt zu undefiniertem Verhalten.\n",
+                    "en": "\nCalling this function will reset the Brick. Calling this function\non a Brick inside of a stack will reset the whole stack.\n\nAfter a reset you have to create new device objects,\ncalling functions on the existing ones will result in\nundefined behavior!\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 243,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "Connected Uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "Position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "Hardware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Firmware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Device Identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Identity",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der der Brick verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann '0'-'8' (Stack Position) sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Brick is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be '0'-'8' (stack position).\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 19,
+    "released": false,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Motor Current",
+                    [
+                        [
+                            "uint16",
+                            800
+                        ]
+                    ],
+                    null,
+                    "800mA"
+                ],
+                [
+                    "setter",
+                    "Set Step Mode",
+                    [
+                        [
+                            "uint8",
+                            8
+                        ]
+                    ],
+                    null,
+                    "1/8 step mode"
+                ],
+                [
+                    "setter",
+                    "Set Max Velocity",
+                    [
+                        [
+                            "uint16",
+                            2000
+                        ]
+                    ],
+                    null,
+                    "Velocity 2000 steps/s"
+                ],
+                [
+                    "setter",
+                    "Set Speed Ramping",
+                    [
+                        [
+                            "uint16",
+                            500
+                        ],
+                        [
+                            "uint16",
+                            5000
+                        ]
+                    ],
+                    "Slow acceleration (500 steps/s^2),\nFast deacceleration (5000 steps/s^2)",
+                    null
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    "Enable motor power"
+                ],
+                [
+                    "setter",
+                    "Set Steps",
+                    [
+                        [
+                            "int32",
+                            60000
+                        ]
+                    ],
+                    null,
+                    "Drive 60000 steps forward"
+                ],
+                [
+                    "wait"
+                ]
+            ],
+            "name": "Configuration",
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    null
+                ]
+            ]
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Position Reached",
+                        "position reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Position",
+                                "Position"
+                            ],
+                            "int32",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    "Use position reached callback to program random movement",
+                    null
+                ],
+                [
+                    "empty"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    "Enable motor power"
+                ],
+                [
+                    "setter",
+                    "Set Steps",
+                    [
+                        [
+                            "int32",
+                            1
+                        ]
+                    ],
+                    null,
+                    "Drive one step forward to get things going"
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true,
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    null
+                ]
+            ]
+        }
+    ],
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "Silent Stepper",
+        "Silent Stepper",
+        "Silent Stepper Brick"
+    ]
+}

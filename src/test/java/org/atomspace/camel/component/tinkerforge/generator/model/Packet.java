@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = false)
 public class Packet {
-    public String[] name;
+    public String name;
     public String type;
 
     public Elements  elements;

@@ -9,22 +9,19 @@
         {
             "elements": [
                 [
-                    "relay1",
+                    "Relay1",
                     "bool",
                     1,
                     "in"
                 ],
                 [
-                    "relay2",
+                    "Relay2",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetState",
-                "set_state"
-            ],
+            "name": "Set State",
             "doc": [
                 "bf",
                 {
@@ -43,22 +40,19 @@
         {
             "elements": [
                 [
-                    "relay1",
+                    "Relay1",
                     "bool",
                     1,
                     "out"
                 ],
                 [
-                    "relay2",
+                    "Relay2",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetState",
-                "get_state"
-            ],
+            "name": "Get State",
             "doc": [
                 "bf",
                 {
@@ -77,28 +71,25 @@
         {
             "elements": [
                 [
-                    "relay",
+                    "Relay",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "state",
+                    "State",
                     "bool",
                     1,
                     "in"
                 ],
                 [
-                    "time",
+                    "Time",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMonoflop",
-                "set_monoflop"
-            ],
+            "name": "Set Monoflop",
             "doc": [
                 "af",
                 {
@@ -117,34 +108,31 @@
         {
             "elements": [
                 [
-                    "relay",
+                    "Relay",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "state",
+                    "State",
                     "bool",
                     1,
                     "out"
                 ],
                 [
-                    "time",
+                    "Time",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "time_remaining",
+                    "Time Remaining",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMonoflop",
-                "get_monoflop"
-            ],
+            "name": "Get Monoflop",
             "doc": [
                 "af",
                 {
@@ -163,22 +151,19 @@
         {
             "elements": [
                 [
-                    "relay",
+                    "Relay",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "state",
+                    "State",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "MonoflopDone",
-                "monoflop_done"
-            ],
+            "name": "Monoflop Done",
             "doc": [
                 "c",
                 {
@@ -197,22 +182,19 @@
         {
             "elements": [
                 [
-                    "relay",
+                    "Relay",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "state",
+                    "State",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetSelectedState",
-                "set_selected_state"
-            ],
+            "name": "Set Selected State",
             "doc": [
                 "af",
                 {
@@ -231,16 +213,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -256,22 +235,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -287,22 +263,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -318,16 +291,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -343,46 +313,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -402,6 +369,65 @@
     ],
     "device_identifier": 26,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "loop_header",
+                    5,
+                    "Turn relays alternating on/off 10 times with 1 second delay"
+                ],
+                [
+                    "sleep",
+                    1000,
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set State",
+                    [
+                        [
+                            "bool",
+                            true
+                        ],
+                        [
+                            "bool",
+                            false
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "sleep",
+                    1000,
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set State",
+                    [
+                        [
+                            "bool",
+                            false
+                        ],
+                        [
+                            "bool",
+                            true
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "loop_footer"
+                ]
+            ],
+            "name": "Simple"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -410,8 +436,7 @@
         0
     ],
     "name": [
-        "DualRelay",
-        "dual_relay",
+        "Dual Relay",
         "Dual Relay",
         "Dual Relay Bricklet"
     ]

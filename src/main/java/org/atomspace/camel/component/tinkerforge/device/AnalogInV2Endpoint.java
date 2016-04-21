@@ -52,8 +52,8 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
     private Long period;
     private Long period2;
     private Character option;
-    private Short min;
-    private Short max;
+    private Integer min;
+    private Integer max;
     private Character option2;
     private Integer min2;
     private Integer max2;
@@ -132,8 +132,8 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
             case "setVoltageCallbackThreshold":
                 device.setVoltageCallbackThreshold(
                         getValue(char.class, "option", m, getOption()),
-                        getValue(short.class, "min", m, getMin()),
-                        getValue(short.class, "max", m, getMax())
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -270,11 +270,11 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMin(){
+    public Integer getMin(){
         return min;
     }
 
-    public void setMin(Short min){
+    public void setMin(Integer min){
         this.min = min;
     }
 
@@ -297,11 +297,11 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMax(){
+    public Integer getMax(){
         return max;
     }
 
-    public void setMax(Short max){
+    public void setMax(Integer max){
         this.max = max;
     }
 
@@ -414,7 +414,7 @@ public class AnalogInV2Endpoint extends TinkerforgeEndpoint<AnalogInV2Consumer, 
     /**
      * 
      * Sets the length of a `moving averaging <https://en.wikipedia.org/wiki/Moving_average>`__
-     * for the moisture value.
+     * for the voltage.
      * 
      * Setting the length to 1 will turn the averaging off. With less
      * averaging, there is more noise on the data.

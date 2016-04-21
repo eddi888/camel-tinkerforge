@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetVoltage",
-                "set_voltage"
-            ],
+            "name": "Set Voltage",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVoltage",
-                "get_voltage"
-            ],
+            "name": "Get Voltage",
             "doc": [
                 "bf",
                 {
@@ -65,42 +59,34 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "in",
                     [
                         "Mode",
-                        "mode",
                         [
                             [
-                                "AnalogValue",
-                                "analog_value",
+                                "Analog Value",
                                 0
                             ],
                             [
-                                "1KToGround",
-                                "1k_to_ground",
+                                "1k To Ground",
                                 1
                             ],
                             [
-                                "100KToGround",
-                                "100k_to_ground",
+                                "100k To Ground",
                                 2
                             ],
                             [
-                                "500KToGround",
-                                "500k_to_ground",
+                                "500k To Ground",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetMode",
-                "set_mode"
-            ],
+            "name": "Set Mode",
             "doc": [
                 "bf",
                 {
@@ -119,42 +105,34 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "out",
                     [
                         "Mode",
-                        "mode",
                         [
                             [
-                                "AnalogValue",
-                                "analog_value",
+                                "Analog Value",
                                 0
                             ],
                             [
-                                "1KToGround",
-                                "1k_to_ground",
+                                "1k To Ground",
                                 1
                             ],
                             [
-                                "100KToGround",
-                                "100k_to_ground",
+                                "100k To Ground",
                                 2
                             ],
                             [
-                                "500KToGround",
-                                "500k_to_ground",
+                                "500k To Ground",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetMode",
-                "get_mode"
-            ],
+            "name": "Get Mode",
             "doc": [
                 "bf",
                 {
@@ -173,16 +151,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -198,22 +173,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -229,22 +201,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -260,16 +229,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -285,46 +251,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -344,6 +307,25 @@
     ],
     "device_identifier": 220,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Voltage",
+                    [
+                        [
+                            "uint16",
+                            3300
+                        ]
+                    ],
+                    "Set output voltage to 3.3V",
+                    null
+                ]
+            ],
+            "name": "Simple"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -352,8 +334,7 @@
         0
     ],
     "name": [
-        "AnalogOut",
-        "analog_out",
+        "Analog Out",
         "Analog Out",
         "Analog Out Bricklet"
     ]

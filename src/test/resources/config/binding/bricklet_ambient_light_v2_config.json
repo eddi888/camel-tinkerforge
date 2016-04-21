@@ -9,21 +9,18 @@
         {
             "elements": [
                 [
-                    "illuminance",
+                    "Illuminance",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIlluminance",
-                "get_illuminance"
-            ],
+            "name": "Get Illuminance",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die Beleuchtungsst\u00e4rke des Umgebungslichtsensors zur\u00fcck. Der Wertbereich\nist von 0 bis 6400000 und ist in 1/100 Lux angegeben, d.h. bei einem Wert von \n45000 wurde eine Beleuchtungsst\u00e4rke von 450 Lux gemessen.\n\nWenn die Beleuchtungsst\u00e4rke periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Illuminance` zu nutzen und die Periode mit \n:func:`SetIlluminanceCallbackPeriod` vorzugeben.\n",
-                    "en": "\nReturns the illuminance of the ambient light sensor. The value\nhas a range of 0 to 6400000 and is given in 1/100 Lux, i.e. a value\nof 45000 means that an illuminance of 450 Lux is measured.\n\nIf you want to get the illuminance periodically, it is recommended to use the\ncallback :func:`Illuminance` and set the period with \n:func:`SetIlluminanceCallbackPeriod`.\n"
+                    "de": "\nGibt die Beleuchtungsst\u00e4rke des Umgebungslichtsensors zur\u00fcck. Der Messbereich\nerstreckt sich bis \u00fcber 100000Lux, aber ab 64000Lux nimmt die Messgenauigkeit\nab. Die Beleuchtungsst\u00e4rke ist in Lux/100 angegeben, d.h. bei einem Wert von\n450000 wurde eine Beleuchtungsst\u00e4rke von 4500Lux gemessen.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n  Eine Beleuchtungsst\u00e4rke von 0Lux bedeutet, dass der Sensor ges\u00e4ttigt\n  (saturated) ist und die Konfiguration angepasst werden sollte, siehe\n  :func:`SetConfiguration`.\n\nWenn die Beleuchtungsst\u00e4rke periodisch abgefragt werden soll, wird empfohlen\nden Callback :func:`Illuminance` zu nutzen und die Periode mit \n:func:`SetIlluminanceCallbackPeriod` vorzugeben.\n",
+                    "en": "\nReturns the illuminance of the ambient light sensor. The measurement range goes\nup to about 100000lux, but above 64000lux the precision starts to drop.\nThe illuminance is given in lux/100, i.e. a value of 450000 means that an\nilluminance of 4500lux is measured.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n  An illuminance of 0lux indicates that the sensor is saturated and the\n  configuration should be modified, see :func:`SetConfiguration`.\n\nIf you want to get the illuminance periodically, it is recommended to use the\ncallback :func:`Illuminance` and set the period with \n:func:`SetIlluminanceCallbackPeriod`.\n"
                 }
             ],
             "since_firmware": [
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetIlluminanceCallbackPeriod",
-                "set_illuminance_callback_period"
-            ],
+            "name": "Set Illuminance Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIlluminanceCallbackPeriod",
-                "get_illuminance_callback_period"
-            ],
+            "name": "Get Illuminance Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -93,59 +84,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "in",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint32",
                     1,
                     "in"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetIlluminanceCallbackThreshold",
-                "set_illuminance_callback_threshold"
-            ],
+            "name": "Set Illuminance Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -164,59 +146,50 @@
         {
             "elements": [
                 [
-                    "option",
+                    "Option",
                     "char",
                     1,
                     "out",
                     [
-                        "ThresholdOption",
-                        "threshold_option",
+                        "Threshold Option",
                         [
                             [
                                 "Off",
-                                "off",
                                 "x"
                             ],
                             [
                                 "Outside",
-                                "outside",
                                 "o"
                             ],
                             [
                                 "Inside",
-                                "inside",
                                 "i"
                             ],
                             [
                                 "Smaller",
-                                "smaller",
                                 "<"
                             ],
                             [
                                 "Greater",
-                                "greater",
                                 ">"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "min",
+                    "Min",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "max",
+                    "Max",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIlluminanceCallbackThreshold",
-                "get_illuminance_callback_threshold"
-            ],
+            "name": "Get Illuminance Callback Threshold",
             "doc": [
                 "ccf",
                 {
@@ -235,16 +208,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -263,16 +233,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -291,93 +258,81 @@
         {
             "elements": [
                 [
-                    "illuminance_range",
+                    "Illuminance Range",
                     "uint8",
                     1,
                     "in",
                     [
-                        "IlluminanceRange",
-                        "illuminance_range",
+                        "Illuminance Range",
                         [
                             [
+                                "Unlimited",
+                                6
+                            ],
+                            [
                                 "64000Lux",
-                                "64000lux",
                                 0
                             ],
                             [
                                 "32000Lux",
-                                "32000lux",
                                 1
                             ],
                             [
                                 "16000Lux",
-                                "16000lux",
                                 2
                             ],
                             [
                                 "8000Lux",
-                                "8000lux",
                                 3
                             ],
                             [
                                 "1300Lux",
-                                "1300lux",
                                 4
                             ],
                             [
                                 "600Lux",
-                                "600lux",
                                 5
                             ]
                         ]
                     ]
                 ],
                 [
-                    "integration_time",
+                    "Integration Time",
                     "uint8",
                     1,
                     "in",
                     [
-                        "IntegrationTime",
-                        "integration_time",
+                        "Integration Time",
                         [
                             [
-                                "50ms",
                                 "50ms",
                                 0
                             ],
                             [
                                 "100ms",
-                                "100ms",
                                 1
                             ],
                             [
-                                "150ms",
                                 "150ms",
                                 2
                             ],
                             [
                                 "200ms",
-                                "200ms",
                                 3
                             ],
                             [
-                                "250ms",
                                 "250ms",
                                 4
                             ],
                             [
                                 "300ms",
-                                "300ms",
                                 5
                             ],
                             [
                                 "350ms",
-                                "350ms",
                                 6
                             ],
                             [
-                                "400ms",
                                 "400ms",
                                 7
                             ]
@@ -385,15 +340,12 @@
                     ]
                 ]
             ],
-            "name": [
-                "SetConfiguration",
-                "set_configuration"
-            ],
+            "name": "Set Configuration",
             "doc": [
                 "af",
                 {
-                    "de": "\nSetzt die Konfiguration. Es ist m\u00f6glich den Helligkeitswertebereich zwischen\n0-600 Lux und 0-64000Lux sowie eine Integrationszeit zwischen 50ms und 400ms\nzu konfigurieren.\n\nEin kleinerer Helligkeitswertebereich erh\u00f6ht die Aufl\u00f6sung der Daten. Eine\nErh\u00f6hung der Integrationszeit verringert das Rauschen auf den Daten.\n\nDie Standardwerte sind 0-8000Lux Helligkeitsbereich und 200ms Integrationszeit.\n",
-                    "en": "\nSets the configuration. It is possible to configure an illuminance range\nbetween 0-600lux and 0-64000lux and an integration time between 50ms and 400ms.\n\nA smaller illuminance range increases the resolution of the data. An\nincrease in integration time will result in less noise on the data.\n\nThe default values are 0-8000lux illuminance range and 200ms integration time.\n"
+                    "de": "\nSetzt die Konfiguration. Es ist m\u00f6glich den Helligkeitswertebereich zwischen\n0-600Lux und 0-64000Lux sowie eine Integrationszeit zwischen 50ms und 400ms\nzu konfigurieren.\n\n.. versionadded:: 2.0.2$nbsp;(Plugin)\n  Der unbeschr\u00e4nkt (unlimited) Helligkeitswertebereich erm\u00f6glicht es bis \u00fcber\n  100000Lux zu messen, aber ab 64000Lux nimmt die Messgenauigkeit ab.\n\nEin kleinerer Helligkeitswertebereich erh\u00f6ht die Aufl\u00f6sung der Daten. Eine\nl\u00e4ngere Integrationszeit verringert das Rauschen auf den Daten.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n  Wenn der eigentliche Messwert au\u00dferhalb des eingestellten\n  Helligkeitswertebereichs liegt, dann geben :func:`GetIlluminance` und der\n  :func:`Illuminance` Callback das Maximum des eingestellten\n  Helligkeitswertebereichs +0,01Lux zur\u00fcck. Also z.B. 800001 f\u00fcr den 0-8000Lux\n  Bereich.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n  Bei einer langen Integrationszeit kann es sein, dass der Sensor ges\u00e4ttigt\n  (saturated) ist bevor der Messwert das Maximum des ausgew\u00e4hlten\n  Helligkeitswertebereichs erreicht hat. In diesem Fall geben\n  :func:`GetIlluminance` und der :func:`Illuminance` Callback 0Lux zur\u00fcck.\n\nWenn der Messwert au\u00dferhalb des eingestellten Helligkeitswertebereichs liegt\noder der Sensor ges\u00e4ttigt ist, dann sollte der n\u00e4chst h\u00f6here\nHelligkeitswertebereich eingestellt werden. Wenn der h\u00f6chste\nHelligkeitswertebereich schon erreicht ist, dann kann noch die Integrationszeit\nverringert werden.\n\nDie Standardwerte sind 0-8000Lux Helligkeitsbereich und 200ms Integrationszeit.\n",
+                    "en": "\nSets the configuration. It is possible to configure an illuminance range\nbetween 0-600lux and 0-64000lux and an integration time between 50ms and 400ms.\n\n.. versionadded:: 2.0.2$nbsp;(Plugin)\n  The unlimited illuminance range allows to measure up to about 100000lux, but\n  above 64000lux the precision starts to drop.\n\nA smaller illuminance range increases the resolution of the data. A longer\nintegration time will result in less noise on the data.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n  If the actual measure illuminance is out-of-range then the current illuminance\n  range maximum +0.01lux is reported by :func:`GetIlluminance` and the\n  :func:`Illuminance` callback. For example, 800001 for the 0-8000lux range.\n\n.. versionchanged:: 2.0.2$nbsp;(Plugin)\n  With a long integration time the sensor might be saturated before the measured\n  value reaches the maximum of the selected illuminance range. In this case 0lux\n  is reported by :func:`GetIlluminance` and the :func:`Illuminance` callback.\n\nIf the measurement is out-of-range or the sensor is saturated then you should\nconfigure the next higher illuminance range. If the highest range is already\nin use, then start to reduce the integration time.\n\nThe default values are 0-8000lux illuminance range and 200ms integration time.\n"
                 }
             ],
             "since_firmware": [
@@ -407,93 +359,81 @@
         {
             "elements": [
                 [
-                    "illuminance_range",
+                    "Illuminance Range",
                     "uint8",
                     1,
                     "out",
                     [
-                        "IlluminanceRange",
-                        "illuminance_range",
+                        "Illuminance Range",
                         [
                             [
+                                "Unlimited",
+                                6
+                            ],
+                            [
                                 "64000Lux",
-                                "64000lux",
                                 0
                             ],
                             [
                                 "32000Lux",
-                                "32000lux",
                                 1
                             ],
                             [
                                 "16000Lux",
-                                "16000lux",
                                 2
                             ],
                             [
                                 "8000Lux",
-                                "8000lux",
                                 3
                             ],
                             [
                                 "1300Lux",
-                                "1300lux",
                                 4
                             ],
                             [
                                 "600Lux",
-                                "600lux",
                                 5
                             ]
                         ]
                     ]
                 ],
                 [
-                    "integration_time",
+                    "Integration Time",
                     "uint8",
                     1,
                     "out",
                     [
-                        "IntegrationTime",
-                        "integration_time",
+                        "Integration Time",
                         [
                             [
-                                "50ms",
                                 "50ms",
                                 0
                             ],
                             [
                                 "100ms",
-                                "100ms",
                                 1
                             ],
                             [
-                                "150ms",
                                 "150ms",
                                 2
                             ],
                             [
                                 "200ms",
-                                "200ms",
                                 3
                             ],
                             [
-                                "250ms",
                                 "250ms",
                                 4
                             ],
                             [
                                 "300ms",
-                                "300ms",
                                 5
                             ],
                             [
                                 "350ms",
-                                "350ms",
                                 6
                             ],
                             [
-                                "400ms",
                                 "400ms",
                                 7
                             ]
@@ -501,10 +441,7 @@
                     ]
                 ]
             ],
-            "name": [
-                "GetConfiguration",
-                "get_configuration"
-            ],
+            "name": "Get Configuration",
             "doc": [
                 "af",
                 {
@@ -523,16 +460,13 @@
         {
             "elements": [
                 [
-                    "illuminance",
+                    "Illuminance",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Illuminance",
-                "illuminance"
-            ],
+            "name": "Illuminance",
             "doc": [
                 "c",
                 {
@@ -551,16 +485,13 @@
         {
             "elements": [
                 [
-                    "illuminance",
+                    "Illuminance",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IlluminanceReached",
-                "illuminance_reached"
-            ],
+            "name": "Illuminance Reached",
             "doc": [
                 "c",
                 {
@@ -579,16 +510,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -604,22 +532,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -635,22 +560,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -666,16 +588,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -691,46 +610,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -750,16 +666,125 @@
     ],
     "device_identifier": 259,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Illuminance",
+                        "illuminance"
+                    ],
+                    [
+                        [
+                            [
+                                "Illuminance",
+                                "Illuminance"
+                            ],
+                            "uint32",
+                            100.0,
+                            "Lux/100",
+                            "Lux",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Illuminance",
+                        "illuminance"
+                    ],
+                    [
+                        [
+                            [
+                                "Illuminance",
+                                "Illuminance"
+                            ],
+                            "uint32",
+                            100.0,
+                            "Lux/100",
+                            "Lux",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Illuminance",
+                        "illuminance"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback"
+        },
+        {
+            "functions": [
+                [
+                    "debounce_period",
+                    10000
+                ],
+                [
+                    "callback",
+                    [
+                        "Illuminance Reached",
+                        "illuminance reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Illuminance",
+                                "Illuminance"
+                            ],
+                            "uint32",
+                            100.0,
+                            "Lux/100",
+                            "Lux",
+                            null
+                        ]
+                    ],
+                    null,
+                    "Too bright, close the curtains!"
+                ],
+                [
+                    "callback_threshold",
+                    [
+                        "Illuminance",
+                        "illuminance"
+                    ],
+                    [],
+                    ">",
+                    [
+                        [
+                            500,
+                            0
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Threshold"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        0
+        1
     ],
     "name": [
-        "AmbientLightV2",
-        "ambient_light_v2",
+        "Ambient Light V2",
         "Ambient Light 2.0",
         "Ambient Light Bricklet 2.0"
     ]

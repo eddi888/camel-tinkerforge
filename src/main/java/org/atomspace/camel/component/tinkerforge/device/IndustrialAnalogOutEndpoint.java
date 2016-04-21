@@ -184,11 +184,11 @@ public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialA
      * Possible voltage ranges are:
      * 
      * * 0V to 5V
-     * * 0V to 10V
+     * * 0V to 10V (default)
      * 
      * Possible current ranges are:
      * 
-     * * 4mA to 20mA
+     * * 4mA to 20mA (default)
      * * 0mA to 20mA
      * * 0mA to 24mA
      * 
@@ -211,11 +211,11 @@ public class IndustrialAnalogOutEndpoint extends TinkerforgeEndpoint<IndustrialA
      * Possible voltage ranges are:
      * 
      * * 0V to 5V
-     * * 0V to 10V
+     * * 0V to 10V (default)
      * 
      * Possible current ranges are:
      * 
-     * * 4mA to 20mA
+     * * 4mA to 20mA (default)
      * * 0mA to 20mA
      * * 0mA to 24mA
      * 

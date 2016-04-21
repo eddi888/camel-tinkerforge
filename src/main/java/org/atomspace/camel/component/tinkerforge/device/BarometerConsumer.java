@@ -59,7 +59,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
     
     
     @Override
-    public void airPressure(int air_pressure) {
+    public void airPressure(int airPressure) {
         LOG.trace("airPressure()");
         
         Exchange exchange = null;
@@ -68,7 +68,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletBarometer.CALLBACK_AIR_PRESSURE);
-            exchange.getIn().setHeader("air_pressure", air_pressure);
+            exchange.getIn().setHeader("airPressure", airPressure);
             
             
             // ADD BODY
@@ -111,7 +111,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
     }
     
     @Override
-    public void airPressureReached(int air_pressure) {
+    public void airPressureReached(int airPressure) {
         LOG.trace("airPressureReached()");
         
         Exchange exchange = null;
@@ -120,7 +120,7 @@ public class BarometerConsumer extends TinkerforgeConsumer<BarometerEndpoint, Br
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletBarometer.CALLBACK_AIR_PRESSURE_REACHED);
-            exchange.getIn().setHeader("air_pressure", air_pressure);
+            exchange.getIn().setHeader("airPressure", airPressure);
             
             
             // ADD BODY

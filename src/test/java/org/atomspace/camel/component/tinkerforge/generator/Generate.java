@@ -72,23 +72,24 @@ public class Generate {
         
         
         
-        //createClassBundle("org.atomspace.camel.component.tinkerforge", new File("src/test/resources/config/binding/bricklet_io4_config.js"), endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate, cameldocTemplate) ;
-        File[] configFiles = new File("src/test/resources/config/binding").listFiles();
+        createClassBundle("org.atomspace.camel.component.tinkerforge", new File("src/test/resources/config/binding/brick_red_config.json"), endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate, cameldocTemplate) ;
+        /*File[] configFiles = new File("src/test/resources/config/binding").listFiles();
         for (File file : configFiles) {
-            if(file.toString().endsWith("bricklet_ac_current_config.json") 
-                    || file.toString().endsWith("bricklet_co2_config.json")
+            if(file.toString().endsWith("brick_silent_stepper_config.json") 
+                    || file.toString().endsWith("bricklet_ac_current_config.json")
+                    || file.toString().endsWith("bricklet_can_config.json")
                     || file.toString().endsWith("bricklet_gas_detector_config.json")
                     || file.toString().endsWith("bricklet_heart_rate_config.json")
-                    || file.toString().endsWith("bricklet_oled_128x64_config.json")
-                    || file.toString().endsWith("bricklet_oled_64x48_config.json")
+                    || file.toString().endsWith("bricklet_motorized_poti_config.json")
                     || file.toString().endsWith("bricklet_ozone_config.json")
+                    || file.toString().endsWith("bricklet_pressure_config.json")
                 ){
                 
             }else if(file.toString().endsWith("json")){
                 createClassBundle("org.atomspace.camel.component.tinkerforge", file, endpointTemplate, consumerTemplate, producerTemplate, consumerCallbackImplTemplate, cameldocTemplate) ;
                 System.out.println("GENERATE SOURCES for "+file.getAbsolutePath());
             }
-        }
+        }*/
         
     }
     
@@ -99,13 +100,13 @@ public class Generate {
     	InputStream inputStream2 = new FileInputStream(configFile);
         Config config = mapper.readValue(inputStream2 , Config.class);
         
-        String subspace = config.name[0].toLowerCase();
+        String subspace = spacefreeName(config.name[0]).toLowerCase();
         subspace = "device";
         new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace).mkdir();
-        createEndpointClass(namespace+"."+subspace, config, endpointTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+config.name[0]+"Endpoint.java"));
-        createConsumerClass(namespace+"."+subspace, config, consumerTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+config.name[0]+"Consumer.java"), consumerCallbackImplTemplate);
-        createProducerClass(namespace+"."+subspace, config, producerTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+config.name[0]+"Producer.java"));
-        createCamelDocument(namespace+"."+subspace, config, cameldocTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+config.name[0]+".md"));
+        createEndpointClass(namespace+"."+subspace, config, endpointTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+spacefreeName(config.name[0])+"Endpoint.java"));
+        createConsumerClass(namespace+"."+subspace, config, consumerTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+spacefreeName(config.name[0])+"Consumer.java"), consumerCallbackImplTemplate);
+        createProducerClass(namespace+"."+subspace, config, producerTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+spacefreeName(config.name[0])+"Producer.java"));
+        createCamelDocument(namespace+"."+subspace, config, cameldocTemplate, new File("src/main/java/org/atomspace/camel/component/tinkerforge/"+subspace+"/"+spacefreeName(config.name[0])+".md"));
         
     }
     
@@ -117,7 +118,7 @@ public class Generate {
         // MAP TINKERFORGE-CONFIG WITH VELOCITY-CONTEXT 
         VelocityContext context = new VelocityContext();
         context.put("namespace", namespace);
-        context.put("component", config.name[0]);
+        context.put("component", spacefreeName(config.name[0]));
         context.put("config_category", config.category);
         
    
@@ -132,10 +133,10 @@ public class Generate {
         for (Packet packet : config.packets) {
             
             if(packet.type.equals("function") 
-                    && !packet.name[1].equals("get_response_expected") 
-                    && !packet.name[1].equals("set_response_expected")
-                    && !packet.name[1].equals("set_response_expected_all") 
-                    && !packet.name[1].equals("get_api_version")){
+                    && !underlinedName(packet.name).equals("get_response_expected") 
+                    && !underlinedName(packet.name).equals("set_response_expected")
+                    && !underlinedName(packet.name).equals("set_response_expected_all") 
+                    && !underlinedName(packet.name).equals("get_api_version")){
             
                 boolean out=false;
                 boolean first=true;
@@ -167,7 +168,7 @@ public class Generate {
                     }
                 }
                 
-                functions.append(String.format("| %20s | %40s |\n", packet.name[0].substring(0, 1).toLowerCase()+packet.name[0].substring(1), functionParameters));
+                functions.append(String.format("| %20s | %40s |\n", spacefreeName(packet.name).substring(0, 1).toLowerCase()+spacefreeName(packet.name).substring(1), functionParameters));
             }else if(packet.type.equals("callback")) {
 
                     StringBuffer callbackHeaders = new StringBuffer("firedBy");
@@ -179,7 +180,7 @@ public class Generate {
                         }
                     }
                     
-                    callbacks.append(String.format("| %20s | %40s |\n", packet.name[0].substring(0, 1).toLowerCase()+packet.name[0].substring(1), callbackHeaders));
+                    callbacks.append(String.format("| %20s | %40s |\n", spacefreeName(packet.name).substring(0, 1).toLowerCase()+spacefreeName(packet.name).substring(1), callbackHeaders));
             }
             
         }
@@ -204,7 +205,7 @@ public class Generate {
         // MAP TINKERFORGE-CONFIG WITH VELOCITY-CONTEXT 
         VelocityContext context = new VelocityContext();
         context.put("namespace", namespace);
-        context.put("config_name_0", config.name[0]);
+        context.put("config_name_0", spacefreeName(config.name[0]));
         context.put("config_category", config.category);
         
         BufferedWriter writer =  new BufferedWriter(new FileWriter(file)); 
@@ -219,7 +220,7 @@ public class Generate {
         // MAP TINKERFORGE-CONFIG WITH VELOCITY-CONTEXT 
         VelocityContext context = new VelocityContext();
         context.put("namespace", namespace);
-        context.put("config_name_0", config.name[0]);
+        context.put("config_name_0", spacefreeName(config.name[0]));
         context.put("config_category", config.category);
         
         String importListener = "";
@@ -230,14 +231,14 @@ public class Generate {
         for (Packet packet : config.packets) {
 
             if(packet.type.equals("callback")){
-                importListener+= "\nimport com.tinkerforge."+config.category+config.name[0]+"."+packet.name[0]+"Listener;";
+                importListener+= "\nimport com.tinkerforge."+config.category+spacefreeName(config.name[0])+"."+spacefreeName(packet.name)+"Listener;";
                 
-                if(implementsListener==null) implementsListener = "implements "+packet.name[0]+"Listener";
-                else implementsListener+= ", "+packet.name[0]+"Listener";
+                if(implementsListener==null) implementsListener = "implements "+spacefreeName(packet.name)+"Listener";
+                else implementsListener+= ", "+spacefreeName(packet.name)+"Listener";
                 
-                registerCallbackAll+= "device.add"+packet.name[0]+"Listener(this);\n            ";
+                registerCallbackAll+= "device.add"+spacefreeName(packet.name)+"Listener(this);\n            ";
                 
-                registerCallbackIfs+= "if(callback.equals(\""+packet.name[0]+"Listener\")) device.add"+packet.name[0]+"Listener(this);\n                ";
+                registerCallbackIfs+= "if(callback.equals(\""+spacefreeName(packet.name)+"Listener\")) device.add"+spacefreeName(packet.name)+"Listener(this);\n                ";
                 
                 callbackImpls+=createCallbackImpl(config, subTemplate, packet);
                         
@@ -267,11 +268,11 @@ public class Generate {
                         
             if(element.inout.equals("out")){
                 // METHOD PARAMETERS
-                if(methodParameters==null) methodParameters=javaType(element.type, element.num)+" "+element.name;
-                else  methodParameters+=", "+javaType(element.type, element.num)+" "+element.name;
+                if(methodParameters==null) methodParameters=javaType(element.type, element.num)+" "+camelCaseNameOnlyFirstSmall(element.name);
+                else  methodParameters+=", "+javaType(element.type, element.num)+" "+camelCaseNameOnlyFirstSmall(element.name);
 
                 // HEADER VALUES
-                headerValues+="exchange.getIn().setHeader(\""+element.name+"\", "+element.name+");\n            ";
+                headerValues+="exchange.getIn().setHeader(\""+camelCaseNameOnlyFirstSmall(element.name)+"\", "+camelCaseNameOnlyFirstSmall(element.name)+");\n            ";
                 
             }
         }
@@ -279,12 +280,12 @@ public class Generate {
         
         VelocityContext subContext = new VelocityContext();       
 
-        subContext.put("methodName", camelCaseName(packet.name[1])); 
+        subContext.put("methodName", camelCaseName(underlinedName(packet.name))); 
         
         subContext.put("methodParameters", methodParameters);
-        subContext.put("headerCallbackValue", config.category+config.name[0]+".CALLBACK_"+packet.name[1].toUpperCase());
+        subContext.put("headerCallbackValue", config.category+spacefreeName(config.name[0])+".CALLBACK_"+underlinedName(packet.name).toUpperCase());
         subContext.put("headerValues", headerValues);
-        subContext.put("bodyCallbackValue", packet.name[1]);
+        subContext.put("bodyCallbackValue", underlinedName(packet.name));
         StringWriter writer = new StringWriter();
         subTemplate.merge(subContext, writer);
         String implMeth = writer.toString();
@@ -298,31 +299,31 @@ public class Generate {
         // MAP TINKERFORGE-CONFIG WITH VELOCITY-CONTEXT 
         VelocityContext context = new VelocityContext();
         context.put("namespace", namespace);
-        context.put("config_name_0", config.name[0]);
+        context.put("config_name_0", spacefreeName(config.name[0]));
         context.put("config_category", config.category);
         context.put("config_description", config.description.en);
-        context.put("uriannotation", "@UriEndpoint(scheme = \"tinkerforgegen\", syntax = \"tinkerforgegen:[host[:port]/]"+config.name[0].toLowerCase()+"\", consumerClass = "+config.name[0]+"Consumer.class, label = \"iot\", title = \"Tinkerforge\")");
+        context.put("uriannotation", "@UriEndpoint(scheme = \"tinkerforgegen\", syntax = \"tinkerforgegen:[host[:port]/]"+spacefreeName(config.name[0]).toLowerCase()+"\", consumerClass = "+spacefreeName(config.name[0])+"Consumer.class, label = \"iot\", title = \"Tinkerforge\")");
 
         StringBuffer parameternames = new StringBuffer();
         StringBuffer parameters = new StringBuffer();
         StringBuffer parameterGetteSetters = new StringBuffer();
         Map<String, String> parameterSet = new HashMap<String, String>();
-        parameterSet.put("uid", "uid");	//Requird for endpoint super class
+        parameterSet.put("UID", "UID");	//Requird for endpoint super class
         StringBuffer callFunctions = new StringBuffer();
         // Find possible transfer parameters. 
         for (Packet packet : config.packets) {
 
             if(packet.type.equals("function") 
-                    && !packet.name[1].equals("get_response_expected") 
-                    && !packet.name[1].equals("set_response_expected")
-                    && !packet.name[1].equals("set_response_expected_all") 
-                    && !packet.name[1].equals("get_api_version")){
+                    && !underlinedName(packet.name).equals("get_response_expected") 
+                    && !underlinedName(packet.name).equals("set_response_expected")
+                    && !underlinedName(packet.name).equals("set_response_expected_all") 
+                    && !underlinedName(packet.name).equals("get_api_version")){
             
                 boolean out=false;
                 boolean first=true;
-                String callFunctionPre = "            case \""+camelCaseName(packet.name[1])+"\":\n";
-                String callFunction = "device."+camelCaseNameFirstGroupLowerCase(packet.name[1],packet.name[0])+"(";
-                        
+                String callFunctionPre = "            case \""+camelCaseName(underlinedName(packet.name))+"\":\n";
+                String callFunction = "device."+camelCaseNameFirstGroupLowerCase(underlinedName(packet.name),spacefreeName(packet.name))+"(";
+
                 for (Element element : packet.elements) {
                 	
                     if(element.inout.equals("in")){
@@ -480,8 +481,16 @@ public class Generate {
      * Convert 'response_expected' to 'responseExpected'
      * AND
      * Convert 'led_on' to 'ledOn'
+     * 
+     * OR
+     * 
+     * Convert 'Response Expected' to 'responseExpected'
+     * AND
+     * Convert 'Led On' to 'ledOn'
+     * 
      */
     private String camelCaseName(String name){
+        name = name.toLowerCase().replace(" ", "_"); 
         String camelCaseName = null;
         String[] parts = name.split("_");
         for (String part : parts) {
@@ -530,13 +539,28 @@ public class Generate {
     }
     
     /**
-     * Convert 'response_expected' to 'ResponseExpected'
+     * Convert 'Set Acceleration' to 'set_acceleration'
+     */
+    private String underlinedName(String name){
+        return name.toLowerCase().replaceAll(" ", "_");
+    }
+    
+    /**
+     * Convert 'Set Acceleration' to 'SetAcceleration'
+     */
+    private String spacefreeName(String name){
+        return name.replaceAll(" ", "");
+    }
+    
+    /**
+     * Convert 'Response Expected' to 'responseExpected'
      */
     private String camelCaseNameOnlyFirstSmall(String name){
         String camelCaseName = null;
-        String[] parts = name.split("_");
+        String[] parts = name.toLowerCase().split(" ");
+        
         for (String part : parts) {
-            if(camelCaseName==null) camelCaseName = part.substring(0, 1).toUpperCase() + part.substring(1);
+            if(camelCaseName==null) camelCaseName = part.substring(0, 1).toLowerCase() + part.substring(1);
             else camelCaseName+=part.substring(0, 1).toUpperCase() + part.substring(1);
         }
         return camelCaseName;
@@ -544,16 +568,20 @@ public class Generate {
     
     /**
      * Convert 'response_expected' to 'getResponseExpected'
+     * OR
+     * Convert 'Response Expected' to 'getResponseExpected'
      */
     private String camelCaseMethodeNameGet(String name){
-        return "get"+camelCaseNameFirstBig(name);
+        return "get"+camelCaseNameFirstBig(name.toLowerCase().replaceAll(" ", "_"));
     }
     
     /**
      * Convert 'response_expected' to 'setResponseExpected'
+     * OR
+     * Convert 'Response Expected' to 'setResponseExpected'
      */
     private String camelCaseMethodeNameSet(String name){
-        return "set"+camelCaseNameFirstBig(name);
+        return "set"+camelCaseNameFirstBig(name.toLowerCase().replaceAll(" ", "_"));
     }
     
 }

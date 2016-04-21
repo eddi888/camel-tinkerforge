@@ -9,22 +9,19 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPort",
-                "set_port"
-            ],
+            "name": "Set Port",
             "doc": [
                 "bf",
                 {
@@ -43,22 +40,19 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPort",
-                "get_port"
-            ],
+            "name": "Get Port",
             "doc": [
                 "bf",
                 {
@@ -77,50 +71,44 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "selection_mask",
+                    "Selection Mask",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "direction",
+                    "Direction",
                     "char",
                     1,
                     "in",
                     [
                         "Direction",
-                        "direction",
                         [
                             [
                                 "In",
-                                "in",
                                 "i"
                             ],
                             [
                                 "Out",
-                                "out",
                                 "o"
                             ]
                         ]
                     ]
                 ],
                 [
-                    "value",
+                    "Value",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPortConfiguration",
-                "set_port_configuration"
-            ],
+            "name": "Set Port Configuration",
             "doc": [
                 "bf",
                 {
@@ -139,28 +127,25 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "direction_mask",
+                    "Direction Mask",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPortConfiguration",
-                "get_port_configuration"
-            ],
+            "name": "Get Port Configuration",
             "doc": [
                 "bf",
                 {
@@ -179,16 +164,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDebouncePeriod",
-                "set_debounce_period"
-            ],
+            "name": "Set Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -207,16 +189,13 @@
         {
             "elements": [
                 [
-                    "debounce",
+                    "Debounce",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDebouncePeriod",
-                "get_debounce_period"
-            ],
+            "name": "Get Debounce Period",
             "doc": [
                 "ccf",
                 {
@@ -235,22 +214,19 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "interrupt_mask",
+                    "Interrupt Mask",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPortInterrupt",
-                "set_port_interrupt"
-            ],
+            "name": "Set Port Interrupt",
             "doc": [
                 "ccf",
                 {
@@ -269,22 +245,19 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "interrupt_mask",
+                    "Interrupt Mask",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPortInterrupt",
-                "get_port_interrupt"
-            ],
+            "name": "Get Port Interrupt",
             "doc": [
                 "ccf",
                 {
@@ -303,28 +276,25 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "interrupt_mask",
+                    "Interrupt Mask",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Interrupt",
-                "interrupt"
-            ],
+            "name": "Interrupt",
             "doc": [
                 "c",
                 {
@@ -343,34 +313,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "selection_mask",
+                    "Selection Mask",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "time",
+                    "Time",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPortMonoflop",
-                "set_port_monoflop"
-            ],
+            "name": "Set Port Monoflop",
             "doc": [
                 "af",
                 {
@@ -389,40 +356,37 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "pin",
+                    "Pin",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "value",
+                    "Value",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "time",
+                    "Time",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "time_remaining",
+                    "Time Remaining",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPortMonoflop",
-                "get_port_monoflop"
-            ],
+            "name": "Get Port Monoflop",
             "doc": [
                 "af",
                 {
@@ -441,28 +405,25 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "selection_mask",
+                    "Selection Mask",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "MonoflopDone",
-                "monoflop_done"
-            ],
+            "name": "Monoflop Done",
             "doc": [
                 "c",
                 {
@@ -481,28 +442,25 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "selection_mask",
+                    "Selection Mask",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "value_mask",
+                    "Value Mask",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetSelectedValues",
-                "set_selected_values"
-            ],
+            "name": "Set Selected Values",
             "doc": [
                 "af",
                 {
@@ -521,28 +479,25 @@
         {
             "elements": [
                 [
-                    "pin",
+                    "Pin",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "reset_counter",
+                    "Reset Counter",
                     "bool",
                     1,
                     "in"
                 ],
                 [
-                    "count",
+                    "Count",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCount",
-                "get_edge_count"
-            ],
+            "name": "Get Edge Count",
             "doc": [
                 "bf",
                 {
@@ -561,49 +516,42 @@
         {
             "elements": [
                 [
-                    "pin",
+                    "Pin",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "edge_type",
+                    "Edge Type",
                     "uint8",
                     1,
                     "in",
                     [
-                        "EdgeType",
-                        "edge_type",
+                        "Edge Type",
                         [
                             [
                                 "Rising",
-                                "rising",
                                 0
                             ],
                             [
                                 "Falling",
-                                "falling",
                                 1
                             ],
                             [
                                 "Both",
-                                "both",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "debounce",
+                    "Debounce",
                     "uint8",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetEdgeCountConfig",
-                "set_edge_count_config"
-            ],
+            "name": "Set Edge Count Config",
             "doc": [
                 "af",
                 {
@@ -622,49 +570,42 @@
         {
             "elements": [
                 [
-                    "pin",
+                    "Pin",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "edge_type",
+                    "Edge Type",
                     "uint8",
                     1,
                     "out",
                     [
-                        "EdgeType",
-                        "edge_type",
+                        "Edge Type",
                         [
                             [
                                 "Rising",
-                                "rising",
                                 0
                             ],
                             [
                                 "Falling",
-                                "falling",
                                 1
                             ],
                             [
                                 "Both",
-                                "both",
                                 2
                             ]
                         ]
                     ]
                 ],
                 [
-                    "debounce",
+                    "Debounce",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetEdgeCountConfig",
-                "get_edge_count_config"
-            ],
+            "name": "Get Edge Count Config",
             "doc": [
                 "af",
                 {
@@ -683,16 +624,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -708,22 +646,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -739,22 +674,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -770,16 +702,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -795,46 +724,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -854,6 +780,157 @@
     ],
     "device_identifier": 28,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Port",
+                        "value from port A as bitmask"
+                    ],
+                    [
+                        [
+                            [
+                                "Value Mask",
+                                "Value Mask (Port A)"
+                            ],
+                            "uint8:bitmask:8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    [
+                        [
+                            "char",
+                            "a"
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Input"
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Port Configuration",
+                    [
+                        [
+                            "char",
+                            "a"
+                        ],
+                        [
+                            "uint8:bitmask:8",
+                            1
+                        ],
+                        [
+                            "char",
+                            "o"
+                        ],
+                        [
+                            "bool",
+                            false
+                        ]
+                    ],
+                    "Set pin 0 on port A to output low",
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Port Configuration",
+                    [
+                        [
+                            "char",
+                            "b"
+                        ],
+                        [
+                            "uint8:bitmask:8",
+                            129
+                        ],
+                        [
+                            "char",
+                            "o"
+                        ],
+                        [
+                            "bool",
+                            true
+                        ]
+                    ],
+                    "Set pin 0 and 7 on port B to output high",
+                    null
+                ]
+            ],
+            "name": "Output"
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Interrupt",
+                        "interrupt"
+                    ],
+                    [
+                        [
+                            [
+                                "Port",
+                                "Port"
+                            ],
+                            "char",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Interrupt Mask",
+                                "Interrupt Mask"
+                            ],
+                            "uint8:bitmask:8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Value Mask",
+                                "Value Mask"
+                            ],
+                            "uint8:bitmask:8",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set Port Interrupt",
+                    [
+                        [
+                            "char",
+                            "a"
+                        ],
+                        [
+                            "uint8:bitmask:8",
+                            4
+                        ]
+                    ],
+                    "Enable interrupt on pin 2 of port A",
+                    null
+                ]
+            ],
+            "name": "Interrupt"
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -863,7 +940,6 @@
     ],
     "name": [
         "IO16",
-        "io16",
         "IO-16",
         "IO-16 Bricklet"
     ]

@@ -53,8 +53,8 @@ public class AnalogInEndpoint extends TinkerforgeEndpoint<AnalogInConsumer, Anal
     private Long period;
     private Long period2;
     private Character option;
-    private Short min;
-    private Short max;
+    private Integer min;
+    private Integer max;
     private Character option2;
     private Integer min2;
     private Integer max2;
@@ -134,8 +134,8 @@ public class AnalogInEndpoint extends TinkerforgeEndpoint<AnalogInConsumer, Anal
             case "setVoltageCallbackThreshold":
                 device.setVoltageCallbackThreshold(
                         getValue(char.class, "option", m, getOption()),
-                        getValue(short.class, "min", m, getMin()),
-                        getValue(short.class, "max", m, getMax())
+                        getValue(int.class, "min", m, getMin()),
+                        getValue(int.class, "max", m, getMax())
                     );
                 break;
 
@@ -282,11 +282,11 @@ public class AnalogInEndpoint extends TinkerforgeEndpoint<AnalogInConsumer, Anal
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMin(){
+    public Integer getMin(){
         return min;
     }
 
-    public void setMin(Short min){
+    public void setMin(Integer min){
         this.min = min;
     }
 
@@ -309,11 +309,11 @@ public class AnalogInEndpoint extends TinkerforgeEndpoint<AnalogInConsumer, Anal
      * The default value is ('x', 0, 0).
      * 
      */
-    public Short getMax(){
+    public Integer getMax(){
         return max;
     }
 
-    public void setMax(Short max){
+    public void setMax(Integer max){
         this.max = max;
     }
 
@@ -432,7 +432,7 @@ public class AnalogInEndpoint extends TinkerforgeEndpoint<AnalogInConsumer, Anal
      * * 2: 0V - 10.32V, ~2.52mV resolution
      * * 3: 0V - 36.30V, ~8.86mV resolution
      * * 4: 0V - 45.00V, ~11.25mV resolution
-     * * 5: 0V - 3.3V, ~0.81mV resolution, new in version 2.0.3 (Plugin)
+     * * 5: 0V - 3.3V, ~0.81mV resolution, new in version 2.0.3$nbsp;(Plugin)
      * 
      * The default measurement range is 0.
      * 

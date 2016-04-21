@@ -9,28 +9,25 @@
         {
             "elements": [
                 [
-                    "message",
+                    "Message",
                     "char",
                     60,
                     "in"
                 ],
                 [
-                    "length",
+                    "Length",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "written",
+                    "Written",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Write",
-                "write"
-            ],
+            "name": "Write",
             "doc": [
                 "bf",
                 {
@@ -49,26 +46,23 @@
         {
             "elements": [
                 [
-                    "message",
+                    "Message",
                     "char",
                     60,
                     "out"
                 ],
                 [
-                    "length",
+                    "Length",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Read",
-                "read"
-            ],
+            "name": "Read",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt die aktuell gespeicherte Nachricht zur\u00fcck. Die maximale L\u00e4nge\nbetr\u00e4gt 60. Wenn die L\u00e4nge als 0 gegeben wird, waren keine\nneuen Daten verf\u00fcgbar.\n\nAnstatt zu mit dieser Funktion zu pollen, ist es auch m\u00f6glich\nCallbacks zu nutzen. Siehe :func:`EnableReadCallback` und\n:func:`DisableReadCallback`.\n",
+                    "de": "\nGibt die aktuell gespeicherte Nachricht zur\u00fcck. Die maximale L\u00e4nge\nbetr\u00e4gt 60. Wenn die L\u00e4nge als 0 gegeben wird, waren keine\nneuen Daten verf\u00fcgbar.\n\nAnstatt mit dieser Funktion zu pollen, ist es auch m\u00f6glich\nCallbacks zu nutzen. Siehe :func:`EnableReadCallback` und\n:func:`ReadCallback`.\n",
                     "en": "\nReturns the currently buffered message. The maximum length\nof message is 60. If the length is given as 0, there was no\nnew data available.\n\nInstead of polling with this function, you can also use\ncallbacks. See :func:`EnableReadCallback` and :func:`ReadCallback`.\n"
                 }
             ],
@@ -82,10 +76,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableReadCallback",
-                "enable_read_callback"
-            ],
+            "name": "Enable Read Callback",
             "doc": [
                 "ccf",
                 {
@@ -103,10 +94,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableReadCallback",
-                "disable_read_callback"
-            ],
+            "name": "Disable Read Callback",
             "doc": [
                 "ccf",
                 {
@@ -125,16 +113,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsReadCallbackEnabled",
-                "is_read_callback_enabled"
-            ],
+            "name": "Is Read Callback Enabled",
             "doc": [
                 "ccf",
                 {
@@ -153,130 +138,112 @@
         {
             "elements": [
                 [
-                    "baudrate",
+                    "Baudrate",
                     "uint8",
                     1,
                     "in",
                     [
                         "Baudrate",
-                        "baudrate",
                         [
                             [
-                                "300",
                                 "300",
                                 0
                             ],
                             [
                                 "600",
-                                "600",
                                 1
                             ],
                             [
-                                "1200",
                                 "1200",
                                 2
                             ],
                             [
                                 "2400",
-                                "2400",
                                 3
                             ],
                             [
-                                "4800",
                                 "4800",
                                 4
                             ],
                             [
                                 "9600",
-                                "9600",
                                 5
                             ],
                             [
                                 "14400",
-                                "14400",
                                 6
                             ],
                             [
-                                "28800",
-                                "28800",
+                                "19200",
                                 7
                             ],
                             [
-                                "38400",
-                                "38400",
+                                "28800",
                                 8
                             ],
                             [
-                                "57600",
-                                "57600",
+                                "38400",
                                 9
                             ],
                             [
-                                "115200",
-                                "115200",
+                                "57600",
                                 10
                             ],
                             [
-                                "230400",
-                                "230400",
+                                "115200",
                                 11
+                            ],
+                            [
+                                "230400",
+                                12
                             ]
                         ]
                     ]
                 ],
                 [
-                    "parity",
+                    "Parity",
                     "uint8",
                     1,
                     "in",
                     [
                         "Parity",
-                        "parity",
                         [
                             [
                                 "None",
-                                "none",
                                 0
                             ],
                             [
                                 "Odd",
-                                "odd",
                                 1
                             ],
                             [
                                 "Even",
-                                "even",
                                 2
                             ],
                             [
-                                "ForcedParity1",
-                                "forced_parity_1",
+                                "Forced Parity 1",
                                 3
                             ],
                             [
-                                "ForcedParity0",
-                                "forced_parity_0",
+                                "Forced Parity 0",
                                 4
                             ]
                         ]
                     ]
                 ],
                 [
-                    "stopbits",
+                    "Stopbits",
                     "uint8",
                     1,
                     "in",
                     [
                         "Stopbits",
-                        "stopbits",
                         [
                             [
-                                "1",
                                 "1",
                                 1
                             ],
                             [
-                                "2",
                                 "2",
                                 2
                             ]
@@ -284,31 +251,26 @@
                     ]
                 ],
                 [
-                    "wordlength",
+                    "Wordlength",
                     "uint8",
                     1,
                     "in",
                     [
                         "Wordlength",
-                        "wordlength",
                         [
                             [
-                                "5",
                                 "5",
                                 5
                             ],
                             [
                                 "6",
-                                "6",
                                 6
                             ],
                             [
                                 "7",
-                                "7",
                                 7
                             ],
                             [
-                                "8",
                                 "8",
                                 8
                             ]
@@ -316,54 +278,45 @@
                     ]
                 ],
                 [
-                    "hardware_flowcontrol",
+                    "Hardware Flowcontrol",
                     "uint8",
                     1,
                     "in",
                     [
-                        "HardwareFlowcontrol",
-                        "hardware_flowcontrol",
+                        "Hardware Flowcontrol",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "software_flowcontrol",
+                    "Software Flowcontrol",
                     "uint8",
                     1,
                     "in",
                     [
-                        "SoftwareFlowcontrol",
-                        "software_flowcontrol",
+                        "Software Flowcontrol",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetConfiguration",
-                "set_configuration"
-            ],
+            "name": "Set Configuration",
             "doc": [
                 "bf",
                 {
@@ -382,130 +335,112 @@
         {
             "elements": [
                 [
-                    "baudrate",
+                    "Baudrate",
                     "uint8",
                     1,
                     "out",
                     [
                         "Baudrate",
-                        "baudrate",
                         [
                             [
-                                "300",
                                 "300",
                                 0
                             ],
                             [
                                 "600",
-                                "600",
                                 1
                             ],
                             [
-                                "1200",
                                 "1200",
                                 2
                             ],
                             [
                                 "2400",
-                                "2400",
                                 3
                             ],
                             [
-                                "4800",
                                 "4800",
                                 4
                             ],
                             [
                                 "9600",
-                                "9600",
                                 5
                             ],
                             [
                                 "14400",
-                                "14400",
                                 6
                             ],
                             [
-                                "28800",
-                                "28800",
+                                "19200",
                                 7
                             ],
                             [
-                                "38400",
-                                "38400",
+                                "28800",
                                 8
                             ],
                             [
-                                "57600",
-                                "57600",
+                                "38400",
                                 9
                             ],
                             [
-                                "115200",
-                                "115200",
+                                "57600",
                                 10
                             ],
                             [
-                                "230400",
-                                "230400",
+                                "115200",
                                 11
+                            ],
+                            [
+                                "230400",
+                                12
                             ]
                         ]
                     ]
                 ],
                 [
-                    "parity",
+                    "Parity",
                     "uint8",
                     1,
                     "out",
                     [
                         "Parity",
-                        "parity",
                         [
                             [
                                 "None",
-                                "none",
                                 0
                             ],
                             [
                                 "Odd",
-                                "odd",
                                 1
                             ],
                             [
                                 "Even",
-                                "even",
                                 2
                             ],
                             [
-                                "ForcedParity1",
-                                "forced_parity_1",
+                                "Forced Parity 1",
                                 3
                             ],
                             [
-                                "ForcedParity0",
-                                "forced_parity_0",
+                                "Forced Parity 0",
                                 4
                             ]
                         ]
                     ]
                 ],
                 [
-                    "stopbits",
+                    "Stopbits",
                     "uint8",
                     1,
                     "out",
                     [
                         "Stopbits",
-                        "stopbits",
                         [
                             [
-                                "1",
                                 "1",
                                 1
                             ],
                             [
-                                "2",
                                 "2",
                                 2
                             ]
@@ -513,31 +448,26 @@
                     ]
                 ],
                 [
-                    "wordlength",
+                    "Wordlength",
                     "uint8",
                     1,
                     "out",
                     [
                         "Wordlength",
-                        "wordlength",
                         [
                             [
-                                "5",
                                 "5",
                                 5
                             ],
                             [
                                 "6",
-                                "6",
                                 6
                             ],
                             [
                                 "7",
-                                "7",
                                 7
                             ],
                             [
-                                "8",
                                 "8",
                                 8
                             ]
@@ -545,54 +475,45 @@
                     ]
                 ],
                 [
-                    "hardware_flowcontrol",
+                    "Hardware Flowcontrol",
                     "uint8",
                     1,
                     "out",
                     [
-                        "HardwareFlowcontrol",
-                        "hardware_flowcontrol",
+                        "Hardware Flowcontrol",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ],
                 [
-                    "software_flowcontrol",
+                    "Software Flowcontrol",
                     "uint8",
                     1,
                     "out",
                     [
-                        "SoftwareFlowcontrol",
-                        "software_flowcontrol",
+                        "Software Flowcontrol",
                         [
                             [
                                 "Off",
-                                "off",
                                 0
                             ],
                             [
                                 "On",
-                                "on",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetConfiguration",
-                "get_configuration"
-            ],
+            "name": "Get Configuration",
             "doc": [
                 "bf",
                 {
@@ -611,22 +532,19 @@
         {
             "elements": [
                 [
-                    "message",
+                    "Message",
                     "char",
                     60,
                     "out"
                 ],
                 [
-                    "length",
+                    "Length",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "ReadCallback",
-                "read_callback"
-            ],
+            "name": "Read Callback",
             "doc": [
                 "c",
                 {
@@ -645,16 +563,80 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "Error",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Error",
+                        [
+                            [
+                                "Overrun",
+                                1
+                            ],
+                            [
+                                "Parity",
+                                2
+                            ],
+                            [
+                                "Framing",
+                                4
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Error Callback",
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird aufgerufen wenn ein Fehler auftritt.\nM\u00f6gliche Fehler sind Overrun-, Parity- oder Framing-Fehler.\n",
+                    "en": "\nThis callback is called if an error occurs. \nPossible errors are overrun, parity or framing error.\n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                1
+            ],
+            "function_id": 9,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "Break Time",
+                    "uint16",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Break Condition",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt eine Break Condition (die TX-Ausgabe wird fest of logisch 0 gezwungen).\nDer Parameter setzt die Haltezeit der Break Condition (in ms).\n",
+                    "en": "\nSets a break condition (the TX output is forced to a logic 0 state). \nThe parameter sets the hold-time of the break condition (in ms). \n"
+                }
+            ],
+            "since_firmware": [
+                2,
+                0,
+                2
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -670,22 +652,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -701,22 +680,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -732,16 +708,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -757,46 +730,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -816,16 +786,30 @@
     ],
     "device_identifier": 254,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Enable Read Callback",
+                    [],
+                    "Enable read callback",
+                    null
+                ]
+            ],
+            "name": "Loopback",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        0
+        2
     ],
     "name": [
         "RS232",
-        "rs232",
         "RS232",
         "RS232 Bricklet"
     ]

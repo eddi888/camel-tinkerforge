@@ -45,6 +45,7 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
     public static final String WORDLENGTH="wordlength";
     public static final String HARDWAREFLOWCONTROL="hardwareFlowcontrol";
     public static final String SOFTWAREFLOWCONTROL="softwareFlowcontrol";
+    public static final String BREAKTIME="breakTime";
 
     
     private char[] message;
@@ -55,6 +56,7 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
     private Short wordlength;
     private Short hardwareFlowcontrol;
     private Short softwareFlowcontrol;
+    private Integer breakTime;
 
         
     public RS232Endpoint(String uri, TinkerforgeComponent tinkerforgeComponent) {
@@ -133,6 +135,12 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
 
             case "getConfiguration":
                 response = device.getConfiguration();
+                break;
+
+            case "setBreakCondition":
+                device.setBreakCondition(
+                        getValue(int.class, "breakTime", m, getBreakTime())
+                    );
                 break;
 
             case "getIdentity":
@@ -314,6 +322,20 @@ public class RS232Endpoint extends TinkerforgeEndpoint<RS232Consumer, RS232Produ
 
     public void setSoftwareFlowcontrol(Short softwareFlowcontrol){
         this.softwareFlowcontrol = softwareFlowcontrol;
+    }
+
+    /**
+     * 
+     * Sets a break condition (the TX output is forced to a logic 0 state). 
+     * The parameter sets the hold-time of the break condition (in ms). 
+     * 
+     */
+    public Integer getBreakTime(){
+        return breakTime;
+    }
+
+    public void setBreakTime(Integer breakTime){
+        this.breakTime = breakTime;
     }
 
 

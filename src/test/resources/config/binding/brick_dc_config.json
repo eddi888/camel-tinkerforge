@@ -9,16 +9,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "int16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetVelocity",
-                "set_velocity"
-            ],
+            "name": "Set Velocity",
             "doc": [
                 "bf",
                 {
@@ -37,16 +34,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetVelocity",
-                "get_velocity"
-            ],
+            "name": "Get Velocity",
             "doc": [
                 "bf",
                 {
@@ -65,16 +59,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentVelocity",
-                "get_current_velocity"
-            ],
+            "name": "Get Current Velocity",
             "doc": [
                 "bf",
                 {
@@ -93,16 +84,13 @@
         {
             "elements": [
                 [
-                    "acceleration",
+                    "Acceleration",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAcceleration",
-                "set_acceleration"
-            ],
+            "name": "Set Acceleration",
             "doc": [
                 "bf",
                 {
@@ -121,16 +109,13 @@
         {
             "elements": [
                 [
-                    "acceleration",
+                    "Acceleration",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAcceleration",
-                "get_acceleration"
-            ],
+            "name": "Get Acceleration",
             "doc": [
                 "bf",
                 {
@@ -149,16 +134,13 @@
         {
             "elements": [
                 [
-                    "frequency",
+                    "Frequency",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetPWMFrequency",
-                "set_pwm_frequency"
-            ],
+            "name": "Set PWM Frequency",
             "doc": [
                 "af",
                 {
@@ -177,16 +159,13 @@
         {
             "elements": [
                 [
-                    "frequency",
+                    "Frequency",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetPWMFrequency",
-                "get_pwm_frequency"
-            ],
+            "name": "Get PWM Frequency",
             "doc": [
                 "af",
                 {
@@ -204,10 +183,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "FullBrake",
-                "full_brake"
-            ],
+            "name": "Full Brake",
             "doc": [
                 "bf",
                 {
@@ -226,16 +202,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStackInputVoltage",
-                "get_stack_input_voltage"
-            ],
+            "name": "Get Stack Input Voltage",
             "doc": [
                 "af",
                 {
@@ -254,16 +227,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetExternalInputVoltage",
-                "get_external_input_voltage"
-            ],
+            "name": "Get External Input Voltage",
             "doc": [
                 "af",
                 {
@@ -282,16 +252,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentConsumption",
-                "get_current_consumption"
-            ],
+            "name": "Get Current Consumption",
             "doc": [
                 "af",
                 {
@@ -309,10 +276,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Enable",
-                "enable"
-            ],
+            "name": "Enable",
             "doc": [
                 "bf",
                 {
@@ -330,10 +294,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Disable",
-                "disable"
-            ],
+            "name": "Disable",
             "doc": [
                 "bf",
                 {
@@ -352,16 +313,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsEnabled",
-                "is_enabled"
-            ],
+            "name": "Is Enabled",
             "doc": [
                 "bf",
                 {
@@ -380,16 +338,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMinimumVoltage",
-                "set_minimum_voltage"
-            ],
+            "name": "Set Minimum Voltage",
             "doc": [
                 "ccf",
                 {
@@ -408,16 +363,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMinimumVoltage",
-                "get_minimum_voltage"
-            ],
+            "name": "Get Minimum Voltage",
             "doc": [
                 "ccf",
                 {
@@ -436,32 +388,26 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "in",
                     [
-                        "DriveMode",
-                        "drive_mode",
+                        "Drive Mode",
                         [
                             [
-                                "DriveBrake",
-                                "drive_brake",
+                                "Drive Brake",
                                 0
                             ],
                             [
-                                "DriveCoast",
-                                "drive_coast",
+                                "Drive Coast",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "SetDriveMode",
-                "set_drive_mode"
-            ],
+            "name": "Set Drive Mode",
             "doc": [
                 "af",
                 {
@@ -480,32 +426,26 @@
         {
             "elements": [
                 [
-                    "mode",
+                    "Mode",
                     "uint8",
                     1,
                     "out",
                     [
-                        "DriveMode",
-                        "drive_mode",
+                        "Drive Mode",
                         [
                             [
-                                "DriveBrake",
-                                "drive_brake",
+                                "Drive Brake",
                                 0
                             ],
                             [
-                                "DriveCoast",
-                                "drive_coast",
+                                "Drive Coast",
                                 1
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "GetDriveMode",
-                "get_drive_mode"
-            ],
+            "name": "Get Drive Mode",
             "doc": [
                 "af",
                 {
@@ -524,16 +464,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint16",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCurrentVelocityPeriod",
-                "set_current_velocity_period"
-            ],
+            "name": "Set Current Velocity Period",
             "doc": [
                 "ccf",
                 {
@@ -552,16 +489,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCurrentVelocityPeriod",
-                "get_current_velocity_period"
-            ],
+            "name": "Get Current Velocity Period",
             "doc": [
                 "ccf",
                 {
@@ -580,16 +514,13 @@
         {
             "elements": [
                 [
-                    "voltage",
+                    "Voltage",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "UnderVoltage",
-                "under_voltage"
-            ],
+            "name": "Under Voltage",
             "doc": [
                 "c",
                 {
@@ -607,10 +538,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EmergencyShutdown",
-                "emergency_shutdown"
-            ],
+            "name": "Emergency Shutdown",
             "doc": [
                 "c",
                 {
@@ -629,16 +557,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "VelocityReached",
-                "velocity_reached"
-            ],
+            "name": "Velocity Reached",
             "doc": [
                 "c",
                 {
@@ -657,16 +582,13 @@
         {
             "elements": [
                 [
-                    "velocity",
+                    "Velocity",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "CurrentVelocity",
-                "current_velocity"
-            ],
+            "name": "Current Velocity",
             "doc": [
                 "c",
                 {
@@ -685,16 +607,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -710,22 +629,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -741,22 +657,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -772,16 +685,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -796,10 +706,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "EnableStatusLED",
-                "enable_status_led"
-            ],
+            "name": "Enable Status LED",
             "doc": [
                 "af",
                 {
@@ -817,10 +724,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "DisableStatusLED",
-                "disable_status_led"
-            ],
+            "name": "Disable Status LED",
             "doc": [
                 "af",
                 {
@@ -839,16 +743,13 @@
         {
             "elements": [
                 [
-                    "enabled",
+                    "Enabled",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "IsStatusLEDEnabled",
-                "is_status_led_enabled"
-            ],
+            "name": "Is Status LED Enabled",
             "doc": [
                 "af",
                 {
@@ -867,34 +768,31 @@
         {
             "elements": [
                 [
-                    "port",
+                    "Port",
                     "char",
                     1,
                     "in"
                 ],
                 [
-                    "protocol_version",
+                    "Protocol Version",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "name",
+                    "Name",
                     "string",
                     40,
                     "out"
                 ]
             ],
-            "name": [
-                "GetProtocol1BrickletName",
-                "get_protocol1_bricklet_name"
-            ],
+            "name": "Get Protocol1 Bricklet Name",
             "doc": [
                 "af",
                 {
@@ -913,16 +811,13 @@
         {
             "elements": [
                 [
-                    "temperature",
+                    "Temperature",
                     "int16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetChipTemperature",
-                "get_chip_temperature"
-            ],
+            "name": "Get Chip Temperature",
             "doc": [
                 "af",
                 {
@@ -940,10 +835,7 @@
         },
         {
             "elements": [],
-            "name": [
-                "Reset",
-                "reset"
-            ],
+            "name": "Reset",
             "doc": [
                 "af",
                 {
@@ -962,46 +854,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -1021,6 +910,148 @@
     ],
     "device_identifier": 11,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Drive Mode",
+                    [
+                        [
+                            "uint8:constant",
+                            1
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "setter",
+                    "Set PWM Frequency",
+                    [
+                        [
+                            "uint16",
+                            10000
+                        ]
+                    ],
+                    null,
+                    "Use PWM frequency of 10kHz"
+                ],
+                [
+                    "setter",
+                    "Set Acceleration",
+                    [
+                        [
+                            "uint16",
+                            5000
+                        ]
+                    ],
+                    null,
+                    "Slow acceleration"
+                ],
+                [
+                    "setter",
+                    "Set Velocity",
+                    [
+                        [
+                            "int16",
+                            32767
+                        ]
+                    ],
+                    null,
+                    "Full speed forward"
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    null,
+                    "Enable motor power"
+                ],
+                [
+                    "wait"
+                ]
+            ],
+            "name": "Configuration",
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    "Disable motor power"
+                ]
+            ]
+        },
+        {
+            "functions": [
+                [
+                    "setter",
+                    "Set Acceleration",
+                    [
+                        [
+                            "uint16",
+                            5000
+                        ]
+                    ],
+                    "The acceleration has to be smaller or equal to the maximum\nacceleration of the DC motor, otherwise the velocity reached\ncallback will be called too early",
+                    "Slow acceleration"
+                ],
+                [
+                    "setter",
+                    "Set Velocity",
+                    [
+                        [
+                            "int16",
+                            32767
+                        ]
+                    ],
+                    null,
+                    "Full speed forward"
+                ],
+                [
+                    "callback",
+                    [
+                        "Velocity Reached",
+                        "velocity reached"
+                    ],
+                    [
+                        [
+                            [
+                                "Velocity",
+                                "Velocity"
+                            ],
+                            "int16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ]
+                    ],
+                    "Use velocity reached callback to swing back and forth\nbetween full speed forward and full speed backward",
+                    null
+                ],
+                [
+                    "setter",
+                    "Enable",
+                    [],
+                    "Enable motor power",
+                    null
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true,
+            "cleanups": [
+                [
+                    "setter",
+                    "Disable",
+                    [],
+                    null,
+                    "Disable motor power"
+                ]
+            ]
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
@@ -1030,7 +1061,6 @@
     ],
     "name": [
         "DC",
-        "dc",
         "DC",
         "DC Brick"
     ]

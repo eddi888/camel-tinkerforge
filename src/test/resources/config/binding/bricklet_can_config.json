@@ -1,0 +1,819 @@
+{
+    "category": "Bricklet",
+    "description": {
+        "de": "Kommuniziert mit CAN-Bus Ger\u00e4ten",
+        "en": "Communicates with CAN bus devices"
+    },
+    "author": "Matthias Bolte <matthias@tinkerforge.com>",
+    "packets": [
+        {
+            "elements": [
+                [
+                    "Frame Type",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Frame Type",
+                        [
+                            [
+                                "Standard Data",
+                                0
+                            ],
+                            [
+                                "Standard Remote",
+                                1
+                            ],
+                            [
+                                "Extended Data",
+                                2
+                            ],
+                            [
+                                "Extended Remote",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Identifier",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "Data",
+                    "uint8",
+                    8,
+                    "in"
+                ],
+                [
+                    "Length",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Success",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Write Frame",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSchreibt einen Data- oder Remote-Frame in den Schreib-Buffer, damit dieser \u00fcber\nden CAN-Transceiver \u00fcbertragen wird.\n\nDas Bricklet unterst\u00fctzt die Standard 11-Bit (CAN 2.0A) und die Extended 29-Bit\n(CAN 2.0B) Identifier. F\u00fcr Remote-Frames wird das ``data`` Parameter ignoriert.\n\nGibt *true* zur\u00fcck, wenn der Frame dem Schreib-Buffer erfolgreich hinzugef\u00fcgt\nwurde. Gibt *false* zur\u00fcck wenn Frame nicht hinzugef\u00fcgt werden konnte, weil\nder Schreib-Buffer bereits voll ist.\n\nDer Schreib-Buffer kann \u00fcberlaufen, wenn Frames schneller geschrieben werden\nals das Bricklet sie \u00fcber deb CAN-Transceiver \u00fcbertragen kann. Dies kann\ndadurch passieren, dass der CAN-Transceiver als nur-lesend oder mit einer\nniedrigen Baudrate konfiguriert ist (siehe :func:`SetConfiguration`). Es kann\nauch sein, dass der CAN-Bus stark belastet ist und der Frame nicht \u00fcbertragen\nwerden kann, da er immer wieder die Arbitrierung verliert. Ein anderer Grund\nkann sein, dass der CAN-Transceiver momentan deaktiviert ist, bedingt duch ein\nhohes Schreib-Fehlerlevel (siehe :func:`GetErrorLog`).\n",
+                    "en": "\nWrites a data or remote frame to the write buffer to be transmitted over the\nCAN transceiver.\n\nThe Bricklet supports the standard 11-bit (CAN 2.0A) and the extended 29-bit\n(CAN 2.0B) identifiers. For remote frames the ``data`` parameter is ignored.\n\nReturns *true* if the frame was successfully added to the write buffer. Returns\n*false* if the frame could not be added because write buffer is already full.\n\nThe write buffer can overflow if frames are written to it at a higher rate\nthan the Bricklet can transmitted them over the CAN transceiver. This may\nhappen if the CAN transceiver is configured as read-only or is using a low baud\nrate (see :func:`SetConfiguration`). It can also happen if the CAN bus is\ncongested and the frame cannot be transmitted because it constantly loses\narbitration or because the CAN transceiver is currently disabled due to a high\nwrite error level (see :func:`GetErrorLog`).\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Success",
+                    "bool",
+                    1,
+                    "out"
+                ],
+                [
+                    "Frame Type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Frame Type",
+                        [
+                            [
+                                "Standard Data",
+                                0
+                            ],
+                            [
+                                "Standard Remote",
+                                1
+                            ],
+                            [
+                                "Extended Data",
+                                2
+                            ],
+                            [
+                                "Extended Remote",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Identifier",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Data",
+                    "uint8",
+                    8,
+                    "out"
+                ],
+                [
+                    "Length",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Read Frame",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nVersucht den n\u00e4chsten Data- oder Remote-Frame aus dem Lese-Buffer zu lesen und\nzur\u00fcckzugeben. Falls ein Frame erfolgreich gelesen wurde, dann wird der\n``success`` R\u00fcckgabewert auf *true* gesetzt und die anderen R\u00fcckgabewerte\nbeinhalte den gelesenen Frame. Falls der Lese-Buffer leer ist und kein Frame\ngelesen werden konnte, dann wird der ``success`` R\u00fcckgabewert auf *false*\ngesetzt und die anderen R\u00fcckgabewerte beinhalte ung\u00fcltige Werte.\n\nF\u00fcr Remote-Frames beinhalte der ``data`` R\u00fcckgabewerte immer g\u00fcltigen Werte.\n\nMittels eines einstellbaren Lesefilters kann festgelegt werden, welche Frames\nvom CAN-Transceiver \u00fcberhaupt empfangen und im Lese-Buffer abgelegt werden\nsollen (siehe :func:`SetReadFilter`).\n\nAnstatt mit dieser Funktion zu pollen, ist es auch m\u00f6glich Callbacks zu nutzen.\nSiehe die :func:`EnableFrameReadCallback` Funktion und den :func:`FrameRead`\nCallback.\n",
+                    "en": "\nTries to read the next data or remote frame from the read buffer and return it.\nIf a frame was successfully read, then the ``success`` return value is set to\n*true* and the other return values contain the frame. If the read buffer is\nempty and no frame could be read, then the ``success`` return value is set to\n*false* and the other return values contain invalid data.\n\nFor remote frames the ``data`` return value always contains invalid data.\n\nA configurable read filter can be used to define which frames should be\nreceived by the CAN transceiver and put into the read buffer (see\n:func:`SetReadFilter`).\n\nInstead of polling with this function, you can also use callbacks. See the\n:func:`EnableFrameReadCallback` function and the :func:`FrameRead` callback.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 2,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Enable Frame Read Callback",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nAktiviert den :func:`FrameRead` Callback.\n\nStandardm\u00e4\u00dfig ist der Callback deaktiviert.\n",
+                    "en": "\nEnables the :func:`FrameRead` callback.\n\nBy default the callback is disabled.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 3,
+            "type": "function"
+        },
+        {
+            "elements": [],
+            "name": "Disable Frame Read Callback",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nDeaktiviert den :func:`FrameRead` Callback.\n\nStandardm\u00e4\u00dfig ist der Callback deaktiviert.\n",
+                    "en": "\nDisables the :func:`FrameRead` callback.\n\nBy default the callback is disabled.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 4,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Enabled",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Is Frame Read Callback Enabled",
+            "doc": [
+                "ccf",
+                {
+                    "de": "\nGibt *true* zur\u00fcck falls der :func:`FrameRead` Callback aktiviert ist, *false*\nsonst.\n",
+                    "en": "\nReturns *true* if the :func:`FrameRead` callback is enabled, *false* otherwise.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 5,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Baud Rate",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Baud Rate",
+                        [
+                            [
+                                "10000",
+                                0
+                            ],
+                            [
+                                "20000",
+                                1
+                            ],
+                            [
+                                "50000",
+                                2
+                            ],
+                            [
+                                "125000",
+                                3
+                            ],
+                            [
+                                "250000",
+                                4
+                            ],
+                            [
+                                "500000",
+                                5
+                            ],
+                            [
+                                "800000",
+                                6
+                            ],
+                            [
+                                "1000000",
+                                7
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Transceiver Mode",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Transceiver Mode",
+                        [
+                            [
+                                "Normal",
+                                0
+                            ],
+                            [
+                                "Loopback",
+                                1
+                            ],
+                            [
+                                "Read Only",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Write Timeout",
+                    "int32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Configuration",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Konfiguration f\u00fcr die CAN-Bus-Kommunikation.\n\nDie Baudrate kann in Schritten zwischen 10 und 1000 kBit/s eingestellt werden.\n\nDer CAN-Transceiver hat drei verschiedene Modi:\n\n* Normal: Es wird vom CAN-Bus gelesen und auf den CAN-Bus geschrieben und\n  aktiv an der Bus-Fehlererkennung und dem Acknowledgement mitgewirkt.\n* Loopback: Alle Lese- und Schreiboperationen werden intern durchgef\u00fchrt. Der\n  Transceiver ist nicht mit dem eigentlichen CAN-Bus verbunden.\n* Read-Only: Es wird nur vom CAN-Bus gelesen, allerdings ohne aktiv an der\n  Bus-Fehlererkennung oder dem Acknowledgement mitzuwirken. Nur der empfangende\n  Teil des Transceivers ist mit dem CAN-Bus verbunden.\n\nDer Schreib-Timeout hat drei verschiedene Modi, die festlegen wie mit einer\nfehlgeschlagen Frame-\u00dcbertragung umgegangen werden soll:\n\n* One-Shot (< 0): Es wird nur ein \u00dcbertragungsversuch durchgef\u00fchrt. Falls die\n  \u00dcbertragung fehlschl\u00e4gt wird der Frame verworfen.\n* Infinite (= 0): Es werden unendlich viele \u00dcbertragungsversuche durchgef\u00fchrt.\n  Der Frame wird niemals verworfen.\n* Milliseconds (> 0): Es wird eine beschr\u00e4nkte Anzahl \u00dcbertragungsversuche\n  durchgef\u00fchrt. Falls der Frame nach der eingestellten Anzahl Millisekunden\n  noch nicht erfolgreich \u00fcbertragen wurde, dann wird er verworfen.\n\nDer Standard ist: 125 kBit/s, Normaler Transceiver-Modus und unendlicher\nSchreib-Timeout.\n",
+                    "en": "\nSets the configuration for the CAN bus communication.\n\nThe baud rate can be configured in steps between 10 and 1000 kbit/s.\n\nThe CAN transceiver has three different modes:\n\n* Normal: Reads from and writes and to the CAN bus and performs active bus\n  error detection and acknowledgement.\n* Loopback: All reads and writes are performed internally. The transceiver\n  is disconnected from the actual CAN bus.\n* Read-Only: Only reads from the CAN bus, but does neither active bus error\n  detection nor acknowledgement. Only the receiving part of the transceiver\n  is connected to the CAN bus.\n\nThe write timeout has three different modes that define how a failed frame\ntransmission should be handled:\n\n* One-Shot (< 0): Only one transmission attempt will be made. If the\n  transmission fails then the frame is discarded.\n* Infinite (= 0): Infinite transmission attempts will be made. The frame will\n  never be discarded.\n* Milliseconds (> 0): A limited number of transmission attempts will be made.\n  If the frame could not be transmitted successfully after the configured\n  number of milliseconds then the frame is discarded.\n\nThe default is: 125 kbit/s, normal transceiver mode and infinite write timeout.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 6,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Baud Rate",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Baud Rate",
+                        [
+                            [
+                                "10000",
+                                0
+                            ],
+                            [
+                                "20000",
+                                1
+                            ],
+                            [
+                                "50000",
+                                2
+                            ],
+                            [
+                                "125000",
+                                3
+                            ],
+                            [
+                                "250000",
+                                4
+                            ],
+                            [
+                                "500000",
+                                5
+                            ],
+                            [
+                                "800000",
+                                6
+                            ],
+                            [
+                                "1000000",
+                                7
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Transceiver Mode",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Transceiver Mode",
+                        [
+                            [
+                                "Normal",
+                                0
+                            ],
+                            [
+                                "Loopback",
+                                1
+                            ],
+                            [
+                                "Read Only",
+                                2
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Write Timeout",
+                    "int32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Configuration",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Konfiguration zur\u00fcck, wie von :func:`SetConfiguration` gesetzt.\n",
+                    "en": "\nReturns the configuration as set by :func:`SetConfiguration`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 7,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Mode",
+                    "uint8",
+                    1,
+                    "in",
+                    [
+                        "Filter Mode",
+                        [
+                            [
+                                "Disabled",
+                                0
+                            ],
+                            [
+                                "Accept All",
+                                1
+                            ],
+                            [
+                                "Match Standard",
+                                2
+                            ],
+                            [
+                                "Match Standard And Data",
+                                3
+                            ],
+                            [
+                                "Match Extended",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Mask",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "Filter1",
+                    "uint32",
+                    1,
+                    "in"
+                ],
+                [
+                    "Filter2",
+                    "uint32",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Read Filter",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nSetzt die Konfiguration f\u00fcr den Lesefilter. Damit kann festgelegt werden,\nwelche Frames von der CAN-Transceiver \u00fcberhaupt empfangen und im Lese-Buffer\nabgelegt werden sollen.\n\nDer Lesefilter hat f\u00fcnf verschiedene Modi, die festlegen ob und wie die Maske\nund die beiden Filter angewendet werden:\n\n* Disabled: Es wird keinerlei Filterung durchgef\u00fchrt. Alle Frames inklusive\n  unvollst\u00e4ndiger und fehlerhafter Frames werden empfangen. Dieser Modus sollte\n  nur f\u00fcr Debugging-Zwecke verwendet werden.\n* Accept-All: Alle vollst\u00e4ndigen und fehlerfreien Frames werden empfangen.\n* Match-Standard: Nur Standard-Frames, deren Identifier der eingestellten\n  Maske und Filtern entspricht, werden empfangen.\n* Match-Standard-and-Data: Nur Standard-Frames, deren Identifier und Daten der\n  eingestellten Maske und Filtern entspricht, werden empfangen.\n* Match-Extended: Nur Extended-Frames, deren Identifier der eingestellten\n  Maske und Filtern entspricht, werden empfangen.\n\nMaske und Filter werden als Bitmasken verwendet. Ihre Verwendung h\u00e4ngt vom\nModus ab:\n\n* Disabled: Maske und Filter werden ignoriert.\n* Accept-All: Maske und Filter werden ignoriert.\n* Match-Standard: Bit 0 bis 10 (11 Bits) der Maske und Filter werden zum\n  Abgleich mit dem 11-Bit Identifier von Standard-Frames verwendet.\n* Match-Standard-and-Data: Bit 0 bis 10 (11 Bits) der Maske und Filter werden\n  zum Abgleich mit dem 11-Bit Identifier von Standard-Frames verwendet. Bit 11\n  bis 18 (8 Bits) und Bit 19 bis 26 (8 Bits) der Maske und Filter werden zum\n  Abgleich mit dem ersten und zweiten Daten-Byte (sofern vorhanden) von\n  Standard-Frames verwendet.\n* Match-Extended: Bit 0 bis 28 (29 Bits) der Maske und Filter werden zum\n  Abgleich mit dem 29-Bit Identifier von Extended-Frames verwendet.\n\nMaske und Filter werden auf diese Weise angewendet: Mit der Maske werden die\nIdentifier- und Daten-Bits ausgew\u00e4hlt, die mit den entsprechenden Filter-Bits\nverglichen werden sollen. Alle nicht-ausgew\u00e4hlten Bits werden automatisch\nakzeptiert. Alle ausgew\u00e4hlten Bits m\u00fcssen einem der beiden Filter entsprechen,\num akzeptiert zu werden. Wenn alle Bits f\u00fcr den ausgew\u00e4hlte Modus akzeptiert\nwurden, dann ist der Frame akzeptiert und wird im Lese-Buffer abgelegt.\n\n.. csv-table::\n :header: \"Masken-Bit\", \"Filter-Bit\", \"Identifier/Daten-Bit\", \"Ergebnis\"\n :widths: 10, 10, 10, 10\n\n 0, X, X, akzeptiert\n 1, 0, 0, akzeptiert\n 1, 0, 1, verworfen\n 1, 1, 0, verworfen\n 1, 1, 1, akzeptiert\n\nEin Beispiel: Um nur Standard-Frames mit Identifier 0x123 zu empfangen kann\nder Modus auf Match-Standard mit 0x7FF als Maske und 0x123 als Filter 1 und\nFilter 2 eingestellt werden. Die Maske 0x7FF w\u00e4hlt alle 11 Identifier-Bits\nzum Abgleich aus, so dass der Identifier exakt 0x123 sein muss um akzeptiert\nzu werden.\n\nUm Identifier 0x123 und 0x456 gleichzeitig zu akzeptieren kann Filter 2 auf\n0x456 gesetzt und die Maske und Filter 1 beibehalten werden.\n\nDer Standardmodus ist Accept-All.\n",
+                    "en": "\nSet the read filter configuration. This can be used to define which frames\nshould be received by the CAN transceiver and put into the read buffer.\n\nThe read filter has five different modes that define if and how the mask and\nthe two filters are applied:\n\n* Disabled: No filtering is applied at all. All frames are received even\n  incomplete and defective frames. This mode should be used for debugging only.\n* Accept-All: All complete and error-free frames are received.\n* Match-Standard: Only standard frames with a matching identifier are received.\n* Match-Standard-and-Data: Only standard frames with matching identifier and\n  data bytes are received.\n* Match-Extended: Only extended frames with a matching identifier are received.\n\nThe mask and filters are used as bit masks. Their usage depends on the mode:\n\n* Disabled: Mask and filters are ignored.\n* Accept-All: Mask and filters are ignored.\n* Match-Standard: Bit 0 to 10 (11 bits) of mask and filters are used to match\n  the 11-bit identifier of standard frames.\n* Match-Standard-and-Data: Bit 0 to 10 (11 bits) of mask and filters are used\n  to match the 11-bit identifier of standard frames. Bit 11 to 18 (8 bits) and\n  bit 19 to 26 (8 bits) of mask and filters are used to match the first and\n  second data byte (if present) of standard frames.\n* Match-Extended: Bit 0 to 28 (29 bits) of mask and filters are used to match\n  the 29-bit identifier of extended frames.\n\nThe mask and filters are applied in this way: The mask is used to select the\nidentifier and data bits that should be compared to the corresponding filter\nbits. All unselected bits are automatically accepted. All selected bits have\nto match one of the filters to be accepted. If all bits for the selected mode\nare accepted then the frame is accepted and is added to the read buffer.\n\n.. csv-table::\n :header: \"Mask Bit\", \"Filter Bit\", \"Identifier/Data Bit\", \"Result\"\n :widths: 10, 10, 10, 10\n\n 0, X, X, Accept\n 1, 0, 0, Accept\n 1, 0, 1, Reject\n 1, 1, 0, Reject\n 1, 1, 1, Accept\n\nFor example, to receive standard frames with identifier 0x123 only the mode can\nbe set to Match-Standard with 0x7FF as mask and 0x123 as filter 1 and filter 2.\nThe mask of 0x7FF selects all 11 identifier bits for matching so that the\nidentifier has to be exactly 0x123 to be accepted.\n\nTo accept identifier 0x123 and identifier 0x456 at the same time, just set\nfilter 2 to 0x456 and keep mask and filter 1 unchanged.\n\nThe default mode is accept-all.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 8,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Mode",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Filter Mode",
+                        [
+                            [
+                                "Disabled",
+                                0
+                            ],
+                            [
+                                "Accept All",
+                                1
+                            ],
+                            [
+                                "Match Standard",
+                                2
+                            ],
+                            [
+                                "Match Standard And Data",
+                                3
+                            ],
+                            [
+                                "Match Extended",
+                                4
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Mask",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Filter1",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Filter2",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Read Filter",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt die Lesefilter zur\u00fcck, wie von :func:`SetReadFilter` gesetzt.\n",
+                    "en": "\nReturns the read filter as set by :func:`SetReadFilter`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 9,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Write Error Level",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Read Error Level",
+                    "uint8",
+                    1,
+                    "out"
+                ],
+                [
+                    "Transceiver Disabled",
+                    "bool",
+                    1,
+                    "out"
+                ],
+                [
+                    "Write Timeout Count",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Read Register Overflow Count",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Read Buffer Overflow Count",
+                    "uint32",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Error Log",
+            "doc": [
+                "bf",
+                {
+                    "de": "\nGibt Informationen \u00fcber verschiedene Fehlerarten zur\u00fcck.\n\nDie Schreib- und Lesefehler-Level geben Aufschluss \u00fcber das aktuelle Level\nder Pr\u00fcfsummen-, Acknowledgement-, Form-, Bit- und Stuffing-Fehler w\u00e4hrend\nCAN-Bus Schreib- und Leseoperationen.\n\nWenn das Schreibfehler-Level 255 \u00fcberschreitet dann wird der CAN-Transceiver\ndeaktiviert und es k\u00f6nnen keine Frames mehr \u00fcbertragen und empfangen werden.\nWenn auf dem CAN-Bus f\u00fcr eine Weile Ruhe herrscht, dann wird der\nCAN-Transceiver automatisch wieder aktiviert.\n\nDie Schreib- und Lesefehler-Level Werte sind im Read-Only Transceiver-Modus\nnicht verf\u00fcgbar (see :func:`SetConfiguration`). Au\u00dferdem werden sie als\nSeiteneffekt von Konfigurations- und Lesefilter\u00e4nderungen auf 0 zur\u00fcckgesetzt.\n\nDie Werte f\u00fcr Schreib-Timeout, Lese-Register- und Lese-Buffer-\u00dcberlauf z\u00e4hlen\ndie Anzahl dieser Fehler:\n\n* Ein Schreib-Timeout tritt dann auf, wenn ein Frame nicht \u00fcbertragen werden\n  konnte bevor der eingestellte Schreib-Timeout abgelaufen ist (siehe\n  :func:`SetConfiguration`).\n* Ein Lese-Register-\u00dcberlauf tritt dann auf, wenn im Lese-Register des\n  CAN-Transceiver noch der zuletzt empfangen Frame steht wenn der n\u00e4chste Frame\n  ankommt. In diesem Fall geht der neu ankommende Frame verloren. Dies\n  passiert, wenn der CAN-Transceiver mehr Frames empf\u00e4ngt als das Bricklet\n  behandeln kann. Mit Hilfe des Lesefilters (siehe :func:`SetReadFilter`) kann\n  die Anzahl der empfangen Frames verringert werden.\n* Ein Lese-Buffer-\u00dcberlauf tritt dann auf, wenn der Lese-Buffer des Bricklets\n  bereits voll ist und noch ein Frame vom Lese-Register des CAN-Transceiver\n  gelesen werden soll. In diesem Fall geht der Frame im Lese-Register verloren.\n  Dies passiert, wenn der CAN-Transceiver mehr Frames empf\u00e4ngt, die dem\n  Lese-Buffer hinzugef\u00fcgt werden sollen, als Frames mit der :func:`ReadFrame`\n  Funktion aus dem Lese-Buffer entnommen werden. Die Verwendung des\n  :func:`FrameRead` Callbacks stellt sicher, dass der Lese-Buffer niemals\n  \u00fcberlaufen kann.\n",
+                    "en": "\nReturns information about different kinds of errors.\n\nThe write and read error levels indicate the current level of checksum,\nacknowledgement, form, bit and stuffing errors during CAN bus write and read\noperations.\n\nWhen the write error level extends 255 then the CAN transceiver gets disabled\nand no frames can be transmitted or received anymore. The CAN transceiver will\nautomatically be activated again after the CAN bus is idle for a while.\n\nThe write and read error levels are not available in read-only transceiver mode\n(see :func:`SetConfiguration`) and are reset to 0 as a side effect of changing\nthe configuration or the read filter.\n\nThe write timeout, read register and buffer overflow counts represents the\nnumber of these errors:\n\n* A write timeout occurs if a frame could not be transmitted before the\n  configured write timeout expired (see :func:`SetConfiguration`).\n* A read register overflow occurs if the read register of the CAN transceiver\n  still contains the last received frame when the next frame arrives. In this\n  case the newly arrived frame is lost. This happens if the CAN transceiver\n  receives more frames than the Bricklet can handle. Using the read filter\n  (see :func:`SetReadFilter`) can help to reduce the amount of received frames.\n* A read buffer overflow occurs if the read buffer of the Bricklet is already\n  full when the next frame should be read from the read register of the CAN\n  transceiver. In this case the frame in the read register is lost. This\n  happens if the CAN transceiver receives more frames to be added to the read\n  buffer than are removed from the read buffer using the :func:`ReadFrame`\n  function. Using the :func:`FrameRead` callback ensures that the read buffer\n  can never overflow.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 10,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Frame Type",
+                    "uint8",
+                    1,
+                    "out",
+                    [
+                        "Frame Type",
+                        [
+                            [
+                                "Standard Data",
+                                0
+                            ],
+                            [
+                                "Standard Remote",
+                                1
+                            ],
+                            [
+                                "Extended Data",
+                                2
+                            ],
+                            [
+                                "Extended Remote",
+                                3
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "Identifier",
+                    "uint32",
+                    1,
+                    "out"
+                ],
+                [
+                    "Data",
+                    "uint8",
+                    8,
+                    "out"
+                ],
+                [
+                    "Length",
+                    "uint8",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Frame Read",
+            "doc": [
+                "c",
+                {
+                    "de": "\nDieser Callback wird ausgel\u00f6st, sobald ein Data- oder Remote-Frame vom\nCAN-Transceiver empfangen wurde.\n\nF\u00fcr Remote-Frames beinhalte der ``data`` R\u00fcckgabewerte immer ung\u00fcltigen Werte.\n\nMittels eines einstellbaren Lesefilters kann festgelegt werden, welche Frames\nvon der CAN-Transceiver \u00fcberhaupt empfangen werden sollen (siehe\n:func:`SetReadFilter`).\n\nDieser Callback kann durch :func:`EnableFrameReadCallback` aktiviert werden.\n",
+                    "en": "\nThis callback is triggered if a data or remote frame was received by the CAN\ntransceiver.\n\nFor remote frames the ``data`` return value always contains invalid values.\n\nA configurable read filter can be used to define which frames should be\nreceived by the CAN transceiver at all (see :func:`SetReadFilter`).\n\nTo enable this callback, use :func:`EnableFrameReadCallback`.\n"
+                }
+            ],
+            "since_firmware": [
+                1,
+                0,
+                0
+            ],
+            "function_id": 11,
+            "type": "callback"
+        },
+        {
+            "elements": [
+                [
+                    "API Version",
+                    "uint8",
+                    3,
+                    "out"
+                ]
+            ],
+            "name": "Get API Version",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die Version der API Definition (Major, Minor, Revision) zur\u00fcck, die diese\nAPI Bindings implementieren. Dies ist weder die Release-Version dieser API\nBindings noch gibt es in irgendeiner Weise Auskunft \u00fcber den oder das\nrepr\u00e4sentierte(n) Brick oder Bricklet.\n",
+                    "en": "\nReturns the version of the API definition (major, minor, revision) implemented\nby this API bindings. This is neither the release version of this API bindings\nnor does it tell you anything about the represented Brick or Bricklet.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Function Id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Response Expected",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktions\nIDs zur\u00fcck. Es ist *true* falls f\u00fcr die Funktion beim Aufruf eine Antwort\nerwartet wird, *false* andernfalls.\n\nF\u00fcr Getter-Funktionen ist diese Flag immer gesetzt und kann nicht entfernt\nwerden, da diese Funktionen immer eine Antwort senden. F\u00fcr\nKonfigurationsfunktionen f\u00fcr Callbacks ist es standardm\u00e4\u00dfig gesetzt, kann aber\nentfernt werden mittels :func:`SetResponseExpected`. F\u00fcr Setter-Funktionen ist\nes standardm\u00e4\u00dfig nicht gesetzt, kann aber gesetzt werden.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n\nSiehe :func:`SetResponseExpected`\nf\u00fcr die Liste der verf\u00fcgbaren Funktions ID :word:`constants` f\u00fcr diese Funktion.\n",
+                    "en": "\nReturns the response expected flag for the function specified by the function\nID parameter. It is *true* if the function is expected to send a response,\n*false* otherwise.\n\nFor getter functions this is enabled by default and cannot be disabled,\nbecause those functions will always send a response. For callback configuration\nfunctions it is enabled by default too, but can be disabled by\n:func:`SetResponseExpected`. For setter functions it is disabled by default\nand can be enabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n\nSee :func:`SetResponseExpected`\nfor the list of function ID :word:`constants` available for this function.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Function Id",
+                    "uint8",
+                    1,
+                    "in"
+                ],
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Response Expected",
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr die Funktion mit der angegebenen Funktion\nIDs. Diese Flag kann nur f\u00fcr Setter-Funktionen (Standardwert: *false*) und\nKonfigurationsfunktionen f\u00fcr Callbacks (Standardwert: *true*) ge\u00e4ndert werden.\nF\u00fcr Getter-Funktionen ist das Flag immer gesetzt und f\u00fcr Callbacks niemals.\n\nWenn das Response-Expected-Flag f\u00fcr eine Setter-Funktion gesetzt ist, k\u00f6nnen\nTimeouts und andere Fehlerf\u00e4lle auch f\u00fcr Aufrufe dieser Setter-Funktion\ndetektiert werden. Das Ger\u00e4t sendet dann eine Antwort extra f\u00fcr diesen Zweck.\nWenn das Flag f\u00fcr eine Setter-Funktion nicht gesetzt ist, dann wird keine\nAntwort vom Ger\u00e4t gesendet und Fehler werden stillschweigend ignoriert, da sie\nnicht detektiert werden k\u00f6nnen.\n",
+                    "en": "\nChanges the response expected flag of the function specified by the\nfunction ID parameter. This flag can only be changed for setter (default value:\n*false*) and callback configuration functions (default value: *true*). For\ngetter functions it is always enabled and callbacks it is always disabled.\n\nEnabling the response expected flag for a setter function allows to detect\ntimeouts and other error conditions calls of this setter as well. The\ndevice will then send a response for this purpose. If this flag is disabled for\na setter function then no response is send and errors are silently ignored,\nbecause they cannot be detected.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Response Expected",
+                    "bool",
+                    1,
+                    "in"
+                ]
+            ],
+            "name": "Set Response Expected All",
+            "doc": [
+                "af",
+                {
+                    "de": "\n\u00c4ndert das Response-Expected-Flag f\u00fcr alle Setter-Funktionen und\nKonfigurationsfunktionen f\u00fcr Callbacks diese Ger\u00e4tes.\n",
+                    "en": "\nChanges the response expected flag for all setter and callback configuration\nfunctions of this device at once.\n"
+                }
+            ],
+            "is_virtual": true,
+            "since_firmware": null,
+            "function_id": -1,
+            "type": "function"
+        },
+        {
+            "elements": [
+                [
+                    "Uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "Connected Uid",
+                    "string",
+                    8,
+                    "out"
+                ],
+                [
+                    "Position",
+                    "char",
+                    1,
+                    "out"
+                ],
+                [
+                    "Hardware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Firmware Version",
+                    "uint8",
+                    3,
+                    "out"
+                ],
+                [
+                    "Device Identifier",
+                    "uint16",
+                    1,
+                    "out"
+                ]
+            ],
+            "name": "Get Identity",
+            "doc": [
+                "af",
+                {
+                    "de": "\nGibt die UID, die UID zu der das Bricklet verbunden ist, die\nPosition, die Hard- und Firmware Version sowie den Device Identifier\nzur\u00fcck.\n\nDie Position kann 'a', 'b', 'c' oder 'd' sein.\n\nEine Liste der Device Identifier Werte ist :ref:`hier <device_identifier>` zu\nfinden. |device_identifier_constant|\n",
+                    "en": "\nReturns the UID, the UID where the Bricklet is connected to, \nthe position, the hardware and firmware version as well as the\ndevice identifier.\n\nThe position can be 'a', 'b', 'c' or 'd'.\n\nThe device identifier numbers can be found :ref:`here <device_identifier>`.\n|device_identifier_constant|\n"
+                }
+            ],
+            "prototype_in_device": true,
+            "since_firmware": [
+                2,
+                0,
+                0
+            ],
+            "function_id": 255,
+            "type": "function"
+        }
+    ],
+    "device_identifier": 270,
+    "released": false,
+    "examples": [],
+    "common_included": true,
+    "manufacturer": "Tinkerforge",
+    "api_version": [
+        2,
+        0,
+        0
+    ],
+    "name": [
+        "CAN",
+        "CAN",
+        "CAN Bricklet"
+    ]
+}

@@ -305,9 +305,10 @@ public class LCD20x4Endpoint extends TinkerforgeEndpoint<LCD20x4Consumer, LCD20x
     /**
      * 
      * Returns *true* if the button (0 to 2 or 0 to 3 since hardware version 1.2)
-     * is pressed. If you want to react
-     * on button presses and releases it is recommended to use the
-     * :func:`ButtonPressed` and :func:`ButtonReleased` callbacks.
+     * is pressed.
+     * 
+     * If you want to react on button presses and releases it is recommended to use
+     * the :func:`ButtonPressed` and :func:`ButtonReleased` callbacks.
      * 
      */
     public Short getButton(){

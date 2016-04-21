@@ -9,58 +9,55 @@
         {
             "elements": [
                 [
-                    "latitude",
+                    "Latitude",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "ns",
+                    "NS",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "longitude",
+                    "Longitude",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "ew",
+                    "EW",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "pdop",
+                    "PDOP",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "hdop",
+                    "HDOP",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "vdop",
+                    "VDOP",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "epe",
+                    "EPE",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCoordinates",
-                "get_coordinates"
-            ],
+            "name": "Get Coordinates",
             "doc": [
                 "bf",
                 {
@@ -79,54 +76,47 @@
         {
             "elements": [
                 [
-                    "fix",
+                    "Fix",
                     "uint8",
                     1,
                     "out",
                     [
                         "Fix",
-                        "fix",
                         [
                             [
-                                "NoFix",
-                                "no_fix",
+                                "No Fix",
                                 1
                             ],
                             [
-                                "2DFix",
-                                "2d_fix",
+                                "2D Fix",
                                 2
                             ],
                             [
-                                "3DFix",
-                                "3d_fix",
+                                "3D Fix",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "satellites_view",
+                    "Satellites View",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "satellites_used",
+                    "Satellites Used",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStatus",
-                "get_status"
-            ],
+            "name": "Get Status",
             "doc": [
                 "bf",
                 {
-                    "de": "\nGibt den aktuellen Fix-Status, die Anzahl der sichtbaren Satelliten und die\nAnzahl der im Moment benutzten Satelliten zur\u00fcck.\n\nM\u00f6gliche Fix-Status Werte sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 100\n\n \"1\", \"Kein Fix, :func:`GetCoordinates` und :func:`GetAltitude` geben ung\u00fcltige Daten zur\u00fcck\"\n \"2\", \"2D Fix, nur :func:`GetCoordinates` gibt g\u00fcltige Daten zur\u00fcck\"\n \"3\", \"3D Fix, :func:`GetCoordinates` und :func:`GetAltitude` geben g\u00fcltige Daten zur\u00fcck\"\n\nAuf dem Bricklet ist eine :ref:`blaue LED <gps_bricklet_fix_led>`, die den\nFix-Status anzeigt.\n",
-                    "en": "\nReturns the current fix status, the number of satellites that are in view and\nthe number of satellites that are currently used.\n\nPossible fix status values can be:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 100\n\n \"1\", \"No Fix, :func:`GetCoordinates` and :func:`GetAltitude` return invalid data\"\n \"2\", \"2D Fix, only :func:`GetCoordinates` returns valid data\"\n \"3\", \"3D Fix, :func:`GetCoordinates` and :func:`GetAltitude` return valid data\"\n\nThere is also a :ref:`blue LED <gps_bricklet_fix_led>` on the Bricklet that\nindicates the fix status.\n"
+                    "de": "\nGibt den aktuellen Fix-Status, die Anzahl der sichtbaren Satelliten und die\nAnzahl der im Moment benutzten Satelliten zur\u00fcck.\n\nM\u00f6gliche Fix-Status Werte sind:\n\n.. csv-table::\n :header: \"Wert\", \"Beschreibung\"\n :widths: 10, 100\n\n \"1\", \"Kein Fix, :func:`GetCoordinates`, :func:`GetAltitude` und :func:`GetMotion` geben ung\u00fcltige Daten zur\u00fcck\"\n \"2\", \"2D Fix, nur :func:`GetCoordinates` und :func:`GetMotion` geben g\u00fcltige Daten zur\u00fcck\"\n \"3\", \"3D Fix, :func:`GetCoordinates`, :func:`GetAltitude` und :func:`GetMotion` geben g\u00fcltige Daten zur\u00fcck\"\n\nAuf dem Bricklet ist eine :ref:`blaue LED <gps_bricklet_fix_led>`, die den\nFix-Status anzeigt.\n",
+                    "en": "\nReturns the current fix status, the number of satellites that are in view and\nthe number of satellites that are currently used.\n\nPossible fix status values can be:\n\n.. csv-table::\n :header: \"Value\", \"Description\"\n :widths: 10, 100\n\n \"1\", \"No Fix, :func:`GetCoordinates`, :func:`GetAltitude` and :func:`GetMotion` return invalid data\"\n \"2\", \"2D Fix, only :func:`GetCoordinates` and :func:`GetMotion` return valid data\"\n \"3\", \"3D Fix, :func:`GetCoordinates`, :func:`GetAltitude` and :func:`GetMotion` return valid data\"\n\nThere is also a :ref:`blue LED <gps_bricklet_fix_led>` on the Bricklet that\nindicates the fix status.\n"
                 }
             ],
             "since_firmware": [
@@ -140,22 +130,19 @@
         {
             "elements": [
                 [
-                    "altitude",
-                    "uint32",
+                    "Altitude",
+                    "int32",
                     1,
                     "out"
                 ],
                 [
-                    "geoidal_separation",
-                    "uint32",
+                    "Geoidal Separation",
+                    "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAltitude",
-                "get_altitude"
-            ],
+            "name": "Get Altitude",
             "doc": [
                 "bf",
                 {
@@ -174,22 +161,19 @@
         {
             "elements": [
                 [
-                    "course",
+                    "Course",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "speed",
+                    "Speed",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMotion",
-                "get_motion"
-            ],
+            "name": "Get Motion",
             "doc": [
                 "bf",
                 {
@@ -208,22 +192,19 @@
         {
             "elements": [
                 [
-                    "date",
+                    "Date",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "time",
+                    "Time",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDateTime",
-                "get_date_time"
-            ],
+            "name": "Get Date Time",
             "doc": [
                 "bf",
                 {
@@ -242,42 +223,34 @@
         {
             "elements": [
                 [
-                    "restart_type",
+                    "Restart Type",
                     "uint8",
                     1,
                     "in",
                     [
-                        "RestartType",
-                        "restart_type",
+                        "Restart Type",
                         [
                             [
-                                "HotStart",
-                                "hot_start",
+                                "Hot Start",
                                 0
                             ],
                             [
-                                "WarmStart",
-                                "warm_start",
+                                "Warm Start",
                                 1
                             ],
                             [
-                                "ColdStart",
-                                "cold_start",
+                                "Cold Start",
                                 2
                             ],
                             [
-                                "FactoryReset",
-                                "factory_reset",
+                                "Factory Reset",
                                 3
                             ]
                         ]
                     ]
                 ]
             ],
-            "name": [
-                "Restart",
-                "restart"
-            ],
+            "name": "Restart",
             "doc": [
                 "af",
                 {
@@ -296,16 +269,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetCoordinatesCallbackPeriod",
-                "set_coordinates_callback_period"
-            ],
+            "name": "Set Coordinates Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -324,16 +294,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetCoordinatesCallbackPeriod",
-                "get_coordinates_callback_period"
-            ],
+            "name": "Get Coordinates Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -352,16 +319,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetStatusCallbackPeriod",
-                "set_status_callback_period"
-            ],
+            "name": "Set Status Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -380,16 +344,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetStatusCallbackPeriod",
-                "get_status_callback_period"
-            ],
+            "name": "Get Status Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -408,16 +369,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetAltitudeCallbackPeriod",
-                "set_altitude_callback_period"
-            ],
+            "name": "Set Altitude Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -436,16 +394,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAltitudeCallbackPeriod",
-                "get_altitude_callback_period"
-            ],
+            "name": "Get Altitude Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -464,16 +419,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetMotionCallbackPeriod",
-                "set_motion_callback_period"
-            ],
+            "name": "Set Motion Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -492,16 +444,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetMotionCallbackPeriod",
-                "get_motion_callback_period"
-            ],
+            "name": "Get Motion Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -520,16 +469,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetDateTimeCallbackPeriod",
-                "set_date_time_callback_period"
-            ],
+            "name": "Set Date Time Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -548,16 +494,13 @@
         {
             "elements": [
                 [
-                    "period",
+                    "Period",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetDateTimeCallbackPeriod",
-                "get_date_time_callback_period"
-            ],
+            "name": "Get Date Time Callback Period",
             "doc": [
                 "ccf",
                 {
@@ -576,58 +519,55 @@
         {
             "elements": [
                 [
-                    "latitude",
+                    "Latitude",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "ns",
+                    "NS",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "longitude",
+                    "Longitude",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "ew",
+                    "EW",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "pdop",
+                    "PDOP",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "hdop",
+                    "HDOP",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "vdop",
+                    "VDOP",
                     "uint16",
                     1,
                     "out"
                 ],
                 [
-                    "epe",
+                    "EPE",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Coordinates",
-                "coordinates"
-            ],
+            "name": "Coordinates",
             "doc": [
                 "c",
                 {
@@ -646,49 +586,42 @@
         {
             "elements": [
                 [
-                    "fix",
+                    "Fix",
                     "uint8",
                     1,
                     "out",
                     [
                         "Fix",
-                        "fix",
                         [
                             [
-                                "NoFix",
-                                "no_fix",
+                                "No Fix",
                                 1
                             ],
                             [
-                                "2DFix",
-                                "2d_fix",
+                                "2D Fix",
                                 2
                             ],
                             [
-                                "3DFix",
-                                "3d_fix",
+                                "3D Fix",
                                 3
                             ]
                         ]
                     ]
                 ],
                 [
-                    "satellites_view",
+                    "Satellites View",
                     "uint8",
                     1,
                     "out"
                 ],
                 [
-                    "satellites_used",
+                    "Satellites Used",
                     "uint8",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Status",
-                "status"
-            ],
+            "name": "Status",
             "doc": [
                 "c",
                 {
@@ -707,22 +640,19 @@
         {
             "elements": [
                 [
-                    "altitude",
-                    "uint32",
+                    "Altitude",
+                    "int32",
                     1,
                     "out"
                 ],
                 [
-                    "geoidal_separation",
-                    "uint32",
+                    "Geoidal Separation",
+                    "int32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Altitude",
-                "altitude"
-            ],
+            "name": "Altitude",
             "doc": [
                 "c",
                 {
@@ -741,22 +671,19 @@
         {
             "elements": [
                 [
-                    "course",
+                    "Course",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "speed",
+                    "Speed",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "Motion",
-                "motion"
-            ],
+            "name": "Motion",
             "doc": [
                 "c",
                 {
@@ -775,22 +702,19 @@
         {
             "elements": [
                 [
-                    "date",
+                    "Date",
                     "uint32",
                     1,
                     "out"
                 ],
                 [
-                    "time",
+                    "Time",
                     "uint32",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "DateTime",
-                "date_time"
-            ],
+            "name": "Date Time",
             "doc": [
                 "c",
                 {
@@ -809,16 +733,13 @@
         {
             "elements": [
                 [
-                    "api_version",
+                    "API Version",
                     "uint8",
                     3,
                     "out"
                 ]
             ],
-            "name": [
-                "GetAPIVersion",
-                "get_api_version"
-            ],
+            "name": "Get API Version",
             "doc": [
                 "af",
                 {
@@ -834,22 +755,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetResponseExpected",
-                "get_response_expected"
-            ],
+            "name": "Get Response Expected",
             "doc": [
                 "af",
                 {
@@ -865,22 +783,19 @@
         {
             "elements": [
                 [
-                    "function_id",
+                    "Function Id",
                     "uint8",
                     1,
                     "in"
                 ],
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpected",
-                "set_response_expected"
-            ],
+            "name": "Set Response Expected",
             "doc": [
                 "af",
                 {
@@ -896,16 +811,13 @@
         {
             "elements": [
                 [
-                    "response_expected",
+                    "Response Expected",
                     "bool",
                     1,
                     "in"
                 ]
             ],
-            "name": [
-                "SetResponseExpectedAll",
-                "set_response_expected_all"
-            ],
+            "name": "Set Response Expected All",
             "doc": [
                 "af",
                 {
@@ -921,46 +833,43 @@
         {
             "elements": [
                 [
-                    "uid",
+                    "Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "connected_uid",
+                    "Connected Uid",
                     "string",
                     8,
                     "out"
                 ],
                 [
-                    "position",
+                    "Position",
                     "char",
                     1,
                     "out"
                 ],
                 [
-                    "hardware_version",
+                    "Hardware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "firmware_version",
+                    "Firmware Version",
                     "uint8",
                     3,
                     "out"
                 ],
                 [
-                    "device_identifier",
+                    "Device Identifier",
                     "uint16",
                     1,
                     "out"
                 ]
             ],
-            "name": [
-                "GetIdentity",
-                "get_identity"
-            ],
+            "name": "Get Identity",
             "doc": [
                 "af",
                 {
@@ -980,16 +889,235 @@
     ],
     "device_identifier": 222,
     "released": true,
+    "examples": [
+        {
+            "functions": [
+                [
+                    "getter",
+                    [
+                        "Get Coordinates",
+                        "coordinates"
+                    ],
+                    [
+                        [
+                            [
+                                "Latitude",
+                                "Latitude"
+                            ],
+                            "uint32",
+                            1000000.0,
+                            "\u00b0/1000000",
+                            "\u00b0",
+                            null
+                        ],
+                        [
+                            [
+                                "NS",
+                                "N/S"
+                            ],
+                            "char",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Longitude",
+                                "Longitude"
+                            ],
+                            "uint32",
+                            1000000.0,
+                            "\u00b0/1000000",
+                            "\u00b0",
+                            null
+                        ],
+                        [
+                            [
+                                "EW",
+                                "E/W"
+                            ],
+                            "char",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "PDOP",
+                                null
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "HDOP",
+                                null
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "VDOP",
+                                null
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "EPE",
+                                null
+                            ],
+                            "uint16",
+                            100.0,
+                            "cm",
+                            "m",
+                            null
+                        ]
+                    ],
+                    []
+                ]
+            ],
+            "name": "Simple",
+            "incomplete": true
+        },
+        {
+            "functions": [
+                [
+                    "callback",
+                    [
+                        "Coordinates",
+                        "coordinates"
+                    ],
+                    [
+                        [
+                            [
+                                "Latitude",
+                                "Latitude"
+                            ],
+                            "uint32",
+                            1000000.0,
+                            "\u00b0/1000000",
+                            "\u00b0",
+                            null
+                        ],
+                        [
+                            [
+                                "NS",
+                                "N/S"
+                            ],
+                            "char",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "Longitude",
+                                "Longitude"
+                            ],
+                            "uint32",
+                            1000000.0,
+                            "\u00b0/1000000",
+                            "\u00b0",
+                            null
+                        ],
+                        [
+                            [
+                                "EW",
+                                "E/W"
+                            ],
+                            "char",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "PDOP",
+                                null
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "HDOP",
+                                null
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "VDOP",
+                                null
+                            ],
+                            "uint16",
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        [
+                            [
+                                "EPE",
+                                null
+                            ],
+                            "uint16",
+                            100.0,
+                            "cm",
+                            "m",
+                            null
+                        ]
+                    ],
+                    null,
+                    null
+                ],
+                [
+                    "callback_period",
+                    [
+                        "Coordinates",
+                        "coordinates"
+                    ],
+                    [],
+                    1000
+                ]
+            ],
+            "name": "Callback",
+            "incomplete": true
+        }
+    ],
     "common_included": true,
     "manufacturer": "Tinkerforge",
     "api_version": [
         2,
         0,
-        0
+        1
     ],
     "name": [
         "GPS",
-        "gps",
         "GPS",
         "GPS Bricklet"
     ]

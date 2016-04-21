@@ -143,7 +143,7 @@ public class ColorConsumer extends TinkerforgeConsumer<ColorEndpoint, BrickletCo
     }
     
     @Override
-    public void colorTemperature(int color_temperature) {
+    public void colorTemperature(int colorTemperature) {
         LOG.trace("colorTemperature()");
         
         Exchange exchange = null;
@@ -152,7 +152,7 @@ public class ColorConsumer extends TinkerforgeConsumer<ColorEndpoint, BrickletCo
             
             // ADD HEADER
             exchange.getIn().setHeader("fireBy", BrickletColor.CALLBACK_COLOR_TEMPERATURE);
-            exchange.getIn().setHeader("color_temperature", color_temperature);
+            exchange.getIn().setHeader("colorTemperature", colorTemperature);
             
             
             // ADD BODY
